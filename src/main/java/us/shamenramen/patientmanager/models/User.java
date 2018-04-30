@@ -1,32 +1,64 @@
 package us.shamenramen.patientmanager.models;
+import javax.persistence.*;
 import java.util.Date;
 
+@Entity
+@Table(name = "users")
 public class User {
 //    Model for each user
+    @Id
+    @Column(name = "id")
+    @GeneratedValue
     private long id;
+
+    @Column(name = "first_name", nullable = false)
     private String firstName;
+
+    @Column(name = "last_name", nullable = false)
     private String lastName;
+
+    @Column(name = "is_Doctor", nullable = false)
     private boolean isDoctor;
-    private long questionaireId;
+
+    @Column(name = "questionnaire_id", nullable = false)
+    private long questionnaireId;
+
+    @Column(name = "phone_number", nullable = false)
     private int phoneNumber;
+
+    @Column(name = "email", nullable = false)
     private String email;
+
+    @Column(name = "password", nullable = false)
     private String password;
+
+    @Column(name = "gender", nullable = false)
     private char gender;
+
+    @Column(name = "dob", nullable = false)
     private Date dob;
+
+    @Column(name = "street", nullable = false)
     private String street;
+
+    @Column(name = "city", nullable = false)
     private String city;
+    
+    @Column(name = "state", nullable = false)
     private String state;
-    private int zipCode;
+
+    @Column(name = "zipcode", nullable = false)
+    private int zipcode;
 
     public User() {
     }
 
-    public User(long id, String firstName, String lastName, boolean isDoctor, long questionaireId, int phoneNumber, String email, String password, char gender, Date dob, String street, String city, String state, int zipCode) {
+    public User(long id, String firstName, String lastName, boolean isDoctor, long questionnaireId, int phoneNumber, String email, String password, char gender, Date dob, String street, String city, String state, int zipcode) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.isDoctor = isDoctor;
-        this.questionaireId = questionaireId;
+        this.questionnaireId = questionnaireId;
         this.phoneNumber = phoneNumber;
         this.email = email;
         this.password = password;
@@ -35,14 +67,14 @@ public class User {
         this.street = street;
         this.city = city;
         this.state = state;
-        this.zipCode = zipCode;
+        this.zipcode = zipcode;
     }
 
-    public User(String firstName, String lastName, boolean isDoctor, long questionaireId, int phoneNumber, String email, String password, char gender, Date dob, String street, String city, String state, int zipCode) {
+    public User(String firstName, String lastName, boolean isDoctor, long questionnaireId, int phoneNumber, String email, String password, char gender, Date dob, String street, String city, String state, int zipcode) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.isDoctor = isDoctor;
-        this.questionaireId = questionaireId;
+        this.questionnaireId = questionnaireId;
         this.phoneNumber = phoneNumber;
         this.email = email;
         this.password = password;
@@ -51,7 +83,7 @@ public class User {
         this.street = street;
         this.city = city;
         this.state = state;
-        this.zipCode = zipCode;
+        this.zipcode = zipcode;
     }
 
     public long getId() {
@@ -86,12 +118,12 @@ public class User {
         isDoctor = doctor;
     }
 
-    public long getQuestionaireId() {
-        return questionaireId;
+    public long getQuestionnaireId() {
+        return questionnaireId;
     }
 
-    public void setQuestionaireId(long questionaireId) {
-        this.questionaireId = questionaireId;
+    public void setQuestionnaireId(long questionnaireId) {
+        this.questionnaireId = questionnaireId;
     }
 
     public int getPhoneNumber() {
@@ -158,11 +190,11 @@ public class User {
         this.state = state;
     }
 
-    public int getZipCode() {
-        return zipCode;
+    public int getzipcode() {
+        return zipcode;
     }
 
-    public void setZipCode(int zipCode) {
-        this.zipCode = zipCode;
+    public void setzipcode(int zipcode) {
+        this.zipcode = zipcode;
     }
 }

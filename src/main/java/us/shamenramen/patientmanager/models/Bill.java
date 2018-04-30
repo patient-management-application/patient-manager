@@ -1,7 +1,19 @@
 package us.shamenramen.patientmanager.models;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "bills")
 public class Bill {
-    private long transaction_id;
+
+    @Id
+    @Column(name = "transactionId", nullable = false)
+    private long transactionId;
+
+    @Column(name = "pat_id", nullable = false)
     private long pat_id;
 
     public Bill() {
@@ -11,17 +23,17 @@ public class Bill {
         this.pat_id = pat_id;
     }
 
-    public Bill(long transaction_id, long pat_id) {
-        this.transaction_id = transaction_id;
+    public Bill(long transactionId, long pat_id) {
+        this.transactionId = transactionId;
         this.pat_id = pat_id;
     }
 
-    public long getTransaction_id() {
-        return transaction_id;
+    public long gettransactionId() {
+        return transactionId;
     }
 
-    public void setTransaction_id(long transaction_id) {
-        this.transaction_id = transaction_id;
+    public void settransactionId(long transactionId) {
+        this.transactionId = transactionId;
     }
 
     public long getPat_id() {

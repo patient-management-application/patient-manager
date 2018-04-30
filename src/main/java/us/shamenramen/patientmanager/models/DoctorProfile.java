@@ -1,20 +1,43 @@
 package us.shamenramen.patientmanager.models;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "doctor_profiles")
 public class DoctorProfile {
+
+    @Id
     private long id;
-    private long user_id;
+
+    @Column(name = "doc_id", nullable = false)
+    private long doc_id;
+
+    @Column(name = "biography", columnDefinition = "TEXT")
     private String biography;
+
+    @Column(name = "education", nullable = false)
     private String education;
+
+    @Column(name = "practicing_field", nullable = false)
     private String practicingField;
+
+    @Column(name = "experience", columnDefinition = "TEXT")
     private String experience;
+
+    @Column(name = "accolades", columnDefinition = "TEXT")
     private String accolades;
+
+    @Column(name = "image", columnDefinition = "TEXT")
     private String image;
 
     public DoctorProfile() {
     }
 
-    public DoctorProfile(long user_id, String biography, String education, String practicingField, String experience, String accolades, String image) {
-        this.user_id = user_id;
+    public DoctorProfile(long doc_id, String biography, String education, String practicingField, String experience, String accolades, String image) {
+        this.doc_id = doc_id;
         this.biography = biography;
         this.education = education;
         this.practicingField = practicingField;
@@ -23,9 +46,9 @@ public class DoctorProfile {
         this.image = image;
     }
 
-    public DoctorProfile(long id, long user_id, String biography, String education, String practicingField, String experience, String accolades, String image) {
+    public DoctorProfile(long id, long doc_id, String biography, String education, String practicingField, String experience, String accolades, String image) {
         this.id = id;
-        this.user_id = user_id;
+        this.doc_id = doc_id;
         this.biography = biography;
         this.education = education;
         this.practicingField = practicingField;
@@ -42,12 +65,12 @@ public class DoctorProfile {
         this.id = id;
     }
 
-    public long getUser_id() {
-        return user_id;
+    public long getdoc_id() {
+        return doc_id;
     }
 
-    public void setUser_id(long user_id) {
-        this.user_id = user_id;
+    public void setdoc_id(long doc_id) {
+        this.doc_id = doc_id;
     }
 
     public String getBiography() {

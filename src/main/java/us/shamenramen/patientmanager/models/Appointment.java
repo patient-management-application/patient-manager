@@ -1,22 +1,34 @@
 package us.shamenramen.patientmanager.models;
+import javax.persistence.*;
 
-import org.springframework.format.annotation.DateTimeFormat;
-
-import java.util.Date;
-
+@Entity
+@Table(name = "appointments")
 public class Appointment {
 //    Model for each appointment
+
+    @Id
+    @GeneratedValue
     private long id;
+
+    @Column(name = "pat_id", nullable = false)
     private long pat_id;
+
+    @Column(name = "doc_id", nullable = false)
     private long doc_id;
-    private DateTimeFormat scheduledTime;
+
+    @Column(name = "scheduledTime", nullable = false)
+    private String scheduledTime;
+
+    @Column(name = "status_id")
     private int status_id;
-    private Date dateCreated;
+
+    @Column(name = "date_created")
+    private String dateCreated;
 
     public Appointment() {
     }
 
-    public Appointment(long pat_id, long doc_id, DateTimeFormat scheduledTime, int status_id, Date dateCreated) {
+    public Appointment(long pat_id, long doc_id, String scheduledTime, int status_id, String dateCreated) {
         this.pat_id = pat_id;
         this.doc_id = doc_id;
         this.scheduledTime = scheduledTime;
@@ -24,7 +36,7 @@ public class Appointment {
         this.dateCreated = dateCreated;
     }
 
-    public Appointment(long id, long pat_id, long doc_id, DateTimeFormat scheduledTime, int status_id, Date dateCreated) {
+    public Appointment(long id, long pat_id, long doc_id, String scheduledTime, int status_id, String dateCreated) {
         this.id = id;
         this.pat_id = pat_id;
         this.doc_id = doc_id;

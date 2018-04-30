@@ -1,10 +1,28 @@
 package us.shamenramen.patientmanager.models;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class Review {
+
+    @Id
+    @GeneratedValue
+    @Column(name = "id")
     private long id;
+
+    @Column(name = "pat_id", nullable = false)
     private long pat_id;
+
+    @Column(name = "doc_id", nullable = false)
     private long doc_id;
+
+    @Column(name = "review", nullable = false, columnDefinition = "TEXT")
     private String review;
+
+    @Column(name = "rating", nullable = false)
     private int rating;
 
     public Review() {
