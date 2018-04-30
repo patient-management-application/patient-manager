@@ -3,29 +3,29 @@ package us.shamenramen.patientmanager.models;
 import javax.persistence.*;
 
 @Entity
-@Table(name="Session")
+@Table(name="sessions")
 public class Session {
 
     @Id
     @GeneratedValue
     private long id;
 
-    @Column(name="pat_id")
+    @Column(name="pat_id", nullable = false)
     private long patientId;
 
     @Column(name="doc_id")
     private long doctorId;
 
-    @Column
+    @Column(columnDefinition = "TEXT")
     private String notes;
 
-    @Column
+    @Column(columnDefinition = "TEXT")
     private String prescriptions;
 
-    @Column
+    @Column(columnDefinition = "TEXT")
     private String procedures;
 
-    @Column(name="time_start")
+    @Column(name="time_start", columnDefinition = "TEXT")
     private String timeStart;
 
     @Column(name="time_end")
