@@ -1,0 +1,67 @@
+package us.shamenramen.patientmanager.models;
+
+public class Review {
+    private long id;
+    private long pat_id;
+    private long doc_id;
+    private String review;
+    private int rating;
+
+    public Review() {
+    }
+
+    public Review(long pat_id, long doc_id, String review, int rating) {
+        this.pat_id = pat_id;
+        this.doc_id = doc_id;
+        this.review = review;
+        this.rating = rating;
+    }
+
+    public Review(long id, long pat_id, long doc_id, String review, int rating) {
+        this.id = id;
+        this.pat_id = pat_id;
+        this.doc_id = doc_id;
+        this.review = review;
+        this.rating = rating;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public long getPat_id() {
+        return pat_id;
+    }
+
+    public void setPat_id(long pat_id) {
+        this.pat_id = pat_id;
+    }
+
+    public long getDoc_id() {
+        return doc_id;
+    }
+
+    public void setDoc_id(long doc_id) {
+        this.doc_id = doc_id;
+    }
+
+    public String getReview() {
+        return review;
+    }
+
+    public void setReview(String review) {
+        this.review = review;
+    }
+
+    public int getRating() {
+        return rating;
+    }
+
+    public void setRating(int rating) {
+        this.rating = rating;
+    }
+}

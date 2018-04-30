@@ -4,7 +4,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 
-public class Appointments {
+public class Appointment {
 //    Model for each appointment
     private long id;
     private long pat_id;
@@ -13,10 +13,10 @@ public class Appointments {
     private int status_id;
     private Date dateCreated;
 
-    public Appointments() {
+    public Appointment() {
     }
 
-    public Appointments(long pat_id, long doc_id, DateTimeFormat scheduledTime, int status_id, Date dateCreated) {
+    public Appointment(long pat_id, long doc_id, DateTimeFormat scheduledTime, int status_id, Date dateCreated) {
         this.pat_id = pat_id;
         this.doc_id = doc_id;
         this.scheduledTime = scheduledTime;
@@ -24,7 +24,7 @@ public class Appointments {
         this.dateCreated = dateCreated;
     }
 
-    public Appointments(long id, long pat_id, long doc_id, DateTimeFormat scheduledTime, int status_id, Date dateCreated) {
+    public Appointment(long id, long pat_id, long doc_id, DateTimeFormat scheduledTime, int status_id, Date dateCreated) {
         this.id = id;
         this.pat_id = pat_id;
         this.doc_id = doc_id;
