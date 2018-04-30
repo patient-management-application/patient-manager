@@ -2,6 +2,7 @@ package us.shamenramen.patientmanager.models;
 import java.util.Date;
 
 public class User {
+//    Model for each user
     private long id;
     private String firstName;
     private String lastName;
