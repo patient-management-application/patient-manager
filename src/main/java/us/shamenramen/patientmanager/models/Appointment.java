@@ -11,16 +11,16 @@ public class Appointment {
     private long id;
 
     @Column(name = "pat_id", nullable = false)
-    private long pat_id;
+    private long patientId;
 
     @Column(name = "doc_id", nullable = false)
-    private long doc_id;
+    private long doctorId;
 
     @Column(name = "scheduledTime", nullable = false)
     private String scheduledTime;
 
     @Column(name = "status_id")
-    private int status_id;
+    private int statusId;
 
     @Column(name = "date_created")
     private String dateCreated;
@@ -28,20 +28,68 @@ public class Appointment {
     public Appointment() {
     }
 
-    public Appointment(long pat_id, long doc_id, String scheduledTime, int status_id, String dateCreated) {
-        this.pat_id = pat_id;
-        this.doc_id = doc_id;
+    public Appointment(long patientId, long doctorId, String scheduledTime, int statusId, String dateCreated) {
+        this.patientId = patientId;
+        this.doctorId = doctorId;
         this.scheduledTime = scheduledTime;
-        this.status_id = status_id;
+        this.statusId = statusId;
         this.dateCreated = dateCreated;
     }
 
-    public Appointment(long id, long pat_id, long doc_id, String scheduledTime, int status_id, String dateCreated) {
-        this.id = id;
-        this.pat_id = pat_id;
-        this.doc_id = doc_id;
+    public Appointment(long id,long patientId, long doctorId, String scheduledTime, int statusId, String dateCreated) {
+        this.id  = id;
+        this.patientId = patientId;
+        this.doctorId = doctorId;
         this.scheduledTime = scheduledTime;
-        this.status_id = status_id;
+        this.statusId = statusId;
+        this.dateCreated = dateCreated;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public long getPatientId() {
+        return patientId;
+    }
+
+    public void setPatientId(long patientId) {
+        this.patientId = patientId;
+    }
+
+    public long getDoctorId() {
+        return doctorId;
+    }
+
+    public void setDoctorId(long doctorId) {
+        this.doctorId = doctorId;
+    }
+
+    public String getScheduledTime() {
+        return scheduledTime;
+    }
+
+    public void setScheduledTime(String scheduledTime) {
+        this.scheduledTime = scheduledTime;
+    }
+
+    public int getStatusId() {
+        return statusId;
+    }
+
+    public void setStatusId(int statusId) {
+        this.statusId = statusId;
+    }
+
+    public String getDateCreated() {
+        return dateCreated;
+    }
+
+    public void setDateCreated(String dateCreated) {
         this.dateCreated = dateCreated;
     }
 }
