@@ -2,35 +2,43 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>My Practice</title>
+    <title>Basic Medical Information</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
 </head>
 <body>
 <div class="container">
     <form class="well form-horizontal" action=" " method="post"  id="contact_form">
         <fieldset>
-            <legend><center><h2><b>Session</b></h2></center></legend><br>
+            <legend><center><h2><b>My Health</b></h2></center></legend><br>
             <br>
             <div class="container">
-                <div class="form-group">
-                    <label class="col-md-4 control-label">Would you like to start a new session?</label>
-                    <div class="col-md-4"><br>
-                        <button type="submit" class="btn btn-info">SUBMIT <span class="glyphicon glyphicon-send"></span></button>
-                    </div>
-                </div>
-                <br/>
                 <form>
                     <div class="form-group">
-                        <h4>New Session</h4>
-                        <textarea class="form-control" rows="2" id="newNotes" placeholder="Notes"></textarea>
+                        <textarea class="form-control" rows="2" id="healthHistory" placeholder="Health History"></textarea>
                     </div>
                 </form>
             </div>
+            <br>
             <div class="container">
                 <form>
                     <div class="form-group">
-                        <h4>Previous Sessions</h4>
-                        <textarea class="form-control" rows="2" id="oldNotes" placeholder="Notes"></textarea>
+                        <textarea class="form-control" rows="1" id="medications" placeholder="Medications"></textarea>
+                    </div>
+                </form>
+            </div>
+            <br>
+            <div class="container">
+                <form>
+                    <div class="form-group">
+                        <textarea class="form-control" rows="1" id="allergies" placeholder="Allergies"></textarea>
+                    </div>
+                </form>
+            </div>
+            <br>
+            <div class="container">
+                <form>
+                    <div class="form-group">
+                        <textarea class="form-control" rows="1" id="additionalInfo" placeholder="Additional History"></textarea>
                     </div>
                 </form>
             </div>

@@ -20,9 +20,6 @@ public class User {
     @Column(name = "is_Doctor", nullable = false)
     private boolean isDoctor;
 
-    @Column(name = "questionnaire_id", nullable = false)
-    private long questionnaireId;
-
     @Column(name = "phone_number", nullable = false)
     private int phoneNumber;
 
@@ -36,7 +33,7 @@ public class User {
     private char gender;
 
     @Column(name = "dob", nullable = false)
-    private Date dob;
+    private String dob;
 
     @Column(name = "street", nullable = false)
     private String street;
@@ -60,12 +57,11 @@ public class User {
     public User() {
     }
 
-    public User(long id, String firstName, String lastName, boolean isDoctor, long questionnaireId, int phoneNumber, String email, String password, char gender, Date dob, String street, String city, String state, int zipcode) {
+    public User(long id, String firstName, String lastName, boolean isDoctor, int phoneNumber, String email, String password, char gender, String dob, String street, String city, String state, int zipcode) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.isDoctor = isDoctor;
-        this.questionnaireId = questionnaireId;
         this.phoneNumber = phoneNumber;
         this.email = email;
         this.password = password;
@@ -77,11 +73,10 @@ public class User {
         this.zipcode = zipcode;
     }
 
-    public User(String firstName, String lastName, boolean isDoctor, long questionnaireId, int phoneNumber, String email, String password, char gender, Date dob, String street, String city, String state, int zipcode) {
+    public User(String firstName, String lastName, boolean isDoctor, int phoneNumber, String email, String password, char gender, String dob, String street, String city, String state, int zipcode) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.isDoctor = isDoctor;
-        this.questionnaireId = questionnaireId;
         this.phoneNumber = phoneNumber;
         this.email = email;
         this.password = password;
@@ -125,14 +120,6 @@ public class User {
         isDoctor = doctor;
     }
 
-    public long getQuestionnaireId() {
-        return questionnaireId;
-    }
-
-    public void setQuestionnaireId(long questionnaireId) {
-        this.questionnaireId = questionnaireId;
-    }
-
     public int getPhoneNumber() {
         return phoneNumber;
     }
@@ -165,11 +152,11 @@ public class User {
         this.gender = gender;
     }
 
-    public Date getDob() {
+    public String getDob() {
         return dob;
     }
 
-    public void setDob(Date dob) {
+    public void setDob(String dob) {
         this.dob = dob;
     }
 

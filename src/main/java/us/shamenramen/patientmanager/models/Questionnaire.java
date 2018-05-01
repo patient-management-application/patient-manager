@@ -10,6 +10,9 @@ public class Questionnaire {
     @GeneratedValue
     private long id;
 
+    @Column(name = "pat_id", nullable = false)
+    private long pat_id;
+
     @Column(name = "history", columnDefinition = "TEXT")
     private String history;
 
@@ -25,19 +28,30 @@ public class Questionnaire {
     public Questionnaire() {
     }
 
-    public Questionnaire(String history, String medications, String allergies, String extra) {
+    public Questionnaire(long id, long pat_id, String history, String medications, String allergies, String extra) {
+        this.id = id;
+        this.pat_id = pat_id;
         this.history = history;
         this.medications = medications;
         this.allergies = allergies;
         this.extra = extra;
     }
 
-    public Questionnaire(long id, String history, String medications, String allergies, String extra) {
-        this.id = id;
+
+    public Questionnaire(long pat_id, String history, String medications, String allergies, String extra) {
+        this.pat_id = pat_id;
         this.history = history;
         this.medications = medications;
         this.allergies = allergies;
         this.extra = extra;
+    }
+
+    public long getPat_id() {
+        return pat_id;
+    }
+
+    public void setPat_id(long pat_id) {
+        this.pat_id = pat_id;
     }
 
     public long getId() {
