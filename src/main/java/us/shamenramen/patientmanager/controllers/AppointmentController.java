@@ -63,7 +63,7 @@ public class AppointmentController {
     public String edit(@PathVariable long id, Model viewModel) {
         Appointment appointment = aptDao.findOne(id);
         viewModel.addAttribute("appointment", appointment);
-        return "/posts/edit";
+        return "/p/edit";
     }
 
     @PostMapping("/appointments/{id}/edit")
