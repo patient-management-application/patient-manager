@@ -10,10 +10,10 @@ import us.shamenramen.patientmanager.repositories.UserRepository;
 
 @Controller
 public class UserController {
-    private UserRepository users;
+    private UserRepository userDao;
 
-    public UserController(UserRepository users) {
-        this.users = users;
+    public UserController(UserRepository userDao) {
+        this.userDao = userDao;
     }
 
     @GetMapping("/register")
