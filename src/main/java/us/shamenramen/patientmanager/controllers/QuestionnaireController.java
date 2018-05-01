@@ -20,10 +20,11 @@ public class QuestionnaireController {
         this.userDao = userDao;
     }
 
+    //need to be able to pull only questionnaires that belong to that specific user
     @GetMapping("/questionnaires")
     public String index(Model viewAndmodel) {
         //need to be able to pull for that user
-        Iterable<Questionnaire> questionnaires = quesDao.findAll(userDao.findById());
+        Iterable<Questionnaire> questionnaires = quesDao.findAll();
         viewAndmodel.addAttribute("questionnaires", questionnaires);
         return "/questionnaires/index";
     }
@@ -66,24 +67,22 @@ public class QuestionnaireController {
         return "/questionnaires/edit";
     }
 
-    //in progress
     @PostMapping("/sessions/{id}/edit")
     public String handleEdit(@PathVariable long id, @ModelAttribute Questionnaire questionnaire) {
         Questionnaire originalQuestionnaire = quesDao.findOne(id);
-        originalQuestionnaire.setNotes(session.getNotes());
-        originalQuestionnaire.setPrescriptions(session.getPrescriptions());
-        originalQuestionnaire.setProcedures(session.getProcedures());
-        originalQuestionnaire.setTimeStart(session.getTimeStart());
-        originalQuestionnaire.setTimeEnd(session.getTimeEnd());
+        originalQuestionnaire.setHistory(questionnaire.getHistory());
+        originalQuestionnaire.setMedications(questionnaire.getMedications());
+        originalQuestionnaire.setAllergies(questionnaire.getAllergies());
+        originalQuestionnaire.setExtra(questionnaire.getExtra());
         quesDao.save(questionnaire);
-        return "redirect:/appointments";
+        return "redirect:/questionnaires";
 
     }
 
-    @PostMapping("/sessions/{id}/delete")
+    @PostMapping("/questionnaires/{id}/delete")
     public String delete(@PathVariable long id) {
-        sessDao.delete(id);
-        return "redirect:/sessions";
+        quesDao.delete(id);
+        return "redirect:/questionnaires";
     }
 
 }

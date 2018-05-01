@@ -7,7 +7,7 @@ import java.util.Date;
 public class User {
 //    Model for each user
     @Id
-    @Column(name = "id")
+    @Column(name = "id", columnDefinition = "INT(11) UNSIGNED")
     @GeneratedValue
     private long id;
 
@@ -49,6 +49,13 @@ public class User {
 
     @Column(name = "zipcode", nullable = false)
     private int zipcode;
+
+//    will be applied once validation and authorization are layed out
+//    public User(User copy) {
+//        this.id = copy.id;
+//        this.email = copy.email;
+//        this.password = copy.password;
+//    }
 
     public User() {
     }
