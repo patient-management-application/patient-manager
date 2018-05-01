@@ -8,9 +8,10 @@ public class DoctorProfile {
 
     @Id
     @GeneratedValue
+    @Column(columnDefinition = "INT(11) UNSIGNED")
     private long id;
 
-    @Column(name = "doc_id", nullable = false)
+    @Column(name = "doc_id", nullable = false, columnDefinition = "UNSIGNED")
     private long doc_id;
 
     @Column(name = "biography", columnDefinition = "TEXT")
