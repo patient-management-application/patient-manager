@@ -21,11 +21,13 @@ public class SessionController {
     }
 
 
+
     //need to be able to pull sessions only for that specific user
     @GetMapping("/sessions")
     public String index(@PathVariable long user_id, Model viewAndmodel) {
         //still needs tweeking, trial run
         Iterable<Session> sessions = sessDao.findAll(userDao.findById(user_id));
+
         viewAndmodel.addAttribute("sessions", sessions);
         return "/sessions/index";
     }

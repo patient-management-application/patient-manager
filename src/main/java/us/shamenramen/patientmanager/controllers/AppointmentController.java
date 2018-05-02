@@ -21,6 +21,7 @@ public class AppointmentController {
         this.userDao = userDao;
     }
 
+
     //may not need this as appointments will be based on doc_id${id} to pull
     // avaiable appointments for that specific doc
     @GetMapping("/appointments")
@@ -60,13 +61,16 @@ public class AppointmentController {
 //            ptDao.save(appointment);
 //            return "redirect:/appointments";
 //        }
+
 //    }
 
+  ///probably wont' need this, but might
 //    @PostMapping("/appointments/create")
 //    public String createNewAppointment(@ModelAttribute Appointment appointment) {
 //        appointment.setId(userDao.findOne((long)3));
 //        aptDao.save(appointment);
 //        return "redirect:/posts";
+
 //    }
 
     @GetMapping("appointments/{id}/edit")
