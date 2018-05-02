@@ -1,5 +1,6 @@
 package us.shamenramen.patientmanager.models;
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -23,7 +24,7 @@ public class User {
     @Column(name = "phone_number", nullable = false)
     private int phoneNumber;
 
-    @Column(name = "email", nullable = false)
+    @Column(name = "email", nullable = false, unique = true)
     private String email;
 
     @Column(name = "password", nullable = false)
@@ -33,7 +34,7 @@ public class User {
     private char gender;
 
     @Column(name = "dob", nullable = false)
-    private String dob;
+    private LocalDate dob;
 
     @Column(name = "street", nullable = false)
     private String street;
@@ -47,6 +48,8 @@ public class User {
     @Column(name = "zipcode", nullable = false)
     private int zipcode;
 
+
+
 //    will be applied once validation and authorization are layed out
 //    public User(User copy) {
 //        this.id = copy.id;
@@ -57,7 +60,7 @@ public class User {
     public User() {
     }
 
-    public User(long id, String firstName, String lastName, boolean isDoctor, int phoneNumber, String email, String password, char gender, String dob, String street, String city, String state, int zipcode) {
+    public User(long id, String firstName, String lastName, boolean isDoctor, int phoneNumber, String email, String password, char gender, LocalDate dob, String street, String city, String state, int zipcode) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -73,7 +76,7 @@ public class User {
         this.zipcode = zipcode;
     }
 
-    public User(String firstName, String lastName, boolean isDoctor, int phoneNumber, String email, String password, char gender, String dob, String street, String city, String state, int zipcode) {
+    public User(String firstName, String lastName, boolean isDoctor, int phoneNumber, String email, String password, char gender, LocalDate dob, String street, String city, String state, int zipcode) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.isDoctor = isDoctor;
@@ -152,11 +155,11 @@ public class User {
         this.gender = gender;
     }
 
-    public String getDob() {
+    public LocalDate getDob() {
         return dob;
     }
 
-    public void setDob(String dob) {
+    public void setDob(LocalDate dob) {
         this.dob = dob;
     }
 

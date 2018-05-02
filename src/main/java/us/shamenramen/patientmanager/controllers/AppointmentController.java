@@ -21,8 +21,11 @@ public class AppointmentController {
         this.userDao = userDao;
     }
 
+    //may not need this as appointments will be based on doc_id${id} to pull
+    // avaiable appointments for that specific doc
     @GetMapping("/appointments")
     public String index(Model viewAndmodel) {
+        //need to find to that specific user/doctor
         Iterable<Appointment> appointments = aptDao.findAll();
         viewAndmodel.addAttribute("appointments", appointments);
         return "/appointments/index";
@@ -57,6 +60,13 @@ public class AppointmentController {
 //            ptDao.save(appointment);
 //            return "redirect:/appointments";
 //        }
+//    }
+
+//    @PostMapping("/appointments/create")
+//    public String createNewAppointment(@ModelAttribute Appointment appointment) {
+//        appointment.setId(userDao.findOne((long)3));
+//        aptDao.save(appointment);
+//        return "redirect:/posts";
 //    }
 
     @GetMapping("appointments/{id}/edit")

@@ -21,14 +21,14 @@ public class DoctorController {
         this.userDao = userDao;
     }
 
-//    @GetMapping("/doctors")
-//    public String index(Model viewAndmodel) {
-//        //still needs tweeking, trial run
-////        Iterable<DoctorProfile> doctors = docDao.findAll();
-//        Iterable<User> doctors = docDao.findAll();
-//        viewAndmodel.addAttribute("doctors", doctors);
-//        return "/doctors/index";
-//    }
+    @GetMapping("/doctors")
+    public String index(Model viewAndmodel) {
+        //still needs tweeking, trial run
+//        Iterable<DoctorProfile> doctors = docDao.findAll();
+        Iterable<DoctorProfile> doctors = docDao.findAll();
+        viewAndmodel.addAttribute("doctors", doctors);
+        return "/doctors/index";
+    }
 
     @GetMapping("/doctors/{id}")
     public String show(@PathVariable long id, Model viewAndmodel) {
@@ -61,22 +61,27 @@ public class DoctorController {
 //        }
 //    }
 
-//    @GetMapping("doctors/{id}/edit")
-//    public String edit(@PathVariable long id, Model viewModel) {
-//        DoctorProfile doctor = docDao.findOne(id);
-//        viewModel.addAttribute("doctor", doctor);
-//        return "/doctors/edit";
-//    }
+    @GetMapping("doctors/{id}/edit")
+    public String edit(@PathVariable long id, Model viewModel) {
+        DoctorProfile doctor = docDao.findOne(id);
+        viewModel.addAttribute("doctor", doctor);
+        return "/doctors/edit";
+    }
 
-//    @PostMapping("/doctors/{id}/edit")
-//    public String handleEdit(@PathVariable long id, @ModelAttribute DoctorProfile doctor) {
-//        DoctorProfile originalDoctorProfile = docDao.findOne(id);
-//        originalDoctorProfile.setBiography(doctor.getBiography());
-//        originalDoctorProfile.setEducation(doctor.getEducation());
-//        docDao.save(doctor);
-//        return "redirect:/doctors";
-//
-//    }
+    @PostMapping("/doctors/{id}/edit")
+    public String handleEdit(@PathVariable long id, @ModelAttribute DoctorProfile doctor) {
+        DoctorProfile originalDoctorProfile = docDao.findOne(id);
+        originalDoctorProfile.setBiography(doctor.getBiography());
+        originalDoctorProfile.setLicenseId(doctor.getLicenseId());
+        originalDoctorProfile.setEducation(doctor.getEducation());
+        originalDoctorProfile.setPracticingField(doctor.getPracticingField());
+        originalDoctorProfile.setExperience(doctor.getExperience());
+        originalDoctorProfile.setAccolades(doctor.getAccolades());
+//        originalDoctorProfile.setImage(doctor.getImage());
+        docDao.save(doctor);
+        return "redirect:/doctors";
+
+    }
 
     @PostMapping("/doctors/{id}/delete")
     public String delete(@PathVariable long id) {

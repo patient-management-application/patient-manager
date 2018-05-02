@@ -1,6 +1,7 @@
 package us.shamenramen.patientmanager.models;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name="sessions")
@@ -8,12 +9,15 @@ public class Session {
 
     @Id
     @GeneratedValue
+    @Column(columnDefinition = "INT(11) UNSIGNED")
     private long id;
 
-    @Column(name="pat_id", nullable = false)
+    @ManyToOne
+    @JoinColumn(name="pat_id", nullable = false)
     private long patientId;
 
-    @Column(name="doc_id")
+    @ManyToOne
+    @JoinColumn(name="doc_id")
     private long doctorId;
 
     @Column(columnDefinition = "TEXT")
@@ -25,34 +29,34 @@ public class Session {
     @Column(columnDefinition = "TEXT")
     private String procedures;
 
-    @Column(name="time_start", columnDefinition = "TEXT")
+    @Column(name="time_start", columnDefinition = "datetime")
     private String timeStart;
 
-    @Column(name="time_end")
+    @Column(name="time_end", columnDefinition = "datetime")
     private String timeEnd;
 
     public Session() {
     }
 
-    public Session(long patientId, long doctorId, String notes, String prescriptions, String procedures, String timeStart, String timeEnd) {
+    public Session(long patientId, long doctorId, String notes, String prescriptions, String procedures, String time_start, String time_end) {
         this.patientId = patientId;
         this.doctorId = doctorId;
         this.notes = notes;
         this.prescriptions = prescriptions;
         this.procedures = procedures;
-        this.timeStart = timeStart;
-        this.timeEnd = timeEnd;
+        this.timeStart = time_start;
+        this.timeEnd = time_end;
     }
 
-    public Session(long id ,long patientId, long doctorId, String notes, String prescriptions, String procedures, String timeStart, String timeEnd) {
+    public Session(long id ,long patientId, long doctorId, String notes, String prescriptions, String procedures, String time_start, String time_end) {
         this.id = id;
         this.patientId = patientId;
         this.doctorId = doctorId;
         this.notes = notes;
         this.prescriptions = prescriptions;
         this.procedures = procedures;
-        this.timeStart = timeStart;
-        this.timeEnd = timeEnd;
+        this.timeStart = time_start;
+        this.timeEnd = time_end;
     }
 
     public long getId() {
@@ -107,9 +111,7 @@ public class Session {
         return timeStart;
     }
 
-    public void setTimeStart(String timeStart) {
-        this.timeStart = timeStart;
-    }
+    public void setTimeStart(String timeStart) { this.timeStart = timeStart; }
 
     public String getTimeEnd() {
         return timeEnd;

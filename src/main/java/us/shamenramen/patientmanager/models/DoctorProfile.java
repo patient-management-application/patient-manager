@@ -1,20 +1,26 @@
 package us.shamenramen.patientmanager.models;
 
+import org.hibernate.validator.constraints.NotBlank;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name = "doctor_profiles")
 public class DoctorProfile {
 
+
     @Id
     @GeneratedValue
-    @Column(columnDefinition = "INT(11) UNSIGNED")
-    private long id;
+    @ManyToOne
+    @Column(name = "doc_id", nullable = false, columnDefinition = "INT(11) UNSIGNED")
+    private long doctorId;
 
-    @Column(name = "doc_id", nullable = false, columnDefinition = "UNSIGNED")
-    private long doc_id;
+    @Column(name = "license_id", nullable = false, unique = true)
+    @NotBlank(message="License # cannot be blank.")
+    private long licenseId;
 
     @Column(name = "biography", columnDefinition = "TEXT")
+    @NotBlank(message="Please give a small summary about yourself.")
     private String biography;
 
     @Column(name = "education", nullable = false)
@@ -35,8 +41,8 @@ public class DoctorProfile {
     public DoctorProfile() {
     }
 
-    public DoctorProfile(long doc_id, String biography, String education, String practicingField, String experience, String accolades, String image) {
-        this.doc_id = doc_id;
+    public DoctorProfile(long license_id, String biography, String education, String practicingField, String experience, String accolades, String image) {
+        this.licenseId = license_id;
         this.biography = biography;
         this.education = education;
         this.practicingField = practicingField;
@@ -45,9 +51,9 @@ public class DoctorProfile {
         this.image = image;
     }
 
-    public DoctorProfile(long id, long doc_id, String biography, String education, String practicingField, String experience, String accolades, String image) {
-        this.id = id;
-        this.doc_id = doc_id;
+    public DoctorProfile(long doc_id, long license_id, String biography, String education, String practicingField, String experience, String accolades, String image) {
+        this.doctorId = doc_id;
+        this.licenseId = license_id;
         this.biography = biography;
         this.education = education;
         this.practicingField = practicingField;
@@ -56,21 +62,14 @@ public class DoctorProfile {
         this.image = image;
     }
 
-    public long getId() {
-        return id;
-    }
 
-    public void setId(long id) {
-        this.id = id;
-    }
+    public long getDoctorId() { return doctorId; }
 
-    public long getdoc_id() {
-        return doc_id;
-    }
+    public void setDoctorId(long doctorId) { this.doctorId = doctorId; }
 
-    public void setdoc_id(long doc_id) {
-        this.doc_id = doc_id;
-    }
+    public long getLicenseId() { return licenseId; }
+
+    public void setLicenseId(long licenseId) { this.licenseId = licenseId; }
 
     public String getBiography() {
         return biography;
@@ -119,4 +118,6 @@ public class DoctorProfile {
     public void setImage(String image) {
         this.image = image;
     }
+
+
 }
