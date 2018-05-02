@@ -17,12 +17,14 @@ public class UserController {
         this.userDao = userDao;
     }
 
-    @GetMapping("/register")
+    @GetMapping("/landing")
     public String showSignUpForm(Model model) {
         User user = new User();
         model.addAttribute("user", user);
         return "users/create_user";
     }
+
+
 
 //    @PostMapping("/register")
 //    public String registerUser(@ModelAttribute User user) {

@@ -10,5 +10,5 @@ public interface ReviewRepository extends CrudRepository<Review, Long>{
 
 
     //trial run method, trying to pull all reviews by one user_id
-    Iterable<Review> findAll(User byId);
+//    Iterable<Review> findAll(User user);
 }
