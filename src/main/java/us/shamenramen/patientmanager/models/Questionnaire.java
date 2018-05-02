@@ -1,5 +1,7 @@
 package us.shamenramen.patientmanager.models;
 
+import org.hibernate.validator.constraints.NotBlank;
+
 import javax.persistence.*;
 
 @Entity
@@ -10,8 +12,9 @@ public class Questionnaire {
     @GeneratedValue
     private long id;
 
-    @Column(name = "pat_id", nullable = false)
-    private long pat_id;
+    @ManyToOne
+    @JoinColumn(name = "pat_id", nullable = false)
+    private long patientId;
 
     @Column(name = "history", columnDefinition = "TEXT")
     private String history;
@@ -20,6 +23,7 @@ public class Questionnaire {
     private String medications;
 
     @Column(name = "allergies", columnDefinition = "TEXT")
+    @NotBlank(message="IMPORTANT:Please indicate if you DO or DO NOT have any allergies.")
     private String allergies;
 
     @Column(name = "extra", columnDefinition = "TEXT")
@@ -30,7 +34,7 @@ public class Questionnaire {
 
     public Questionnaire(long id, long pat_id, String history, String medications, String allergies, String extra) {
         this.id = id;
-        this.pat_id = pat_id;
+        this.patientId = pat_id;
         this.history = history;
         this.medications = medications;
         this.allergies = allergies;
@@ -39,7 +43,7 @@ public class Questionnaire {
 
 
     public Questionnaire(long pat_id, String history, String medications, String allergies, String extra) {
-        this.pat_id = pat_id;
+        this.patientId = pat_id;
         this.history = history;
         this.medications = medications;
         this.allergies = allergies;
@@ -47,11 +51,11 @@ public class Questionnaire {
     }
 
     public long getPat_id() {
-        return pat_id;
+        return patientId;
     }
 
     public void setPat_id(long pat_id) {
-        this.pat_id = pat_id;
+        this.patientId = pat_id;
     }
 
     public long getId() {

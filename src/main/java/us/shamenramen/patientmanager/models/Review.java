@@ -1,9 +1,8 @@
 package us.shamenramen.patientmanager.models;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import org.hibernate.validator.constraints.NotBlank;
+
+import javax.persistence.*;
 
 @Entity
 public class Review {
@@ -13,32 +12,36 @@ public class Review {
     @Column(name = "id")
     private long id;
 
+    @ManyToOne
     @Column(name = "pat_id", nullable = false)
-    private long pat_id;
+    private long patientId;
 
+    @ManyToOne
     @Column(name = "doc_id", nullable = false)
-    private long doc_id;
+    private long doctorId;
 
     @Column(name = "review", nullable = false, columnDefinition = "TEXT")
+    @NotBlank(message="Review summary cannot be blank.")
     private String review;
 
     @Column(name = "rating", nullable = false)
+    @NotBlank(message="Please select a rating.")
     private int rating;
 
     public Review() {
     }
 
     public Review(long pat_id, long doc_id, String review, int rating) {
-        this.pat_id = pat_id;
-        this.doc_id = doc_id;
+        this.patientId = pat_id;
+        this.doctorId = doc_id;
         this.review = review;
         this.rating = rating;
     }
 
     public Review(long id, long pat_id, long doc_id, String review, int rating) {
         this.id = id;
-        this.pat_id = pat_id;
-        this.doc_id = doc_id;
+        this.patientId = pat_id;
+        this.doctorId = doc_id;
         this.review = review;
         this.rating = rating;
     }
@@ -52,19 +55,19 @@ public class Review {
     }
 
     public long getPat_id() {
-        return pat_id;
+        return patientId;
     }
 
     public void setPat_id(long pat_id) {
-        this.pat_id = pat_id;
+        this.patientId = patientId;
     }
 
     public long getDoc_id() {
-        return doc_id;
+        return doctorId;
     }
 
     public void setDoc_id(long doc_id) {
-        this.doc_id = doc_id;
+        this.doctorId = doc_id;
     }
 
     public String getReview() {
