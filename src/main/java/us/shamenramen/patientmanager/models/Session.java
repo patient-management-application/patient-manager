@@ -1,7 +1,6 @@
 package us.shamenramen.patientmanager.models;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
 
 @Entity
 @Table(name="sessions")
