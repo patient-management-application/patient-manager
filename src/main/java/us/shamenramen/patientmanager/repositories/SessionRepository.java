@@ -16,6 +16,6 @@ public interface SessionRepository extends CrudRepository<Session, Long> {
 
 
     //hoping to pull session by user_id, still in trial, might not work
-    Iterable<Session> findAll(User byId);
+//    Iterable<Session> findAll(User byId);
 
 }
