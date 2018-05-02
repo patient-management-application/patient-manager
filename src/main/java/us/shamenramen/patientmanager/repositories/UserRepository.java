@@ -9,4 +9,6 @@ public interface UserRepository extends CrudRepository<User, Long> {
 //    No username is defined on the user object.
     User findByEmail(String email);
     User findById(long id);
+
+    Iterable<Long> findById();
 }
