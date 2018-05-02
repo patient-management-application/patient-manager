@@ -11,7 +11,7 @@ public class DoctorProfile {
 
     @Id
     @GeneratedValue
-    @ManyToOne
+//    @ManyToOne
     @Column(name = "doc_id", nullable = false, columnDefinition = "INT(11) UNSIGNED")
     private long doctorId;
 

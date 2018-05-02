@@ -12,11 +12,11 @@ public class Review {
     @Column(name = "id")
     private long id;
 
-    @ManyToOne
+//    @ManyToOne
     @Column(name = "pat_id", nullable = false)
     private long patientId;
 
-    @ManyToOne
+//    @ManyToOne
     @Column(name = "doc_id", nullable = false)
     private long doctorId;
 

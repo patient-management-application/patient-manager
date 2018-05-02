@@ -25,8 +25,8 @@ public class ReviewController {
     @GetMapping("/reviews")
     public String index(@PathVariable long user_id, Model viewAndmodel) {
         //still needs tweeking, trial run
-        Iterable<Review> reviews = revDao.findAll(userDao.findById(user_id));
-        viewAndmodel.addAttribute("reviews", reviews);
+//        Iterable<Review> reviews = revDao.findAll(userDao.findById(user_id));
+//        viewAndmodel.addAttribute("reviews", reviews);
         return "/reviews/index";
     }
 

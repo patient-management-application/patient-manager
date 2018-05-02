@@ -12,7 +12,7 @@ public class Questionnaire {
     @GeneratedValue
     private long id;
 
-    @ManyToOne
+//    @ManyToOne
     @JoinColumn(name = "pat_id", nullable = false)
     private long patientId;
 

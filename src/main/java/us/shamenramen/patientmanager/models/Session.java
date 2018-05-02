@@ -12,11 +12,11 @@ public class Session {
     @Column(columnDefinition = "INT(11) UNSIGNED")
     private long id;
 
-    @ManyToOne
+//    @ManyToOne
     @JoinColumn(name="pat_id", nullable = false)
     private long patientId;
 
-    @ManyToOne
+//    @ManyToOne
     @JoinColumn(name="doc_id")
     private long doctorId;
 
