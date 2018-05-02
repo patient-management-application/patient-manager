@@ -1,12 +1,34 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8" />
-    <title>Home</title>
+    <meta charset="UTF-8">
+    <title>Billing</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
 </head>
 <body>
-
 <h1>Billing</h1>
+<div class="form-group">
+    <label class="col-md-4 control-label"></label>
+    <div class="col-md-4"><br>
+        <button type="submit" class="btn btn-info" >Charge <span class="glyphicon glyphicon-send"></span></button>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-md-4 control-label"></label>
+    <div class="col-md-4 inputGroupContainer">
+        <div class="input-group">
+            <input name="charge_name" placeholder="Name" class="form-control"  type="text">
+        </div>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-md-4 control-label"></label>
+    <div class="col-md-4 inputGroupContainer">
+        <div class="input-group">
+            <input name="amount" placeholder="Amount" class="form-control"  type="text">
+        </div>
+    </div>
+</div>
 
 </body>
 </html>
