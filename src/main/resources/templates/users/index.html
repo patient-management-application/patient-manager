@@ -1,148 +1,197 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <title>Home</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous"/>
-    <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
-    <link href='https://fonts.googleapis.com/css?family=Cabin:700' rel='stylesheet' type='text/css'>
-    <!-- Custom styles for this template -->
-    <link href=".../css/grayscale.min.css" rel="stylesheet">
-    <!--<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">-->
-        <!--<div class="container">-->
-            <!--<a class="navbar-brand js-scroll-trigger" href="#page-top">Start Bootstrap</a>-->
-            <!--<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">-->
-                <!--Menu-->
-                <!--<i class="fa fa-bars"></i>-->
-            <!--</button>-->
-            <!--<div class="collapse navbar-collapse" id="navbarResponsive">-->
-                <!--<ul class="navbar-nav ml-auto">-->
-                    <!--<li class="nav-item">-->
-                        <!--<a class="nav-link js-scroll-trigger" href="#about">About</a>-->
-                    <!--</li>-->
-                    <!--<li class="nav-item">-->
-                        <!--<a class="nav-link js-scroll-trigger" href="#download">Download</a>-->
-                    <!--</li>-->
-                    <!--<li class="nav-item">-->
-                        <!--<a class="nav-link js-scroll-trigger" href="#contact">Contact</a>-->
-                    <!--</li>-->
-                <!--</ul>-->
-            <!--</div>-->
-        <!--</div>-->
-    <!--</nav>-->
-
-
-    <header class="masthead">
-        <div class="intro-body">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 mx-auto">
-                        <h1 class="brand-heading"></h1>
-                        <p class="intro-text">
-                            <br></p>
-                        <a href="#about" class="btn btn-circle js-scroll-trigger">
-                            <i class="fa fa-angle-double-down animated"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <!-- About Section -->
-    <section id="about" class="content-section text-center">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 mx-auto">
-                    <h2>SHAMAN RAMEN</h2>
-                    <p>Shaman Ramen is easy to use Patient/Doctor Management System</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Contact Section -->
-    <section id="contact" class="content-section text-center">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 mx-auto">
-                    <h2>Are you a patient?</h2>
-
-                    <ul class="list-inline banner-social-buttons">
-                        <li class="list-inline-item">
-                            <a href="https://shamanramen.us/patient_registration" class="btn btn-default btn-lg">
-                                <i class="fa fa-twitter fa-fw"></i>
-                                <span class="network-name">Welcome</span>
-                            </a>
-                        </li>
-                        <h2>Are you a Doctor?</h2>
-                        <li class="list-inline-item">
-                            <a href="https://shamanramen.us/doctor_registration" class="btn btn-default btn-lg">
-                                <i class="fa fa-github fa-fw"></i>
-                                <span class="network-name">Welcome</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Map Section -->
-    <div id="map"></div>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container text-center">
-            <p>Copyright &copy; Shaman Ramen Technologies 2018</p>
-        </div>
-    </footer>
-
-    <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Plugin JavaScript -->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-
-    <!-- Google Maps API Key - Use your own API key to enable the map feature. More information on the Google Maps API can be found at https://developers.google.com/maps/ -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRngKslUGJTlibkQ3FkfTxj3Xss1UlZDA&sensor=false"></script>
-
-    <!-- Custom scripts for this template -->
-    <script src="/js/grayscale.min.js"></script>
-
-
+    <!--<meta charset="utf-8">-->
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">-->
+    <!--<meta name="description" content="">-->
+    <!--<meta name="author" content="">-->
+    <!--<title>Home</title>-->
+    <!--<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous"/>-->
+    <!--<link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">-->
+    <!--<link href='https://fonts.googleapis.com/css?family=Cabin:700' rel='stylesheet' type='text/css'>-->
+    <!--&lt;!&ndash; Custom styles for this template &ndash;&gt;-->
+    <!--<link href=".../css/grayscale.min.css" rel="stylesheet">-->
 </head>
+
+
+
+
+<!--<h1>Log In</h1>-->
+<!--<div th:if="${param.error}">-->
+<!--Invalid Username and Password.-->
+<!--</div>-->
+<!--<div th:if="${param.logout}">-->
+<!--You have been logged out.-->
+<!--</div>-->
+
+
+
+
+
+
+
+<!--<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">-->
+<!--<div class="container">-->
+<!--<a class="navbar-brand js-scroll-trigger" href="#page-top">Start Bootstrap</a>-->
+<!--<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">-->
+<!--Menu-->
+<!--<i class="fa fa-bars"></i>-->
+<!--</button>-->
+<!--<div class="collapse navbar-collapse" id="navbarResponsive">-->
+<!--<ul class="navbar-nav ml-auto">-->
+<!--<li class="nav-item">-->
+<!--<a class="nav-link js-scroll-trigger" href="#about">About</a>-->
+<!--</li>-->
+<!--<li class="nav-item">-->
+<!--<a class="nav-link js-scroll-trigger" href="#download">Download</a>-->
+<!--</li>-->
+<!--<li class="nav-item">-->
+<!--<a class="nav-link js-scroll-trigger" href="#contact">Contact</a>-->
+<!--</li>-->
+<!--</ul>-->
+<!--</div>-->
+<!--</div>-->
+<!--</nav>-->
+
+
+<!--<header class="masthead">-->
+<!--<div class="intro-body">-->
+<!--<div class="container">-->
+<!--<div class="row">-->
+<!--<div class="col-lg-8 mx-auto">-->
+<!--<h1 class="brand-heading"></h1>-->
+<!--<p class="intro-text">-->
+<!--<br/></p>-->
+<!--<a href="#about" class="btn btn-circle js-scroll-trigger">-->
+<!--<i class="fa fa-angle-double-down animated"></i>-->
+<!--</a>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</header>-->
+
+<!--&lt;!&ndash; About Section &ndash;&gt;-->
+<!--<section id="about" class="content-section text-center">-->
+<!--<div class="container">-->
+<!--<div class="row">-->
+<!--<div class="col-lg-8 mx-auto">-->
+<!--<h2>SHAMAN RAMEN</h2>-->
+<!--<p>Shaman Ramen is easy to use Patient/Doctor Management System</p>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</section>-->
+<!--&lt;!&ndash; Contact Section &ndash;&gt;-->
+<!--<section id="contact" class="content-section text-center">-->
+<!--<div class="container">-->
+<!--<div class="row">-->
+<!--<div class="col-lg-8 mx-auto">-->
+<!--<h2>Are you a patient?</h2>-->
+
+<!--<ul class="list-inline banner-social-buttons">-->
+<!--<li class="list-inline-item">-->
+<!--<a href="https://shamanramen.us/patient_registration" class="btn btn-default btn-lg">-->
+<!--<i class="fa fa-twitter fa-fw"></i>-->
+<!--<span class="network-name">Welcome</span>-->
+<!--</a>-->
+<!--</li>-->
+<!--<h2>Are you a Doctor?</h2>-->
+<!--<li class="list-inline-item">-->
+<!--<a href="https://shamanramen.us/doctor_registration" class="btn btn-default btn-lg">-->
+<!--<i class="fa fa-github fa-fw"></i>-->
+<!--<span class="network-name">Welcome</span>-->
+<!--</a>-->
+<!--</li>-->
+<!--</ul>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</section>-->
+
+<!--&lt;!&ndash; Map Section &ndash;&gt;-->
+<!--<div id="map"></div>-->
+
+<!--&lt;!&ndash; Footer &ndash;&gt;-->
+<!--<footer>-->
+<!--<div class="container text-center">-->
+<!--<p>Copyright &copy; Shaman Ramen Technologies 2018</p>-->
+<!--</div>-->
+<!--</footer>-->
+
+<!--&lt;!&ndash; Bootstrap core JavaScript &ndash;&gt;-->
+<!--<script src="vendor/jquery/jquery.min.js"></script>-->
+<!--<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>-->
+
+<!--&lt;!&ndash; Plugin JavaScript &ndash;&gt;-->
+<!--<script src="vendor/jquery-easing/jquery.easing.min.js"></script>-->
+
+<!--&lt;!&ndash; Google Maps API Key - Use your own API key to enable the map feature. More information on the Google Maps API can be found at https://developers.google.com/maps/ &ndash;&gt;-->
+<!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRngKslUGJTlibkQ3FkfTxj3Xss1UlZDA&sensor=false"></script>-->
+
+<!--&lt;!&ndash; Custom scripts for this template &ndash;&gt;-->
+<!--<script src="/js/grayscale.min.js"></script>-->
 <body>
+
+<form th:action="@{/logout}" th:method="post">
+    <button class="btn-link btn" style="margin-top: 8px">Logout</button>
+</form>
+
+
+<h1>Create an account</h1>
+<form th:action="@{/patient_registration}" method="POST" th:object="${user}">
+    <input id="username" name="username" type="text" th:field="*{username}" placeholder="username"/>
+    <input id="email" name="email" type="text" th:field="*{email}" placeholder="email"/>
+    <input id="password" name="password" type="password" th:field="*{password}" placeholder="password"/>
+    <input id="firstName" name="firstName" type="text" th:field="*{firstName}" placeholder="first name"/>
+    <input id="lastName" name="lastName" type="text" th:field="*{lastName}" placeholder="last name"/>
+    <input id="phoneNumber" name="phoneNumber" type="text" th:field="*{phoneNumber}" placeholder="phone"/>
+    <input id="gender" name="gender" type="text" th:field="*{gender}" placeholder="gender"/>
+    <input id="dob" name="dob" type="text" th:field="*{dob}" placeholder="dob"/>
+    <input id="street" name="street" type="text" th:field="*{street}" placeholder="street"/>
+    <input id="city" name="city" type="text" th:field="*{city}" placeholder="city"/>
+    <input id="state" name="state" type="text" th:field="*{state}" placeholder="state"/>
+    <input id="zipcode" name="zipcode" type="text" th:field="*{zipcode}" placeholder="zipcode"/>
+    <!--Doctor defaults to false or not a doctor-->
+    <select th:field="*{isDoctor}">
+        <option th:value="0">Patient</option>
+        <option th:value="1">Doctor</option>
+    </select>
+    <input value="Sign me up!" type="submit" />
+</form>
+
+<form th:action="@{/login}" method="post">
+    <input id="username" name="username" type="text" placeholder="username"/>
+    <input name="password" type="password" placeholder="password" />
+    <input type="submit" value="Log In" />
+</form>
 
 <!--<h1>Landing Page</h1>-->
 
 <!--<h3>Are you a patient?</h3>-->
 <!--<div class="form-group">-->
-    <!--<label class="col-md-4 control-label"></label>-->
-    <!--<div class="col-md-4"><br/>-->
-        <!--<button type="submit" class="btn btn-info" >SUBMIT <span class="glyphicon glyphicon-send"></span></button>-->
-    <!--</div>-->
+<!--<label class="col-md-4 control-label"></label>-->
+<!--<div class="col-md-4"><br/>-->
+<!--<button type="submit" class="btn btn-info" >SUBMIT <span class="glyphicon glyphicon-send"></span></button>-->
+<!--</div>-->
 <!--</div>-->
 <!--<h3>Are you a doctor?</h3>-->
 <!--<div class="form-group">-->
-    <!--<label class="col-md-4 control-label"></label>-->
-    <!--<div class="col-md-4"><br/>-->
-        <!--<button type="submit" class="btn btn-info" >SUBMIT <span class="glyphicon glyphicon-send"></span></button>-->
-    <!--</div>-->
+<!--<label class="col-md-4 control-label"></label>-->
+<!--<div class="col-md-4"><br/>-->
+<!--<button type="submit" class="btn btn-info" >SUBMIT <span class="glyphicon glyphicon-send"></span></button>-->
+<!--</div>-->
 <!--</div>-->
 <!--<div class="container">-->
 
-    <!--<form class="form-signin">-->
-        <!--<h2 class="form-signin-heading">Please sign in</h2>-->
-        <!--<label for="inputEmail" class="sr-only">Email address</label>-->
-        <!--<input type="email" id="inputEmail" class="form-control" placeholder="Email address" required />-->
-        <!--<label for="inputPassword" class="sr-only">Password</label>-->
-        <!--<input type="password" id="inputPassword" class="form-control" placeholder="Password" required />-->
-        <!--<button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>-->
-    <!--</form>-->
+<!--<form class="form-signin">-->
+<!--<h2 class="form-signin-heading">Please sign in</h2>-->
+<!--<label for="inputEmail" class="sr-only">Email address</label>-->
+<!--<input type="email" id="inputEmail" class="form-control" placeholder="Email address" required />-->
+<!--<label for="inputPassword" class="sr-only">Password</label>-->
+<!--<input type="password" id="inputPassword" class="form-control" placeholder="Password" required />-->
+<!--<button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>-->
+<!--</form>-->
 
 <!--</div> &lt;!&ndash; /container &ndash;&gt;-->
 

@@ -11,6 +11,9 @@ public class User {
     @GeneratedValue
     private long id;
 
+    @Column(name = "username")
+    private String username;
+
     @Column(name = "first_name", nullable = false)
     private String firstName;
 
@@ -18,7 +21,10 @@ public class User {
     private String lastName;
 
     @Column(name = "is_Doctor", nullable = false)
-    private boolean isDoctor;
+    private int isDoctor;
+
+    @Column(name = "my_doc_id")
+    private long myDocId;
 
     @Column(name = "phone_number", nullable = false)
     private int phoneNumber;
@@ -33,7 +39,7 @@ public class User {
     private char gender;
 
     @Column(name = "dob", nullable = false)
-    private LocalDate dob;
+    private String dob;
 
     @Column(name = "street", nullable = false)
     private String street;
@@ -50,20 +56,33 @@ public class User {
 
 
 //    will be applied once validation and authorization are layed out
-//    public User(User copy) {
-//        this.id = copy.id;
-//        this.email = copy.email;
-//        this.password = copy.password;
-//    }
+    public User(User copy) {
+        this.id = copy.id;
+        this.firstName = copy.firstName;
+        this.lastName = copy.lastName;
+        this.isDoctor = copy.isDoctor;
+        this.myDocId = copy.myDocId;
+        this.phoneNumber = copy.phoneNumber;
+        this.email = copy.email;
+        this.password = copy.password;
+        this.gender = copy.gender;
+        this.dob = copy.dob;
+        this.street = copy.street;
+        this.city = copy.city;
+        this.state = copy.state;
+        this.zipcode = copy.zipcode;
+        this.username = username;
+    }
 
     public User() {
     }
-
-    public User(long id, String firstName, String lastName, boolean isDoctor, int phoneNumber, String email, String password, char gender, LocalDate dob, String street, String city, String state, int zipcode) {
+    public User(long id, String username, String firstName, String lastName, int isDoctor, long myDocId, int phoneNumber, String email, String password, char gender, String dob, String street, String city, String state, int zipcode) {
         this.id = id;
+        this.username = username;
         this.firstName = firstName;
         this.lastName = lastName;
         this.isDoctor = isDoctor;
+        this.myDocId = myDocId;
         this.phoneNumber = phoneNumber;
         this.email = email;
         this.password = password;
@@ -75,10 +94,13 @@ public class User {
         this.zipcode = zipcode;
     }
 
-    public User(String firstName, String lastName, boolean isDoctor, int phoneNumber, String email, String password, char gender, LocalDate dob, String street, String city, String state, int zipcode) {
+
+    public User(String username, String firstName, String lastName, int isDoctor, long myDocId, int phoneNumber, String email, String password, char gender, String dob, String street, String city, String state, int zipcode) {
+        this.username = username;
         this.firstName = firstName;
         this.lastName = lastName;
         this.isDoctor = isDoctor;
+        this.myDocId = myDocId;
         this.phoneNumber = phoneNumber;
         this.email = email;
         this.password = password;
@@ -87,6 +109,22 @@ public class User {
         this.street = street;
         this.city = city;
         this.state = state;
+        this.zipcode = zipcode;
+    }
+
+    public long getMyDocId() {
+        return myDocId;
+    }
+
+    public void setMyDocId(long myDocId) {
+        this.myDocId = myDocId;
+    }
+
+    public int getZipcode() {
+        return zipcode;
+    }
+
+    public void setZipcode(int zipcode) {
         this.zipcode = zipcode;
     }
 
@@ -114,12 +152,12 @@ public class User {
         this.lastName = lastName;
     }
 
-    public boolean isDoctor() {
+    public int getIsDoctor() {
         return isDoctor;
     }
 
-    public void setDoctor(boolean doctor) {
-        isDoctor = doctor;
+    public void setDoctor(int isDoctor) {
+        this.isDoctor = isDoctor;
     }
 
     public int getPhoneNumber() {
@@ -154,11 +192,11 @@ public class User {
         this.gender = gender;
     }
 
-    public LocalDate getDob() {
+    public String getDob() {
         return dob;
     }
 
-    public void setDob(LocalDate dob) {
+    public void setDob(String dob) {
         this.dob = dob;
     }
 
@@ -192,5 +230,13 @@ public class User {
 
     public void setzipcode(int zipcode) {
         this.zipcode = zipcode;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 }
