@@ -7,12 +7,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import us.shamenramen.patientmanager.models.User;
+import us.shamenramen.patientmanager.repositories.QuestionnaireRepository;
 import us.shamenramen.patientmanager.repositories.UserRepository;
 
 @Controller
 public class UserController {
     private PasswordEncoder passwordEncoder;
     private UserRepository userDao;
+
     public UserController(UserRepository userDao, PasswordEncoder passwordEncoder) {
         this.passwordEncoder = passwordEncoder;
         this.userDao = userDao;
@@ -34,6 +36,7 @@ public class UserController {
         return "/patients/patient_registration";
     }
 
+
     @PostMapping(path = "/patient_registration")
     public String createPatient(@ModelAttribute User user){
         String hash = passwordEncoder.encode(user.getPassword());
@@ -42,7 +45,5 @@ public class UserController {
         return "redirect:/";
     }
 
-//    @GetMapping(path = "/my_dashboard")
-//    public String getDashboard()
 
 }
