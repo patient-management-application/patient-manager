@@ -32,7 +32,7 @@ public class UserController {
 //        return "/patients/patient_registration";
 //    }
 //
-//    @GetMapping("/patientHealthRegistration")
+//    @GetMapping("/myHealth")
 //    public String healthForm(Model model) {
 //        User user = new User();
 //        model.addAttribute("user", user);
@@ -47,7 +47,7 @@ public class UserController {
 //        return "/doctors/doctor_registration";
 //    }
 //
-//    @GetMapping("/doctorPracticeRegistration")
+//    @GetMapping("/myPractice")
 //    public String practiceSignUpForm(Model model) {
 //        User user = new User();
 //        model.addAttribute("user", user);
@@ -75,7 +75,7 @@ public class UserController {
 //    }
 //
 //    //work on the logic
-//    @PostMapping("/patientHealthRegistration")
+//    @PostMapping("/myHealth")
 //    public String registerUserHealth(@ModelAttribute User user) {
 //        String hash = passwordEncoder.encode(user.getPassword());
 //        user.setPassword(hash);
@@ -91,8 +91,8 @@ public class UserController {
 //        return "redirect:/doctors/my_practice";
 //    }
 //
-//    @PostMapping("/doctorPracticeRegistration")
-//    public String registerDoctorPractice(@ModelAttribute User user) {
+//    @PostMapping("/myPracticeRegistration")
+//    public String myDoctorPractice(@ModelAttribute User user) {
 //        String hash = passwordEncoder.encode(user.getPassword());
 //        user.setPassword(hash);
 //        userDao.save(user);
