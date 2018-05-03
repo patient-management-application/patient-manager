@@ -3,6 +3,7 @@
 ### Patient Side -
 
 - [ ] Patient Registration 
+- [ ] Patient Login
 - [ ] Make and Manage Appointments 
 - [ ] Make and Manage Appointments 
 - [ ] Check In to Appointments
@@ -17,11 +18,3 @@
 - [ ] Manage Records 
 - [ ] Manage Patients and Sessions 
 - [ ] Create Invoices with Stripe 
-
-
-
-
-
-
-
-
