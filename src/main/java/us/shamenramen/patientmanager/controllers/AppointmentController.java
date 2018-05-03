@@ -32,6 +32,7 @@ public class AppointmentController {
         return "/appointments/index";
     }
 
+    //might not need, as we may come up with a way to show all appointments for that user_id
     @GetMapping("/appointments/{id}")
     public String show(@PathVariable long id, Model viewAndmodel) {
         Appointment appointment = aptDao.findOne(id);
@@ -73,6 +74,7 @@ public class AppointmentController {
 
 //    }
 
+    //Might not need this as calendar is all one page
     @GetMapping("appointments/{id}/edit")
     public String edit(@PathVariable long id, Model viewModel) {
         Appointment appointment = aptDao.findOne(id);

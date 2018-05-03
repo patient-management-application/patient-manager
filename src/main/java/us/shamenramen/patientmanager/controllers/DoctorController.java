@@ -27,7 +27,7 @@ public class DoctorController {
 //        Iterable<DoctorProfile> doctors = docDao.findAll();
         Iterable<DoctorProfile> doctors = docDao.findAll();
         viewAndmodel.addAttribute("doctors", doctors);
-        return "/doctors/index";
+        return "/patients/search_doctors";
     }
 
     @GetMapping("/doctors/{id}")
@@ -41,34 +41,43 @@ public class DoctorController {
     public String showCreateForm(Model viewmodel) {
         DoctorProfile doctor = new DoctorProfile();
         viewmodel.addAttribute("doctor", doctor);
-        return "/doctors/create";
+        return "/doctors/doctor_registration";
     }
 
     //Need to implement Auth and Validation before this can be used
 
-//    @PostMapping("/reviews/create")
-//    public String createReview(@Valid Review review, Errors validation, Model model) {
+//    @PostMapping("/doctors/create")
+//    public String createDoctor(@Valid DoctorProfile doctor, Errors validation, Model model) {
 //
 //        if (validation.hasErrors()) {
 //            model.addAttribute("errors", validation);
-//            model.addAttribute("review", review);
-//            return "/reviews/create";
+//            model.addAttribute("doctor", doctor);
+//            return "/doctors/create";
 //        } else {
 //            User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 //            post.setUser(loggedInUser);
-//            revDao.save(review);
-//            return "redirect:/reviews";
+//            docDao.save(doctor);
+//            return "redirect:/doctors/my_practice";
 //        }
 //    }
 
-    @GetMapping("doctors/{id}/edit")
-    public String edit(@PathVariable long id, Model viewModel) {
+    //would need to go to the dashboard
+    @GetMapping("doctors/{id}/edit/my_practice")
+    public String editPractice(@PathVariable long id, Model viewModel) {
         DoctorProfile doctor = docDao.findOne(id);
         viewModel.addAttribute("doctor", doctor);
-        return "/doctors/edit";
+        return "/doctors/edit_my_practice";
     }
 
-    @PostMapping("/doctors/{id}/edit")
+    @GetMapping("doctors/{id}/edit/my_basic_info")
+    public String editBasicInfo(@PathVariable long id, Model viewModel) {
+        DoctorProfile doctor = docDao.findOne(id);
+        viewModel.addAttribute("doctor", doctor);
+        return "/doctors/edit_my_basic_info";
+    }
+
+    //need one for basic info edit
+    @PostMapping("/doctors/{id}/edit/my_practice")
     public String handleEdit(@PathVariable long id, @ModelAttribute DoctorProfile doctor) {
         DoctorProfile originalDoctorProfile = docDao.findOne(id);
         originalDoctorProfile.setBiography(doctor.getBiography());
@@ -79,7 +88,27 @@ public class DoctorController {
         originalDoctorProfile.setAccolades(doctor.getAccolades());
 //        originalDoctorProfile.setImage(doctor.getImage());
         docDao.save(doctor);
-        return "redirect:/doctors";
+        return "redirect:/doctors/doctor_dashboard";
+
+    }
+
+    @PostMapping("/doctors/{id}/edit/my_basic_info")
+    public String handleEdit(@PathVariable long id, @ModelAttribute User doctor) {
+        User originalUser = userDao.findOne(id);
+        originalUser.setFirstName(doctor.getFirstName());
+        originalUser.setLastName(doctor.getLastName());
+        originalUser.setPhoneNumber(doctor.getPhoneNumber());
+        originalUser.setEmail(doctor.getEmail());
+        originalUser.setPassword(doctor.getPassword());
+        originalUser.setGender(doctor.getGender());
+        originalUser.setDob(doctor.getDob());
+        originalUser.setStreet(doctor.getStreet());
+        originalUser.setCity(doctor.getCity());
+        originalUser.setState(doctor.getState());
+        originalUser.setzipcode(doctor.getzipcode());
+//        originalUser.setImage(doctor.getImage());
+        userDao.save(doctor);
+        return "redirect:/doctors/doctor_dashboard";
 
     }
 
@@ -88,4 +117,6 @@ public class DoctorController {
         docDao.delete(id);
         return "redirect:/doctors";
     }
+
+
 }

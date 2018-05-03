@@ -24,8 +24,8 @@ public class QuestionnaireController {
     @GetMapping("/questionnaires")
     public String index(Model viewAndmodel) {
         //need to be able to pull for that user
-        Iterable<Questionnaire> questionnaires = quesDao.findAll();
-        viewAndmodel.addAttribute("questionnaires", questionnaires);
+//        Iterable<Questionnaire> questionnaires = quesDao.findAll();
+//        viewAndmodel.addAttribute("questionnaires", questionnaires);
         return "/questionnaires/index";
     }
 
