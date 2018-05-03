@@ -5,7 +5,6 @@
 - [ ] Patient Registration 
 - [ ] Patient Login
 - [ ] Make and Manage Appointments 
-- [ ] Make and Manage Appointments 
 - [ ] Check In to Appointments
 - [ ] Feedback and Reviews 
 - [ ] Transaction History 
