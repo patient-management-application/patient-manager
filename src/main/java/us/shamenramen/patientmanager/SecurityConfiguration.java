@@ -54,7 +54,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers(
                         "/search", // only authenticated users can search
                         "/myhealth",
-                        "/dashboard" // only authenticated
+                        "/dashboard",
+                        "/mypractice" // only authenticated
                 )
                 .authenticated()
         ;

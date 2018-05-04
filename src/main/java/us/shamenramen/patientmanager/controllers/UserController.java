@@ -32,6 +32,12 @@ public class UserController {
         return "/users/index";
     }
 
+    @GetMapping(path ="/register")
+    public String showRegisterForm(Model model){
+        model.addAttribute("user", new User());
+        return "users/registration";
+    }
+
     @PostMapping(path = "/register")
     public String createPatient(@ModelAttribute User user, @RequestParam(defaultValue = "false") boolean isDoctor){
         if (isDoctor){

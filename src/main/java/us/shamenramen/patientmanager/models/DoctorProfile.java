@@ -10,17 +10,14 @@ public class DoctorProfile {
 
 
     @Id
-    @GeneratedValue
 //    @ManyToOne
     @Column(name = "doc_id", nullable = false, columnDefinition = "INT(11) UNSIGNED")
     private long doctorId;
 
     @Column(name = "license_id", nullable = false, unique = true)
-    @NotBlank(message="License # cannot be blank.")
     private long licenseId;
 
     @Column(name = "biography", columnDefinition = "TEXT")
-    @NotBlank(message="Please give a small summary about yourself.")
     private String biography;
 
     @Column(name = "education", nullable = false)

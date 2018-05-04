@@ -51,7 +51,7 @@ public class DoctorController {
             model.addAttribute("doctor", doctor);
         }
 
-        return "/patients/my_practice";
+        return "/doctors/my_practice";
 
     }
 
