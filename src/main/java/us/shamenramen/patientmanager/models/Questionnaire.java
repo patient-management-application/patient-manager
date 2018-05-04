@@ -1,7 +1,5 @@
 package us.shamenramen.patientmanager.models;
 
-import org.hibernate.validator.constraints.NotBlank;
-
 import javax.persistence.*;
 
 @Entity
@@ -23,7 +21,6 @@ public class Questionnaire {
     private String medications;
 
     @Column(name = "allergies", columnDefinition = "TEXT")
-    @NotBlank(message="IMPORTANT:Please indicate if you DO or DO NOT have any allergies.")
     private String allergies;
 
     @Column(name = "extra", columnDefinition = "TEXT")
