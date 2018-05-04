@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import us.shamenramen.patientmanager.models.User;
 import us.shamenramen.patientmanager.repositories.QuestionnaireRepository;
 import us.shamenramen.patientmanager.repositories.UserRepository;
@@ -31,14 +32,17 @@ public class UserController {
         return "/users/index";
     }
 
-    @GetMapping(path = "/patient_registration")
-    public String getPatientReg(){
-        return "/patients/patient_registration";
-    }
+//    @GetMapping(path = "/patient_registration")
+//    public String getPatientReg(){
+//        return "/patients/patient_registration";
+//    }
 
 
-    @PostMapping(path = "/patient_registration")
-    public String createPatient(@ModelAttribute User user){
+    @PostMapping(path = "/register")
+    public String createPatient(@ModelAttribute User user, @RequestParam(defaultValue = "false") boolean isDoctor){
+        if (isDoctor){
+            user.setDoctor(true);
+        }
         String hash = passwordEncoder.encode(user.getPassword());
         user.setPassword(hash);
         userDao.save(user);

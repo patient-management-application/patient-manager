@@ -4,6 +4,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import us.shamenramen.patientmanager.models.User;
 import us.shamenramen.patientmanager.repositories.UserRepository;
 
@@ -23,7 +24,8 @@ public class AuthController {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         if (user == null){
             return "/users/index";
-        } else if (user.getIsDoctor() > 0) {
+        } else if (user.getIsDoctor()) {
+            user.setDoctor(true);
             model.addAttribute("user", userDao.findById(user.getId()));
             return "/doctors/doctor_dashboard";
         } else {

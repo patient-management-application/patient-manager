@@ -2,10 +2,9 @@
 
 ### Patient Side -
 
-- [ ] Patient Registration 
-- [ ] Patient Login
-- [ ] Make and Manage Appointments 
-- [ ] Make and Manage Appointments 
+- [x] Patient Registration 
+- [x] Patient Login
+- [x] Make and Manage Appointments 
 - [ ] Check In to Appointments
 - [ ] Feedback and Reviews 
 - [ ] Transaction History 
