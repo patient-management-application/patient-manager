@@ -139,7 +139,7 @@
 
 
 <h1>Create an account</h1>
-<form th:action="@{/patient_registration}" method="POST" th:object="${user}">
+<form th:action="@{/register}" method="POST" th:object="${user}">
     <input id="username" name="username" type="text" th:field="*{username}" placeholder="username"/>
     <input id="email" name="email" type="text" th:field="*{email}" placeholder="email"/>
     <input id="password" name="password" type="password" th:field="*{password}" placeholder="password"/>
@@ -153,10 +153,7 @@
     <input id="state" name="state" type="text" th:field="*{state}" placeholder="state"/>
     <input id="zipcode" name="zipcode" type="text" th:field="*{zipcode}" placeholder="zipcode"/>
     <!--Doctor defaults to false or not a doctor-->
-    <select th:field="*{isDoctor}">
-        <option th:value="0">Patient</option>
-        <option th:value="1">Doctor</option>
-    </select>
+    <input type="checkbox" id="isDoctor" name="isDoctor"/>Doctor
     <input value="Sign me up!" type="submit" />
 </form>
 
@@ -166,34 +163,8 @@
     <input type="submit" value="Log In" />
 </form>
 
-<!--<h1>Landing Page</h1>-->
 
-<!--<h3>Are you a patient?</h3>-->
-<!--<div class="form-group">-->
-<!--<label class="col-md-4 control-label"></label>-->
-<!--<div class="col-md-4"><br/>-->
-<!--<button type="submit" class="btn btn-info" >SUBMIT <span class="glyphicon glyphicon-send"></span></button>-->
-<!--</div>-->
-<!--</div>-->
-<!--<h3>Are you a doctor?</h3>-->
-<!--<div class="form-group">-->
-<!--<label class="col-md-4 control-label"></label>-->
-<!--<div class="col-md-4"><br/>-->
-<!--<button type="submit" class="btn btn-info" >SUBMIT <span class="glyphicon glyphicon-send"></span></button>-->
-<!--</div>-->
-<!--</div>-->
-<!--<div class="container">-->
 
-<!--<form class="form-signin">-->
-<!--<h2 class="form-signin-heading">Please sign in</h2>-->
-<!--<label for="inputEmail" class="sr-only">Email address</label>-->
-<!--<input type="email" id="inputEmail" class="form-control" placeholder="Email address" required />-->
-<!--<label for="inputPassword" class="sr-only">Password</label>-->
-<!--<input type="password" id="inputPassword" class="form-control" placeholder="Password" required />-->
-<!--<button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>-->
-<!--</form>-->
-
-<!--</div> &lt;!&ndash; /container &ndash;&gt;-->
 
 </body>
 </html>

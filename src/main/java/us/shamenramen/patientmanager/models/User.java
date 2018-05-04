@@ -21,7 +21,7 @@ public class User {
     private String lastName;
 
     @Column(name = "is_Doctor", nullable = false)
-    private int isDoctor;
+    private boolean isDoctor;
 
     @Column(name = "my_doc_id")
     private long myDocId;
@@ -76,7 +76,7 @@ public class User {
 
     public User() {
     }
-    public User(long id, String username, String firstName, String lastName, int isDoctor, long myDocId, int phoneNumber, String email, String password, char gender, String dob, String street, String city, String state, int zipcode) {
+    public User(long id, String username, String firstName, String lastName, boolean isDoctor, long myDocId, int phoneNumber, String email, String password, char gender, String dob, String street, String city, String state, int zipcode) {
         this.id = id;
         this.username = username;
         this.firstName = firstName;
@@ -95,7 +95,7 @@ public class User {
     }
 
 
-    public User(String username, String firstName, String lastName, int isDoctor, long myDocId, int phoneNumber, String email, String password, char gender, String dob, String street, String city, String state, int zipcode) {
+    public User(String username, String firstName, String lastName, boolean isDoctor, long myDocId, int phoneNumber, String email, String password, char gender, String dob, String street, String city, String state, int zipcode) {
         this.username = username;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -152,11 +152,11 @@ public class User {
         this.lastName = lastName;
     }
 
-    public int getIsDoctor() {
+    public boolean getIsDoctor() {
         return isDoctor;
     }
 
-    public void setDoctor(int isDoctor) {
+    public void setDoctor(boolean isDoctor) {
         this.isDoctor = isDoctor;
     }
 
