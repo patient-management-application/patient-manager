@@ -1,5 +1,6 @@
 package us.shamenramen.patientmanager.controllers;
 
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -7,6 +8,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import us.shamenramen.patientmanager.models.Review;
+import us.shamenramen.patientmanager.models.User;
 import us.shamenramen.patientmanager.repositories.ReviewRepository;
 import us.shamenramen.patientmanager.repositories.UserRepository;
 
@@ -22,12 +24,19 @@ public class ReviewController {
 
     //FIX
     //need to be able to pull sessions only for that specific user
-    @GetMapping("/reviews")
-    public String index(@PathVariable long user_id, Model viewAndmodel) {
-        //still needs tweeking, trial run
-//        Iterable<Review> reviews = revDao.findAll(userDao.findById(user_id));
-//        viewAndmodel.addAttribute("reviews", reviews);
-        return "/reviews/index";
+    @GetMapping(path = "/myreview")
+    public String showSession(Model model) {
+        User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        if (revDao.findByPatientId(loggedInUser.getId()) != null){
+            Review review = revDao.findByPatientId(loggedInUser.getId());
+            model.addAttribute("review", review);
+        } else {
+            Review review = new Review();
+            model.addAttribute("review", review);
+        }
+
+        return "/patients/patient_feedback";
+
     }
 
     @GetMapping("/reviews/{id}")

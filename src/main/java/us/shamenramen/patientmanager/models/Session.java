@@ -12,7 +12,7 @@ public class Session {
     private long id;
 
 //    @ManyToOne
-    @JoinColumn(name="pat_id", nullable = false)
+    @JoinColumn(name="pat_id")
     private long patientId;
 
 //    @ManyToOne

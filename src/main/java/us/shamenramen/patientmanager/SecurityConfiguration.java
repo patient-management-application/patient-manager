@@ -55,7 +55,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                         "/search", // only authenticated users can search
                         "/myhealth",
                         "/dashboard",
-                        "/mypractice" // only authenticated
+                        "/mypractice",
+                        "/mysession",
+                        "/myreview"// only authenticated
                 )
                 .authenticated()
         ;

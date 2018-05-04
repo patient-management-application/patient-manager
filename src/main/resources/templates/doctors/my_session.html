@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>My Session</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous" />
+</head>
+<body>
+<div class="container">
+    <form class="well form-horizontal" method="POST" id="contact_form"  th:action="@{/mysession}" th:object="${session}">
+        <fieldset>
+            <h2>My Session</h2>
+            <div class="container">
+
+                <div class="form-group">
+                    <textarea id="notes" th:field="*{notes}" class="form-control" rows="2" placeholder="Notes on Patient"></textarea>
+                </div>
+
+            </div>
+            <div class="container">
+
+                <div class="form-group">
+                    <textarea th:field="*{prescriptions}" class="form-control" rows="1" id="prescriptions" placeholder="Prescribed Medications to Patient"></textarea>
+                </div>
+
+            </div>
+            <div class="container">
+
+                <div class="form-group">
+                    <textarea th:field="*{procedures}" class="form-control" rows="1" id="procedures" placeholder="Procedures performed during visit"></textarea>
+                </div>
+
+            </div>
+            <div class="container">
+
+                <div class="form-group">
+                    <textarea  th:field="*{experience}" class="form-control" rows="1" id="experience" placeholder="Experience"></textarea>
+                </div>
+
+            </div>
+            <div class="form-group row">
+                <div class="col-10">
+                    <input class="form-control" type="time"  id="timeStart" th:field="*{timeStart}" placeholder="12:00:00" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-10">
+                    <input class="form-control" type="time" th:field="*{timeEnd}" id="timeEnd" placeholder="12:00:00" />
+                </div>
+            </div>
+            <!--<div class="form-group">-->
+            <!--<label>Upload Image</label>-->
+            <!--<div class="input-group">-->
+            <!--<span class="input-group-btn">-->
+            <!--<span class="btn btn-default btn-file"><input type="file" id="image" />-->
+            <!--</span>-->
+            <!--</span></div>-->
+            <!--<img id='img-upload'/>-->
+            <!--</div>-->
+
+
+
+            <div class="form-group">
+                <label class="col-md-4 control-label"></label>
+                <div class="col-md-4">
+                    <button type="submit" class="btn btn-info" >SUBMIT <span class="glyphicon glyphicon-send"></span></button>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>
+</body>
+</html>

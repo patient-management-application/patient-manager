@@ -13,7 +13,7 @@ public interface SessionRepository extends CrudRepository<Session, Long> {
         return null;
     }
 
-
+    Session findByDoctorId(long doctorId);
     //hoping to pull session by user_id, still in trial, might not work
 //    Iterable<Session> findAll(User byId);
 

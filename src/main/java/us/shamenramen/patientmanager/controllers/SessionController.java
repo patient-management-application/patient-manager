@@ -1,37 +1,40 @@
-//package us.shamenramen.patientmanager.controllers;
-//
-//import org.springframework.stereotype.Controller;
-//import org.springframework.ui.Model;
-//import org.springframework.web.bind.annotation.GetMapping;
-//import org.springframework.web.bind.annotation.ModelAttribute;
-//import org.springframework.web.bind.annotation.PathVariable;
-//import org.springframework.web.bind.annotation.PostMapping;
-//import us.shamenramen.patientmanager.models.Session;
-//import us.shamenramen.patientmanager.repositories.SessionRepository;
-//import us.shamenramen.patientmanager.repositories.UserRepository;
-//
-//@Controller
-//public class SessionController {
-//    private SessionRepository sessDao;
-//    private UserRepository userDao;
-//
-//    public SessionController(SessionRepository sessDao, UserRepository userDao) {
-//        this.sessDao = sessDao;
-//        this.userDao = userDao;
-//    }
-//
-//
-//
-////    need to be able to pull sessions only for that specific user
-//    @GetMapping("/sessions")
-//    public String index(@PathVariable long user_id, Model viewAndmodel) {
-//        //still needs tweeking, trial run
-//        Iterable<Session> sessions = sessDao.findAll(userDao.findById(user_id));
-//
-//        viewAndmodel.addAttribute("sessions", sessions);
-//        return "/sessions/index";
-//    }
-//
+package us.shamenramen.patientmanager.controllers;
+
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import us.shamenramen.patientmanager.models.Session;
+import us.shamenramen.patientmanager.models.User;
+import us.shamenramen.patientmanager.repositories.SessionRepository;
+import us.shamenramen.patientmanager.repositories.UserRepository;
+
+@Controller
+public class SessionController {
+    private SessionRepository sessDao;
+    private UserRepository userDao;
+
+    public SessionController(SessionRepository sessDao, UserRepository userDao) {
+        this.sessDao = sessDao;
+        this.userDao = userDao;
+    }
+
+
+    @GetMapping(path = "/mysession")
+    public String showSession(Model model) {
+        User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        if (sessDao.findByDoctorId(loggedInUser.getId()) != null){
+            Session session = sessDao.findByDoctorId(loggedInUser.getId());
+            model.addAttribute("session", session);
+        } else {
+            Session session = new Session();
+            model.addAttribute("session", session);
+        }
+
+        return "/doctors/my_session";
+
+    }
+
 //    @GetMapping("/sessions/{id}")
 //    public String show(@PathVariable long id, Model viewAndmodel) {
 //        Session session = sessDao.findOne(id);
@@ -92,4 +95,4 @@
 //
 //
 //
-//}
+}
