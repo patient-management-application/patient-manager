@@ -16,8 +16,8 @@ public class AuthController {
         this.userDao = userDao;
     }
 
-    @GetMapping("/login")
-    public String showLoginForm() { return "/users/index"; }
+//    @GetMapping("/login")
+//    public String showLoginForm() { return "/users/index"; }
 
     @GetMapping(path = "/dashboard")
     public String showProfile(Model model){
