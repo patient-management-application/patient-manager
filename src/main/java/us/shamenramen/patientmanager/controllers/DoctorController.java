@@ -38,11 +38,32 @@ public class DoctorController {
         return "/doctors/show";
     }
 
-    @GetMapping("/myPractice")
-    public String showCreateForm(Model viewmodel) {
-        DoctorProfile doctor = new DoctorProfile();
-        viewmodel.addAttribute("doctor", doctor);
-        return "/doctors/doctor_registration";
+
+
+    @GetMapping(path = "/mypractice")
+    public String showHealth(Model model){
+        User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        if (docDao.findByDoctorId(loggedInUser.getId()) != null){
+            DoctorProfile doctor = docDao.findByDoctorId(loggedInUser.getId());
+            model.addAttribute("doctor", doctor);
+        } else {
+            DoctorProfile doctor = new DoctorProfile();
+            model.addAttribute("doctor", doctor);
+        }
+
+        return "/patients/my_practice";
+
+    }
+
+    @PostMapping(path = "/mypractice")
+    public String quest(DoctorProfile doctor){
+        User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        if(docDao.findByDoctorId(loggedInUser.getId()) != null){
+            docDao.delete(docDao.findByDoctorId(loggedInUser.getId()));
+        }
+        doctor.setDoctorId(loggedInUser.getId());
+        docDao.save(doctor);
+        return "redirect:/dashboard";
     }
 
     //Need to implement Auth and Validation before this can be used
