@@ -5,8 +5,7 @@
 
 <div th:replace="partials/navbar :: navbar"></div>
 
-
-<section class="mbr-section--bg-adapted" id="header17-16" style="background-image: url(static/img/doc.jpeg);">
+<section class="mbr-section--bg-adapted" id="header17-16" style="background-image: url(/img/doc.jpg);">
     <div class="intro intro6">
         <div class="mbr-overlay" style="opacity: 0.2; background-color: rgb(99,175,198);"></div>
         <div class="container">
@@ -15,28 +14,35 @@
                     <h2>SHAMAN RAMEN</h2><p>An easy to use Patient Management System for Patients and Doctors</p>
                     <p>to connect and keep track of appointments and medical information.</p>
                     <div><p>The Doctor will see you now.</p></div>
-                    <div><a href="" class="btn btn-lg btn-primary btn-cta">JOIN TODAY</a></div>
+                    <div><a href="/register" class="btn btn-lg btn-primary btn-cta">JOIN TODAY</a></div>
                 </div>
-
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1 text-center">
                 <div class="intro-form2-dark" data-form-type="formoid">
+                    <div data-form-alert="true">
+                        <div class="hide" data-form-alert-success="true">Thanks for filling out form!</div>
+                    </div>
                     <form th:action="@{/login}" method="POST">
                         <fieldset>
                             <div class="row">
                                 <div class="col-md-4 col-sm-4">
                                     <div>
-                                        <input type="text" class="username" name="username" required="" placeholder="username" />
+                                        <input type="text" class="username" name="username" required="" placeholder="Username" />
                                     </div>
                                 </div>
                                 <div class="col-md-4 col-sm-4">
                                     <div>
-                                        <input class="password" name="password" type="password" placeholder="password" />
+                                        <input class="password" name="password" type="password" required="" placeholder="Password" />
                                     </div>
                                 </div>
                                 <div class="col-md-4 col-sm-4">
                                     <div><button type="submit" class="btn btn-block btn-lg btn-default">Log In</button></div>
                                 </div>
                             </div>
-
                         </fieldset>
                     </form>
                 </div>
@@ -44,5 +50,6 @@
         </div>
     </div>
 </section>
+<!--<footer th:replace="partials/footer :: footer"></footer>-->
 </body>
 </html>
