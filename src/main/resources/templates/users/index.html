@@ -21,17 +21,18 @@
                     <div data-form-alert="true">
                         <div class="hide" data-form-alert-success="true">Thanks for filling out form!</div>
                     </div>
-                    <form action="" method="post" data-form-title="SUBSCRIBE">
+
+                    <form th:action="@{/login}" method="post">
                         <fieldset>
                             <div class="row">
                                 <div class="col-md-4 col-sm-4">
                                     <div>
-                                        <input type="text" class="name" name="name" required="" placeholder="Full Name" data-form-field="Full Name"/>
+                                        <input type="text" class="name" name="username" placeholder="username"/>
                                     </div>
                                 </div>
                                 <div class="col-md-4 col-sm-4">
                                     <div>
-                                        <input type="email" class="e-mail" name="email" required="" placeholder="Email Address here" data-form-field="Email"/>
+                                        <input class="e-mail" name="password" type="password" placeholder="password" />
                                     </div>
                                 </div>
 
