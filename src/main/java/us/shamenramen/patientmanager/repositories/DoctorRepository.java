@@ -6,4 +6,5 @@ import us.shamenramen.patientmanager.models.DoctorProfile;
 
 @Repository
 public interface DoctorRepository extends CrudRepository<DoctorProfile, Long>{
+    DoctorProfile findByDoctorId(long doctorId);
 }

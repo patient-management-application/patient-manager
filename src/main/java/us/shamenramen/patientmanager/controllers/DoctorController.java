@@ -1,5 +1,6 @@
 package us.shamenramen.patientmanager.controllers;
 
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -37,28 +38,45 @@ public class DoctorController {
         return "/doctors/show";
     }
 
-    @GetMapping("/doctors/create")
-    public String showCreateForm(Model viewmodel) {
-        DoctorProfile doctor = new DoctorProfile();
-        viewmodel.addAttribute("doctor", doctor);
-        return "/doctors/doctor_registration";
+
+
+    @GetMapping(path = "/mypractice")
+    public String showHealth(Model model){
+        User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        if (docDao.findByDoctorId(loggedInUser.getId()) != null){
+            DoctorProfile doctor = docDao.findByDoctorId(loggedInUser.getId());
+            model.addAttribute("doctor", doctor);
+        } else {
+            DoctorProfile doctor = new DoctorProfile();
+            model.addAttribute("doctor", doctor);
+        }
+
+        return "/doctors/my_practice";
+
+    }
+
+    @PostMapping(path = "/mypractice")
+    public String quest(DoctorProfile doctor){
+        User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        if(docDao.findByDoctorId(loggedInUser.getId()) != null){
+            docDao.delete(docDao.findByDoctorId(loggedInUser.getId()));
+        }
+        doctor.setDoctorId(loggedInUser.getId());
+        docDao.save(doctor);
+        return "redirect:/dashboard";
     }
 
     //Need to implement Auth and Validation before this can be used
 
-//    @PostMapping("/doctors/create")
-//    public String createDoctor(@Valid DoctorProfile doctor, Errors validation, Model model) {
+//    @PostMapping("/myPractice")
+//    public String createDoctor(DoctorProfile doctor, Model model) {
 //
-//        if (validation.hasErrors()) {
-//            model.addAttribute("errors", validation);
-//            model.addAttribute("doctor", doctor);
-//            return "/doctors/create";
-//        } else {
+//
 //            User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-//            post.setUser(loggedInUser);
+//            DoctorProfile.setUser(loggedInUser);
 //            docDao.save(doctor);
-//            return "redirect:/doctors/my_practice";
-//        }
+//            return "redirect:/dashboard";
+//
 //    }
 
     //would need to go to the dashboard
