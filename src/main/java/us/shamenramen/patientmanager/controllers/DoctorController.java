@@ -38,9 +38,12 @@ public class DoctorController {
             user.setEducation(updatedUser.getEducation());
             user.setExperience(updatedUser.getExperience());
             user.setPracticingField(updatedUser.getPracticingField());
+            if (updatedUser.getImage() == null){
+                user.setImage(updatedUser.getImage());
+            } else {
+                user.setImage("https://pbs.twimg.com/profile_images/3543879283/1509e34005183da5ea4eb29150f341e5_400x400.jpeg");
+            }
             userDao.save(user);
-            System.out.println(user.getExperience());
-            System.out.println(user.getId());
         }
         return "redirect:/dashboard";
     }

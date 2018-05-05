@@ -12,12 +12,10 @@
 <body>
 <h1 class="col-sm-12 text-center">Doctor Dashboard</h1>
 <div class="col-sm-12 text-center">
-    <img collect_rid="1:284976504" src="https://orig00.deviantart.net/18e8/f/2012/044/8/f/dr_steve_brule_by_brucewhite-d4po1a0.jpg" data-embed-type="deviation" data-embed-format="thumb" data-embed-id="284976504" width="504" height="648" alt="Dr Steve Brule by BruceWhite" class="dev-content-normal " style="width: 304px; height: 348px; top: 0px;"/>
+    <img collect_rid="1:284976504" th:src="${user.image}" data-embed-type="deviation" data-embed-format="thumb" data-embed-id="284976504" width="504" height="648" th:alt="${user.firstName} + ' ' + ${user.lastName}" class="dev-content-normal " style="width: 304px; height: 348px; top: 0px;"/>
     <div class="caption">
-        <h3>Dr. Steve Brule</h3>
-        <p>His severe naivete and social awkwardness generally land him in embarrassing situations,
-            though he largely remains ignorant of any embarrassment he's causing himself.
-            As the series progresses, he reveals shocking and sometimes horrifying details about his past and personal life.</p>
+        <h3 th:text="${user.firstName} + ' ' + ${user.lastName}"></h3>
+        <p th:text="${user.biography}"></p>
     </div>
 </div>
 <h3 class="col-sm-12 text-center">Your Appointments</h3>
