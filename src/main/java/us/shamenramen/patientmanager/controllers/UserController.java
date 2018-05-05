@@ -59,6 +59,7 @@ public class UserController {
         User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         if (userDao.findById(loggedInUser.getId()) != null){
             User user = userDao.findById(loggedInUser.getId());
+            System.out.println("doc - id = " + id);
             user.setMyDocId(id);
             userDao.save(user);
         }
