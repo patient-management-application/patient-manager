@@ -1,5 +1,6 @@
 package us.shamenramen.patientmanager.repositories;
 
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 import us.shamenramen.patientmanager.models.User;
@@ -15,6 +16,7 @@ public interface UserRepository extends CrudRepository<User, Long> {
 
     List<User> findByIsDoctor(boolean isDoctor);
 
+    @Query(value = "SELECT * FROM users AS doc INNER JOIN users AS pat ON doc.id = pat.my_doc_id WHERE pat.my_doc_id = ?", nativeQuery = true)
     User findByMyDocId(long id);
 //    Iterable<Long> findById();
 

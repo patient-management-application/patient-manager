@@ -33,8 +33,9 @@ public class AuthController {
             model.addAttribute("user", userDao.findById(user.getId()));
             return "/doctors/doctor_dashboard";
         } else {
-            System.out.println(user.getFirstName());
+
             if (user.getMyDocId() != 0){
+                System.out.println(userDao.findByMyDocId(user.getMyDocId()).getFirstName());
                 model.addAttribute("doctor", userDao.findByMyDocId(user.getMyDocId()));
             }
             model.addAttribute("user", userDao.findById(user.getId()));
