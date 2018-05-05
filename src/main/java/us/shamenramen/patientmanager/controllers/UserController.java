@@ -1,12 +1,10 @@
 package us.shamenramen.patientmanager.controllers;
 
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import us.shamenramen.patientmanager.models.User;
 import us.shamenramen.patientmanager.repositories.QuestionnaireRepository;
 import us.shamenramen.patientmanager.repositories.UserRepository;
@@ -47,6 +45,23 @@ public class UserController {
         user.setPassword(hash);
         userDao.save(user);
         return "redirect:/";
+    }
+
+    @GetMapping(path = "/search")
+    public String searchDoctors(Model model){
+        model.addAttribute("doctors", userDao.findByIsDoctor(true));
+        return "patients/search_doctors";
+    }
+
+    @PostMapping(path = "/setdoctor")
+    public String setDoctor(@RequestParam("id") long id){
+        User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        if (userDao.findById(loggedInUser.getId()) != null){
+            User user = userDao.findById(loggedInUser.getId());
+            user.setMyDocId(id);
+            userDao.save(user);
+        }
+        return "redirect:/dashboard";
     }
 
 

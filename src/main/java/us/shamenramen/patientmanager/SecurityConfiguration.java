@@ -57,7 +57,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                         "/dashboard",
                         "/mypractice",
                         "/mysession",
-                        "/myreview"// only authenticated
+                        "/myreview",
+                        "/setdoctor"// only authenticated
                 )
                 .authenticated()
         ;
