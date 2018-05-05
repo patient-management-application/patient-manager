@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">>
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 
 <head>
     <meta charset="UTF-8"/>
@@ -8,30 +8,25 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous"/>
 </head>
 <body>
-
-<div sec:authorize="isAuthenticated()">
-    This content is only shown to authenticated users.
-
-    User ID: <span th:text="${#authentication.principal.id}"/>
-    Email: <span th:text="${#authentication.principal.email}"/>
-</div>
-
 <a href="/myhealth">My Health</a>
 <a href="/search">Search</a>
 <a href="/myreview">Reviews</a>
 
 <h1 class="col-sm-12 text-center">Patient Dashboard</h1>
-<h4 class="col-sm-12 text-center">My Doctor</h4>
-<div class="col-sm-12 text-center">
-    <img collect_rid="1:284976504" src="https://orig00.deviantart.net/18e8/f/2012/044/8/f/dr_steve_brule_by_brucewhite-d4po1a0.jpg" data-embed-type="deviation" data-embed-format="thumb" data-embed-id="284976504" width="504" height="648" alt="Dr Steve Brule by BruceWhite" class="dev-content-normal " style="width: 304px; height: 348px; top: 0px;"/>
-    <div class="caption">
-        <h3>Dr. Steve Brule</h3>
-        <i>1580 Wald Rd., New Braunfels, (512) 878-9214, <a href="https://twitter.com/_steve_brule?lang=en">Steve Brule</a></i>
-        <p>His severe naivete and social awkwardness generally land him in embarrassing situations,
-            though he largely remains ignorant of any embarrassment he's causing himself.
-            As the series progresses, he reveals shocking and sometimes horrifying details about his past and personal life.</p>
-    </div>
-</div>
+
+    <!--<th:block th:if="${doctor}">-->
+        <!--<h4 class="col-sm-12 text-center">My Doctor</h4>-->
+        <!--<div class="col-sm-12 text-center">-->
+            <!--<img collect_rid="1:284976504" th:src="${doctor.image}" data-embed-type="deviation" data-embed-format="thumb" data-embed-id="284976504" width="504" height="648" th:alt="${doctor.firstName} + ' ' + ${doctor.lastName}" class="dev-content-normal " style="width: 304px; height: 348px; top: 0px;"/>-->
+            <!--<div class="caption">-->
+                <!--<h3 th:text="${doctor.firstName} + ' ' + ${doctor.lastName}"></h3>-->
+                <!--<i><span th:text="${doctor.street} + ' ' + ${doctor.city} + ' ' + ${doctor.state} + ' ' +  ${doctor.state}"></span></i>-->
+                <!--<p th:text="${doctor.biography}"></p>-->
+            <!--</div>-->
+        <!--</div>-->
+
+    <!--</th:block>-->
+
 <h3 class="col-sm-12 text-center">Your Appointments</h3>
 <p class="col-sm-12 text-center">10/10/2018 at 3:00 PM</p>
 <div class="row">

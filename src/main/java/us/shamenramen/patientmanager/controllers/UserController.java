@@ -39,6 +39,7 @@ public class UserController {
     @PostMapping(path = "/register")
     public String createPatient(@ModelAttribute User user, @RequestParam(defaultValue = "false") boolean isDoctor){
         if (isDoctor){
+            user.setImage("https://pbs.twimg.com/profile_images/3543879283/1509e34005183da5ea4eb29150f341e5_400x400.jpeg");
             user.setDoctor(true);
         }
         String hash = passwordEncoder.encode(user.getPassword());

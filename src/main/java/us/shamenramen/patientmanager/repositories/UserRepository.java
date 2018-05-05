@@ -14,6 +14,8 @@ public interface UserRepository extends CrudRepository<User, Long> {
     User findById(long id);
 
     List<User> findByIsDoctor(boolean isDoctor);
+
+    User findByMyDocId(long id);
 //    Iterable<Long> findById();
 
 }
