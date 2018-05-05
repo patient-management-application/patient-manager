@@ -15,50 +15,74 @@ public class User {
     @Column(name = "username")
     private String username;
 
-    @Column(name = "first_name", nullable = false)
+    @Column(name = "first_name")
     private String firstName;
 
-    @Column(name = "last_name", nullable = false)
+    @Column(name = "last_name")
     private String lastName;
 
-    @Column(name = "is_Doctor", nullable = false)
+    @Column(name = "is_Doctor")
     private boolean isDoctor;
 
     @Column(name = "my_doc_id")
     private long myDocId;
 
-    @Column(name = "phone_number", nullable = false)
+    @Column(name = "phone_number")
     private int phoneNumber;
 
-    @Column(name = "email", nullable = false, unique = true)
+    @Column(name = "email", unique = true)
     private String email;
 
-    @Column(name = "password", nullable = false)
+    @Column(name = "password")
     private String password;
 
-    @Column(name = "gender", nullable = false)
+    @Column(name = "gender")
     private char gender;
 
-    @Column(name = "dob", nullable = false)
+    @Column(name = "dob")
     private String dob;
 
-    @Column(name = "street", nullable = false)
+    @Column(name = "street")
     private String street;
 
-    @Column(name = "city", nullable = false)
+    @Column(name = "city")
     private String city;
     
-    @Column(name = "state", nullable = false)
+    @Column(name = "state")
     private String state;
 
-    @Column(name = "zipcode", nullable = false)
+    @Column(name = "zipcode")
     private int zipcode;
 
+    @Column(name = "accolades")
+    private String accolades;
+
+    @Column(name = "biography")
+    private String biography;
+
+    @Column(name = "license_id")
+    private long licenseId;
+
+    @Column(name = "education")
+    private String education;
+
+    @Column(name = "practicing_field")
+    private String practicingField;
+
+    @Column(name = "experience")
+    private String experience;
+
+    @Column(name = "image", columnDefinition = "TEXT")
+    private String image;
 
 
-//    will be applied once validation and authorization are layed out
+    public User() {
+    }
+
+
     public User(User copy) {
         this.id = copy.id;
+        this.username = copy.username;
         this.firstName = copy.firstName;
         this.lastName = copy.lastName;
         this.isDoctor = copy.isDoctor;
@@ -72,12 +96,17 @@ public class User {
         this.city = copy.city;
         this.state = copy.state;
         this.zipcode = copy.zipcode;
-        this.username = username;
+        this.accolades = copy.accolades;
+        this.biography = copy.biography;
+        this.licenseId = copy.licenseId;
+        this.practicingField = copy.practicingField;
+        this.experience = copy.experience;
+        this.image = copy.image;
+        this.education = copy.education;
     }
 
-    public User() {
-    }
-    public User(long id, String username, String firstName, String lastName, boolean isDoctor, long myDocId, int phoneNumber, String email, String password, char gender, String dob, String street, String city, String state, int zipcode) {
+
+    public User(long id, String username, String firstName, String lastName, boolean isDoctor, long myDocId, int phoneNumber, String email, String password, char gender, String dob, String street, String city, String state, int zipcode, String accolades, String biography, long licenseId, String practicingField, String experience, String image, String education) {
         this.id = id;
         this.username = username;
         this.firstName = firstName;
@@ -93,10 +122,18 @@ public class User {
         this.city = city;
         this.state = state;
         this.zipcode = zipcode;
+        this.accolades = accolades;
+        this.biography = biography;
+        this.licenseId = licenseId;
+        this.practicingField = practicingField;
+        this.experience = experience;
+        this.image = image;
+        this.education = education;
     }
 
 
-    public User(String username, String firstName, String lastName, boolean isDoctor, long myDocId, int phoneNumber, String email, String password, char gender, String dob, String street, String city, String state, int zipcode) {
+
+    public User(String username, String firstName, String lastName, boolean isDoctor, long myDocId, int phoneNumber, String email, String password, char gender, String dob, String street, String city, String state, int zipcode, String accolades, String biography, long licenseId, String practicingField, String experience, String image, String education) {
         this.username = username;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -111,6 +148,69 @@ public class User {
         this.city = city;
         this.state = state;
         this.zipcode = zipcode;
+        this.accolades = accolades;
+        this.biography = biography;
+        this.licenseId = licenseId;
+        this.practicingField = practicingField;
+        this.experience = experience;
+        this.image = image;
+        this.education = education;
+    }
+
+    public String getEducation() {
+        return education;
+    }
+
+    public void setEducation(String education) {
+        this.education = education;
+    }
+
+    public String getAccolades() {
+        return accolades;
+    }
+
+    public void setAccolades(String accolades) {
+        this.accolades = accolades;
+    }
+
+    public String getBiography() {
+        return biography;
+    }
+
+    public void setBiography(String biography) {
+        this.biography = biography;
+    }
+
+    public long getLicenseId() {
+        return licenseId;
+    }
+
+    public void setLicenseId(long licenseId) {
+        this.licenseId = licenseId;
+    }
+
+    public String getPracticingField() {
+        return practicingField;
+    }
+
+    public void setPracticingField(String practicingField) {
+        this.practicingField = practicingField;
+    }
+
+    public String getExperience() {
+        return experience;
+    }
+
+    public void setExperience(String experience) {
+        this.experience = experience;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public long getMyDocId() {

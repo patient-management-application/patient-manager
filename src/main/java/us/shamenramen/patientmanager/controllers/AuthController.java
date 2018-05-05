@@ -16,19 +16,26 @@ public class AuthController {
         this.userDao = userDao;
     }
 
-//    @GetMapping("/login")
-//    public String showLoginForm() { return "/users/index"; }
+    @GetMapping(path = "/login")
+    public String login(){
+//        Error handling goes here
+        return "/users/index";
+    }
 
     @GetMapping(path = "/dashboard")
-    public String showProfile(Model model){
+    public String showDashboard(Model model){
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         if (user == null){
-            return "/users/index";
-        } else if (user.getIsDoctor()) {
+            return "/login";
+        }
+        if (user.getIsDoctor()) {
             user.setDoctor(true);
             model.addAttribute("user", userDao.findById(user.getId()));
             return "/doctors/doctor_dashboard";
         } else {
+            if (user.getMyDocId() != 0){
+                model.addAttribute("doctor", userDao.findByMyDocId(user.getMyDocId()));
+            }
             model.addAttribute("user", userDao.findById(user.getId()));
             return "/patients/patient_dashboard";
         }

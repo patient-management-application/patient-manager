@@ -1,12 +1,10 @@
 package us.shamenramen.patientmanager.controllers;
 
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import us.shamenramen.patientmanager.models.User;
 import us.shamenramen.patientmanager.repositories.QuestionnaireRepository;
 import us.shamenramen.patientmanager.repositories.UserRepository;
@@ -41,12 +39,31 @@ public class UserController {
     @PostMapping(path = "/register")
     public String createPatient(@ModelAttribute User user, @RequestParam(defaultValue = "false") boolean isDoctor){
         if (isDoctor){
+            user.setImage("https://pbs.twimg.com/profile_images/3543879283/1509e34005183da5ea4eb29150f341e5_400x400.jpeg");
             user.setDoctor(true);
         }
         String hash = passwordEncoder.encode(user.getPassword());
         user.setPassword(hash);
         userDao.save(user);
         return "redirect:/";
+    }
+
+    @GetMapping(path = "/search")
+    public String searchDoctors(Model model){
+        model.addAttribute("doctors", userDao.findByIsDoctor(true));
+        return "patients/search_doctors";
+    }
+
+    @PostMapping(path = "/setdoctor")
+    public String setDoctor(@RequestParam("id") long id){
+        User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        if (userDao.findById(loggedInUser.getId()) != null){
+            User user = userDao.findById(loggedInUser.getId());
+            System.out.println("doc - id = " + id);
+            user.setMyDocId(id);
+            userDao.save(user);
+        }
+        return "redirect:/dashboard";
     }
 
 

@@ -1,8 +1,11 @@
 package us.shamenramen.patientmanager.repositories;
 
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 import us.shamenramen.patientmanager.models.User;
+
+import java.util.List;
 
 @Repository
 public interface UserRepository extends CrudRepository<User, Long> {
@@ -11,8 +14,10 @@ public interface UserRepository extends CrudRepository<User, Long> {
 //    User findByEmail(String email);
     User findById(long id);
 
+    List<User> findByIsDoctor(boolean isDoctor);
 
-
+    @Query(value = "SELECT * FROM users AS doc INNER JOIN users AS pat ON doc.id = pat.my_doc_id WHERE pat.my_doc_id = ?", nativeQuery = true)
+    User findByMyDocId(long id);
 //    Iterable<Long> findById();
 
 }
