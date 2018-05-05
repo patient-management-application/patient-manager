@@ -18,6 +18,9 @@ public interface UserRepository extends CrudRepository<User, Long> {
 
     @Query(value = "SELECT * FROM users AS doc INNER JOIN users AS pat ON doc.id = pat.my_doc_id WHERE pat.my_doc_id = ?", nativeQuery = true)
     User findByMyDocId(long id);
+
+    @Query(value = "SELECT * FROM users WHERE my_doc_id = ?", nativeQuery = true)
+    List<User> findPatientsByDoctorId(long id);
 //    Iterable<Long> findById();
 
 }
