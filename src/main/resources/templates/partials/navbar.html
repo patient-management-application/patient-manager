@@ -3,34 +3,31 @@
 <head>
     <meta charset="UTF-8" />
     <title>Navbar</title>
-    <link rel="stylesheet" href="/static/css/main.css"/>
-    <link rel="stylesheet" href="/static/css/bootstrap1.min.css" />
-    <link rel="stylesheet" href="/static/css/bootstrap2.min.css" />
-    <link rel="stylesheet" href="/static/css/bootstrap3.min.css" />
+    <link rel="stylesheet" href="css/main.css"/>
+    <link rel="stylesheet" href="css/bootstrap1.min.css" />
+    <link rel="stylesheet" href="css/bootstrap2.min.css" />
+    <link rel="stylesheet" href="css/bootstrap3.min.css" />
 </head>
-
-<nav th:fragment="navbar">
-    <section id="menu-0">
-    <nav class="navbar-inverse navbar-lg navbar-fixed-top">
-    <!--<div class="container">-->
-        <!--<div class="navbar-header"><a href="" class="navbar-brand brand">Shaman Ramen</a></div>-->
-        <!--<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">-->
-            <!--<span class="sr-only">Toggle navigation</span>-->
-            <!--<span class="icon-bar"></span>-->
-            <!--<span class="icon-bar"></span>-->
-            <!--<span class="icon-bar"></span>-->
-        <!--</button>-->
-        <!--<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">-->
-            <!--<ul class="nav navbar-nav navbar-right navbar-login"><li><a class="btn btn-primary" href=""><span></span>Log In</a></li></ul>-->
-            <!--<ul class="nav navbar-nav navbar-right"><li class="dropdown1"><a class="text-white" href="">Search Doctors</a><a class="text-white" href="#">Make Appointment</a></li></ul>-->
-        <!--</div>-->
-    <!--</div>-->
+    <nav th:fragment="navbar" class="navbar navbar-lg navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header"><a href="" class="navbar-brand brand">Shaman Ramen</a></div>
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right navbar-login"><li><a class="btn btn-primary" href=""><span></span>Log In</a></li></ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li style="margin-right: 10px;"><a class="text-white" href="">Search Doctors</a></li>
+                    <li style="margin-right: 10px;"><a class="text-white" href="#">Make Appointment</a></li>
+                </ul>
+            </div>
+        </div>
     </nav>
-    </section>
-</nav>
-
 <body>
 
-<footer th:replace="partials/footer :: footer"></footer>
+<!--<footer th:replace="partials/footer :: footer"></footer>-->
 </body>
 </html>
