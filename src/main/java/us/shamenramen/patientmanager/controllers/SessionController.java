@@ -4,6 +4,8 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import us.shamenramen.patientmanager.models.Session;
 import us.shamenramen.patientmanager.models.User;
 import us.shamenramen.patientmanager.repositories.SessionRepository;
@@ -24,15 +26,36 @@ public class SessionController {
     public String showSession(Model model) {
         User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         if (sessDao.findByDoctorId(loggedInUser.getId()) != null){
-            Session session = sessDao.findByDoctorId(loggedInUser.getId());
-            model.addAttribute("session", session);
+            Session sess = sessDao.findByDoctorId(loggedInUser.getId());
+            model.addAttribute("sess", sess);
         } else {
-            Session session = new Session();
-            model.addAttribute("session", session);
+            Session sess = new Session();
+            model.addAttribute("sess", sess);
         }
 
         return "/doctors/my_session";
 
+    }
+
+    @PostMapping(path = "/mysession")
+    public String updateSession(@ModelAttribute("session") Session updatedSession){
+        User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        if (sessDao.findByDoctorId(loggedInUser.getId()) != null){
+            Session sess = sessDao.findByDoctorId(loggedInUser.getId());
+            sess.setNotes(updatedSession.getNotes());
+            sess.setPrescriptions(updatedSession.getPrescriptions());
+            sess.setProcedures(updatedSession.getProcedures());
+            sess.setTimeStart(updatedSession.getTimeEnd());
+            sess.setTimeEnd(updatedSession.getTimeEnd());
+            sess.setPatientId(updatedSession.getPatientId());
+//            if (updatedSession.getImage() == null){
+//                user.setImage(updatedSession.getImage());
+//            } else {
+//                user.setImage("https://pbs.twimg.com/profile_images/3543879283/1509e34005183da5ea4eb29150f341e5_400x400.jpeg");
+//            }
+            sessDao.save(sess);
+        }
+        return "redirect:/dashboard";
     }
 
 //    @GetMapping("/sessions/{id}")

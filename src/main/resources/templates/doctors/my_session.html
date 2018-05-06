@@ -7,7 +7,7 @@
 </head>
 <body>
 <div class="container">
-    <form class="well form-horizontal" method="POST" id="contact_form"  th:action="@{/mysession}" th:object="${session}">
+    <form class="well form-horizontal" method="POST" id="contact_form"  th:action="@{/mysession}" th:object="${sess}">
         <fieldset>
             <h2>My Session</h2>
             <div class="container">
@@ -28,13 +28,6 @@
 
                 <div class="form-group">
                     <textarea th:field="*{procedures}" class="form-control" rows="1" id="procedures" placeholder="Procedures performed during visit"></textarea>
-                </div>
-
-            </div>
-            <div class="container">
-
-                <div class="form-group">
-                    <textarea  th:field="*{experience}" class="form-control" rows="1" id="experience" placeholder="Experience"></textarea>
                 </div>
 
             </div>
