@@ -28,7 +28,7 @@ public class User {
     private long myDocId;
 
     @Column(name = "phone_number")
-    private int phoneNumber;
+    private String phoneNumber;
 
     @Column(name = "email", unique = true)
     private String email;
@@ -37,7 +37,7 @@ public class User {
     private String password;
 
     @Column(name = "gender")
-    private char gender;
+    private String gender;
 
     @Column(name = "dob")
     private String dob;
@@ -52,7 +52,7 @@ public class User {
     private String state;
 
     @Column(name = "zipcode")
-    private int zipcode;
+    private String zipcode;
 
     @Column(name = "accolades")
     private String accolades;
@@ -61,7 +61,7 @@ public class User {
     private String biography;
 
     @Column(name = "license_id")
-    private long licenseId;
+    private String licenseId;
 
     @Column(name = "education")
     private String education;
@@ -106,7 +106,7 @@ public class User {
     }
 
 
-    public User(long id, String username, String firstName, String lastName, boolean isDoctor, long myDocId, int phoneNumber, String email, String password, char gender, String dob, String street, String city, String state, int zipcode, String accolades, String biography, long licenseId, String practicingField, String experience, String image, String education) {
+    public User(long id, String username, String firstName, String lastName, boolean isDoctor, long myDocId, String phoneNumber, String email, String password, String gender, String dob, String street, String city, String state, String zipcode, String accolades, String biography, String licenseId, String practicingField, String experience, String image, String education) {
         this.id = id;
         this.username = username;
         this.firstName = firstName;
@@ -133,7 +133,7 @@ public class User {
 
 
 
-    public User(String username, String firstName, String lastName, boolean isDoctor, long myDocId, int phoneNumber, String email, String password, char gender, String dob, String street, String city, String state, int zipcode, String accolades, String biography, long licenseId, String practicingField, String experience, String image, String education) {
+    public User(String username, String firstName, String lastName, boolean isDoctor, long myDocId, String phoneNumber, String email, String password, String gender, String dob, String street, String city, String state, String zipcode, String accolades, String biography, String licenseId, String practicingField, String experience, String image, String education) {
         this.username = username;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -181,11 +181,11 @@ public class User {
         this.biography = biography;
     }
 
-    public long getLicenseId() {
+    public String getLicenseId() {
         return licenseId;
     }
 
-    public void setLicenseId(long licenseId) {
+    public void setLicenseId(String licenseId) {
         this.licenseId = licenseId;
     }
 
@@ -221,11 +221,11 @@ public class User {
         this.myDocId = myDocId;
     }
 
-    public int getZipcode() {
+    public String getZipcode() {
         return zipcode;
     }
 
-    public void setZipcode(int zipcode) {
+    public void setZipcode(String zipcode) {
         this.zipcode = zipcode;
     }
 
@@ -261,11 +261,11 @@ public class User {
         this.isDoctor = isDoctor;
     }
 
-    public int getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(int phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
@@ -285,11 +285,11 @@ public class User {
         this.password = password;
     }
 
-    public char getGender() {
+    public String getGender() {
         return gender;
     }
 
-    public void setGender(char gender) {
+    public void setGender(String gender) {
         this.gender = gender;
     }
 
@@ -325,11 +325,11 @@ public class User {
         this.state = state;
     }
 
-    public int getzipcode() {
+    public String getzipcode() {
         return zipcode;
     }
 
-    public void setzipcode(int zipcode) {
+    public void setzipcode(String zipcode) {
         this.zipcode = zipcode;
     }
 
