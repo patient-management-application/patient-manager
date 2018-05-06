@@ -299,7 +299,7 @@
 }
 
 .mbr-section {
-    padding: 0 20px;
+    padding: 0 50px;
 }
 .mbr-section--no-padding {
     padding: 0;
@@ -1156,7 +1156,7 @@ ul, ol, li {
 }
 
 .space80 {
-    margin-bottom: 80px;
+    margin-bottom: 5px;
 }
 
 .space90 {

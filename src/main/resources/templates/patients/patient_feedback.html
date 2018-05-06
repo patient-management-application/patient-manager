@@ -1,51 +1,33 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="partials/header :: header"></head>
 <head>
     <meta charset="UTF-8"/>
     <title>Review Form</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous"/>
 </head>
 <body>
-<div class="container">
-    <form class="well form-horizontal" th:action="@{/myreview}" method="POST"  id="contact_form" th:object="${review}">
-        <fieldset>
-            <h2>My Review</h2>
-            <div class="container">
-                <div class="form-group">
-                    <textarea class="form-control" rows="2" th:field="*{review}" placeholder="Review Summary"></textarea>
-                </div>
-            </div>
-            <div class="container">
-                <div class="form-group">
-                    <label for="rating">Select a Rating</label>
-                    <select class="form-control" id="rating" name="rating">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                    </select>
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="col-md-4 control-label"></label>
-                <div class="col-md-4">
-                    <button type="submit" class="btn btn-info" >SUBMIT <span class="glyphicon glyphicon-send"></span></button>
-                </div>
-            </div>
-        </fieldset>
-    </form>
-</div>
+<div th:replace="partials/navbar :: navbar"></div>
+<section class="mbr-section--bg-adapted mbr-section--relative" id="pricing-table1-75" style="background-color: rgb(63, 81, 181);">
+    <div class="pricing" id="pricing">
 
-<section class="mbr-section--bg-adapted mbr-section--relative" id="form1-77" style="background-color: rgb(41, 217, 194);">
+        <div class="container">
+            <div class="section-head-lite text-center col-md-8 col-md-offset-2 space80">
+                <h1>SHAMARAMA!</h1>
+                <h1>Tell us how your visit went</h1>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="mbr-section--bg-adapted" id="header4-3" style="background-image: url(img/clinic.jpg);">
     <div class="contact-form">
-
         <div class="container">
             <div class="row">
                 <div class="col-md-10 col-md-offset-1" data-form-type="formoid">
-                    <form class="positioned" id="contactForm" action="" method="post" data-form-title="CONTACT FORM">
-                        <input type="hidden" value="6dIoLePMnmZeu0v2tv5hbxing4kJY6J3Ak3x5qKaLH8/ztkSPZfy3W10n+AT58nzLWQt84HmWSUTfVNra1RaOhUoEnkLAolEKGAwmf2Gv/NiwCIUBcMkoQzsmduXUVgB" data-form-email="true"/>
-
+                    <form id="contact_form" class="positioned" th:action="@{/myreview}" method="POST" th:object="${review}" data-form-title="CONTACT FORM">
                         <div class="row">
                             <div class="col-md-6 col-sm-6">
                                 <div class="form-group">
@@ -58,17 +40,35 @@
                                 </div>
                             </div>
                         </div>
-
                         <div class="form-group">
                             <input type="tel" class="form-control" name="subject" placeholder="Subject" data-form-field="subject"/>
                         </div>
-                        <textarea class="form-control" name="message" rows="7" placeholder="Message here" data-form-field="Message"></textarea>
-                        <div class="submitBtn"><button type="submit" class="btn btn-default btn-ico">Send Message<i class="fa fa-paper-plane-o"></i></button></div>
+                        <textarea class="form-control" name="message" rows="7" th:field="*{review}" placeholder="Review Summary"  data-form-field="Message"></textarea>
+                        <div class="submitBtn"><button type="submit" class="btn btn-default btn-ico">Send Review<i class="fa fa-paper-plane-o"></i></button></div>
+                        <div class="container">
+                            <div class="form-group">
+                                <label for="rating">Select a Rating</label>
+                                <select class="form-control" id="rating" name="rating">
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                </select>
+                                <div class="form-group">
+                                    <label class="col-md-6 col-sm-6 control-label"></label>
+                                    <div class="col-md-6 col-sm-6">
+                                        <div class="col-md-6 col-sm-6"><button type="submit" class="btn btn-default btn-ico">Submit Rating<i class="fa fa-paper-plane-o"></i></button></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </form>
                 </div>
             </div>
         </div>
-    </div>
+        </div>
 </section>
 </body>
 </html>
+
