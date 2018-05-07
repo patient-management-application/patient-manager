@@ -25,15 +25,13 @@
 
 
 
-
-
-
+<h1 th:text="${patient.firstName}"></h1>
 <section class="mbr-section--bg-adapted" id="header4-3" style="background-image: url(img/clinic.jpg);">
     <div class="contact-form">
         <div class="container">
             <div class="row">
                 <div class="col-md-10 col-md-offset-1" data-form-type="formoid">
-                    <form id="contact_form" class="positioned" th:action="@{/mysession}" method="POST" th:object="${sess}" data-form-title="CONTACT FORM">
+                    <form id="contact_form" class="positioned" th:action="@{/newsession/{id}(id = ${patient.id})}" method="POST" th:object="${sess}" data-form-title="CONTACT FORM">
                         <div class="row">
                     <textarea id="notes" name="notes" th:field="*{notes}" class="form-control" rows="2" placeholder="Notes on Patient" data-form-field="notesOnPatient"></textarea>
                     <textarea id="prescriptions" name="prescriptions" th:field="*{prescriptions}" class="form-control" rows="1" placeholder="Prescribed Medications to Patient" data-form-field="prescriptions"></textarea>

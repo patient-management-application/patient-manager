@@ -28,6 +28,7 @@
             <h3 th:text="${patient.firstName} + ' ' + ${patient.lastName}"></h3>
             <i><span th:text="${patient.street} + ' ' + ${patient.city} + ' ' + ${patient.state} + ' ' +  ${patient.zipcode}"></span></i>
             <!--<p th:text="${user.}"></p>-->
+            <a th:href="@{/newsession/{id}(id = ${patient.id})}">Start new session</a>
         </div>
     </div>
 

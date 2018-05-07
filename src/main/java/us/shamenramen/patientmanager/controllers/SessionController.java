@@ -5,11 +5,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import us.shamenramen.patientmanager.models.Session;
 import us.shamenramen.patientmanager.models.User;
 import us.shamenramen.patientmanager.repositories.SessionRepository;
 import us.shamenramen.patientmanager.repositories.UserRepository;
+
+import java.util.List;
 
 @Controller
 public class SessionController {
@@ -22,19 +25,48 @@ public class SessionController {
     }
 
 
-    @GetMapping(path = "/mysession")
-    public String showSession(Model model) {
+    @GetMapping(path = "/newsession/{id}")
+    public String showSession(Model model, @PathVariable long id) {
         User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        if (sessDao.findByDoctorId(loggedInUser.getId()) != null){
-            Session sess = sessDao.findByDoctorId(loggedInUser.getId());
-            model.addAttribute("sess", sess);
-        } else {
+        boolean validSess = false;
+        List<User> patients = userDao.findPatientsByDoctorId(loggedInUser.getId());
+        for (User p : patients){
+            if (p.getId() == id){
+                validSess = true;
+            } else {
+                return "/doctors/dashboard";
+            }
+        }
+        if (validSess){
             Session sess = new Session();
+            User patient = userDao.findById(id);
             model.addAttribute("sess", sess);
+            model.addAttribute("patient", patient);
         }
 
-        return "/doctors/my_session";
 
+
+
+        return "/doctors/new_session";
+
+    }
+
+
+    @PostMapping(path = "/newsession/{id}")
+    public String newSession(@PathVariable long id, @ModelAttribute("sess") Session ns){
+        User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User patient = userDao.findById(id);
+        Session newSession = new Session();
+        newSession.setPatientId(patient.getId());
+        newSession.setDoctorId(loggedInUser.getId());
+        newSession.setTimeStart(ns.getTimeStart());
+        newSession.setTimeEnd(ns.getTimeEnd());
+        newSession.setNotes(ns.getNotes());
+        newSession.setProcedures(ns.getProcedures());
+        newSession.setPrescriptions(ns.getPrescriptions());
+
+        sessDao.save(newSession);
+        return "redirect:/dashboard";
     }
 
     @PostMapping(path = "/mysession")
