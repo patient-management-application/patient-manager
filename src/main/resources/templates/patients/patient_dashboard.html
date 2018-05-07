@@ -9,10 +9,14 @@
 <a href="/myhealth">My Health</a>
 <a href="/search">Search</a>
 <a href="/myreview">Reviews</a>
+<h2>My Perscriptions</h2>
+<ul th:each="session : ${sessions}">
+    <li th:text="${session.prescriptions}"></li>
+</ul>
 
 <h1 class="col-sm-12 text-center">Patient Dashboard</h1>
 
-    <th:block th:if="${doctor}">
+    <th:block th:if="${doctor}" th:object="${doctor}">
         <h4 class="col-sm-12 text-center">My Doctor</h4>
         <div class="col-sm-12 text-center">
             <img collect_rid="1:284976504" th:src="${doctor.image}" data-embed-type="deviation" data-embed-format="thumb" data-embed-id="284976504" width="504" height="648" th:alt="${doctor.firstName} + ' ' + ${doctor.lastName}" class="dev-content-normal " style="width: 304px; height: 348px; top: 0px;"/>
