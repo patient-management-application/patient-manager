@@ -4,7 +4,9 @@
     <meta charset="UTF-8"/>
     <title>Patient Dashboard</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous"/>
+    <link rel="stylesheet" type="text/css" href="/css/fullcalendar.css"/>
     <link rel="stylesheet" href="css/appointments.css"/>
+
 </head>
 <body>
 
@@ -12,7 +14,7 @@
 <a href="/myhealth">My Health</a>
 <a href="/search">Search</a>
 <a href="/myreview">Reviews</a>
-<h2>My Perscriptions</h2>
+<h2>My Prescriptions</h2>
 <ul th:each="session : ${sessions}">
     <li th:text="${session.prescriptions}"></li>
 </ul>
@@ -41,14 +43,26 @@
     </div>
 </div>
 <H3 class="col-sm-12 text-center">Make an appointment</H3>
+
+<form th:action="@{/appointments/ajax}" th:method="POST">
+<input type="date" id="date-picker" name="date"/>
+<select name="time" id="time-picker">
+    <option value="9:00">9:00</option>
+    <option value="10:00">10:00</option>
+    <option value="11:00">11:00</option>
+    <option value="12:00">12:00</option>
+</select>
+<button id="done">Schedule</button>
+</form>
 <div id="calendar"></div>
 
 
-<script src="/js/jquery-2.2.4.min.js"></script>
-<footer th:replace="partials/footer :: footer"></footer>
+<script src='/js/jquery-2.2.4.min.js'></script>
 <script src="/js/moment.min.js"></script>
 <script src="/js/fullcalendar.min.js"></script>
 <script src="/js/appointments.js"></script>
+<footer th:replace="partials/footer :: footer"></footer>
+
 
 </body>
 </html>

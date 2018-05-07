@@ -1,4 +1,6 @@
+
 #calendar {
-    height: 500px;
-    width: 500px;
+    position: relative;
+    left: 25%;
+    width: 50%;
 }

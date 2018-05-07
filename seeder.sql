@@ -17,6 +17,14 @@ INSERT INTO questionnaires(allergies, extra, history, medications, patient_id) V
   ('Vampires and cookies', null, 'Alimony Checks', null, 3);
 
 
+INSERT into  appointments(date_created, doc_id, pat_id, scheduled_time, status_id) VALUES
+  ('2018/05/07', 4, 1, '12:00', 1),
+  ('2018/05/07', 4, 2, '13:00', 1),
+  ('2018/05/07', 4, 2, '14:00', 1),
+  ('2018/05/07', 4, 3, '15:00', 1),
+  ('2018/05/07', 4, 1, '16:00', 1);
+
+
 
 
 

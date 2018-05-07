@@ -1,7 +1,11 @@
 package us.shamenramen.patientmanager.models;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -34,6 +38,7 @@ public class User {
     private String email;
 
     @Column(name = "password")
+    @JsonIgnore
     private String password;
 
     @Column(name = "gender")
@@ -74,6 +79,10 @@ public class User {
 
     @Column(name = "image", columnDefinition = "TEXT")
     private String image;
+
+    @OneToMany(mappedBy = "user")
+    @JsonBackReference
+    private List<Appointment> appointments;
 
 
     public User() {
