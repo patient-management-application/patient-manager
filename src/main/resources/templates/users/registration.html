@@ -14,7 +14,6 @@
 <section class="mbr-section--bg-adapted mbr-after-navbar" id="header1-1" style="background-image: url(img/hospitallobby4.jpg);">
     <div class="intro intro1">
         <div class="mbr-overlay" style="opacity: 0.75; background-color: rgb(120,188,255);"></div>
-
         <div class="container">
             <div class="row center-content">
                 <div class="col-sm-5 col-md-4">
@@ -46,21 +45,6 @@
                             <div class="form-group">
                                 <input id="gender" name="gender" type="text" class="form-control" required="" th:field="*{gender}" placeholder="Gender" data-form-field="gender"/>
                             </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row center-content">
-                <div class="col-sm-5 col-md-4">
-                    <div class="intro-form" data-form-type="formoid">
-                        <h4>JOIN TODAY</h4>
-                        <form th:action="@{/register}" method="POST" th:object="${user}">
-                            <div data-form-alert="true">
-                                <div class="hide" data-form-alert-success="true">Thanks for filling out form!</div>
-                            </div>
-                            <input type="hidden" value="" data-form-email="true"/>
                             <div class="form-group">
                                 <input id="phoneNumber" name="phoneNumber" type="text" class="form-control" required="" value="" th:field="*{phoneNumber}" placeholder="Phone Number" data-form-field="phoneNumber"/>
                             </div>
