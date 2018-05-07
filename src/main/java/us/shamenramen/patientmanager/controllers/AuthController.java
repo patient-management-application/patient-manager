@@ -31,6 +31,7 @@ public class AuthController {
         if (user.getIsDoctor()) {
             user.setDoctor(true);
             model.addAttribute("user", userDao.findById(user.getId()));
+            model.addAttribute("patients", userDao.findPatientsByDoctorId(user.getId()));
             return "/doctors/doctor_dashboard";
         } else {
             if (user.getMyDocId() != 0){
