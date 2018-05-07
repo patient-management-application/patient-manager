@@ -32,7 +32,8 @@ public class AppointmentController {
     }
 
     @PostMapping("/appointments/ajax")
-    public String postTest(){
+    public String postTest(@RequestParam(name = "doctorId") long doctorId){
+        System.out.println("DOCTOR ID IS!!!!! " + doctorId);
 
         return "redirect:/dashboard";
     }
