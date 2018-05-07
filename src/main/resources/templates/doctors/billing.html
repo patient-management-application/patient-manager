@@ -1,18 +1,13 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<<<<<<< HEAD
-<head>
-    <meta charset="UTF-8" />
-=======
 <head th:replace="partials/header :: header">
-    <meta charset="UTF-8"/>
->>>>>>> dbad4d9942a34f2b2d4ba41f2fcacfe416cc606b
+    <meta charset="UTF-8" />
     <title>Billing</title>
 </head>
 <body>
-<div th:replace="partials/navbar :: navbar"></div>
-<section class="mbr-section--bg-adapted mbr-section--relative" id="pricing-table1-75" style="background-color: #478050;">
-    <div class="pricing" id="pricing">
+<div th:replace="partials/navbar :: doctor-navbar"></div>
+<section class="mbr-section--bg-adapted mbr-section--relative" id="pricing-table1-76" style="background-color: #478050;">
+    <div class="pricing" id="">
         <div class="container">
             <div class="section-head-lite text-center col-md-8 col-md-offset-2 space80">
                 <h1>BILLING</h1>
@@ -25,12 +20,12 @@
     </div>
 </section>
 
-<section class="mbr-section--bg-adapted" id="header4-3" style="background-image: url(img/doctools.jpeg);">
+<section class="mbr-section--bg-adapted"  id="header4-4" style="background-image: url(img/hallway6.jpeg);">
     <div class="contact-form">
         <div class="container">
             <div class="row">
                 <div class="col-md-10 col-md-offset-1" data-form-type="formoid">
-                    <form id="contact_form" class="positioned" method="POST" th:action="@{/mypractice}" th:object="${user}" data-form-title="CONTACT FORM">
+                    <form id="contact_form" class="positioned" method="POST" th:action="@{/mybilling}" th:object="${user}" data-form-title="CONTACT FORM">
                         <div class="row">
                             <label class="col-md-4 control-label"></label>
                                 <div class="col-md-4">
@@ -59,5 +54,6 @@
         </div>
     </div>
 </section>
+<footer th:replace="partials/footer :: footer"></footer>
 </body>
 </html>

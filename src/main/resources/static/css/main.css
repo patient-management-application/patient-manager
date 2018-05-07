@@ -86,10 +86,10 @@
 .mbr-navbar--short .mbr-navbar__container {
     padding: 12px 0;
 }
-@media (max-width: 767px) {
+@media (max-width: 2000px) {
     .mbr-navbar--short .mbr-navbar__brand-link:after,
     .mbr-navbar--short .mbr-navbar__brand-img {
-        height: 31px;
+        height: 331px;
     }
     .mbr-navbar--short:before,
     .mbr-navbar--short .mbr-navbar__container {
@@ -138,7 +138,7 @@
 
 
 .mbr-section {
-    padding: 0 20px;
+    padding: 0 0;
 }
 .mbr-section--no-padding {
     padding: 0;
@@ -207,7 +207,7 @@
 }
 @media (min-width: 768px) {
     .mbr-section--short-paddings .mbr-section__container--std-padding {
-        padding: 59px 0;
+        padding: 0 0;
     }
     .mbr-section--short-paddings .mbr-section__container--std-top-padding {
         padding-top: 59px;
@@ -285,7 +285,7 @@
 .mbr-box__container {
     height: 50%;
 }
-@media (max-width: 767px) {
+@media (max-width: 2000px) {
     .mbr-box__container {
         height: 100%;
     }
@@ -321,6 +321,7 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+
 }
 .mbr-section--gray {
     background-color: #444444;
@@ -7381,7 +7382,7 @@ input:focus, textarea:focus {
 
 }
 
-@media only screen and (min-width: 993px)  and (max-width: 4000px)  {
+@media only screen and (min-width: 50px)  and (max-width: 4000px)  {
 
     .center-content {
         display: flex;
@@ -7394,5 +7395,6 @@ input:focus, textarea:focus {
     }
 
 }
+
 
 

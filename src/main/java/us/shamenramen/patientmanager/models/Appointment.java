@@ -1,4 +1,5 @@
 package us.shamenramen.patientmanager.models;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import org.hibernate.validator.constraints.NotBlank;
 
 import javax.persistence.*;
@@ -12,6 +13,12 @@ public class Appointment {
     @GeneratedValue
     private long id;
 
+    @ManyToOne
+    @JsonManagedReference
+    private User owner;
+
+    @OneToOne
+    private User user;
 
     @Column(name = "pat_id", nullable = false)
     private long patientId;
@@ -19,14 +26,14 @@ public class Appointment {
     @Column(name = "doc_id", nullable = false)
     private long doctorId;
 
-    @Column(name = "scheduled_time", nullable = false, columnDefinition = "datetime")
+    @Column(name = "scheduled_time", nullable = false)
     @NotBlank(message="scheduled time cannot be blank.")
     private String scheduledTime;
 
     @Column(name = "status_id")
     private int statusId;
 
-    @Column(name = "date_created", columnDefinition = "datetime")
+    @Column(name = "date_created")
     private String dateCreated;
 
     public Appointment() {
@@ -47,6 +54,22 @@ public class Appointment {
         this.scheduledTime = scheduledTime;
         this.statusId = status_id;
         this.dateCreated = dateCreated;
+    }
+
+    public User getOwner() {
+        return owner;
+    }
+
+    public void setOwner(User owner) {
+        this.owner = owner;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public long getId() {

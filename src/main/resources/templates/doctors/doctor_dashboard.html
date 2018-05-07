@@ -1,22 +1,15 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
-<head>
 
-    <a th:href="@{/mypractice}">MY PRACTICE</a>
-    <a th:href="@{/mybilling}">My Billing </a>
-
-
-
+<head th:replace="partials/header :: header">
     <meta charset="UTF-8" />
     <title>Doctor Dashboard</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous"/>
 </head>
 <body>
-<nav th:replace="partials/navbar :: patient-navbar"></nav>
-<a th:href="@{/mypractice}">MY PRACTICE</a>
-<a th:href="@{/mybilling}">My Billing </a>
-<a th:href="@{/mysession}">MAKE NEW SESSION</a>
+<nav th:replace="partials/navbar :: doctor-navbar"></nav>
+
+
 <h1 class="col-sm-12 text-center">Doctor Dashboard</h1>
 <div class="col-sm-12 text-center">
     <img collect_rid="1:284976504" th:src="${user.image}" data-embed-type="deviation" data-embed-format="thumb" data-embed-id="284976504" width="504" height="648" th:alt="${user.firstName} + ' ' + ${user.lastName}" class="dev-content-normal " style="width: 304px; height: 348px; top: 0px;"/>
