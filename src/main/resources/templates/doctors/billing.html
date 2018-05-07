@@ -1,34 +1,58 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
+<head th:replace="partials/header :: header">
+    <meta charset="UTF-8"/>
     <title>Billing</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous"/>
 </head>
 <body>
-<h1>Billing</h1>
-<div class="form-group">
-    <label class="col-md-4 control-label"></label>
-    <div class="col-md-4">
-        <br/>
-        <button type="submit" class="btn btn-info" >Charge <span class="glyphicon glyphicon-send"></span></button>
-    </div>
-</div>
-<div class="form-group">
-    <label class="col-md-4 control-label"></label>
-    <div class="col-md-4 inputGroupContainer">
-        <div class="input-group">
-            <input name="charge_name" placeholder="Name" class="form-control"  type="text"/>
+<div th:replace="partials/navbar :: navbar"></div>
+<section class="mbr-section--bg-adapted mbr-section--relative" id="pricing-table1-75" style="background-color: #478050;">
+    <div class="pricing" id="pricing">
+        <div class="container">
+            <div class="section-head-lite text-center col-md-8 col-md-offset-2 space80">
+                <h1>BILLING</h1>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                </div>
+            </div>
         </div>
     </div>
-</div>
-<div class="form-group">
-    <label class="col-md-4 control-label"></label>
-    <div class="col-md-4 inputGroupContainer">
-        <div class="input-group">
-            <input name="amount" placeholder="Amount" class="form-control"  type="text"/>
+</section>
+
+<section class="mbr-section--bg-adapted" id="header4-3" style="background-image: url(img/doctools.jpeg);">
+    <div class="contact-form">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1" data-form-type="formoid">
+                    <form id="contact_form" class="positioned" method="POST" th:action="@{/mypractice}" th:object="${user}" data-form-title="CONTACT FORM">
+                        <div class="row">
+                            <label class="col-md-4 control-label"></label>
+                                <div class="col-md-4">
+                                    <button type="submit" class="btn btn-info" >Charge <span class="glyphicon glyphicon-send"></span></button>
+                                </div>
+                                </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label"></label>
+                            <div class="col-md-4 inputGroupContainer">
+                            <div class="input-group">
+                                <input name="charge_name" placeholder="Name" class="form-control"  type="text"/>
+                            </div>
+                            </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label"></label>
+                            <div class="col-md-4 inputGroupContainer">
+                                <div class="input-group">
+                                    <input name="amount" placeholder="Amount" class="form-control"  type="text"/>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
-</div>
+</section>
 </body>
 </html>
