@@ -2,8 +2,8 @@
 
 $(document).ready(function() {
 
-    var myCalendar = $('#calendar');
-    myCalendar.fullCalendar({
+
+    $('#calendar').fullCalendar({
         defaultView: 'agendaWeek'
     });
 
