@@ -54,15 +54,14 @@ public class UserController {
         return "patients/search_doctors";
     }
 
-    @PostMapping(path = "/setdoctor")
-    public String setDoctor(@RequestParam("id") long id){
+    @PostMapping(path = "/setdoctor/{doctorId}")
+    public String setDoctor(@PathVariable long doctorId){
         User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        if (userDao.findById(loggedInUser.getId()) != null){
-            User user = userDao.findById(loggedInUser.getId());
-            System.out.println("doc - id = " + id);
-            user.setMyDocId(id);
-            userDao.save(user);
-        }
+        User user = userDao.findById(loggedInUser.getId());
+        user.setMyDocId(doctorId);
+        System.out.println("After setmydoc " + doctorId);
+        System.out.println(user.getMyDocId());
+        userDao.save(user);
         return "redirect:/dashboard";
     }
 
