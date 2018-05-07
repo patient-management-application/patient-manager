@@ -1,20 +1,13 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-
-<head>
+<head th:replace="partials/header :: header">
     <meta charset="UTF-8"/>
     <title>Patient Dashboard</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous"/>
-    <link rel="stylesheet" type="text/css" href="/css/fullcalendar.css"/>
-    <link rel="stylesheet" href="css/appointments.css"/>
 
 </head>
 <body>
+<div th:replace="partials/navbar :: patient-navbar"></div>
 
-<nav th:replace="partials/navbar :: patient-navbar"></nav>
-<a href="/myhealth">My Health</a>
-<a href="/search">Search</a>
-<a href="/myreview">Reviews</a>
 <h2>My Prescriptions</h2>
 <ul th:each="session : ${sessions}">
     <li th:text="${session.prescriptions}"></li>
@@ -59,10 +52,7 @@
 <div id="calendar"></div>
 
 
-<script src='/js/jquery-2.2.4.min.js'></script>
-<script src="/js/moment.min.js"></script>
-<script src="/js/fullcalendar.min.js"></script>
-<script src="/js/appointments.js"></script>
+
 <footer th:replace="partials/footer :: footer"></footer>
 
 
