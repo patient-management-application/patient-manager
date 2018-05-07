@@ -33,8 +33,6 @@ public class SessionController {
         for (User p : patients){
             if (p.getId() == id){
                 validSess = true;
-            } else {
-                return "/doctors/dashboard";
             }
         }
         if (validSess){
@@ -43,9 +41,6 @@ public class SessionController {
             model.addAttribute("sess", sess);
             model.addAttribute("patient", patient);
         }
-
-
-
 
         return "/doctors/new_session";
 

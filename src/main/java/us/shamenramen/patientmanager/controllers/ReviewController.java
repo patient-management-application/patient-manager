@@ -22,10 +22,8 @@ public class ReviewController {
         this.userDao = userDao;
     }
 
-    //FIX
-    //need to be able to pull sessions only for that specific user
     @GetMapping(path = "/myreview")
-    public String showSession(Model model) {
+    public String showReview(Model model) {
         User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         if (revDao.findByPatientId(loggedInUser.getId()) != null){
             Review review = revDao.findByPatientId(loggedInUser.getId());
@@ -37,6 +35,22 @@ public class ReviewController {
 
         return "/patients/patient_feedback";
 
+    }
+
+//    @PostMapping(path ="/myreview")
+//    public String newShowReview() {
+//        User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+//
+//    }
+
+    @PostMapping(path = "/myreview")
+    public String newReview(Review rev){
+        User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+
+        rev.setPat_id(loggedInUser.getId());
+        revDao.save(rev);
+        return "redirect:/dashboard";
     }
 
     @GetMapping("/reviews/{id}")
@@ -53,22 +67,6 @@ public class ReviewController {
         return "/reviews/create";
     }
 
-    //Need to implement Auth and Validation before this can be used
-
-//    @PostMapping("/reviews/create")
-//    public String createReview(@Valid Review review, Errors validation, Model model) {
-//
-//        if (validation.hasErrors()) {
-//            model.addAttribute("errors", validation);
-//            model.addAttribute("review", review);
-//            return "/reviews/create";
-//        } else {
-//            User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-//            post.setUser(loggedInUser);
-//            revDao.save(review);
-//            return "redirect:/reviews";
-//        }
-//    }
 
     @GetMapping("reviews/{id}/edit")
     public String edit(@PathVariable long id, Model viewModel) {
