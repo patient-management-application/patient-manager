@@ -19,8 +19,8 @@
         <div class="col-sm-4 col-sm-offset-2 post">
             <div class="doctor-card">
                 <h1 class="name" th:text="${doctor.firstName} + ' ' + ${doctor.lastName}"><span></span></h1>
-                <form th:action="@{/setdoctor}" th:method="POST">
-                    <input type="hidden" name="id" th:value="${doctor.id}" />
+                <form th:action="@{/setdoctor/{doctorId}(doctorId = ${doctor.id})}" th:method="POST">
+                    <!--<input type="hidden" name="doctorId" th:value="${doctor.id}" />-->
                     <button>Set as my Doctor</button>
                 </form>
                 <button class="view-btn">View</button>
