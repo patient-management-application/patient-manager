@@ -299,7 +299,7 @@
 }
 
 .mbr-section {
-    padding: 0 50px;
+    padding: 0 20px;
 }
 .mbr-section--no-padding {
     padding: 0;
@@ -1156,7 +1156,7 @@ ul, ol, li {
 }
 
 .space80 {
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 
 .space90 {
@@ -4631,7 +4631,7 @@ blockquote.pull-right {
 
 footer {
     /* background: #dbdbdb;*/
-    padding: 80px 0 60px;
+    padding: 0px 0 60px;
 }
 
 footer .list-inline li {
@@ -4661,13 +4661,13 @@ footer .list-inline li {
 
 .footer-social {
     padding-left: 25px;
-    margin-top: 10px;
+    margin-top: 20px;
 }
 
 .footer-social a {
     font-size: 19px;
     margin-left: 12px;
-    margin-top: 30px;
+    margin-top: 10px;
 }
 
 .footer-logo {
@@ -4685,9 +4685,9 @@ footer .list-inline li {
 
 .footer-copy {
     /* background: #111;*/
-    padding: 20px 0;
+    padding: 0px 0;
     text-align: center;
-    color: #fff;
+    color: #112a44;
     text-transform: uppercase;
     font-size: 13px;
     letter-spacing: 1px;
@@ -4718,6 +4718,67 @@ footer .list-inline li {
 .slick-dots li.slick-active button {
     opacity: 1;
 }
+
+
+
+fieldset, label { margin: 0; padding: 0; }
+body{ margin: 20px; }
+h1 { font-size: 1.5em; margin: 10px; }
+
+/****** Style Star Rating Widget *****/
+
+.rating {
+    border: none;
+    float: left;
+}
+
+.rating > input { display: none; }
+.rating > label:before {
+    margin: 5px;
+    font-size: 1.25em;
+    font-family: FontAwesome;
+    display: inline-block;
+    content: "\f005";
+}
+
+.rating > .half:before {
+    content: "\f089";
+    position: absolute;
+}
+
+.rating > label {
+    color: #ddd;
+    float: right;
+}
+
+/***** CSS Magic to Highlight Stars on Hover *****/
+
+.rating > input:checked ~ label, /* show gold star when clicked */
+.rating:not(:checked) > label:hover, /* hover current star */
+.rating:not(:checked) > label:hover ~ label { color: #FFD700;  } /* hover previous stars in list */
+
+.rating > input:checked + label:hover, /* hover current star when changing rating */
+.rating > input:checked ~ label:hover,
+.rating > label:hover ~ input:checked ~ label, /* lighten current selection */
+.rating > input:checked ~ label:hover ~ label { color: #FFED85;  }
+
+/*.rating {*/
+    /*unicode-bidi: bidi-override;*/
+    /*direction: rtl;*/
+
+/*}*/
+/*.rating > span {*/
+    /*display: inline-block;*/
+    /*position: relative;*/
+    /*width: 2.1em;*/
+
+/*}*/
+/*.rating > span:hover:before,*/
+/*.rating > span:hover ~ span:before {*/
+    /*content: "\2605";*/
+    /*position: absolute;*/
+    /**/
+/*}*/
 
 /* Intro DEMO */
 
@@ -6005,7 +6066,7 @@ input:focus, textarea:focus {
 
 .footer2 .google-map {
     border: 1px solid #555;
-    padding: 5px;
+    padding:  px;
     height: 290px;
 }
 
@@ -6046,7 +6107,7 @@ input:focus, textarea:focus {
 .footer2 h5 {
     color: #ddd;
     text-transform: uppercase;
-    margin: 0px 0px 15px;
+    margin: 0px 0px 0px;
     font-size: 16px;
     letter-spacing: 0px;
 }
@@ -6054,7 +6115,7 @@ input:focus, textarea:focus {
 .footer2 .footer-logo {
     line-height: 20px;
     color: #fff;
-    margin-bottom: 20px;
+    margin-bottom: 0px;
     display: block;
 }
 
@@ -6067,13 +6128,13 @@ input:focus, textarea:focus {
     font-size: 19px;
     margin-right: 10px;
     margin-left: 0px;
-    margin-top: 30px;
+    margin-top: 0px;
     color: #fff;
 }
 
 .footer2 .footer-social {
     padding-left: 0;
-    margin-top: -30px;
+    margin-top: 00px;
 }
 
 .subscribe-elt .intro-newsletter {
@@ -6436,7 +6497,7 @@ input:focus, textarea:focus {
 
 /* 25. RESPONSIVE STYLES */
 
-@media only screen and (min-width: 768px)  and (max-width: 1230px)  {
+@media only screen and (min-width: 100px)  and (max-width: 2000px)  {
 
     footer .list-inline li {
         width: 33.3333%;
@@ -6453,8 +6514,8 @@ input:focus, textarea:focus {
     }
 
     footer {
-        background: #dbdbdb;
-        padding: 25px 0 60px;
+        background: #456275;
+        padding: 100px 0px;
     }
 
 }
@@ -6631,7 +6692,7 @@ input:focus, textarea:focus {
     }
 
     .footer2 .col-md-4 {
-        margin-bottom: 50px;
+        margin-bottom: 00px;
     }
 
     .services-s5 .service-content p {
@@ -7295,8 +7356,8 @@ input:focus, textarea:focus {
     }
 
     .footer-logo {
-        line-height: 40px;
-        padding: 0 0 30px;
+        line-height: 0px;
+        padding: 0 0 00px;
         text-align: center;
     }
 
@@ -7306,8 +7367,8 @@ input:focus, textarea:focus {
         display: table;
     }
 
-    footer {
-        padding: 60px 0 60px;
+    .footer {
+        padding: 0px 0 0px;
     }
 
     .page_head h3 {
