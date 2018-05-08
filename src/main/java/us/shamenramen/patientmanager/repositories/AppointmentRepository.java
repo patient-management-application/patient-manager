@@ -10,6 +10,8 @@ import java.util.List;
 @Repository
 public interface AppointmentRepository extends CrudRepository<Appointment, Long> {
 
+    Appointment findById(long id);
+
     @Query(value = "SELECT * FROM appointments WHERE doc_id = ?", nativeQuery = true)
     List<Appointment> findAppointmentByDoctorId(long doctorId);
 }
