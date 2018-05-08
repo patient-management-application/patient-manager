@@ -6558,7 +6558,7 @@ input:focus, textarea:focus {
     }
 
     .navbar-lg .navbar-nav > li > a {
-        padding: 40px 5px 35px;
+        padding: 20px 5px 35px;
         font-size: 10px;
     }
 
@@ -7126,7 +7126,7 @@ input:focus, textarea:focus {
     }
 
     .icon-box {
-        padding: 100px 0 70px;
+        padding: 100px 0 50px;
     }
 
     .service-box {
@@ -7153,7 +7153,7 @@ input:focus, textarea:focus {
         border-radius: 5px;
         margin: 0 1px;
         width: 35px;
-        height: 35px;
+        height: 25px;
         text-align: center;
         line-height: 37px;
         padding: 0;
