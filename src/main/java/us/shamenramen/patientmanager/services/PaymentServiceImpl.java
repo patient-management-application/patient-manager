@@ -8,7 +8,6 @@ import com.stripe.model.Order;
 import org.springframework.stereotype.Service;
 import us.shamenramen.patientmanager.models.User;
 
-//import javax.smartcardio.CardException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -73,7 +72,7 @@ public class PaymentServiceImpl implements PaymentService {
             System.out.println(charge);
         } catch (CardException e) {
             // Transaction was declined
-//            System.out.println("Status is: " + e.getCode());
+            System.out.println("Status is: " + e.getCode());
             System.out.println("Message is: " + e.getMessage());
         } catch (RateLimitException e) {
             // Too many requests made to the API too quickly

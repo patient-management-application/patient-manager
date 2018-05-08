@@ -62,10 +62,16 @@
 			<version>2.1.2.RELEASE</version>
 		</dependency>
 
+		<!-- https://mvnrepository.com/artifact/com.stripe/stripe-java -->
 		<dependency>
 			<groupId>com.stripe</groupId>
 			<artifactId>stripe-java</artifactId>
-			<version>4.4.0</version>
+			<version>5.35.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
 		</dependency>
 	</dependencies>
 

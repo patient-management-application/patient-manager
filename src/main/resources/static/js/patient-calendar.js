@@ -2,12 +2,15 @@
 
 $(document).ready(function() {
 
+    var docId = $('#doctor-id').val();
+    var patId = $('#patient-id').val();
+
 
     var myCalendar = $('#calendar');
 
 
     //Need a appointments.json
-    var url = "/appointments.json";
+    var url = "/appointments.json?docId=" + docId;
     var events = [];
     var getApps = function(){
         $.get(url, function( data ) {
@@ -17,7 +20,10 @@ $(document).ready(function() {
                 scheduledEnd = (++scheduledEnd + ":00");
                 event.end = new Date(event['dateCreated'] + ' ' + scheduledEnd);
                 events.push(event);
-                console.log(events);
+                if (event.patientId == patId){
+                    event.title = "My Appointment";
+                    event.color = "#5be207";
+                }
             });
             events.forEach(function(e){
                 myCalendar.fullCalendar('renderEvent', e);
@@ -72,7 +78,8 @@ $(document).ready(function() {
         },
         minTime : '09:00',
         maxTime : '19:00',
-        nowIndicator: true
+        nowIndicator: true,
+        eventColor: "#9e9e9e"
     });
 
     $('.fc-prev-button').click(function(){
