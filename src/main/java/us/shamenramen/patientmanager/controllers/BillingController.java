@@ -1,13 +1,13 @@
 package us.shamenramen.patientmanager.controllers;
 
-import org.springframework.beans.factory.annotation.Value;
+
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+
 import us.shamenramen.patientmanager.models.Bill;
-import us.shamenramen.patientmanager.models.ChargeRequest;
+
 import us.shamenramen.patientmanager.models.User;
 import us.shamenramen.patientmanager.repositories.UserRepository;
 
@@ -39,14 +39,14 @@ public class BillingController {
 
 
 
-    @Value("${sk_test_JDCutAUR2DvZFbSiCtGvjC48}")
-    private String stripePublicKey;
-
-    @RequestMapping("/checkout")
-    public String checkout(Model model) {
-        model.addAttribute("amount", 50 * 100); // in cents
-        model.addAttribute("stripePublicKey", stripePublicKey);
-        model.addAttribute("currency", ChargeRequest.Currency.EUR);
-        return "checkout";
-    }
+//    @Value("${sk_test_JDCutAUR2DvZFbSiCtGvjC48}")
+//    private String stripePublicKey;
+//
+//    @RequestMapping("/checkout")
+//    public String checkout(Model model) {
+//        model.addAttribute("amount", 50 * 100); // in cents
+//        model.addAttribute("stripePublicKey", stripePublicKey);
+//        model.addAttribute("currency", ChargeRequest.Currency.EUR);
+//        return "checkout";
+//    }
 }
