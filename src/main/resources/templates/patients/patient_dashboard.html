@@ -62,12 +62,18 @@
 
 <h3 class="col-sm-12 text-center">Your Appointments</h3>
 <p class="col-sm-12 text-center">10/10/2018 at 3:00 PM</p>
-<div class="row">
-    <div class="col-sm-12 text-center">
-        <button id="btnCheckIn" class="btn btn-info btn-md center-block" Style="width: 100px;" OnClick="btnSearch_Click" >Check in</button>
-        <button id="btnCancel" class="btn btn-danger btn-md center-block" Style="width: 100px;" OnClick="btnClear_Click" >Cancel</button>
+
+
+<th:block th:if="${doctor == null}">
+    <div class="row">
+        <div class="col-xs-3 col-xs-offset-6">
+            <a th:href="@{/search}"><button>Find a Doctor</button></a>
+        </div>
     </div>
-</div>
+</th:block>
+
+
+<th:block th:if="${doctor != null}">
 <H3 class="col-sm-12 text-center">Make an appointment</H3>
 
 <form th:action="@{/appointments/ajax}" th:method="POST">
@@ -91,8 +97,14 @@
 <div id="calendar"></div>
 
 
+</th:block>
+
+
+
+
 
 <footer th:replace="partials/footer :: footer"></footer>
+<script src="/js/patient-calendar.js"></script>
 
 
 </body>
