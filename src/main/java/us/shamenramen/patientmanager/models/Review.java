@@ -21,11 +21,11 @@ public class Review {
     private long doctorId;
 
     @Column(name = "review", nullable = false, columnDefinition = "TEXT")
-    @NotBlank(message="Review summary cannot be blank.")
+//    @NotBlank(message="Review summary cannot be blank.")
     private String review;
 
     @Column(name = "rating", nullable = false)
-    @NotBlank(message="Please select a rating.")
+//    @NotBlank(message="Please select a rating.")
     private int rating;
 
     public Review() {

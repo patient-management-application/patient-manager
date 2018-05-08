@@ -1,46 +1,116 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">>
-
-<head>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="partials/header :: header">
     <meta charset="UTF-8"/>
     <title>Patient Dashboard</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous"/>
 </head>
 <body>
+<div th:replace="partials/navbar :: patient-navbar"></div>
 
-<div sec:authorize="isAuthenticated()">
-    This content is only shown to authenticated users.
+<section class="parallax-content text-center" data-stellar-background-ratio="0.4" id="parallax1-69" style="background-image: url(img/doc2.jpeg);">
+    <div class="mbr-overlay" style="opacity: 0.75; background-color: rgb(120,188,255);"></div>
+    <div class="parallax container">
+        <h4>MY DASHBOARD</h4>
+    </div>
+</section>
 
-    User ID: <span th:text="${#authentication.principal.id}"/>
-    Email: <span th:text="${#authentication.principal.email}"/>
-</div>
+<!--<section class="mbr-section&#45;&#45;bg-adapted mbr-after-navbar" id="header1-1" style="background-image: url(img/doc2.jpeg);">-->
+    <!--<div class="intro intro1">-->
+        <!--<div class="mbr-overlay" style="opacity: 0.75; background-color: rgb(120,188,255);"></div>-->
+        <!--<div class="pricing" id="pricing">-->
+            <!--<div class="container">-->
+                <!--<div class="section-head-lite text-center col-md-8 col-md-offset-2 space80">-->
+                    <!--<h1>MY DASHBOARD</h1>-->
+                <!--</div>-->
+                <!--<div class="row">-->
+                    <!--<div class="col-md-12">-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</section>-->
 
-<a href="/myhealth">My Health</a>
-<a href="/searchdoctors">Search</a>
-<a href="/reviews">Reviews</a>
+
+
+
+
+
+
+<h2>My Prescriptions</h2>
+<ul th:each="session : ${sessions}">
+    <li th:text="${session.prescriptions}"></li>
+</ul>
 
 <h1 class="col-sm-12 text-center">Patient Dashboard</h1>
-<h4 class="col-sm-12 text-center">My Doctor</h4>
-<div class="col-sm-12 text-center">
-    <img collect_rid="1:284976504" src="https://orig00.deviantart.net/18e8/f/2012/044/8/f/dr_steve_brule_by_brucewhite-d4po1a0.jpg" data-embed-type="deviation" data-embed-format="thumb" data-embed-id="284976504" width="504" height="648" alt="Dr Steve Brule by BruceWhite" class="dev-content-normal " style="width: 304px; height: 348px; top: 0px;"/>
-    <div class="caption">
-        <h3>Dr. Steve Brule</h3>
-        <i>1580 Wald Rd., New Braunfels, (512) 878-9214, <a href="https://twitter.com/_steve_brule?lang=en">Steve Brule</a></i>
-        <p>His severe naivete and social awkwardness generally land him in embarrassing situations,
-            though he largely remains ignorant of any embarrassment he's causing himself.
-            As the series progresses, he reveals shocking and sometimes horrifying details about his past and personal life.</p>
-    </div>
-</div>
+
+    <th:block th:if="${doctor}" th:object="${doctor}">
+        <h4 class="col-sm-12 text-center">My Doctor</h4>
+        <div class="col-sm-12 text-center">
+            <img collect_rid="1:284976504" th:src="${doctor.image}" data-embed-type="deviation" data-embed-format="thumb" data-embed-id="284976504" width="504" height="648" th:alt="${doctor.firstName} + ' ' + ${doctor.lastName}" class="dev-content-normal " style="width: 304px; height: 348px; top: 0px;"/>
+            <div class="caption">
+                <h3 th:text="${doctor.firstName} + ' ' + ${doctor.lastName}"></h3>
+                <i><span th:text="${doctor.street} + ' ' + ${doctor.city} + ' ' + ${doctor.state} + ' ' +  ${doctor.state}"></span></i>
+                <p th:text="${doctor.biography}"></p>
+            </div>
+        </div>
+
+    </th:block>
+
 <h3 class="col-sm-12 text-center">Your Appointments</h3>
 <p class="col-sm-12 text-center">10/10/2018 at 3:00 PM</p>
-<div class="row">
-    <div class="col-sm-12 text-center">
-        <button id="btnCheckIn" class="btn btn-info btn-md center-block" Style="width: 100px;" OnClick="btnSearch_Click" >Check in</button>
-        <button id="btnCancel" class="btn btn-danger btn-md center-block" Style="width: 100px;" OnClick="btnClear_Click" >Cancel</button>
+
+
+<th:block th:if="${doctor == null}">
+    <div class="row">
+        <div class="col-xs-3 col-xs-offset-6">
+            <a th:href="@{/search}"><button>Find a Doctor</button></a>
+        </div>
     </div>
-</div>
+</th:block>
+
+
+<th:block th:if="${doctor != null}">
 <H3 class="col-sm-12 text-center">Make an appointment</H3>
-<img  class="col-sm-12 text-center " src="http://3.bp.blogspot.com/_rk3mXzPg1eI/TM-_8JIlWYI/AAAAAAAABs8/R0eN0BnHRXs/s1600/04_february.jpg" data-embed-type="deviation" data-embed-format="thumb" data-embed-id="284976504" />
+
+<form th:action="@{/appointments/ajax}" th:method="POST">
+    <input id="doctor-id" type="hidden" name="doctorId" th:value="${doctor.id}"/>
+    <input id="patient-id" type="hidden" name="patientId" th:value="${user.id}"/>
+    <input type="hidden" name="statusId" value="1"/>
+    <input type="date" id="date-picker" name="date"/>
+    <select name="time" id="time-picker">
+        <option value="09:00">9:00 am</option>
+        <option value="10:00">10:00 am</option>
+        <option value="11:00">11:00 am</option>
+        <option value="12:00">12:00 pm</option>
+        <option value="13:00">1:00 pm</option>
+        <option value="14:00">2:00 pm</option>
+        <option value="15:00">3:00 pm</option>
+        <option value="16:00">4:00 pm</option>
+        <option value="17:00">5:00 pm</option>
+    </select>
+    <button id="done">Schedule</button>
+</form>
+
+    <h3>Delete Appointment</h3>
+    <form th:action="@{/appointments/delete}" th:method="POST">
+        <select name="id" id="appointment-delete"></select>
+        <button>Submit</button>
+    </form>
+
+
+<div id="calendar"></div>
+
+
+</th:block>
+
+
+
+
+
+<footer th:replace="partials/footer :: footer"></footer>
+<script src="/js/patient-calendar.js"></script>
+
+
 </body>
 </html>

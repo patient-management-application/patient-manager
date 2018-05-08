@@ -12,7 +12,7 @@ public class Session {
     private long id;
 
 //    @ManyToOne
-    @JoinColumn(name="pat_id", nullable = false)
+    @JoinColumn(name="pat_id")
     private long patientId;
 
 //    @ManyToOne
@@ -28,10 +28,10 @@ public class Session {
     @Column(columnDefinition = "TEXT")
     private String procedures;
 
-    @Column(name="time_start", columnDefinition = "datetime")
+    @Column(name="time_start")
     private String timeStart;
 
-    @Column(name="time_end", columnDefinition = "datetime")
+    @Column(name="time_end")
     private String timeEnd;
 
     public Session() {

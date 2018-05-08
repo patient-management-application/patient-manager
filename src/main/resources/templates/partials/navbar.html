@@ -1,31 +1,64 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8" />
     <title>Navbar</title>
-    <link rel="stylesheet" href="/static/css/main.css"/>
-    <link rel="stylesheet" href="/static/css/bootstrap1.min.css" />
-    <link rel="stylesheet" href="/static/css/bootstrap2.min.css" />
-    <link rel="stylesheet" href="/static/css/bootstrap3.min.css" />
+    <link rel="stylesheet" href="css/main.css"/>
+    <link rel="stylesheet" href="css/bootstrap1.min.css" />
 </head>
-<body>
-<nav th:fragment="navbar"></nav>
-<nav class="navbar-inverse navbar-lg navbar-fixed-top">
-    <div class="container">
+    <nav th:fragment="patient-navbar" class="navbar navbar-lg navbar-fixed-top nav-down">
+        <div class="container">
+            <div class="navbar-header nav-down"><a href="/index" class="navbar-brand brand">Shaman Ramen</a></div>
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right nav-down">
+                    <li style="margin-right: 10px;"><a class="text-white" th:href="@{/dashboard}">MY DASHBOARD</a></li>
+                    <li style="margin-right: 10px;"><a class="text-white" th:href="@{/myhealth}">MY HEALTH</a></li>
+                    <li style="margin-right: 10px;"><a class="text-white" th:href="@{/search}">SEARCH DOCTORS</a></li>
+                    <li style="margin-right: 10px;"><a class="text-white" th:href="@{/myreview}">MY REVIEWS</a></li>
+                    <!--<li style="margin-left: 10px;"><a class="text-white" th:href="@{/logout}">LOGOUT</a></li>-->
+                    <li sec:authorize="isAuthenticated()">
+                        <!--<a id="logout" href="#">Logout</a>-->
+                        <form id="logout-form" th:action="@{/logout}" th:method="POST">
+                            <button>Logout</button>
+                        </form>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-        <div class="navbar-header"><a href="" class="navbar-brand brand">Shaman Ramen</a></div>
+    <nav th:fragment="doctor-navbar" class="navbar navbar-lg navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header mbr-navbar_container mbr-navbar_section nav-up"><a href="/index" class="navbar-brand brand">Shaman Ramen</a></div>
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-right navbar-login"><li><a class="btn btn-primary" href=""><span class=""></span>Log In</a></li></ul>
-            <ul class="nav navbar-nav navbar-right"><li class="dropdown1"><a class="text-white" href="">Search Doctors</a><a class="text-white" href="#">Make Appointment</a></li></ul>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+            <ul class="nav mbr-navbar_container mbr-navbar_section navbar-nav nav-right">
+                <li style="margin-right: 10px;"><a class="text-white" th:href="@{/dashboard}">MY DASHBOARD</a></li>
+                <li style="margin-right: 10px;"><a class="text-white" th:href="@{/mypractice}">MY PRACTICE</a></li>
+                <li style="margin-right: 10px;"><a class="text-white" th:href="@{/mybilling}">MY BILLING</a></li>
+                <li sec:authorize="isAuthenticated()">
+                    <!--<a id="logout" href="#">Logout</a>-->
+                    <form id="logout-form" th:action="@{/logout}" th:method="POST">
+                        <button>Logout</button>
+                    </form>
+                </li>
+            </ul>
         </div>
     </div>
 </nav>
+<body>
 
+<footer th:replace="partials/footer :: footer"></footer>
 </body>
 </html>

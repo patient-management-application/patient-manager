@@ -1,15 +1,88 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
+<head th:replace="partials/header :: header">
+    <meta charset="UTF-8" />
     <title>Search Doctor</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous"/>
+
+    <style>
+        #map {
+            height: 500px;
+            width: 500px;
+        }
+    </style>
 </head>
 <body>
-<h1 class="col-sm-12 text-center ">Search Doctor</h1>
-<form class="form-inline">
-    <input type="text" class="form-control" placeholder="Doctor"/>
-    <input type="submit" value="search" class="btn btn-primary" />
-</form>
+<div th:replace="partials/navbar :: patient-navbar"></div>
+
+<section class="mbr-parallax-background" id="pricing-table1-75" style="background-color: rgb(17,42,68);">
+    <div class="pricing" id="pricing">
+
+        <div class="container">
+            <div class="section-head-lite text-center col-md-8 col-md-offset-2 space80">
+                <h1>SEARCH FOR DOCTORS</h1>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<div class="text-center" th:each="doctor : ${doctors}">
+    <div class="row">
+        <div class="col-sm-4 col-sm-offset-2 post">
+            <div class="doctor-card">
+                <h1 class="name" th:text="${doctor.firstName} + ' ' + ${doctor.lastName}"><span></span></h1>
+                <form th:action="@{/setdoctor/{doctorId}(doctorId = ${doctor.id})}" th:method="POST">
+                    <!--<input type="hidden" name="doctorId" th:value="${doctor.id}" />-->
+                    <button>Set as my Doctor</button>
+                </form>
+                <button class="view-btn">View</button>
+                <p class="phone-number" th:text="${doctor.phoneNumber}"></p>
+                <p class="email" th:text="${doctor.email}"></p>
+                <p class="address" style="font-size: 1.5em;"><span id="address" class="address-span" th:text="${doctor.street} + ', ' + ${doctor.city} + ', ' + ${doctor.state} + ', ' + ${doctor.zipcode}"></span></p>
+                <p class="" ></p>
+                <p class="practicing-field">Practicing Field: <span th:text="${doctor.practicingField}"></span></p>
+                <p class="experience">Experience: <span th:text="${doctor.experience}"></span></p>
+                <p class="education">Education: <span th:text="${doctor.education}"></span></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div th:each="review : ${reviews}">
+
+</div>
+
+
+<section class="mbr-section--bg-adapted mbr-section--relative" id="form6-81" style="background-color: rgb(255, 255, 255);">
+    <div id="contact-form2">
+        <div class="container-fluid no-padding">
+            <div class="row">
+                <div class="col-md-6 no-padding">
+                    <div id="map" class="google-map">
+                        <div class="container-fluid no-padding">
+                            <figure class="mbr-figure mbr-figure--wysiwyg mbr-figure--full-width mbr-figure--no-bg">
+                                <div class="mbr-figure__map mbr-figure__map--big mbr-google-map">
+                                </div>
+                            </figure>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--<div id="map"></div>-->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script async="async" defer="defer"
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAQAXVLex1Ri2SrNvxCfl51OK0jXlyl14k
+&amp;callback=initMap"></script>
+<script src="/js/maps.js"></script>
+<footer th:replace="partials/footer :: footer"></footer>
 </body>
 </html>

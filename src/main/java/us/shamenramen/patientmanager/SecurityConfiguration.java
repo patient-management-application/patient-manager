@@ -48,14 +48,17 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/", "/index", "/patient_registration", "/doctor_registration") // anyone can see the home and the ads pages
                 .permitAll()
-                /* Pages that require athentication */
+                /* Pages that require authentication */
                 .and()
                 .authorizeRequests()
                 .antMatchers(
                         "/search", // only authenticated users can search
                         "/myhealth",
                         "/dashboard",
-                        "/mypractice" // only authenticated
+                        "/mypractice",
+                        "/mysession",
+                        "/myreview",
+                        "/setdoctor"// only authenticated
                 )
                 .authenticated()
         ;

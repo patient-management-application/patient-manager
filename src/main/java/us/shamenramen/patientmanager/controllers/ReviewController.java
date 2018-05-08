@@ -1,12 +1,11 @@
 package us.shamenramen.patientmanager.controllers;
 
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 import us.shamenramen.patientmanager.models.Review;
+import us.shamenramen.patientmanager.models.User;
 import us.shamenramen.patientmanager.repositories.ReviewRepository;
 import us.shamenramen.patientmanager.repositories.UserRepository;
 
@@ -20,67 +19,41 @@ public class ReviewController {
         this.userDao = userDao;
     }
 
-    //FIX
-    //need to be able to pull sessions only for that specific user
-    @GetMapping("/reviews")
-    public String index(@PathVariable long user_id, Model viewAndmodel) {
-        //still needs tweeking, trial run
-//        Iterable<Review> reviews = revDao.findAll(userDao.findById(user_id));
-//        viewAndmodel.addAttribute("reviews", reviews);
-        return "/reviews/index";
+    @GetMapping(path = "/myreview")
+    public String showReview(Model model) {
+        User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User user = userDao.findById(loggedInUser.getId());
+        if (revDao.findByPatientId(user.getId()) != null){
+            Review review = revDao.findByPatientId(user.getId());
+            model.addAttribute("user", user);
+            model.addAttribute("review", review);
+        } else {
+            Review review = new Review();
+            model.addAttribute("user", user);
+            model.addAttribute("review", review);
+        }
+        return "/patients/patient_feedback";
     }
 
-    @GetMapping("/reviews/{id}")
-    public String show(@PathVariable long id, Model viewAndmodel) {
-        Review review = revDao.findOne(id);
-        viewAndmodel.addAttribute("review", review);
-        return "/reviews/show";
+    @PostMapping(path = "/myreview")
+    public String newReview(
+            @RequestParam(name = "patientId") long patientId,
+            @RequestParam(name = "doctorId") long doctorId,
+            @RequestParam(name = "review") String review,
+            @RequestParam(name = "rating") int rating){
+
+        Review prevReview = revDao.findByPatientId(patientId);
+        if (prevReview != null){
+            revDao.delete(prevReview);
+        }
+        Review newReview = new Review(patientId,doctorId, review, rating);
+        revDao.save(newReview);
+        return "redirect:/dashboard";
     }
 
-    @GetMapping("/reviews/create")
-    public String showCreateForm(Model viewmodel) {
-        Review review = new Review();
-        viewmodel.addAttribute("review", review);
-        return "/reviews/create";
-    }
-
-    //Need to implement Auth and Validation before this can be used
-
-//    @PostMapping("/reviews/create")
-//    public String createReview(@Valid Review review, Errors validation, Model model) {
-//
-//        if (validation.hasErrors()) {
-//            model.addAttribute("errors", validation);
-//            model.addAttribute("review", review);
-//            return "/reviews/create";
-//        } else {
-//            User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-//            post.setUser(loggedInUser);
-//            revDao.save(review);
-//            return "redirect:/reviews";
-//        }
-//    }
-
-    @GetMapping("reviews/{id}/edit")
-    public String edit(@PathVariable long id, Model viewModel) {
-        Review review = revDao.findOne(id);
-        viewModel.addAttribute("review", review);
-        return "/reviews/edit";
-    }
-
-    @PostMapping("/reviews/{id}/edit")
-    public String handleEdit(@PathVariable long id, @ModelAttribute Review review) {
-        Review originalReview = revDao.findOne(id);
-        originalReview.setReview(review.getReview());
-        originalReview.setRating(review.getRating());
-        revDao.save(review);
-        return "redirect:/reviews";
-
-    }
-
-    @PostMapping("/reviews/{id}/delete")
-    public String delete(@PathVariable long id) {
-        revDao.delete(id);
-        return "redirect:/reviews";
+    @PostMapping("/myreview/delete")
+    public String delete(@RequestParam(name = "patientId") long patientId) {
+        revDao.delete(revDao.findByPatientId(patientId));
+        return "redirect:/myreview";
     }
 }

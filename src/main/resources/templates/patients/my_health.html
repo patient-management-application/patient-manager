@@ -1,50 +1,54 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
+<head th:replace="partials/header :: header">
     <meta charset="UTF-8"/>
-    <title>Basic Medical Information</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous"/>
+    <title>My Health</title>
 </head>
 <body>
-<div class="container">
-    <form class="well form-horizontal" th:action="@{/myhealth}" method="POST"  id="contact_form" th:object="${quest}">
-        <fieldset>
-          <h2>My Health</h2>
-            <div class="container">
-
-                    <div class="form-group">
-                        <textarea class="form-control" rows="2" th:field="*{history}" placeholder="Health History"></textarea>
-                    </div>
-
+<div th:replace="partials/navbar :: patient-navbar"></div>
+<section class="mbr-section--bg-adapted mbr-section--relative" id="pricing-table1-75" style="background-color: #46B1C9;">
+    <div class="pricing" id="pricing">
+        <div class="container">
+            <div class="section-head-lite text-center col-md-8 col-md-offset-2 space80">
+                <h1>MY HEALTH</h1>
             </div>
-            <div class="container">
-
-                    <div class="form-group">
-                        <textarea class="form-control" rows="1" th:field="*{medications}" placeholder="Medications"></textarea>
-                    </div>
-
-            </div>
-            <div class="container">
-
-                    <div class="form-group">
-                        <textarea class="form-control" rows="1" th:field="*{allergies}" placeholder="Allergies"></textarea>
-                    </div>
-
-            </div>
-            <div class="container">
-                    <div class="form-group">
-                        <textarea class="form-control" rows="1" th:field="*{extra}" placeholder="Additional History"></textarea>
-                    </div>
-
-            </div>
-            <div class="form-group">
-                <label class="col-md-4 control-label"></label>
-                <div class="col-md-4">
-                    <button type="submit" class="btn btn-info" >SUBMIT <span class="glyphicon glyphicon-send"></span></button>
+            <div class="row">
+                <div class="col-md-12">
                 </div>
             </div>
-        </fieldset>
-    </form>
-</div>
+        </div>
+    </div>
+</section>
+<section class="mbr-section--bg-adapted" id="header4-3" style="background-image: url(img/clinic.jpg);">
+    <div class="contact-form">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1" data-form-type="formoid">
+                    <form id="contact_form" class="positioned" th:action="@{/myhealth}" method="POST" th:object="${quest}" data-form-title="CONTACT FORM">
+                        <div class="row">
+                            <textarea class="form-control" name="history" rows="2" th:field="*{history}" placeholder="Health History" data-form-field="history"></textarea>
+                            <textarea class="form-control" name="medications" rows="2" th:field="*{medications}" placeholder="Medications" data-form-field="medications"></textarea>
+                            <textarea class="form-control" name="allergies" rows="2" th:field="*{allergies}" placeholder="Allergies" data-form-field="allergies"></textarea>
+                            <textarea class="form-control" name="extra " rows="2" th:field="*{extra}" placeholder="Additional History" data-form-field="extra"></textarea>
+                            <div class="submitBtn"><button type="submit" class="btn btn-default btn-ico">Submit<i class="fa fa-paper-plane-o"></i></button></div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+<footer th:replace="partials/footer :: footer"></footer>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+

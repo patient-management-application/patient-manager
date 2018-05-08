@@ -1,7 +1,11 @@
 package us.shamenramen.patientmanager.models;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -15,50 +19,79 @@ public class User {
     @Column(name = "username")
     private String username;
 
-    @Column(name = "first_name", nullable = false)
+    @Column(name = "first_name")
     private String firstName;
 
-    @Column(name = "last_name", nullable = false)
+    @Column(name = "last_name")
     private String lastName;
 
-    @Column(name = "is_Doctor", nullable = false)
+    @Column(name = "is_Doctor")
     private boolean isDoctor;
 
     @Column(name = "my_doc_id")
     private long myDocId;
 
-    @Column(name = "phone_number", nullable = false)
-    private int phoneNumber;
+    @Column(name = "phone_number")
+    private String phoneNumber;
 
-    @Column(name = "email", nullable = false, unique = true)
+    @Column(name = "email", unique = true)
     private String email;
 
-    @Column(name = "password", nullable = false)
+    @Column(name = "password")
+    @JsonIgnore
     private String password;
 
-    @Column(name = "gender", nullable = false)
-    private char gender;
+    @Column(name = "gender")
+    private String gender;
 
-    @Column(name = "dob", nullable = false)
+    @Column(name = "dob")
     private String dob;
 
-    @Column(name = "street", nullable = false)
+    @Column(name = "street")
     private String street;
 
-    @Column(name = "city", nullable = false)
+    @Column(name = "city")
     private String city;
     
-    @Column(name = "state", nullable = false)
+    @Column(name = "state")
     private String state;
 
-    @Column(name = "zipcode", nullable = false)
-    private int zipcode;
+    @Column(name = "zipcode")
+    private String zipcode;
+
+    @Column(name = "accolades")
+    private String accolades;
+
+    @Column(name = "biography")
+    private String biography;
+
+    @Column(name = "license_id")
+    private String licenseId;
+
+    @Column(name = "education")
+    private String education;
+
+    @Column(name = "practicing_field")
+    private String practicingField;
+
+    @Column(name = "experience")
+    private String experience;
+
+    @Column(name = "image", columnDefinition = "TEXT")
+    private String image;
+
+    @OneToMany(mappedBy = "user")
+    @JsonBackReference
+    private List<Appointment> appointments;
 
 
+    public User() {
+    }
 
-//    will be applied once validation and authorization are layed out
+
     public User(User copy) {
         this.id = copy.id;
+        this.username = copy.username;
         this.firstName = copy.firstName;
         this.lastName = copy.lastName;
         this.isDoctor = copy.isDoctor;
@@ -72,12 +105,17 @@ public class User {
         this.city = copy.city;
         this.state = copy.state;
         this.zipcode = copy.zipcode;
-        this.username = username;
+        this.accolades = copy.accolades;
+        this.biography = copy.biography;
+        this.licenseId = copy.licenseId;
+        this.practicingField = copy.practicingField;
+        this.experience = copy.experience;
+        this.image = copy.image;
+        this.education = copy.education;
     }
 
-    public User() {
-    }
-    public User(long id, String username, String firstName, String lastName, boolean isDoctor, long myDocId, int phoneNumber, String email, String password, char gender, String dob, String street, String city, String state, int zipcode) {
+
+    public User(long id, String username, String firstName, String lastName, boolean isDoctor, long myDocId, String phoneNumber, String email, String password, String gender, String dob, String street, String city, String state, String zipcode, String accolades, String biography, String licenseId, String practicingField, String experience, String image, String education) {
         this.id = id;
         this.username = username;
         this.firstName = firstName;
@@ -93,10 +131,18 @@ public class User {
         this.city = city;
         this.state = state;
         this.zipcode = zipcode;
+        this.accolades = accolades;
+        this.biography = biography;
+        this.licenseId = licenseId;
+        this.practicingField = practicingField;
+        this.experience = experience;
+        this.image = image;
+        this.education = education;
     }
 
 
-    public User(String username, String firstName, String lastName, boolean isDoctor, long myDocId, int phoneNumber, String email, String password, char gender, String dob, String street, String city, String state, int zipcode) {
+
+    public User(String username, String firstName, String lastName, boolean isDoctor, long myDocId, String phoneNumber, String email, String password, String gender, String dob, String street, String city, String state, String zipcode, String accolades, String biography, String licenseId, String practicingField, String experience, String image, String education) {
         this.username = username;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -111,6 +157,69 @@ public class User {
         this.city = city;
         this.state = state;
         this.zipcode = zipcode;
+        this.accolades = accolades;
+        this.biography = biography;
+        this.licenseId = licenseId;
+        this.practicingField = practicingField;
+        this.experience = experience;
+        this.image = image;
+        this.education = education;
+    }
+
+    public String getEducation() {
+        return education;
+    }
+
+    public void setEducation(String education) {
+        this.education = education;
+    }
+
+    public String getAccolades() {
+        return accolades;
+    }
+
+    public void setAccolades(String accolades) {
+        this.accolades = accolades;
+    }
+
+    public String getBiography() {
+        return biography;
+    }
+
+    public void setBiography(String biography) {
+        this.biography = biography;
+    }
+
+    public String getLicenseId() {
+        return licenseId;
+    }
+
+    public void setLicenseId(String licenseId) {
+        this.licenseId = licenseId;
+    }
+
+    public String getPracticingField() {
+        return practicingField;
+    }
+
+    public void setPracticingField(String practicingField) {
+        this.practicingField = practicingField;
+    }
+
+    public String getExperience() {
+        return experience;
+    }
+
+    public void setExperience(String experience) {
+        this.experience = experience;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public long getMyDocId() {
@@ -121,11 +230,11 @@ public class User {
         this.myDocId = myDocId;
     }
 
-    public int getZipcode() {
+    public String getZipcode() {
         return zipcode;
     }
 
-    public void setZipcode(int zipcode) {
+    public void setZipcode(String zipcode) {
         this.zipcode = zipcode;
     }
 
@@ -161,11 +270,11 @@ public class User {
         this.isDoctor = isDoctor;
     }
 
-    public int getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(int phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
@@ -185,11 +294,11 @@ public class User {
         this.password = password;
     }
 
-    public char getGender() {
+    public String getGender() {
         return gender;
     }
 
-    public void setGender(char gender) {
+    public void setGender(String gender) {
         this.gender = gender;
     }
 
@@ -225,11 +334,11 @@ public class User {
         this.state = state;
     }
 
-    public int getzipcode() {
+    public String getzipcode() {
         return zipcode;
     }
 
-    public void setzipcode(int zipcode) {
+    public void setzipcode(String zipcode) {
         this.zipcode = zipcode;
     }
 
