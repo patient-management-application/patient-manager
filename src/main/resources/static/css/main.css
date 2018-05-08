@@ -1179,19 +1179,21 @@ ul, ol, li {
 }
 
 .boxed .body {
-    background:#fff;
+    background: #fff;
     position: relative;
     width: 90%;
     margin: 0 auto;
     max-width: 1280px;
     overflow: hidden;
-    box-shadow: 0 5px 25px rgba(0,0,0,0.2);
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
 }
 
 .boxed .navbar-fixed-top {
     width: 90%;
     margin: 0 auto;
     max-width: 1280px;
+
+
 }
 
 /* 2. COMMON STYLES */
@@ -1232,6 +1234,10 @@ ul, ol, li {
     border-width: 0;
     border-radius: 0;
     background: transparent;
+    height: 40px;
+    top: 0;
+    transition: top 0.2s ease-in-out;
+    width: 100%;
 }
 
 .navbar-inverse {
@@ -4632,7 +4638,7 @@ blockquote.pull-right {
 
 footer {
     /* background: #dbdbdb;*/
-    padding: 0px 0 60px;
+    padding: 0px 6px;
 }
 
 footer .list-inline li {
@@ -4762,24 +4768,6 @@ h1 { font-size: 1.5em; margin: 10px; }
 .rating > input:checked ~ label:hover,
 .rating > label:hover ~ input:checked ~ label, /* lighten current selection */
 .rating > input:checked ~ label:hover ~ label { color: #FFED85;  }
-
-/*.rating {*/
-    /*unicode-bidi: bidi-override;*/
-    /*direction: rtl;*/
-
-/*}*/
-/*.rating > span {*/
-    /*display: inline-block;*/
-    /*position: relative;*/
-    /*width: 2.1em;*/
-
-/*}*/
-/*.rating > span:hover:before,*/
-/*.rating > span:hover ~ span:before {*/
-    /*content: "\2605";*/
-    /*position: absolute;*/
-    /**/
-/*}*/
 
 /* Intro DEMO */
 
@@ -6067,7 +6055,7 @@ input:focus, textarea:focus {
 
 .footer2 .google-map {
     border: 1px solid #555;
-    padding:  px;
+    padding:  0px;
     height: 290px;
 }
 
@@ -7369,7 +7357,7 @@ input:focus, textarea:focus {
     }
 
     .footer {
-        padding: 0px 0 0px;
+        padding: 0px 0px;
     }
 
     .page_head h3 {
@@ -7396,5 +7384,8 @@ input:focus, textarea:focus {
 
 }
 
+.nav-up {
+    top: -40px;
+}
 
 
