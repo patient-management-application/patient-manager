@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
+<head th:replace="partials/header :: header">
     <meta charset="UTF-8" />
     <title>Search Doctor</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous" />
 
     <style>
         #map {
@@ -13,6 +12,8 @@
     </style>
 </head>
 <body>
+<div th:replace="partials/navbar :: patient-navbar"></div>
+
 <h1 class="col-sm-12 text-center ">Search Doctor</h1>
 <div class="text-center" th:each="doctor : ${doctors}">
     <div class="row">
