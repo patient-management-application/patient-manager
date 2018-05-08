@@ -14,7 +14,7 @@ import java.util.Map;
 @Service("paymentService")
 public class PaymentServiceImpl implements PaymentService {
 
-    private static final String TEST_STRIPE_SECRET_KEY = "sk_test_XXXXX";
+    private static final String TEST_STRIPE_SECRET_KEY = "sk_test_JDCutAUR2DvZFbSiCtGvjC48";
 
     public PaymentServiceImpl() {
         Stripe.apiKey = TEST_STRIPE_SECRET_KEY;
