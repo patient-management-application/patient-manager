@@ -30,7 +30,9 @@
                 <div class="col-md-10 col-md-offset-1" data-form-type="formoid">
                     <form id="contact_form" class="positioned" th:action="@{/myreview}" method="POST" th:object="${review}" data-form-title="CONTACT FORM">
 
-
+                        <input type="hidden" name="patientId" th:value="${user.id}"/>
+                        <input type="hidden" name="reviewId" th:value="${review.id}"/>
+                        <input type="hidden" name="doctorId" th:value="${user.myDocId}"/>
                         <textarea class="form-control" name="message" rows="7" th:field="*{review}" placeholder="Review Summary"  data-form-field="Message"></textarea>
                         <fieldset class="rating">
                             <input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
