@@ -32,7 +32,8 @@ public class AppointmentController {
     }
 
     @PostMapping("/appointments/delete")
-    public String deleteAppointment(){
+    public String deleteAppointment(@RequestParam(name = "id") long id){
+        aptDao.delete(aptDao.findById(id));
         return "redirect:/dashboard";
     }
 
