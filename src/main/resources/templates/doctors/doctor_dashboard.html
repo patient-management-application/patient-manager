@@ -36,11 +36,10 @@
 </div>
 
 <div th:each="patient : ${patients}">
-
-
     <h4 class="col-sm-12 text-center">My Patients</h4>
     <div class="col-sm-12 text-center">
         <div class="caption">
+            <input th:type="hidden" class="patientName" th:name="patientName" th:value="${patient.firstName} + ' ' + ${patient.lastName}" />
             <h3 th:text="${patient.firstName} + ' ' + ${patient.lastName}"></h3>
             <i><span th:text="${patient.street} + ' ' + ${patient.city} + ' ' + ${patient.state} + ' ' +  ${patient.zipcode}"></span></i>
             <!--<p th:text="${user.}"></p>-->
@@ -49,19 +48,16 @@
     </div>
 
 </div>
-
-<h3 class="col-sm-12 text-center">Your Appointments</h3>
-<p class="col-sm-12 text-center">10/10/2018 at 3:00 PM</p>
 <div class="row">
-    <div class="col-sm-12 text-center">
-        <button id="btnCheckIn" class="btn btn-info btn-md center-block" Style="width: 100px;" OnClick="btnSearch_Click" >Check in</button>
-        <button id="btnCancel" class="btn btn-danger btn-md center-block" Style="width: 100px;" OnClick="btnClear_Click" >Cancel</button>
+    <div class="col-xs-12">
+        <h3 class="col-sm-12 text-center">Your Appointments</h3>
+        <input th:type="hidden" id="doctorId" th:name="doctorId" th:value="${user.id}" />
+        <div id="calendar"></div>
     </div>
 </div>
 
 
-<h3 class="col-sm-12 text-center">Make an appointment.</h3>
-
+<footer th:replace="partials/footer :: footer"></footer>
 <script src="/js/doctor-calendar.js"></script>
 </body>
 </html>

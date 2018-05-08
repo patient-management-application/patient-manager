@@ -1,9 +1,11 @@
 package us.shamenramen.patientmanager.controllers;
 
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import us.shamenramen.patientmanager.models.Appointment;
+import us.shamenramen.patientmanager.models.User;
 import us.shamenramen.patientmanager.repositories.AppointmentRepository;
 import us.shamenramen.patientmanager.repositories.UserRepository;
 
@@ -22,8 +24,14 @@ public class AppointmentController {
 
     @GetMapping("/appointments.json")
     public @ResponseBody
-    Iterable<Appointment> viewAllAdsInJSONFormat(@RequestParam(name = "docId") long doctorId) {
-        return aptDao.findAppointmentByDoctorId(doctorId);
+    Iterable<Appointment> viewAllAppointmentsInJSONFormat(@RequestParam(name = "docId") long doctorId) {
+        User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User user = userDao.findById(loggedInUser.getId());
+        if (user.getIsDoctor()){
+            return aptDao.findPatientAppointmentsByDoctorId(doctorId);
+        } else {
+            return aptDao.findAppointmentByDoctorId(doctorId);
+        }
     }
 
     @GetMapping("/appointments/ajax")
