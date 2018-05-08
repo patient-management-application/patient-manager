@@ -1,20 +1,35 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-
-<head>
+<head th:replace="partials/header :: header">
     <meta charset="UTF-8"/>
     <title>Patient Dashboard</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous"/>
-    <link rel="stylesheet" type="text/css" href="/css/fullcalendar.css"/>
-    <link rel="stylesheet" href="css/appointments.css"/>
-
 </head>
 <body>
+<div th:replace="partials/navbar :: patient-navbar"></div>
 
-<nav th:replace="partials/navbar :: patient-navbar"></nav>
-<a href="/myhealth">My Health</a>
-<a href="/search">Search</a>
-<a href="/myreview">Reviews</a>
+<section class="mbr-section--bg-adapted mbr-after-navbar" id="header1-1" style="background-image: url(img/doc2.jpeg);">
+    <div class="intro intro1">
+        <div class="mbr-overlay" style="opacity: 0.75; background-color: rgb(120,188,255);"></div>
+        <div class="pricing" id="pricing">
+            <div class="container">
+                <div class="section-head-lite text-center col-md-8 col-md-offset-2 space80">
+                    <h1>MY DASHBOARD</h1>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
 <h2>My Prescriptions</h2>
 <ul th:each="session : ${sessions}">
     <li th:text="${session.prescriptions}"></li>
@@ -46,7 +61,7 @@
 <H3 class="col-sm-12 text-center">Make an appointment</H3>
 
 <form th:action="@{/appointments/ajax}" th:method="POST">
-    <input type="hidden" th:name="doctorId" th:value="${doctor.id}"/>
+    <input type="hidden" name="doctorId"/>
     <input type="date" id="date-picker" name="date"/>
     <select name="time" id="time-picker">
         <option value="9:00">9:00</option>
@@ -59,10 +74,7 @@
 <div id="calendar"></div>
 
 
-<script src='/js/jquery-2.2.4.min.js'></script>
-<script src="/js/moment.min.js"></script>
-<script src="/js/fullcalendar.min.js"></script>
-<script src="/js/appointments.js"></script>
+
 <footer th:replace="partials/footer :: footer"></footer>
 
 

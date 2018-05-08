@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="partials/header :: header"></head>
-<head>
+<head th:replace="partials/header :: header">
     <meta charset="UTF-8" />
     <title>My Session</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous" />
 </head>
 <body>
-<div th:replace="partials/navbar :: navbar"></div>
-<section class="mbr-section--bg-adapted mbr-section--relative" id="pricing-table1-75" style="background-color: #46B1C9;">
+<div th:replace="partials/navbar :: doctor-navbar"></div>
+<section class="mbr-section--bg-adapted" id="pricing-table1-76" style="background-color: #701526;">
     <div class="pricing" id="pricing">
         <div class="container">
             <div class="section-head-lite text-center col-md-8 col-md-offset-2 space80">
@@ -21,47 +19,33 @@
         </div>
     </div>
 </section>
-
-
-
-
-<h1 th:text="${patient.firstName}"></h1>
-<section class="mbr-section--bg-adapted" id="header4-3" style="background-image: url(img/clinic.jpg);">
+<!--<h1 th:text="${patient.firstName}"></h1>-->
+<section class="mbr-section--bg-adapted" id="header4-5" style="background-image: url(img/doctools.jpeg);">
     <div class="contact-form">
         <div class="container">
             <div class="row">
                 <div class="col-md-10 col-md-offset-1" data-form-type="formoid">
                     <form id="contact_form" class="positioned" th:action="@{/newsession/{id}(id = ${patient.id})}" method="POST" th:object="${sess}" data-form-title="CONTACT FORM">
                         <div class="row">
-                    <textarea id="notes" name="notes" th:field="*{notes}" class="form-control" rows="2" placeholder="Notes on Patient" data-form-field="notesOnPatient"></textarea>
-                    <textarea id="prescriptions" name="prescriptions" th:field="*{prescriptions}" class="form-control" rows="1" placeholder="Prescribed Medications to Patient" data-form-field="prescriptions"></textarea>
-                    <textarea id="procedures" name="procedures" th:field="*{procedures}" class="form-control" rows="1"  placeholder="Procedures performed during visit" data-form-field="procedures"></textarea>
-                <div class="col-10">
-                    <input id="timeStart" class="form-control" type="time" th:field="*{timeStart}" placeholder="12:00:00" />
+                        <textarea id="notes" name="notes" th:field="*{notes}" class="form-control" rows="2" placeholder="Notes on Patient" data-form-field="notesOnPatient"></textarea>
+                        <textarea id="prescriptions" name="prescriptions" th:field="*{prescriptions}" class="form-control" rows="1" placeholder="Prescribed Medications to Patient" data-form-field="prescriptions"></textarea>
+                        <textarea id="procedures" name="procedures" th:field="*{procedures}" class="form-control" rows="1"  placeholder="Procedures performed during visit" data-form-field="procedures"></textarea>
+                    <div class="col-10">
+                        <input id="timeStart" class="form-control" type="time" th:field="*{timeStart}" placeholder="12:00:00" />
+                    </div>
                 </div>
-            </div>
-            <div class="form-group row">
-                <div class="col-10">
-                    <input id="timeEnd" class="form-control" type="time" th:field="*{timeEnd}" placeholder="12:00:00" />
+                <div class="form-group row">
+                    <div class="col-10">
+                        <input id="timeEnd" class="form-control" type="time" th:field="*{timeEnd}" placeholder="12:00:00" />
+                    </div>
                 </div>
-            </div>
-            <!--<div class="form-group">-->
-            <!--<label>Upload Image</label>-->
-            <!--<div class="input-group">-->
-            <!--<span class="input-group-btn">-->
-            <!--<span class="btn btn-default btn-file"><input type="file" id="image" />-->
-            <!--</span>-->
-            <!--</span></div>-->
-            <!--<img id='img-upload'/>-->
-            <!--</div>-->
                         <div class="form-group">
-                <label class="col-md-4 control-label"></label>
-                <div class="col-md-4">
-                    <button type="submit" class="btn btn-info" >SUBMIT <span class="glyphicon glyphicon-send"></span></button>
+                        <label class="col-md-6 control-label"></label>
+                            <div class="col-md-6">
+                    <button type="submit" class="btn btn-info" >SUBMIT </button>
                 </div>
                 </div>
-
-                </form>
+                    </form>
                 </div>
             </div>
         </div>
