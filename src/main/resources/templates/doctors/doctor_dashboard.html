@@ -9,20 +9,27 @@
 <body>
 <nav th:replace="partials/navbar :: doctor-navbar"></nav>
 
-<section class="mbr-section--bg-adapted mbr-after-navbar" id="header1-1" style="background-image: url(img/doctools.jpeg);">
-    <div class="intro intro1">
-        <div class="mbr-overlay" style="opacity: 0.75; background-color: rgb(120,188,255);"></div>
-        <div class="pricing" id="pricing">
-            <div class="container">
-                <div class="section-head-lite text-center col-md-8 col-md-offset-2 space80">
-                    <h1>MY DASHBOARD</h1>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                    </div>
-                </div>
-            </div>
-        </div>
+<!--<section class="mbr-section&#45;&#45;bg-adapted mbr-after-navbar" id="header1-1" style="background-image: url(img/doctools.jpeg);">-->
+    <!--<div class="intro intro1">-->
+        <!--<div class="mbr-overlay" style="opacity: 0.75; background-color: rgb(120,188,255);"></div>-->
+        <!--<div class="pricing" id="pricing">-->
+            <!--<div class="container">-->
+                <!--<div class="section-head-lite text-center col-md-8 col-md-offset-2 space80">-->
+                    <!--<h1>MY DASHBOARD</h1>-->
+                <!--</div>-->
+                <!--<div class="row">-->
+                    <!--<div class="col-md-12">-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</section>-->
+
+<section class="parallax-content text-center" data-stellar-background-ratio="0.4" id="parallax1-69" style="background-image: url(img/doctools.jpeg);">
+    <div class="mbr-overlay" style="opacity: 0.75; background-color: rgb(120,188,255);"></div>
+    <div class="parallax container">
+        <h4>MY DASHBOARD</h4>
     </div>
 </section>
 
@@ -61,6 +68,11 @@
 
 
 <h3 class="col-sm-12 text-center">Make an appointment.</h3>
-<img  class="col-sm-12 text-center" src="http://3.bp.blogspot.com/_rk3mXzPg1eI/TM-_8JIlWYI/AAAAAAAABs8/R0eN0BnHRXs/s1600/04_february.jpg" data-embed-type="deviation" data-embed-format="thumb" data-embed-id="284976504"  width="504" height="648" />
+
+
+<footer th:replace="partials/footer :: footer"></footer>
+
+<script src="/js/doctor-calendar.js"></script>
+
 </body>
 </html>

@@ -5,10 +5,10 @@ $(document).ready(function() {
     var docId = $('#doctor-id').val();
     var patId = $('#patient-id').val();
 
-
+    if (docId === undefined){
+        docId = 0;
+    }
     var myCalendar = $('#calendar');
-
-
     //Need a appointments.json
     var url = "/appointments.json?docId=" + docId;
     var events = [];
@@ -21,13 +21,19 @@ $(document).ready(function() {
                 event.end = new Date(event['dateCreated'] + ' ' + scheduledEnd);
                 events.push(event);
                 if (event.patientId == patId){
+                    var deleteStr = event.start.toString();
+                    //Only works for central time
+                    deleteStr = deleteStr.substring(0, deleteStr.length-33);
                     event.title = "My Appointment";
                     event.color = "#5be207";
+                    $('#appointment-delete').prepend('<option name="id" value='+ event.id + ' >' + deleteStr + '</option>');
                 }
             });
+
             events.forEach(function(e){
                 myCalendar.fullCalendar('renderEvent', e);
             });
+
         });
     };
 
