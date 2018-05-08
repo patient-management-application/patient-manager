@@ -4,7 +4,7 @@
         var html = '';
         appointments.forEach(function(appointment) {
             html += '<div>';
-            html += '<h1>' + appointment.id + '</h1>';
+            html += '<h1>' + appointment.firstName + '</h1>';
             html += '</div>';
         });
         $('#appointments').html(html);
