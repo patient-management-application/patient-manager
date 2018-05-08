@@ -16,7 +16,6 @@
                 <span class="icon-bar"></span>
             </button>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right navbar-login"><li><a class="btn btn-primary" href=""><span></span>Log In</a></li></ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li style="margin-right: 10px;"><a class="text-white" th:href="@{/dashboard}">MY DASHBOARD</a></li>
                     <li style="margin-right: 10px;"><a class="text-white" th:href="@{/myhealth}">MY HEALTH</a></li>
@@ -39,12 +38,11 @@
             <span class="icon-bar"></span>
         </button>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
-            <ul class="nav navbar-nav navbar-right navbar-login"><li><a class="btn btn-primary" href=""><span></span>Log In</a></li></ul>
             <ul class="nav navbar-nav navbar-right">
                 <li style="margin-right: 10px;"><a class="text-white" th:href="@{/dashboard}">MY DASHBOARD</a></li>
                 <li style="margin-right: 10px;"><a class="text-white" th:href="@{/mypractice}">MY PRACTICE</a></li>
                 <li style="margin-right: 10px;"><a class="text-white" th:href="@{/mybilling}">MY BILLING</a></li>
-                <li style="margin-left: 10px;"><a class="text-white" th:href="@{/logout}">LOGOUT</a></li>
+                <li style="margin-left: 10px;"><a class="text-white" th:method="POST" th:href="@{/logout}">LOGOUT</a></li>
             </ul>
         </div>
     </div>
