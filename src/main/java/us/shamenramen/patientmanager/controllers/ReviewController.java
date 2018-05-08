@@ -51,9 +51,9 @@ public class ReviewController {
         return "redirect:/dashboard";
     }
 
-    @PostMapping("/reviews/{id}/delete")
-    public String delete(@PathVariable long id) {
-        revDao.delete(id);
-        return "redirect:/reviews";
+    @PostMapping("/myreview/delete")
+    public String delete(@RequestParam(name = "patientId") long patientId) {
+        revDao.delete(revDao.findByPatientId(patientId));
+        return "redirect:/myreview";
     }
 }
