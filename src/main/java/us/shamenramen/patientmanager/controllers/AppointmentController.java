@@ -31,8 +31,13 @@ public class AppointmentController {
         return "/appointments/ajax";
     }
 
+    @PostMapping("/appointments/delete")
+    public String deleteAppointment(){
+        return "redirect:/dashboard";
+    }
+
     @PostMapping("/appointments/ajax")
-    public String postTest(@RequestParam(name = "doctorId") long doctorId,
+    public String makeAppointment(@RequestParam(name = "doctorId") long doctorId,
                            @RequestParam(name = "patientId") long patientId,
                            @RequestParam(name = "date") String date,
                            @RequestParam(name = "time") String time,

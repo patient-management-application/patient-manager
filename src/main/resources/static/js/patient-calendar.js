@@ -5,6 +5,10 @@ $(document).ready(function() {
     var docId = $('#doctor-id').val();
     var patId = $('#patient-id').val();
 
+    if (docId === undefined){
+        docId = 0;
+    }
+
 
     var myCalendar = $('#calendar');
 
