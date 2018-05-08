@@ -22,8 +22,8 @@ public class AppointmentController {
 
     @GetMapping("/appointments.json")
     public @ResponseBody
-    Iterable<Appointment> viewAllAdsInJSONFormat() {
-        return aptDao.findAll();
+    Iterable<Appointment> viewAllAdsInJSONFormat(@RequestParam(name = "docId") long doctorId) {
+        return aptDao.findAppointmentByDoctorId(doctorId);
     }
 
     @GetMapping("/appointments/ajax")

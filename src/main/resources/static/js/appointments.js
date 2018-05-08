@@ -10,13 +10,11 @@ $(document).ready(function() {
 
 
     //Need a appointments.json
-    var url = "/appointments.json";
+    var url = "/appointments.json?docId=" + docId;
     var events = [];
     var getApps = function(){
         $.get(url, function( data ) {
             data.forEach(function(event){
-
-
                 event.start = new Date(event['dateCreated'] + ' ' + event['scheduledTime']);
                 var scheduledEnd = parseInt(event['scheduledTime'].substring(0, 2));
                 scheduledEnd = (++scheduledEnd + ":00");
