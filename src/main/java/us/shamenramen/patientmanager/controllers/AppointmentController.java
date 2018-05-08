@@ -22,19 +22,24 @@ public class AppointmentController {
 
     @GetMapping("/appointments.json")
     public @ResponseBody
-    Iterable<Appointment> viewAllAdsInJSONFormat() {
-        return aptDao.findAll();
+    Iterable<Appointment> viewAllAdsInJSONFormat(@RequestParam(name = "docId") long doctorId) {
+        return aptDao.findAppointmentByDoctorId(doctorId);
     }
 
     @GetMapping("/appointments/ajax")
     public String viewAllAdsWithAjax() {
-        return "appointments/ajax";
+        return "/appointments/ajax";
     }
 
     @PostMapping("/appointments/ajax")
-    public String postTest(@RequestParam(name = "doctorId") long doctorId){
-        System.out.println("DOCTOR ID IS!!!!! " + doctorId);
+    public String postTest(@RequestParam(name = "doctorId") long doctorId,
+                           @RequestParam(name = "patientId") long patientId,
+                           @RequestParam(name = "date") String date,
+                           @RequestParam(name = "time") String time,
+                           @RequestParam(name = "statusId") String statusId){
 
+        Appointment app = new Appointment(patientId, doctorId, time, Integer.parseInt(statusId), date);
+        aptDao.save(app);
         return "redirect:/dashboard";
     }
 
