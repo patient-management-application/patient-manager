@@ -38,6 +38,8 @@ public class SessionController {
         if (validSess){
             Session sess = new Session();
             User patient = userDao.findById(id);
+            User user = userDao.findById(loggedInUser.getId());
+            model.addAttribute("user", user);
             model.addAttribute("sess", sess);
             model.addAttribute("patient", patient);
         }

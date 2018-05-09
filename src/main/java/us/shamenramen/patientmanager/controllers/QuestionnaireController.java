@@ -23,7 +23,9 @@ public class QuestionnaireController {
 
     @GetMapping(path = "/myhealth")
     public String showHealth(Model model){
+
         User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User user = userDao.findById(loggedInUser.getId());
         if (quesDao.findByPatientId(loggedInUser.getId()) != null){
             Questionnaire quest = quesDao.findByPatientId(loggedInUser.getId());
             model.addAttribute("quest", quest);
@@ -31,6 +33,7 @@ public class QuestionnaireController {
             Questionnaire quest = new Questionnaire();
             model.addAttribute("quest", quest);
         }
+        model.addAttribute("user", user);
 
         return "/patients/my_health";
 
