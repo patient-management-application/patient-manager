@@ -2,6 +2,7 @@
 
 $(document).ready(function() {
 
+    var form = $('#new-app-form');
     var docId = $('#doctor-id').val();
     var patId = $('#patient-id').val();
     var patName = $('#patient-name').val();
@@ -45,7 +46,8 @@ $(document).ready(function() {
 
     getApps();
 
-    $('#done').click(function(){
+    $('#done').click(function(e){
+        e.preventDefault();
         var date = $('#date-picker').val();
         var time = $('#time-picker').val();
         var endTime = time.toString();
@@ -61,17 +63,18 @@ $(document).ready(function() {
         };
 
 
+
         events.forEach(function(event){
             if (newApp.start.toString() === event.start.toString()){
                 alert("CONFLICTING APPOINTMENT!");
                 validEvent = false;
-                console.log(validEvent);
             }
         });
 
         if (!validEvent){
             return;
         } else {
+            form.submit();
             events.push(newApp);
         //    create a new post and add to database!
 

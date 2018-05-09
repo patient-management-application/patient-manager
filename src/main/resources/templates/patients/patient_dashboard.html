@@ -73,7 +73,7 @@
 <th:block th:if="${doctor != null}">
 <H3 class="col-sm-12 text-center">Make an appointment</H3>
 
-<form th:action="@{/appointments/ajax}" th:method="POST">
+<form id="new-app-form" th:action="@{/appointments/ajax}" th:method="POST">
     <input id="doctor-id" type="hidden" name="doctorId" th:value="${doctor.id}"/>
     <input id="patient-id" type="hidden" name="patientId" th:value="${user.id}"/>
     <input id="patient-name" type="hidden" name="patientName" th:value="${user.firstName} + ' ' + ${user.lastName}"/>
