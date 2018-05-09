@@ -10,15 +10,11 @@ import java.util.List;
 
 @Repository
 public interface SessionRepository extends CrudRepository<Session, Long> {
-//    @Override
-//    default Iterable<Session> findAll(Iterable<Long> iterable) {
-//        return null;
-//    }
+
     @Query(value = "SELECT * FROM sessions WHERE doctor_id = ? AND patient_id = ?", nativeQuery = true)
     List<Session> findByDoctorIdAndPatientId(long doctorId, long patientId);
-
     Session findByDoctorId(long doctorId);
-    //hoping to pull session by user_id, still in trial, might not work
-//    Iterable<Session> findAll(User byId);
 
+    @Query(value = "SELECT * FROM sessions WHERE patient_id = ?", nativeQuery = true)
+    List<Session> findByPatientId(long id);
 }
