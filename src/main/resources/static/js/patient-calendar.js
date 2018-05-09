@@ -86,13 +86,14 @@ $(document).ready(function() {
     myCalendar.fullCalendar({
         defaultView: 'agendaWeek',
         allDaySlot : false,
+        scrollTime: "08:00",
         businessHours: {
             dow: [ 1, 2, 3, 4, 5 ], // Monday - Thursday
             start: '09:00', // a start time (10am in this example)
             end: '17:00' // an end time (6pm in this example)
         },
-        minTime : '09:00',
-        maxTime : '19:00',
+        minTime : '08:00',
+        // maxTime : '18:00',
         nowIndicator: true,
         eventColor: "#9e9e9e"
     });
