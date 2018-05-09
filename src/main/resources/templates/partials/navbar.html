@@ -18,6 +18,7 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li style="margin-right: 10px;"><a class="text-white" th:href="@{/dashboard}">MY DASHBOARD</a></li>
+                    <li style="margin-right: 10px;"><a class="text-white" th:href="@{'/users/' + ${user.id} + '/edit'}">EDIT MY INFO</a></li>
                     <li style="margin-right: 10px;"><a class="text-white" th:href="@{/myhealth}">MY HEALTH</a></li>
                     <li style="margin-right: 10px;"><a class="text-white" th:href="@{/search}">SEARCH DOCTORS</a></li>
                     <li style="margin-right: 10px;"><a class="text-white" th:href="@{/myreview}">MY REVIEWS</a></li>
@@ -57,6 +58,7 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
             <ul class="nav navbar-nav navbar-right">
                 <li style="margin-right: 10px;"><a class="text-white" th:href="@{/dashboard}">MY DASHBOARD</a></li>
+                <li style="margin-right: 10px;"><a class="text-white" th:href="@{'/doctors/' + ${user.id} + '/edit'}">EDIT DOCTOR INFO</a></li>
                 <li style="margin-right: 10px;"><a class="text-white" th:href="@{/mypractice}">MY PRACTICE</a></li>
                 <li style="margin-right: 10px;"><a class="text-white" th:href="@{/mybilling}">MY BILLING</a></li>
                 <li sec:authorize="isAuthenticated()">

@@ -22,7 +22,7 @@
 
 <form th:action="@{/charge}" method="POST" id="checkout-form">
     <input type="hidden" th:value="${amount}" name="amount" />
-    <label>Price:<span th:text="${amount/100}" ></span></label>
+    <label>Price:<span th:text="${amount}" ></span></label>
     <!-- NOTE: data-key/data-amount/data-currency will be rendered by Thymeleaf -->
     <script
             src="https://checkout.stripe.com/checkout.js"

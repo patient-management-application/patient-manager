@@ -69,5 +69,28 @@ public class UserController {
         return "redirect:/dashboard";
     }
 
+    @GetMapping(path = "/users/{id}/edit")
+    public String edit(@PathVariable long id, Model viewModel) {
+        User user = userDao.findOne(id);
+        viewModel.addAttribute("user", user);
+        return "/patients/edit_my_registration";
+    }
+
+    @PostMapping(path = "/users/{id}/edit")
+    public String userEdit(@PathVariable long id, @ModelAttribute User user){
+        String hash = passwordEncoder.encode(user.getPassword());
+        user.setPassword(hash);
+        userDao.save(user);
+        return "redirect:/dashboard";
+
+    }
+
+//    @PostMapping(path = "/users/{id}/delete")
+//    public String delete(@PathVariable long id) {
+//        userDao.delete(id);
+//        return "redirect:/index";
+//    }
+
+
 
 }
