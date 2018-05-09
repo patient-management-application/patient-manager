@@ -7,16 +7,19 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import us.shamenramen.patientmanager.models.User;
 import us.shamenramen.patientmanager.repositories.QuestionnaireRepository;
+import us.shamenramen.patientmanager.repositories.ReviewRepository;
 import us.shamenramen.patientmanager.repositories.UserRepository;
 
 @Controller
 public class UserController {
     private PasswordEncoder passwordEncoder;
     private UserRepository userDao;
+    private ReviewRepository revDao;
 
-    public UserController(UserRepository userDao, PasswordEncoder passwordEncoder) {
+    public UserController(UserRepository userDao, PasswordEncoder passwordEncoder, ReviewRepository revDao) {
         this.passwordEncoder = passwordEncoder;
         this.userDao = userDao;
+        this.revDao = revDao;
     }
 
     @GetMapping(path = "/index")
@@ -51,6 +54,7 @@ public class UserController {
     @GetMapping(path = "/search")
     public String searchDoctors(Model model){
         model.addAttribute("doctors", userDao.findByIsDoctor(true));
+        model.addAttribute("reviews", revDao.findAll());
         return "patients/search_doctors";
     }
 

@@ -37,17 +37,29 @@
 
 
 
-<h2>My Prescriptions</h2>
-<ul th:each="session : ${sessions}">
-    <li th:text="${session.prescriptions}"></li>
-</ul>
-
-<h1 class="col-sm-12 text-center">Patient Dashboard</h1>
+<div class="container">
+    <div class="">
+        <div class="col-sm-4">
+            <div class="my-health">
+                <h2>My Health</h2>
+                <h4>My Prescriptions</h4>
+                <ul th:each="session : ${sessions}">
+                    <li th:text="${session.prescriptions}"></li>
+                </ul>
+                <th:block th:if="${ques != null}">
+                    <h4>My Allergies</h4>
+                    <p th:text="${ques.allergies}"></p>
+                    <h4>My History</h4>
+                    <p th:text="${ques.history}"></p>
+                </th:block>
+            </div>
+        </div>
+    </div>
 
     <th:block th:if="${doctor}" th:object="${doctor}">
-        <h4 class="col-sm-12 text-center">My Doctor</h4>
-        <div class="col-sm-12 text-center">
-            <img collect_rid="1:284976504" th:src="${doctor.image}" data-embed-type="deviation" data-embed-format="thumb" data-embed-id="284976504" width="504" height="648" th:alt="${doctor.firstName} + ' ' + ${doctor.lastName}" class="dev-content-normal " style="width: 304px; height: 348px; top: 0px;"/>
+        <div class="col-sm-8 text-center">
+        <h4 class="text-center">My Doctor</h4>
+            <img th:src="${doctor.image}" th:alt="${doctor.firstName} + ' ' + ${doctor.lastName}" class="dev-content-normal " style="max-height: 300px;"/>
             <div class="caption">
                 <h3 th:text="${doctor.firstName} + ' ' + ${doctor.lastName}"></h3>
                 <i><span th:text="${doctor.street} + ' ' + ${doctor.city} + ' ' + ${doctor.state} + ' ' +  ${doctor.state}"></span></i>
@@ -57,8 +69,7 @@
 
     </th:block>
 
-<h3 class="col-sm-12 text-center">Your Appointments</h3>
-<p class="col-sm-12 text-center">10/10/2018 at 3:00 PM</p>
+
 
 
 <th:block th:if="${doctor == null}">
@@ -103,8 +114,8 @@
 
 <div id="calendar"></div>
 
-
 </th:block>
+</div>
 
 
 

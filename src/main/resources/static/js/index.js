@@ -29,10 +29,18 @@ function hasScrolled() {
         $('header').removeClass('nav-down').addClass('nav-up');
     } else {
         // Scroll Up
-        if(st + $(window).height() < $(document).height()) {
-            $('header').removeClass('nav-up').addClass('nav-down');
-        }
-    }
-
-    lastScrollTop = st;
+if(st + $(window).height() < $(document).height()) {
+    $('header').removeClass('nav-up').addClass('nav-down');
 }
+}
+
+lastScrollTop = st;
+}
+
+
+
+var $input = $('.form-fieldset > input');
+
+$input.blur(function (e) {
+    $(this).toggleClass('filled', !!$(this).val());
+});
