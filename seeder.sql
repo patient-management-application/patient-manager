@@ -17,12 +17,12 @@ INSERT INTO questionnaires(allergies, extra, history, medications, patient_id) V
   ('Vampires and cookies', null, 'Alimony Checks', null, 3);
 
 
-INSERT into  appointments(date_created, doc_id, pat_id, scheduled_time, status_id) VALUES
-  ('2018/05/07', 4, 1, '12:00', 1),
-  ('2018/05/07', 4, 2, '13:00', 1),
-  ('2018/05/07', 4, 2, '14:00', 1),
-  ('2018/05/07', 4, 3, '15:00', 1),
-  ('2018/05/07', 4, 1, '16:00', 1);
+INSERT into  appointments(date_created, doc_id, doctor_name, pat_id, patient_name, scheduled_time, status_id) VALUES
+  ('2018/05/07', 4, 'Dr. Victoria Valentina', 1, 'Ben Hodge', '12:00', 1),
+  ('2018/05/07', 5, 'Dr. Alice Almendra', 2, 'Ronnie McDonald', '13:00', 1),
+  ('2018/05/07', 4, 'Dr. Victoria Valentina', 2, 'Bobby B', '14:00', 1),
+  ('2018/05/07', 4, 'Dr. Victoria Valentina', 2, 'Bobby B', '15:00', 1),
+  ('2018/05/07', 5, 'Dr. Alice Almendra', 3, 'Ronnie McDonald', '16:00', 1);
 
 
 

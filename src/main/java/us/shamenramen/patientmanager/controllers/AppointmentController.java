@@ -47,12 +47,44 @@ public class AppointmentController {
 
     @PostMapping("/appointments/ajax")
     public String makeAppointment(@RequestParam(name = "doctorId") long doctorId,
-                           @RequestParam(name = "patientId") long patientId,
-                           @RequestParam(name = "date") String date,
-                           @RequestParam(name = "time") String time,
-                           @RequestParam(name = "statusId") String statusId){
+                                  @RequestParam(name = "patientId") long patientId,
+                                  @RequestParam(name = "date") String date,
+                                  @RequestParam(name = "time") String time,
+                                  @RequestParam(name = "statusId") String statusId,
+                                  @RequestParam(name = "patientName") String patientName,
+                                  @RequestParam(name = "doctorName") String doctorName){
 
-        Appointment app = new Appointment(patientId, doctorId, time, Integer.parseInt(statusId), date);
+        Appointment app = new Appointment(
+                patientId,
+                doctorId,
+                time,
+                Integer.parseInt(statusId),
+                date,
+                patientName,
+                doctorName);
+        aptDao.save(app);
+        return "redirect:/dashboard";
+    }
+
+
+    @PostMapping("/newappointment")
+    public String doctorCreateAppointment(@RequestParam(name = "doctorId") long doctorId,
+                                          @RequestParam(name = "patientId") long patientId,
+                                          @RequestParam(name = "time") String time,
+                                          @RequestParam(name = "date") String date,
+                                          @RequestParam(name = "statusId") String statusId,
+                                          @RequestParam(name = "doctorName") String doctorName
+                                          ){
+
+        String patientName = userDao.findById(patientId).getFirstName() + " " + userDao.findById(patientId).getLastName();
+        Appointment app = new Appointment(
+                patientId,
+                doctorId,
+                time,
+                Integer.parseInt(statusId),
+                date,
+                patientName,
+                doctorName);
         aptDao.save(app);
         return "redirect:/dashboard";
     }
