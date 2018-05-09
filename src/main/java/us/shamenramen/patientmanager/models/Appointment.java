@@ -20,6 +20,12 @@ public class Appointment {
     @OneToOne
     private User user;
 
+    @Column(name = "patient_name")
+    private String patientName;
+
+    @Column(name = "doctor_name")
+    private String doctorName;
+
     @Column(name = "pat_id", nullable = false)
     private long patientId;
 
@@ -39,21 +45,42 @@ public class Appointment {
     public Appointment() {
     }
 
-    public Appointment(long patientId, long doctor_id, String scheduledTime, int status_id, String dateCreated) {
+    public Appointment(long patientId, long doctor_id, String scheduledTime, int status_id, String dateCreated, String patientName, String doctorName) {
         this.patientId = patientId;
         this.doctorId = doctor_id;
         this.scheduledTime = scheduledTime;
         this.statusId = status_id;
         this.dateCreated = dateCreated;
+        this.doctorName = doctorName;
+        this.patientName = patientName;
     }
 
-    public Appointment(long id,long pat_id, long doctor_id, String scheduledTime, int status_id, String dateCreated) {
+    public Appointment(long id,long pat_id, long doctor_id, String scheduledTime, int status_id, String dateCreated, String patientName, String doctorName) {
         this.id  = id;
         this.patientId = pat_id;
         this.doctorId = doctor_id;
         this.scheduledTime = scheduledTime;
         this.statusId = status_id;
         this.dateCreated = dateCreated;
+        this.doctorName = doctorName;
+        this.patientName = patientName;
+    }
+
+
+    public String getPatientName() {
+        return patientName;
+    }
+
+    public void setPatientName(String patientName) {
+        this.patientName = patientName;
+    }
+
+    public String getDoctorName() {
+        return doctorName;
+    }
+
+    public void setDoctorName(String doctorName) {
+        this.doctorName = doctorName;
     }
 
     public User getOwner() {

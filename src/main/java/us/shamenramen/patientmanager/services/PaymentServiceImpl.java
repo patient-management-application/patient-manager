@@ -2,9 +2,7 @@
 //
 //import com.stripe.Stripe;
 //import com.stripe.exception.*;
-//import com.stripe.model.Charge;
-//import com.stripe.model.Customer;
-//import com.stripe.model.Order;
+//import com.stripe.model.*;
 //import org.springframework.stereotype.Service;
 //import us.shamenramen.patientmanager.models.User;
 //
@@ -89,7 +87,56 @@
 //        }
 //    }
 //
-////    public String createInvoiceItems() {
-////
-////    }
+//    public String createInvoiceItems() {
+//
+//        Map<String, Object> params = new HashMap<>();
+//        params.put("amount", 1000);
+//        params.put("currency", "usd");
+//        params.put("customer", "cus_4fdAW5ftNQow1a");
+//        params.put("description", "One-time setup fee");
+//        try {
+//            InvoiceItem invoiceItem = InvoiceItem.create(params);
+//            System.out.println(invoiceItem);
+//        } catch (CardException e) {
+//            // Transaction failure
+//        } catch (RateLimitException e) {
+//            // Too many requests made to the API too quickly
+//        } catch (InvalidRequestException e) {
+//            // Invalid parameters were supplied to Stripe's API
+//        } catch (AuthenticationException e) {
+//            // Authentication with Stripe's API failed (wrong API key?)
+//        } catch (APIConnectionException e) {
+//            // Network communication with Stripe failed
+//        } catch (StripeException e) {
+//            // Generic error
+//        } catch (Exception e) {
+//            // Something else happened unrelated to Stripe
+//        }
+//
+//        return id;
+//
+//    }
+//
+//    public String sendInvoice() {
+//
+//        Map<String, Object> params = new HashMap<>();
+//        params.put("customer", "cus_4fdAW5ftNQow1a");
+//        params.put("billing", "send_invoice");
+//        params.put("days_until_due", 30);
+//        try {
+//            Invoice invoice = Invoice.create(params);
+//            System.out.println(invoice);
+//        } catch (AuthenticationException e) {
+//            e.printStackTrace();
+//        } catch (InvalidRequestException e) {
+//            e.printStackTrace();
+//        } catch (APIConnectionException e) {
+//            e.printStackTrace();
+//        } catch (CardException e) {
+//            e.printStackTrace();
+//        } catch (APIException e) {
+//            e.printStackTrace();
+//        }
+//
+//    }
 //}

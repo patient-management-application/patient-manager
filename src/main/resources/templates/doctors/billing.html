@@ -20,71 +20,59 @@
     </div>
 </section>
 
-<form action='/charge' method='POST' id='checkout-form'>
-    <input type='hidden' th:value='${amount}' name='amount' />
-    <label>Price:<span th:text='${amount/100}' /></label>
+<form th:action="@{/charge}" method="POST" id="checkout-form">
+    <input type="hidden" th:value="${amount}" name="amount" />
+    <label>Price:<span th:text="${amount/100}" ></span></label>
     <!-- NOTE: data-key/data-amount/data-currency will be rendered by Thymeleaf -->
     <script
-            src='https://checkout.stripe.com/checkout.js'
-            class='stripe-button'
-            th:attr='data-key=${stripePublicKey},
+            src="https://checkout.stripe.com/checkout.js"
+            class="stripe-button"
+            th:attr="data-key=${stripePublicKey},
          data-amount=${amount},
-         data-currency=${currency}'
-            data-name='Baeldung'
-            data-description='Spring course checkout'
+         data-currency=${currency}"
+            data-name="Shaman Ramen"
+            data-description="Patient Checkout"
             data-image
-                    ='http://www.baeldung.com/wp-content/themes/baeldung/favicon/android-chrome-192x192.png'
-            data-locale='auto'
-            data-zip-code='false'>
+                    ="http://www.baeldung.com/wp-content/themes/baeldung/favicon/android-chrome-192x192.png"
+            data-locale="auto"
+            data-zip-code="false">
     </script>
 </form>
 
-<section class="mbr-section--bg-adapted"  id="header4-4" style="background-image: url(img/hallway6.jpeg);">
-    <div class="contact-form">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-10 col-md-offset-1" data-form-type="formoid">
-                    <form id="contact_form" class="positioned" method="POST" th:action="@{/mybilling}" th:object="${user}" data-form-title="CONTACT FORM">
-                        <div class="row">
-                            <label class="col-md-4 control-label"></label>
-                                <div class="col-md-4">
-                                    <button type="submit" class="btn btn-info" >Charge <span class="glyphicon glyphicon-send"></span></button>
-                                </div>
-                                </div>
-                            <div class="form-group">
-                                <label class="col-md-4 control-label"></label>
-                            <div class="col-md-4 inputGroupContainer">
-                            <div class="input-group">
-                                <input name="charge_name" placeholder="Name" class="form-control"  type="text"/>
-                            </div>
-                            </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-md-4 control-label"></label>
-                            <div class="col-md-4 inputGroupContainer">
-                                <div class="input-group">
-                                    <input name="amount" placeholder="Amount" class="form-control"  type="text"/>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<section class="mbr-section--bg-adapted mbr-section--relative" style="background-color: #478050;">
-    <div class="pricing">
-        <div class="container">
-            <div class="section-head-lite text-center col-md-8 col-md-offset-2 space80">
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+<!--<section class="mbr-section&#45;&#45;bg-adapted"  id="header4-4" style="background-image: url(img/hallway6.jpeg);">-->
+    <!--<div class="contact-form">-->
+        <!--<div class="container">-->
+            <!--<div class="row">-->
+                <!--<div class="col-md-10 col-md-offset-1" data-form-type="formoid">-->
+                    <!--<form id="contact_form" class="positioned" method="POST" th:action="@{/mybilling}" th:object="${user}" data-form-title="CONTACT FORM">-->
+                        <!--<div class="row">-->
+                            <!--<label class="col-md-4 control-label"></label>-->
+                                <!--<div class="col-md-4">-->
+                                    <!--<button type="submit" class="btn btn-info" >Charge <span class="glyphicon glyphicon-send"></span></button>-->
+                                <!--</div>-->
+                                <!--</div>-->
+                            <!--<div class="form-group">-->
+                                <!--<label class="col-md-4 control-label"></label>-->
+                            <!--<div class="col-md-4 inputGroupContainer">-->
+                            <!--<div class="input-group">-->
+                                <!--<input name="charge_name" placeholder="Name" class="form-control"  type="text"/>-->
+                            <!--</div>-->
+                            <!--</div>-->
+                            <!--</div>-->
+                            <!--<div class="form-group">-->
+                                <!--<label class="col-md-4 control-label"></label>-->
+                            <!--<div class="col-md-4 inputGroupContainer">-->
+                                <!--<div class="input-group">-->
+                                    <!--<input name="amount" placeholder="Amount" class="form-control"  type="text"/>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</form>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</section>-->
 <footer th:replace="partials/footer :: footer"></footer>
 </body>
 </html>
