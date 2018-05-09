@@ -1,10 +1,12 @@
 package us.shamenramen.patientmanager.controllers;
 
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import us.shamenramen.patientmanager.models.User;
 import us.shamenramen.patientmanager.repositories.UserRepository;
@@ -12,9 +14,11 @@ import us.shamenramen.patientmanager.repositories.UserRepository;
 @Controller
 public class DoctorController {
     private UserRepository userDao;
+    private PasswordEncoder passwordEncoder;
 
-    public DoctorController( UserRepository userDao) {
+    public DoctorController(UserRepository userDao, PasswordEncoder passwordEncoder) {
         this.userDao = userDao;
+        this.passwordEncoder = passwordEncoder;
     }
 
     @GetMapping(path = "/mypractice")
@@ -47,4 +51,26 @@ public class DoctorController {
         }
         return "redirect:/dashboard";
     }
+
+    @GetMapping("doctors/{id}/edit")
+    public String edit(@PathVariable long id, Model viewModel) {
+        User doctor = userDao.findOne(id);
+        viewModel.addAttribute("doctor", doctor);
+        return "/doctors/edit_doctor_registration";
+    }
+
+    @PostMapping("/doctors/{id}/edit")
+    public String doctorEdit(@PathVariable long id, @ModelAttribute User user){
+        String hash = passwordEncoder.encode(user.getPassword());
+        user.setPassword(hash);
+        userDao.save(user);
+        return "redirect:/dashboard";
+
+    }
+
+//    @PostMapping("/users/{id}/delete")
+//    public String delete(@PathVariable long id) {
+//        userDao.delete(id);
+//        return "redirect:/index";
+//    }
 }
