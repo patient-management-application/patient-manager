@@ -1,7 +1,7 @@
 "use strict";
 
 $(document).ready(function() {
-
+    var form = $('#new-app-form');
     var docId = $('#doctorId').val();
     var myCalendar = $('#calendar');
     //Need a appointments.json
@@ -17,6 +17,40 @@ $(document).ready(function() {
                 event.end = new Date(event['dateCreated'] + ' ' + scheduledEnd);
                 events.push(event);
             });
+
+            $('#done').click(function(e){
+                e.preventDefault();
+                var date = $('#date-picker').val();
+                var time = $('#time-picker').val();
+                var endTime = time.toString();
+                endTime = parseInt(endTime.substring(0, 2));
+                endTime = (++endTime + ":00");
+                var validEvent = true;
+
+                var newApp = {
+                    start: new Date(date + ' ' + time),
+                    end: new Date(date + ' ' + endTime)
+                };
+
+                events.forEach(function(event){
+                    if (newApp.start.toString() === event.start.toString()){
+                        alert("CONFLICTING APPOINTMENT!");
+                        validEvent = false;
+                    }
+                });
+
+                if (!validEvent){
+                    return;
+                } else {
+                    form.submit();
+                    events.push(newApp);
+                    //    create a new post and add to database!
+
+                }
+                myCalendar.fullCalendar( 'renderEvent', newApp);
+
+            });
+
 
             var curTime = new Date();
             events.forEach(function(e){
