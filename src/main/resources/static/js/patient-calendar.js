@@ -2,8 +2,11 @@
 
 $(document).ready(function() {
 
+    var form = $('#new-app-form');
     var docId = $('#doctor-id').val();
     var patId = $('#patient-id').val();
+    var patName = $('#patient-name').val();
+    var docName = $('#doctor-name').val();
 
     if (docId === undefined){
         docId = 0;
@@ -24,13 +27,17 @@ $(document).ready(function() {
                     var deleteStr = event.start.toString();
                     //Only works for central time
                     deleteStr = deleteStr.substring(0, deleteStr.length-33);
-                    event.title = "My Appointment";
+                    event.title = "Appt: " + event.doctorName;
                     event.color = "#5be207";
                     $('#appointment-delete').prepend('<option name="id" value='+ event.id + ' >' + deleteStr + '</option>');
                 }
             });
 
+            var curTime = new Date();
             events.forEach(function(e){
+                if (Date.parse( e.start ) < curTime){
+                    e.color = "#929292";
+                }
                 myCalendar.fullCalendar('renderEvent', e);
             });
 
@@ -39,7 +46,8 @@ $(document).ready(function() {
 
     getApps();
 
-    $('#done').click(function(){
+    $('#done').click(function(e){
+        e.preventDefault();
         var date = $('#date-picker').val();
         var time = $('#time-picker').val();
         var endTime = time.toString();
@@ -48,24 +56,25 @@ $(document).ready(function() {
         var validEvent = true;
 
         var newApp = {
-            title:"My Appointment",
+            title: "Appointment with: " + patName,
             allDay: false,
             start: new Date(date + ' ' + time),
             end: new Date(date + ' ' + endTime)
         };
 
 
+
         events.forEach(function(event){
             if (newApp.start.toString() === event.start.toString()){
                 alert("CONFLICTING APPOINTMENT!");
                 validEvent = false;
-                console.log(validEvent);
             }
         });
 
         if (!validEvent){
             return;
         } else {
+            form.submit();
             events.push(newApp);
         //    create a new post and add to database!
 
