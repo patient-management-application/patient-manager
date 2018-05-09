@@ -62,6 +62,7 @@ public class DoctorController {
     @PostMapping("/doctors/{id}/edit")
     public String doctorEdit(@PathVariable long id, @ModelAttribute User user){
         String hash = passwordEncoder.encode(user.getPassword());
+        user.setDoctor(true);
         user.setPassword(hash);
         userDao.save(user);
         return "redirect:/dashboard";

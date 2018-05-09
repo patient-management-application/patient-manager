@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import org.springframework.web.bind.annotation.PathVariable;
 import us.shamenramen.patientmanager.models.Bill;
 
 import us.shamenramen.patientmanager.models.User;
@@ -24,9 +25,10 @@ public class BillingController {
     @GetMapping(path = "/mybilling")
     public String showBilling(Model model) {
         User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-
+        User user = userDao.findById(loggedInUser.getId());
             Bill bill = new Bill();
             model.addAttribute("bill", bill);
+            model.addAttribute("user", user);
 
 
         return "/doctors/billing";
