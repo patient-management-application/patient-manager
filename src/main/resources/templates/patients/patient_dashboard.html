@@ -76,6 +76,8 @@
 <form th:action="@{/appointments/ajax}" th:method="POST">
     <input id="doctor-id" type="hidden" name="doctorId" th:value="${doctor.id}"/>
     <input id="patient-id" type="hidden" name="patientId" th:value="${user.id}"/>
+    <input id="patient-name" type="hidden" name="patientName" th:value="${user.firstName} + ' ' + ${user.lastName}"/>
+    <input id="doctor-name" type="hidden" name="doctorName" th:value="${doctor.firstName} + ' ' + ${doctor.lastName}"/>
     <input type="hidden" name="statusId" value="1"/>
     <input type="date" id="date-picker" name="date"/>
     <select name="time" id="time-picker">

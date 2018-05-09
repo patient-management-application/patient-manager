@@ -3,11 +3,6 @@
 $(document).ready(function() {
 
     var docId = $('#doctorId').val();
-    var patId = $('#patientId').val();
-    var patientName = $('.patientName').val();
-    console.log(patientName);
-
-
     var myCalendar = $('#calendar');
     //Need a appointments.json
     var url = "/appointments.json?docId=" + docId;
@@ -15,7 +10,7 @@ $(document).ready(function() {
     var getApps = function(){
         $.get(url, function( data ) {
             data.forEach(function(event){
-                event.title = patientName;
+                event.title = event.patientName;
                 event.start = new Date(event['dateCreated'] + ' ' + event['scheduledTime']);
                 var scheduledEnd = parseInt(event['scheduledTime'].substring(0, 2));
                 scheduledEnd = (++scheduledEnd + ":00");
@@ -23,52 +18,27 @@ $(document).ready(function() {
                 events.push(event);
             });
 
+            var curTime = new Date();
             events.forEach(function(e){
+                if (Date.parse( e.start ) < curTime){
+                    e.past = true;
+                    e.color = "#929292";
+
+                } else {
+                    var deleteStr = e.start.toString();
+                    deleteStr = deleteStr.substring(0, deleteStr.length-33);
+                    $('#appointment-delete').append('<option name="id" value='+ e.id + ' >' + deleteStr + '</option>');
+                }
+
                 myCalendar.fullCalendar('renderEvent', e);
             });
+
 
         });
     };
 
     getApps();
 
-
-
-    //
-    // $('#done').click(function(){
-    //     var date = $('#date-picker').val();
-    //     var time = $('#time-picker').val();
-    //     var endTime = time.toString();
-    //     endTime = parseInt(endTime.substring(0, 2));
-    //     endTime = (++endTime + ":00");
-    //     var validEvent = true;
-    //
-    //     var newApp = {
-    //         title:"My Appointment",
-    //         allDay: false,
-    //         start: new Date(date + ' ' + time),
-    //         end: new Date(date + ' ' + endTime)
-    //     };
-    //
-    //
-    //     events.forEach(function(event){
-    //         if (newApp.start.toString() === event.start.toString()){
-    //             alert("CONFLICTING APPOINTMENT!");
-    //             validEvent = false;
-    //             console.log(validEvent);
-    //         }
-    //     });
-    //
-    //     if (!validEvent){
-    //         return;
-    //     } else {
-    //         events.push(newApp);
-    //         //    create a new post and add to database!
-    //
-    //     }
-    //     myCalendar.fullCalendar( 'renderEvent', newApp);
-    //
-    // });
 
     myCalendar.fullCalendar({
         defaultView: 'agendaWeek',
@@ -81,8 +51,9 @@ $(document).ready(function() {
         minTime : '09:00',
         maxTime : '19:00',
         nowIndicator: true,
-        eventColor: "#9e9e9e"
+        eventColor: "#489e72"
     });
+
 
     $('.fc-prev-button').click(function(){
         events.forEach(function(e){
