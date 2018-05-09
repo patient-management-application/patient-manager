@@ -53,6 +53,9 @@ public class UserController {
 
     @GetMapping(path = "/search")
     public String searchDoctors(Model model){
+        User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User user = userDao.findById(loggedInUser.getId());
+        model.addAttribute("user", user);
         model.addAttribute("doctors", userDao.findByIsDoctor(true));
         model.addAttribute("reviews", revDao.findAll());
         return "patients/search_doctors";
