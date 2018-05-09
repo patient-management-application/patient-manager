@@ -52,7 +52,8 @@
             <p th:text="${patient.phoneNumber}"></p>
             <i><span th:text="${patient.street} + ' ' + ${patient.city} + ' ' + ${patient.state} + ' ' +  ${patient.zipcode}"></span></i>
             <!--<p th:text="${user.}"></p>-->
-            <a th:href="@{/newsession/{id}(id = ${patient.id})}">Start new session</a>
+            <a th:href="@{/newsession/{id}(id = ${patient.id})}">New Session</a>
+            <a th:href="@{/showsessions/{id}(id = ${patient.id})}">View All Sessions</a>
         </div>
     </div>
 
