@@ -41,8 +41,9 @@
     </div>
 
 </div>
+
 <div class="row">
-    <div class="col-xs-6">
+    <div class="col-sm-3 col-sm-offset-2">
         <th:block th:if="${patients != null}">
             <form id="new-app-form" th:action="@{/newappointment}" th:method="POST">
                 <h2>Schedule an Appointment</h2>
@@ -67,10 +68,12 @@
                 <button class="btn btn-primary" id="done">Schedule</button>
             </form>
             <h3>Delete Appointments</h3>
-            <form th:action="@{/appointments/delete}" th:method="POST">
-                <select name="id" id="appointment-delete"></select>
-                <button>Submit</button>
-            </form>
+            <div class="col-sm-3 col-sm-offset-2">
+                <form th:action="@{/appointments/delete}" th:method="POST">
+                    <select name="id" id="appointment-delete"></select>
+                    <button class="btn btn-danger">Submit</button>
+                </form>
+            </div>
         </th:block>
     </div>
 </div>
