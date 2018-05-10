@@ -14,28 +14,6 @@
     </div>
 </section>
 
-<!--<section class="mbr-section&#45;&#45;bg-adapted mbr-after-navbar" id="header1-1" style="background-image: url(img/doc2.jpeg);">-->
-    <!--<div class="intro intro1">-->
-        <!--<div class="mbr-overlay" style="opacity: 0.75; background-color: rgb(120,188,255);"></div>-->
-        <!--<div class="pricing" id="pricing">-->
-            <!--<div class="container">-->
-                <!--<div class="section-head-lite text-center col-md-8 col-md-offset-2 space80">-->
-                    <!--<h1>MY DASHBOARD</h1>-->
-                <!--</div>-->
-                <!--<div class="row">-->
-                    <!--<div class="col-md-12">-->
-                    <!--</div>-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</div>-->
-    <!--</div>-->
-<!--</section>-->
-
-
-
-
-
-
 
 <div class="container">
     <div class="">
@@ -80,54 +58,59 @@
 
 
 
-<th:block th:if="${doctor == null}">
-    <div class="row">
-        <div class="col-xs-3 col-xs-offset-6">
-            <a th:href="@{/search}"><button>Find a Doctor</button></a>
+    <th:block th:if="${doctor == null}">
+        <div class="row">
+            <div class="col-xs-3 col-xs-offset-6">
+                <a th:href="@{/search}"><button>Find a Doctor</button></a>
+            </div>
+        </div>
+    </th:block>
+
+
+    <th:block th:if="${doctor != null}">
+        <div class="container">
+            <div class="row" style="margin-top: 20%;">
+                <div class="col-sm-3 col-sm-offset-2">
+                    <form class="" id="new-app-form" th:action="@{/appointments/ajax}" th:method="POST">
+                        <input id="doctor-id" type="hidden" name="doctorId" th:value="${doctor.id}"/>
+                        <input id="patient-id" type="hidden" name="patientId" th:value="${user.id}"/>
+                        <input id="patient-name" type="hidden" name="patientName" th:value="${user.firstName} + ' ' + ${user.lastName}"/>
+                        <input id="doctor-name" type="hidden" name="doctorName" th:value="${doctor.firstName} + ' ' + ${doctor.lastName}"/>
+                        <input type="hidden" name="statusId" value="1"/>
+                        <input class="form-control" type="date" id="date-picker" name="date"/>
+                        <select class="form-control" name="time" id="time-picker">
+                            <option value="09:00">9:00 am</option>
+                            <option value="10:00">10:00 am</option>
+                            <option value="11:00">11:00 am</option>
+                            <option value="12:00">12:00 pm</option>
+                            <option value="13:00">1:00 pm</option>
+                            <option value="14:00">2:00 pm</option>
+                            <option value="15:00">3:00 pm</option>
+                            <option value="16:00">4:00 pm</option>
+                        </select>
+                        <button class="btn btn-primary" id="done">Create Appointment</button>
+                    </form>
+                </div>
+                <div class="col-sm-3 col-sm-offset-2">
+                    <form class="" th:action="@{/appointments/delete}" th:method="POST">
+                        <select class="form-control" name="id" id="appointment-delete"></select>
+                        <button class="btn btn-danger">Delete Appointment</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div id="calendar"></div>
+    </th:block>
+</div>
+<section class="mbr-section--bg-adapted mbr-section--relative" id="pricing-table1-75" style="background-color: rgb(17,42,68);">
+    <div class="pricing" id="pricing">
+        <div class="container">
+            <div class="section-head-lite text-center col-md-8 col-md-offset-2 space80">
+
+            </div>
         </div>
     </div>
-</th:block>
-
-
-<th:block th:if="${doctor != null}">
-    <div class="container">
-        <div class="row" style="margin-top: 20%;">
-             <div class="col-sm-3 col-sm-offset-2">
-                 <form class="" id="new-app-form" th:action="@{/appointments/ajax}" th:method="POST">
-                     <input id="doctor-id" type="hidden" name="doctorId" th:value="${doctor.id}"/>
-                     <input id="patient-id" type="hidden" name="patientId" th:value="${user.id}"/>
-                     <input id="patient-name" type="hidden" name="patientName" th:value="${user.firstName} + ' ' + ${user.lastName}"/>
-                     <input id="doctor-name" type="hidden" name="doctorName" th:value="${doctor.firstName} + ' ' + ${doctor.lastName}"/>
-                     <input type="hidden" name="statusId" value="1"/>
-                     <input class="form-control" type="date" id="date-picker" name="date"/>
-                     <select class="form-control" name="time" id="time-picker">
-                         <option value="09:00">9:00 am</option>
-                         <option value="10:00">10:00 am</option>
-                         <option value="11:00">11:00 am</option>
-                         <option value="12:00">12:00 pm</option>
-                         <option value="13:00">1:00 pm</option>
-                         <option value="14:00">2:00 pm</option>
-                         <option value="15:00">3:00 pm</option>
-                         <option value="16:00">4:00 pm</option>
-                     </select>
-                     <button class="btn btn-primary" id="done">Create Appointment</button>
-                 </form>
-             </div>
-            <div class="col-sm-3 col-sm-offset-2">
-                <form class="" th:action="@{/appointments/delete}" th:method="POST">
-                    <select class="form-control" name="id" id="appointment-delete"></select>
-                    <button class="btn btn-danger">Delete Appointment</button>
-                </form>
-            </div>
-         </div>
-    </div>
-<div id="calendar"></div>
-</th:block>
-</div>
-
-
-
-
+</section>
 
 <footer th:replace="partials/footer :: footer"></footer>
 <script src="/js/patient-calendar.js"></script>
