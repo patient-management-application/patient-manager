@@ -451,7 +451,7 @@
 }
 
 .mbr-overlay {
-    background: #222;
+    /*background: #ffffff;*/
     bottom: 0;
     left: 0;
     position: absolute;
@@ -461,7 +461,7 @@
 }
 
 .mbr-hero {
-    color: #fff;
+    /*color: #fff;*/
     position: relative;
 }
 .mbr-hero__text {
@@ -1062,7 +1062,7 @@ Author:
 body {
     background: #fff;
     font-family: 'Droid Sans', sans-serif;
-    color: #777;
+    color: #ffffff;
     font-weight: 400;
     font-size: 15px;
     letter-spacing: 0.5px;
@@ -1078,7 +1078,7 @@ h1,h2,h3,h4,h5,h6 {
 
 p {
     font-size: 15px;
-    color: #555;
+    color: #ffffff;
     line-height: 24px;
     font-weight: 400;
     font-family: 'Droid Sans', sans-serif;
@@ -1176,7 +1176,7 @@ ul, ol, li {
 }
 
 .boxed {
-    background:#111 url(../images/bg/pattern.png) repeat fixed;
+    background: #ffffff url(../images/bg/pattern.png) repeat fixed;
 }
 
 .boxed .body {
@@ -1487,16 +1487,16 @@ a.text-black:focus {
     z-index: 77;
 }
 
-/*.overlay {
-  background: #151515;
-  opacity: 0.75;
+.overlay {
+  /*background: #151515;*/
+  /*opacity: 0.75;*/
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   width: 100%;
   height: 100%;
-}*/
+}
 
 /* 4.1. Intro / 1 */
 
@@ -1881,8 +1881,8 @@ a.text-black:focus {
 }
 
 .intro-form2-dark {
-    padding: 35px 40px 40px;
-    border-radius: 5px;
+    padding: 25px 20px 20px;
+    border-radius: 2px;
     background: #1a1a1a;
     webkit-box-shadow: 0px 40px 80px -40px rgba(0,0,0,1) !important;
     -moz-box-shadow: 0px 40px 80px -40px rgba(0,0,0,1) !important;
@@ -5078,7 +5078,7 @@ h1 { font-size: 1.5em; margin: 10px; }
 }
 
 .parallax-content .overlay {
-    background: #000;
+    background: #ffffff;
     opacity: 0.3;
 }
 
@@ -7410,42 +7410,42 @@ input:focus, textarea:focus {
     flex-grow: 1;
 }
 
-.ghost-input {
-    display: block;
-    font-weight:300;
-    width: 100%;
-    font-size: 25px;
-    border:0px;
-    outline: none;
-    width:  0%;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    color: #4b545f;
-    background: #fff;
-    font-family: Open Sans,Verdana;
-    padding: 10px 15px;
-    margin: 30px 0px;
-    -webkit-transition: all 0.1s ease-in-out;
-    -moz-transition: all 0.1s ease-in-out;
-    -ms-transition: all 0.1s ease-in-out;
-    -o-transition: all 0.1s ease-in-out;
-    transition: all 0.1s ease-in-out;
-}
-.ghost-input:focus {
-    border-bottom:1px solid #ddd;
-}
-.ghost-button {
-    background-color: transparent;
-    border:2px solid #ddd;
-    padding:10px 30px;
-    min-width: 350px;
-    -webkit-transition: all 0.1s ease-in-out;
-    -moz-transition: all 0.1s ease-in-out;
-    -ms-transition: all 0.1s ease-in-out;
-    -o-transition: all 0.1s ease-in-out;
-    transition: all 0.1s ease-in-out;
-}
-.ghost-button:hover {
-    border:2px solid #515151;
-}
+/*.ghost-input {*/
+    /*display: block;*/
+    /*font-weight:300;*/
+    /*width: 100%;*/
+    /*font-size: 25px;*/
+    /*border:0px;*/
+    /*outline: none;*/
+    /*width:  0%;*/
+    /*-webkit-box-sizing: border-box;*/
+    /*-moz-box-sizing: border-box;*/
+    /*box-sizing: border-box;*/
+    /*color: #4b545f;*/
+    /*background: #fff;*/
+    /*font-family: Open Sans,Verdana;*/
+    /*padding: 10px 15px;*/
+    /*margin: 30px 0px;*/
+    /*-webkit-transition: all 0.1s ease-in-out;*/
+    /*-moz-transition: all 0.1s ease-in-out;*/
+    /*-ms-transition: all 0.1s ease-in-out;*/
+    /*-o-transition: all 0.1s ease-in-out;*/
+    /*transition: all 0.1s ease-in-out;*/
+/*}*/
+/*.ghost-input:focus {*/
+    /*border-bottom:1px solid #ddd;*/
+/*}*/
+/*.ghost-button {*/
+    /*background-color: transparent;*/
+    /*border:2px solid #ddd;*/
+    /*padding:10px 30px;*/
+    /*min-width: 350px;*/
+    /*-webkit-transition: all 0.1s ease-in-out;*/
+    /*-moz-transition: all 0.1s ease-in-out;*/
+    /*-ms-transition: all 0.1s ease-in-out;*/
+    /*-o-transition: all 0.1s ease-in-out;*/
+    /*transition: all 0.1s ease-in-out;*/
+/*}*/
+/*.ghost-button:hover {*/
+    /*border:2px solid #515151;*/
+/*}*/
