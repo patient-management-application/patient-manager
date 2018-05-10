@@ -22,6 +22,15 @@ $(document).ready(function() {
                 e.preventDefault();
                 var date = $('#date-picker').val();
                 var time = $('#time-picker').val();
+                if (date === ""){
+                    alert("Please select a date");
+                    validEvent = false;
+                }
+                if ($("#patient-selector").val() === ""){
+                    alert("Please select a patient name ");
+                    validEvent = false;
+                }
+
                 var endTime = time.toString();
                 endTime = parseInt(endTime.substring(0, 2));
                 endTime = (++endTime + ":00");
@@ -34,7 +43,7 @@ $(document).ready(function() {
 
                 events.forEach(function(event){
                     if (newApp.start.toString() === event.start.toString()){
-                        alert("CONFLICTING APPOINTMENT!");
+                        alert("Conflicting Appointment.");
                         validEvent = false;
                     }
                 });
@@ -44,11 +53,8 @@ $(document).ready(function() {
                 } else {
                     form.submit();
                     events.push(newApp);
-                    //    create a new post and add to database!
-
                 }
                 myCalendar.fullCalendar( 'renderEvent', newApp);
-
             });
 
 
@@ -61,7 +67,7 @@ $(document).ready(function() {
                 } else {
                     var deleteStr = e.start.toString();
                     deleteStr = deleteStr.substring(0, deleteStr.length-33);
-                    $('#appointment-delete').append('<option name="id" value='+ e.id + ' >' + deleteStr + '</option>');
+                    $('#appointment-delete').append('<option name="id" value='+ e.id + ' >' + deleteStr + ' - '+ e.patientName + '</option>');
                 }
 
                 myCalendar.fullCalendar('renderEvent', e);
