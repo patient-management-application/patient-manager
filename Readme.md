@@ -30,13 +30,21 @@
 - [x] Doctor Registration 
 - [x] Manage Patients - Create sessions...view...edit
   - [x] Create custom query for patients belonging to doctor.
-- [x] Manage Patients and Sessions 
+- [x] Manage Patients and Sessions
 
 
 ### Service Features -
 - [x] Transaction History (Handled by stripe)
   - [x] Stripe api integrated
   - [x] Setup stripe 'customer signup'  
-  
+- [ ] Form validation
+  - [x] User Registration
+  - [ ] Edit user registration
+  - [ ] My Health
+  - [ ] My Practice
+  - [ ] Reviews/Feedback
+  - [ ] Login
+  - [ ] Sessions
+  - [x] Calendar Appointment Creation
 ### Nice to haves -
 

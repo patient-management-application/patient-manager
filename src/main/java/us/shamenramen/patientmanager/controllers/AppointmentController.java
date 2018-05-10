@@ -2,7 +2,6 @@ package us.shamenramen.patientmanager.controllers;
 
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import us.shamenramen.patientmanager.models.Appointment;
 import us.shamenramen.patientmanager.models.User;
