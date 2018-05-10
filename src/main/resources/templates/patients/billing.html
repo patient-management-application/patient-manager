@@ -7,19 +7,12 @@
 </head>
 <body>
 <div th:replace="partials/navbar :: doctor-navbar"></div>
-<section class="mbr-section--bg-adapted mbr-section--relative" id="pricing-table1-76" style="background-color: #478050;">
-    <div class="pricing" id="">
-        <div class="container">
-            <div class="section-head-lite text-center col-md-8 col-md-offset-2 space80">
-                <h1>BILLING</h1>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                </div>
-            </div>
+    <section class="parallax-content text-center" data-stellar-background-ratio="0.4" id="parallax1-69" style="background-image: url(img/docreception1.jpg);">
+        <div class="mbr-overlay" style="opacity: 0.75; background-color: rgb(120,188,255);"></div>
+        <div class="parallax container">
+            <h4>BILLING</h4>
         </div>
-    </div>
-</section>
+    </section>
 
 <form th:action="@{/charge}" method="POST" id="checkout-form">
     <input type="hidden" th:value="${amount}" name="amount" />
@@ -40,7 +33,15 @@
     </script>
 </form>
 
+<section class="mbr-section--bg-adapted mbr-section--relative" id="pricing-table1-75" style="background-color: rgb(17,42,68);">
+    <div class="pricing" id="pricing">
+        <div class="container">
+            <div class="section-head-lite text-center col-md-8 col-md-offset-2 space80">
 
+            </div>
+        </div>
+    </div>
+</section>
 <footer th:replace="partials/footer :: footer"></footer>
 </body>
 </html>
