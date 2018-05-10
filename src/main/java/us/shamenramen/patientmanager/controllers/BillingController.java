@@ -31,7 +31,7 @@ public class BillingController {
             model.addAttribute("user", user);
 
 
-        return "/doctors/billing";
+        return "/patients/billing";
     }
 
 

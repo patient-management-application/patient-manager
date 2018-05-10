@@ -26,6 +26,7 @@ public class ChargeController {
         model.addAttribute("status", charge.getStatus());
         model.addAttribute("chargeId", charge.getId());
         model.addAttribute("balance_transaction", charge.getBalanceTransaction());
+
         return "/doctors/result";
     }
 

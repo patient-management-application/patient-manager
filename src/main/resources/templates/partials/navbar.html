@@ -22,6 +22,7 @@
                     <li style="margin-right: 10px;"><a class="text-white" th:href="@{/myhealth}">MY HEALTH</a></li>
                     <li style="margin-right: 10px;"><a class="text-white" th:href="@{/search}">SEARCH DOCTORS</a></li>
                     <li style="margin-right: 10px;"><a class="text-white" th:href="@{/myreview}">MY REVIEWS</a></li>
+                    <li style="margin-right: 10px;"><a class="text-white" th:href="@{/mybilling}">MY BILLING</a></li>
                     <!--<li style="margin-left: 10px;"><a class="text-white" th:href="@{/logout}">LOGOUT</a></li>-->
                     <li style="margin-right: 10px;" sec:authorize="isAuthenticated()">
                         <!--<a id="logout" href="#">Logout</a>-->
@@ -60,7 +61,6 @@
                 <li style="margin-right: 10px;"><a class="text-white" th:href="@{/dashboard}">MY DASHBOARD</a></li>
                 <li style="margin-right: 10px;"><a class="text-white" th:href="@{'/doctors/' + ${user.id} + '/edit'}">EDIT DOCTOR INFO</a></li>
                 <li style="margin-right: 10px;"><a class="text-white" th:href="@{/mypractice}">MY PRACTICE</a></li>
-                <li style="margin-right: 10px;"><a class="text-white" th:href="@{/mybilling}">MY BILLING</a></li>
                 <li sec:authorize="isAuthenticated()">
                     <!--<a id="logout" href="#">Logout</a>-->
                     <form id="logout-form" th:action="@{/logout}" th:method="POST">
