@@ -17,12 +17,20 @@ INSERT INTO questionnaires(allergies, extra, history, medications, patient_id) V
   ('Vampires and cookies', null, 'Alimony Checks', null, 3);
 
 
-INSERT into  appointments(date_created, doc_id, doctor_name, pat_id, patient_name, scheduled_time, status_id) VALUES
-  ('2018/05/07', 4, 'Dr. Victoria Valentina', 1, 'Ben Hodge', '12:00', 1),
-  ('2018/05/07', 5, 'Dr. Alice Almendra', 2, 'Ronnie McDonald', '13:00', 1),
-  ('2018/05/07', 4, 'Dr. Victoria Valentina', 2, 'Bobby B', '14:00', 1),
-  ('2018/05/07', 4, 'Dr. Victoria Valentina', 2, 'Bobby B', '15:00', 1),
-  ('2018/05/07', 5, 'Dr. Alice Almendra', 3, 'Ronnie McDonald', '16:00', 1);
+INSERT INTO appointments(date_created, doc_id, doctor_name, pat_id, patient_name, scheduled_time, status_id) VALUES
+  ('2018/05/11', 4, 'Dr. Victoria Valentina', 1, 'Ben Hodge', '12:00', 1),
+  ('2018/05/14', 5, 'Dr. Alice Almendra', 2, 'Ronnie McDonald', '13:00', 1),
+  ('2018/05/14', 4, 'Dr. Victoria Valentina', 2, 'Bobby B', '14:00', 1),
+  ('2018/05/11', 4, 'Dr. Victoria Valentina', 2, 'Bobby B', '15:00', 1),
+  ('2018/05/11', 5, 'Dr. Alice Almendra', 3, 'Ronnie McDonald', '16:00', 1);
+
+INSERT INTO sessions(doctor_id, notes, patient_id, prescriptions, procedures, time_end, time_start) VALUES
+  (4, 'Patient exhibits mild head pain after falling down a set of stairs.', 1, null , 'Theraputic massages around neck and cranium.', '12:30', '13:30'),
+  (4, 'Patient now feels much better but his psychosis has taken a firm grip on his reality. Must remain observant.', 1, 'Zoloft - 100mg', 'Cranial massage and extended sessions.', '11:30', '13:30'),
+  (4, 'Patient exhibits mild head pain after falling down a set of stairs.', 1, null , 'Theraputic massages around neck and cranium.', '12:30', '13:30'),
+  (5, 'Patient has broken leg', 2, 'Codein - 150mg', 'Set bone and put into cast.', '11:30', '13:30');
+
+
 
 
 
