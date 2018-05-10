@@ -6,37 +6,35 @@
 </head>
 <body>
 <div th:replace="partials/navbar :: patient-navbar"></div>
-<section class="mbr-section--bg-adapted mbr-section--relative" id="pricing-table1-75" style="background-color: rgb(17,42,68);">
-    <div class="pricing" id="pricing">
-        <div class="container">
-            <div class="section-head-lite text-center col-md-8 col-md-offset-2 space80">
-                <h1>MY HEALTH</h1>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                </div>
-            </div>
-        </div>
+
+<section class="parallax-content text-center" data-stellar-background-ratio="0.4" id="parallax1-69" style="background-image: url(img/docpaper.jpg);">
+    <div class="mbr-overlay" style="opacity: 0.75; background-color: rgb(120,188,255);"></div>
+    <div class="parallax container">
+        <h4>MY HEALTH</h4>
     </div>
 </section>
-<section class="mbr-section--bg-adapted" id="header4-3" style="background-image: url(img/docpaper.jpg);">
-    <div class="contact-form">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-10 col-md-offset-1" data-form-type="formoid">
-                    <form id="contact_form" class="positioned" th:action="@{/myhealth}" method="POST" th:object="${quest}" data-form-title="CONTACT FORM">
+
+<section class="mbr-section--bg-adapted mbr-after-navbar" id="header1-1">
+    <div class="intro intro1">
+        <div class="mbr-overlay" style="opacity: 0.75; background-color: rgb(255,255,255);"></div>
+        <div class="row center-content">
+            <div class="col-sm-5 col-md-4">
+                <div class="container center-content">
+                    <fieldset>
                         <div class="row">
-                            <textarea class="form-control" name="history" rows="2" th:field="*{history}" placeholder="Health History" data-form-field="history"></textarea>
-                            <textarea class="form-control" name="medications" rows="2" th:field="*{medications}" placeholder="Medications" data-form-field="medications"></textarea>
-                            <textarea class="form-control" name="allergies" rows="2" th:field="*{allergies}" placeholder="Allergies" data-form-field="allergies"></textarea>
-                            <textarea class="form-control" name="extra " rows="2" th:field="*{extra}" placeholder="Additional History" data-form-field="extra"></textarea>
-                            <div class="submitBtn"><button type="submit" class="btn btn-default btn-ico">Submit<i class="fa fa-paper-plane-o"></i></button></div>
+                            <form id="contact_form" class="positioned" th:action="@{/myhealth}" method="POST" th:object="${quest}" data-form-title="CONTACT FORM">
+                            <textarea class="ghost-input" name="history" rows="2" th:field="*{history}"  placeholder="Health History" data-form-field="history"></textarea>
+                            <textarea class="ghost-input" name="medications" rows="2" th:field="*{medications}"  placeholder="Medications" data-form-field="medications"></textarea>
+                            <textarea class="ghost-input" name="allergies" rows="2" th:field="*{allergies}"  placeholder="Allergies" data-form-field="allergies"></textarea>
+                            <textarea class="ghost-input" name="extra" rows="2" th:field="*{extra}"  placeholder="Additional History" data-form-field="extra"></textarea>
+
+                                <div class="submitBtn"><button type="submit" class="btn btn-default btn-ico">Submit<i class="fa fa-paper-plane-o"></i></button></div>
+                        </form>
                         </div>
-                    </form>
+                    </fieldset>
                 </div>
             </div>
         </div>
-
     </div>
 </section>
 <section class="mbr-section--bg-adapted mbr-section--relative" id="pricing-table1-75" style="background-color: rgb(17,42,68);">
@@ -45,16 +43,9 @@
             <div class="section-head-lite text-center col-md-8 col-md-offset-2 space80">
 
             </div>
-            <div class="row">
-                <div class="col-md-12">
-                </div>
-            </div>
         </div>
     </div>
 </section>
-
-
-
 <footer th:replace="partials/footer :: footer"></footer>
 </body>
 </html>
