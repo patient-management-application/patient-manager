@@ -1,7 +1,5 @@
 package us.shamenramen.patientmanager.models;
 
-import org.hibernate.validator.constraints.NotBlank;
-
 import javax.persistence.*;
 
 @Entity

@@ -6,7 +6,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import us.shamenramen.patientmanager.models.User;
-import us.shamenramen.patientmanager.repositories.QuestionnaireRepository;
 import us.shamenramen.patientmanager.repositories.ReviewRepository;
 import us.shamenramen.patientmanager.repositories.UserRepository;
 
