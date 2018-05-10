@@ -13,8 +13,8 @@
     margin: 3px auto 3px auto;
 }
 
-.patient-dashboard-doctor {
-
+.patient-dashboard-doctor h3, .patient-dashboard-doctor p{
+    margin-bottom: 3px;
 }
 
 
