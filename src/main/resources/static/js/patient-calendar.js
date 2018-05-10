@@ -48,12 +48,21 @@ $(document).ready(function() {
 
     $('#done').click(function(e){
         e.preventDefault();
+        var validEvent = true;
         var date = $('#date-picker').val();
         var time = $('#time-picker').val();
+        if (date === ""){
+            alert("Please select a date");
+            validEvent = false;
+        }
+
+        //Form validation for creating appointment
+
+
+
         var endTime = time.toString();
         endTime = parseInt(endTime.substring(0, 2));
         endTime = (++endTime + ":00");
-        var validEvent = true;
 
         var newApp = {
             title: "Appointment with: " + patName,
@@ -62,11 +71,9 @@ $(document).ready(function() {
             end: new Date(date + ' ' + endTime)
         };
 
-
-
         events.forEach(function(event){
             if (newApp.start.toString() === event.start.toString()){
-                alert("CONFLICTING APPOINTMENT!");
+                alert("Conflicting Appointment.");
                 validEvent = false;
             }
         });

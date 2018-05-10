@@ -64,7 +64,12 @@ public class DoctorController {
 
     @GetMapping("doctors/{id}/edit")
     public String edit(@PathVariable long id, Model viewModel) {
+        User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        if(id != loggedInUser.getId()){
+            return "redirect:/dashboard";
+        }
         User doctor = userDao.findOne(id);
+
         viewModel.addAttribute("doctor", doctor);
         return "/doctors/edit_doctor_registration";
     }
@@ -84,6 +89,9 @@ public class DoctorController {
         User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         User user = userDao.findById(loggedInUser.getId());
         User patient = userDao.findById(id);
+        if (patient.getMyDocId() != loggedInUser.getId()){
+            return "redirect:/dashboard";
+        }
         Questionnaire ques = quesDao.findByPatientId(id);
         List<Session> sessions = sessDao.findByPatientId(id);
         model.addAttribute("ques", ques);
