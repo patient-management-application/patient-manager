@@ -26,15 +26,15 @@
                 <div class="col-sm-5 col-md-4">
                     <div class="container center-content">
                         <fieldset>
-                            <form th:action="@{/register}" method="POST" th:object="${user}">
+                            <form id="registration-form" th:action="@{/register}" method="POST" th:object="${user}">
                                 <input id="username" name="username" type="text" class="ghost-input" required="" th:field="*{username}" placeholder="Username" data-form-field="Username"/>
                                 <input id="email" name="email" type="text" class="ghost-input" required="" th:field="*{email}" placeholder="Email" data-form-field="email"/>
                                 <input id="password" name="password" type="text" class="ghost-input" required="" th:field="*{password}" placeholder="Password" data-form-field="Password"/>
                                 <input id="firstName" name="firstName" type="text" class="ghost-input" required="" th:field="*{firstName}" placeholder="First Name" data-form-field="firstName"/>
                                 <input id="lastName" name="lastName" type="text" class="ghost-input" required="" th:field="*{lastName}" placeholder="Last Name" data-form-field="lastName"/>
-                                <input id="dob" name="dob" type="text" class="ghost-input" required="" th:field="*{dob}" placeholder="Date of Birth" data-form-field="dob"/>
+                                <input id="dob" name="dob" type="date" class="ghost-input" required="" th:field="*{dob}" placeholder="Date of Birth" data-form-field="dob"/>
                                 <input id="gender" name="gender" type="text" class="ghost-input" required="" th:field="*{gender}" placeholder="Gender" data-form-field="gender"/>
-                                <input id="phoneNumber" name="phoneNumber" type="text" class="ghost-input" required="" value="" th:field="*{phoneNumber}" placeholder="Phone Number" data-form-field="phoneNumber"/>
+                                <input id="phoneNumber" name="phoneNumber" type="text" class="ghost-input" required="" value="" th:field="*{phoneNumber}" placeholder="Phone: xxxxxxxxxx" data-form-field="phoneNumber"/>
                                 <input id="street" name="street" type="text" class="ghost-input" required="" th:field="*{street}" placeholder="Street" data-form-field="street"/>
                                 <input id="city" name="city" type="text" class="ghost-input" required="" th:field="*{city}" placeholder="City" data-form-field="city"/>
                                 <input id="state" name="state" type="text" class="ghost-input" required="" th:field="*{state}" placeholder="State" data-form-field="state"/>
@@ -45,7 +45,7 @@
                                     <input  id="isDoctor" type="checkbox" name="isDoctor" class="form-control" placeholder="is Doctor" data-form-field="isDoctor"/>
                                 </div>
                                 <div class="form-group">
-                                    <button type="submit" class="btn btn-block btn-lg btn-primary">Submit</button></div>
+                                    <button id="submit-btn" type="submit" class="btn btn-block btn-lg btn-primary">Submit</button></div>
                             </form>
                         </fieldset>
                     </div>
@@ -55,6 +55,7 @@
 </section>
 
 <footer th:replace="partials/footer :: footer"></footer>
+<script src="/js/registration-form-validation.js"></script>
 </body>
 </html>
 
