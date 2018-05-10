@@ -76,6 +76,8 @@ public class AppointmentController {
                                           @RequestParam(name = "doctorName") String doctorName
                                           ){
 
+
+
         String patientName = userDao.findById(patientId).getFirstName() + " " + userDao.findById(patientId).getLastName();
         Appointment app = new Appointment(
                 patientId,

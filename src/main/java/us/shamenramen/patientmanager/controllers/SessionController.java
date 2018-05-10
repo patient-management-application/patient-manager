@@ -61,9 +61,8 @@ public class SessionController {
         newSession.setNotes(ns.getNotes());
         newSession.setProcedures(ns.getProcedures());
         newSession.setPrescriptions(ns.getPrescriptions());
-
         sessDao.save(newSession);
-        return "redirect:/dashboard";
+        return "redirect:/showsessions/"+id;
     }
 
     @PostMapping(path = "/mysession")
@@ -77,74 +76,9 @@ public class SessionController {
             sess.setTimeStart(updatedSession.getTimeEnd());
             sess.setTimeEnd(updatedSession.getTimeEnd());
             sess.setPatientId(updatedSession.getPatientId());
-//            if (updatedSession.getImage() == null){
-//                user.setImage(updatedSession.getImage());
-//            } else {
-//                user.setImage("https://pbs.twimg.com/profile_images/3543879283/1509e34005183da5ea4eb29150f341e5_400x400.jpeg");
-//            }
             sessDao.save(sess);
         }
         return "redirect:/dashboard";
     }
 
-//    @GetMapping("/sessions/{id}")
-//    public String show(@PathVariable long id, Model viewAndmodel) {
-//        Session session = sessDao.findOne(id);
-//        viewAndmodel.addAttribute("session", session);
-//        return "/sessions/show";
-//    }
-//
-//    @GetMapping("/sessions/create")
-//    public String showCreateForm(Model viewmodel) {
-//        Session session = new Session();
-//        viewmodel.addAttribute("session", session);
-//        return "/sessions/create";
-//    }
-//
-//    //Need to implement Auth and Validation before this can be used
-//
-////    @PostMapping("/sessions/create")
-////    public String createSession(@Valid Session session, Errors validation, Model model) {
-////
-////        if (validation.hasErrors()) {
-////            model.addAttribute("errors", validation);
-////            model.addAttribute("session", session);
-////            return "/sessions/create";
-////        } else {
-////            User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-////            post.setUser(loggedInUser);
-////            sessDao.save(session);
-////            return "redirect:/sessions";
-////        }
-////    }
-//
-//    @GetMapping("sessions/{id}/edit")
-//    public String edit(@PathVariable long id, Model viewModel) {
-//        Session session = sessDao.findOne(id);
-//        viewModel.addAttribute("session", session);
-//        return "/sessions/edit";
-//    }
-//
-//    @PostMapping("/sessions/{id}/edit")
-//    public String handleEdit(@PathVariable long id, @ModelAttribute Session session) {
-//        Session originalSession = sessDao.findOne(id);
-//        originalSession.setNotes(session.getNotes());
-//        originalSession.setPrescriptions(session.getPrescriptions());
-//        originalSession.setProcedures(session.getProcedures());
-//        originalSession.setTimeStart(session.getTimeStart());
-//        originalSession.setTimeEnd(session.getTimeEnd());
-//        sessDao.save(session);
-//        return "redirect:/appointments";
-//
-//    }
-//
-//    @PostMapping("/sessions/{id}/delete")
-//    public String delete(@PathVariable long id) {
-//        sessDao.delete(id);
-//        return "redirect:/sessions";
-//    }
-//
-//
-//
-//
 }

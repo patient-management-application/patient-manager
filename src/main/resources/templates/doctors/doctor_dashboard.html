@@ -9,23 +9,6 @@
 <body>
 <nav th:replace="partials/navbar :: doctor-navbar"></nav>
 
-<!--<section class="mbr-section&#45;&#45;bg-adapted mbr-after-navbar" id="header1-1" style="background-image: url(img/doctools.jpeg);">-->
-    <!--<div class="intro intro1">-->
-        <!--<div class="mbr-overlay" style="opacity: 0.75; background-color: rgb(120,188,255);"></div>-->
-        <!--<div class="pricing" id="pricing">-->
-            <!--<div class="container">-->
-                <!--<div class="section-head-lite text-center col-md-8 col-md-offset-2 space80">-->
-                    <!--<h1>MY DASHBOARD</h1>-->
-                <!--</div>-->
-                <!--<div class="row">-->
-                    <!--<div class="col-md-12">-->
-                    <!--</div>-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</div>-->
-    <!--</div>-->
-<!--</section>-->
-
 <section class="parallax-content text-center" data-stellar-background-ratio="0.4" id="parallax1-69" style="background-image: url(img/doctools.jpeg);">
     <div class="mbr-overlay" style="opacity: 0.75; background-color: rgb(120,188,255);"></div>
     <div class="parallax container">
@@ -63,15 +46,15 @@
         <th:block th:if="${patients != null}">
             <form id="new-app-form" th:action="@{/newappointment}" th:method="POST">
                 <h2>Schedule an Appointment</h2>
-                <select name="patientId" id="patientId">
-                    <option value="" selected="selected">Select a Patient</option>
+                <select class="form-control" name="patientId" id="patientId">
+                    <option id="patient-selector" value="" selected="selected">Select a Patient</option>
                     <option th:each="patient : ${patients}" th:value="${patient.id}" th:name="patientId" th:text="${patient.firstName} + ' ' + ${patient.lastName}"></option>
                 </select>
                 <input type="hidden" name="doctorId" th:value="${user.id}" />
                 <input type="hidden" name="doctorName" th:value="${user.firstName} + ' ' + ${user.lastName}" />
                 <input type="hidden" name="statusId" value="1"/>
-                <input type="date" id="date-picker" name="date"/>
-                <select name="time" id="time-picker">
+                <input class="form-control" type="date" id="date-picker" name="date"/>
+                <select class="form-control" name="time" id="time-picker">
                     <option value="09:00">9:00 am</option>
                     <option value="10:00">10:00 am</option>
                     <option value="11:00">11:00 am</option>
@@ -80,9 +63,8 @@
                     <option value="14:00">2:00 pm</option>
                     <option value="15:00">3:00 pm</option>
                     <option value="16:00">4:00 pm</option>
-                    <option value="17:00">5:00 pm</option>
                 </select>
-                <button id="done">Schedule</button>
+                <button class="btn btn-primary" id="done">Schedule</button>
             </form>
             <h3>Delete Appointments</h3>
             <form th:action="@{/appointments/delete}" th:method="POST">
