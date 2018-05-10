@@ -48,12 +48,21 @@ $(document).ready(function() {
 
     $('#done').click(function(e){
         e.preventDefault();
+        var validEvent = true;
         var date = $('#date-picker').val();
         var time = $('#time-picker').val();
+        if (date === ""){
+            alert("Please select a date");
+            validEvent = false;
+        }
+
+        //Form validation for creating appointment
+
+
+
         var endTime = time.toString();
         endTime = parseInt(endTime.substring(0, 2));
         endTime = (++endTime + ":00");
-        var validEvent = true;
 
         var newApp = {
             title: "Appointment with: " + patName,
@@ -62,11 +71,9 @@ $(document).ready(function() {
             end: new Date(date + ' ' + endTime)
         };
 
-
-
         events.forEach(function(event){
             if (newApp.start.toString() === event.start.toString()){
-                alert("CONFLICTING APPOINTMENT!");
+                alert("Conflicting Appointment.");
                 validEvent = false;
             }
         });
@@ -86,13 +93,14 @@ $(document).ready(function() {
     myCalendar.fullCalendar({
         defaultView: 'agendaWeek',
         allDaySlot : false,
+        scrollTime: "08:00",
         businessHours: {
             dow: [ 1, 2, 3, 4, 5 ], // Monday - Thursday
             start: '09:00', // a start time (10am in this example)
             end: '17:00' // an end time (6pm in this example)
         },
-        minTime : '09:00',
-        maxTime : '19:00',
+        minTime : '08:00',
+        // maxTime : '18:00',
         nowIndicator: true,
         eventColor: "#9e9e9e"
     });

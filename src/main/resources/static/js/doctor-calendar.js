@@ -22,6 +22,15 @@ $(document).ready(function() {
                 e.preventDefault();
                 var date = $('#date-picker').val();
                 var time = $('#time-picker').val();
+                if (date === ""){
+                    alert("Please select a date");
+                    validEvent = false;
+                }
+                if ($("#patient-selector").val() === ""){
+                    alert("Please select a patient name ");
+                    validEvent = false;
+                }
+
                 var endTime = time.toString();
                 endTime = parseInt(endTime.substring(0, 2));
                 endTime = (++endTime + ":00");
@@ -34,7 +43,7 @@ $(document).ready(function() {
 
                 events.forEach(function(event){
                     if (newApp.start.toString() === event.start.toString()){
-                        alert("CONFLICTING APPOINTMENT!");
+                        alert("Conflicting Appointment.");
                         validEvent = false;
                     }
                 });
@@ -44,11 +53,8 @@ $(document).ready(function() {
                 } else {
                     form.submit();
                     events.push(newApp);
-                    //    create a new post and add to database!
-
                 }
                 myCalendar.fullCalendar( 'renderEvent', newApp);
-
             });
 
 
@@ -61,7 +67,7 @@ $(document).ready(function() {
                 } else {
                     var deleteStr = e.start.toString();
                     deleteStr = deleteStr.substring(0, deleteStr.length-33);
-                    $('#appointment-delete').append('<option name="id" value='+ e.id + ' >' + deleteStr + '</option>');
+                    $('#appointment-delete').append('<option name="id" value='+ e.id + ' >' + deleteStr + ' - '+ e.patientName + '</option>');
                 }
 
                 myCalendar.fullCalendar('renderEvent', e);
@@ -77,15 +83,15 @@ $(document).ready(function() {
     myCalendar.fullCalendar({
         defaultView: 'agendaWeek',
         allDaySlot : false,
+        scrollTime: "08:00",
         businessHours: {
             dow: [ 1, 2, 3, 4, 5 ], // Monday - Thursday
             start: '09:00', // a start time (10am in this example)
             end: '17:00' // an end time (6pm in this example)
         },
-        minTime : '09:00',
-        maxTime : '19:00',
+        minTime : '08:00',
         nowIndicator: true,
-        eventColor: "#489e72"
+        eventColor: "#9e9e9e"
     });
 
 

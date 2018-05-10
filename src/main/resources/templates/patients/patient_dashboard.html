@@ -39,34 +39,42 @@
 
 <div class="container">
     <div class="">
-        <div class="col-sm-4">
+        <div class="col-sm-6">
             <div class="my-health">
                 <h2>My Health</h2>
-                <h4>My Prescriptions</h4>
-                <ul th:each="session : ${sessions}">
-                    <li th:text="${session.prescriptions}"></li>
-                </ul>
+                <div class="col-sm-4">
+                    <h4>My Prescriptions</h4>
+                    <ul th:each="session : ${sessions}">
+                        <li th:text="${session.prescriptions}"></li>
+                    </ul>
+                </div>
+
                 <th:block th:if="${ques != null}">
-                    <h4>My Allergies</h4>
-                    <p th:text="${ques.allergies}"></p>
-                    <h4>My History</h4>
-                    <p th:text="${ques.history}"></p>
+                    <div class="col-sm-4">
+                        <h4>My Allergies</h4>
+                        <p th:text="${ques.allergies}"></p>
+                    </div>
+                    <div class="col-sm-4">
+                        <h4>My History</h4>
+                        <p th:text="${ques.history}"></p>
+                    </div>
                 </th:block>
             </div>
         </div>
     </div>
 
     <th:block th:if="${doctor}" th:object="${doctor}">
-        <div class="col-sm-8 text-center">
-        <h4 class="text-center">My Doctor</h4>
-            <img th:src="${doctor.image}" th:alt="${doctor.firstName} + ' ' + ${doctor.lastName}" class="dev-content-normal " style="max-height: 300px;"/>
+        <div class="col-sm-3 col-sm-offset-1">
             <div class="caption">
-                <h3 th:text="${doctor.firstName} + ' ' + ${doctor.lastName}"></h3>
-                <i><span th:text="${doctor.street} + ' ' + ${doctor.city} + ' ' + ${doctor.state} + ' ' +  ${doctor.state}"></span></i>
-                <p th:text="${doctor.biography}"></p>
+                <h3>Dr. <span th:text="${doctor.firstName} + ' ' + ${doctor.lastName}"></span></h3>
+                <p><span th:text="${doctor.street}"></span></p>
+                <p th:text="${doctor.city} + ', ' + ${doctor.state} + ' ' +${doctor.zipcode}"></p>
+                <p th:text="${doctor.phoneNumber}"></p>
             </div>
         </div>
-
+        <div class="col-sm-1">
+            <img th:src="${doctor.image}" th:alt="${doctor.firstName} + ' ' + ${doctor.lastName}" class="dev-content-normal " style="max-height: 200px;"/>
+        </div>
     </th:block>
 
 
@@ -82,38 +90,38 @@
 
 
 <th:block th:if="${doctor != null}">
-<H3 class="col-sm-12 text-center">Make an appointment</H3>
-
-<form id="new-app-form" th:action="@{/appointments/ajax}" th:method="POST">
-    <input id="doctor-id" type="hidden" name="doctorId" th:value="${doctor.id}"/>
-    <input id="patient-id" type="hidden" name="patientId" th:value="${user.id}"/>
-    <input id="patient-name" type="hidden" name="patientName" th:value="${user.firstName} + ' ' + ${user.lastName}"/>
-    <input id="doctor-name" type="hidden" name="doctorName" th:value="${doctor.firstName} + ' ' + ${doctor.lastName}"/>
-    <input type="hidden" name="statusId" value="1"/>
-    <input type="date" id="date-picker" name="date"/>
-    <select name="time" id="time-picker">
-        <option value="09:00">9:00 am</option>
-        <option value="10:00">10:00 am</option>
-        <option value="11:00">11:00 am</option>
-        <option value="12:00">12:00 pm</option>
-        <option value="13:00">1:00 pm</option>
-        <option value="14:00">2:00 pm</option>
-        <option value="15:00">3:00 pm</option>
-        <option value="16:00">4:00 pm</option>
-        <option value="17:00">5:00 pm</option>
-    </select>
-    <button id="done">Schedule</button>
-</form>
-
-    <h3>Delete Appointment</h3>
-    <form th:action="@{/appointments/delete}" th:method="POST">
-        <select name="id" id="appointment-delete"></select>
-        <button>Submit</button>
-    </form>
-
-
+    <div class="container">
+        <div class="row" style="margin-top: 20%;">
+             <div class="col-sm-3 col-sm-offset-2">
+                 <form class="" id="new-app-form" th:action="@{/appointments/ajax}" th:method="POST">
+                     <input id="doctor-id" type="hidden" name="doctorId" th:value="${doctor.id}"/>
+                     <input id="patient-id" type="hidden" name="patientId" th:value="${user.id}"/>
+                     <input id="patient-name" type="hidden" name="patientName" th:value="${user.firstName} + ' ' + ${user.lastName}"/>
+                     <input id="doctor-name" type="hidden" name="doctorName" th:value="${doctor.firstName} + ' ' + ${doctor.lastName}"/>
+                     <input type="hidden" name="statusId" value="1"/>
+                     <input class="form-control" type="date" id="date-picker" name="date"/>
+                     <select class="form-control" name="time" id="time-picker">
+                         <option value="09:00">9:00 am</option>
+                         <option value="10:00">10:00 am</option>
+                         <option value="11:00">11:00 am</option>
+                         <option value="12:00">12:00 pm</option>
+                         <option value="13:00">1:00 pm</option>
+                         <option value="14:00">2:00 pm</option>
+                         <option value="15:00">3:00 pm</option>
+                         <option value="16:00">4:00 pm</option>
+                     </select>
+                     <button class="btn btn-primary" id="done">Create Appointment</button>
+                 </form>
+             </div>
+            <div class="col-sm-3 col-sm-offset-2">
+                <form class="" th:action="@{/appointments/delete}" th:method="POST">
+                    <select class="form-control" name="id" id="appointment-delete"></select>
+                    <button class="btn btn-danger">Delete Appointment</button>
+                </form>
+            </div>
+         </div>
+    </div>
 <div id="calendar"></div>
-
 </th:block>
 </div>
 

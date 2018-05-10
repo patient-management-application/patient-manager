@@ -6,7 +6,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import us.shamenramen.patientmanager.models.User;
-import us.shamenramen.patientmanager.repositories.QuestionnaireRepository;
 import us.shamenramen.patientmanager.repositories.ReviewRepository;
 import us.shamenramen.patientmanager.repositories.UserRepository;
 
@@ -66,14 +65,16 @@ public class UserController {
         User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         User user = userDao.findById(loggedInUser.getId());
         user.setMyDocId(doctorId);
-        System.out.println("After setmydoc " + doctorId);
-        System.out.println(user.getMyDocId());
         userDao.save(user);
         return "redirect:/dashboard";
     }
 
     @GetMapping(path = "/users/{id}/edit")
     public String edit(@PathVariable long id, Model viewModel) {
+        User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        if(id != loggedInUser.getId()){
+            return "redirect:/dashboard";
+        }
         User user = userDao.findOne(id);
         viewModel.addAttribute("user", user);
         return "/patients/edit_my_registration";
@@ -87,13 +88,4 @@ public class UserController {
         return "redirect:/dashboard";
 
     }
-
-//    @PostMapping(path = "/users/{id}/delete")
-//    public String delete(@PathVariable long id) {
-//        userDao.delete(id);
-//        return "redirect:/index";
-//    }
-
-
-
 }
