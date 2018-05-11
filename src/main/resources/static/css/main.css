@@ -325,7 +325,7 @@
     overflow: hidden;
 }
 .mbr-section--full-height {
-    height: 100vh;
+    height: 150vh;
 }
 .mbr-section--full-height.mbr-after-navbar:before {
     display: none;
@@ -458,6 +458,7 @@
     right: 0;
     top: 0;
     z-index: 2;
+
 }
 
 .mbr-hero {
@@ -1488,8 +1489,8 @@ a.text-black:focus {
 }
 
 .overlay {
-  /*background: #151515;*/
-  /*opacity: 0.75;*/
+  background: #151515;
+  opacity: 0.75;
   position: absolute;
   top: 0;
   left: 0;
@@ -1503,7 +1504,8 @@ a.text-black:focus {
 .intro1 {
     /* background: #111 url(../images/bg/1.jpg) no-repeat center; */
     background-size: cover;
-    padding: 180px 0 150px;
+    padding: 20px 0 150px;
+    /*margin-left: 400px;*/
 }
 
 .intro1 h2 {
@@ -1697,6 +1699,7 @@ a.text-black:focus {
     padding: 0;
     height: 50px;
     font-size: 14px;
+    border-radius: 25px;
 }
 
 .intro-newsletter [data-app-btn] {
@@ -1708,6 +1711,7 @@ a.text-black:focus {
 .intro-newsletter-full {
     width: 100%;
     padding: 0 15px;
+
 }
 
 .intro-newsletter-full p {
@@ -1812,10 +1816,10 @@ a.text-black:focus {
     height: 100vh;
 }
 
-/*.intro6 .overlay {
-  background: #000;
-  opacity: 0.20;
-}*/
+/*.intro6 .overlay {*/
+  /*background: #000;*/
+  /*opacity: 0.20;*/
+/*}*/
 
 .intro6 .container ,
 .intro6 .row {
@@ -1835,7 +1839,7 @@ a.text-black:focus {
     font-size: 17px;
     font-weight: 400;
     color: #fff;
-    opacity: 0.8;
+    opacity: 1.8;
     padding: 0 10% 0px;
 }
 
@@ -2033,14 +2037,15 @@ a.text-black:focus {
 .intro11 {
     /* background: #111 url(../images/bg/11.jpg) no-repeat center; */
     background-size: cover;
-    padding: 230px 0 220px;
+    padding: 260px 0 320px;
+
 }
 
-.intro11 h3 {
+.intro11 h1 {
     color: #fff;
     margin: 0px 0px 30px;
     font-size: 60px;
-    font-weight: 200;
+    font-weight: 700;
 }
 
 .intro11 p {
@@ -2048,8 +2053,10 @@ a.text-black:focus {
     font-weight: 400;
     color: #fff;
     opacity: 1;
-    padding: 0 12% 40px;
+    padding: 0 7% 10px;
     line-height: 28px;
+    margin: 0 0 2px;
+
 }
 
 .intro11-nl {
@@ -2351,13 +2358,13 @@ a.text-black:focus {
 .h1-point-info h6 {
     font-size: 16px;
     text-transform: uppercase;
-    color: #000;
+    color: #ffffff;
     font-weight: 700;
     letter-spacing: 1px;
 }
 
 .h1-point-info p {
-    color: #777;
+    color: #ffffff;
     font-size: 13px;
     line-height: 22px;
     padding: 15px 0 0;
@@ -2659,9 +2666,10 @@ nav .btn.btn-primary:hover {
 }
 
 .btn.btn-primary {
-    background: #29d9c2;
-    border: 1px solid #29d9c2;
+    background: #63afc6;
+    border: 1px solid #63afc6;
     color: #fff;
+    border-radius: 30px;
 }
 
 .btn.btn-primary:hover {
@@ -2697,6 +2705,7 @@ nav .btn.btn-primary:hover {
     padding: 15px !important;
     width: 100%;
     max-width: 300px;
+    border-radius: 30px;
 }
 
 .cta-btn {
@@ -3164,7 +3173,7 @@ nav .btn.btn-primary:hover {
 /* 11. PRICING TABLE */
 
 .pricing {
-    padding: 100px 0;
+    padding: 60px 0;
     /* background: #3F51B5;*/
 }
 
@@ -6489,7 +6498,7 @@ input:focus, textarea:focus {
 
 /* 25. RESPONSIVE STYLES */
 
-@media only screen and (min-width: 100px)  and (max-width: 2000px)  {
+@media only screen and (min-width: 100px)  and (max-width: 2500px)  {
 
     footer .list-inline li {
         width: 33.3333%;
@@ -6589,7 +6598,7 @@ input:focus, textarea:focus {
     }
 
     .info-content h3 {
-        font-size: 36px;
+        font-size: 66px;
         margin: 0px 0 20px;
     }
 
@@ -6939,6 +6948,7 @@ input:focus, textarea:focus {
 
     .intro6 .container, .intro6 .row {
         height: auto;
+
     }
 
     .intro6 {
@@ -6991,11 +7001,12 @@ input:focus, textarea:focus {
     }
 
     .intro11 h3 {
-        font-size: 36px;
+        font-size: 66px;
     }
 
     .intro11 {
         padding: 130px 0 100px;
+
     }
 
     .intro12 h3 {
