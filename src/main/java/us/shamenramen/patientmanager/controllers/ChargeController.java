@@ -7,6 +7,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import us.shamenramen.patientmanager.models.ChargeRequest;
@@ -38,7 +39,12 @@ public class ChargeController {
         model.addAttribute("status", charge.getStatus());
         model.addAttribute("chargeId", charge.getId());
         model.addAttribute("balance_transaction", charge.getBalanceTransaction());
-        return "/patients/result";
+        return "redirect:/dashboard";
+    }
+
+    @GetMapping("/redirecttodash")
+    public String redirectToDash(){
+        return "redirect:/dashboard";
     }
 
     @ExceptionHandler(StripeException.class)
