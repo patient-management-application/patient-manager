@@ -79,7 +79,6 @@ $(document).ready(function() {
 
     getApps();
 
-
     myCalendar.fullCalendar({
         defaultView: 'agendaWeek',
         allDaySlot : false,
@@ -90,26 +89,55 @@ $(document).ready(function() {
             end: '17:00' // an end time (6pm in this example)
         },
         minTime : '08:00',
+        maxTime: '18:00',
+        height: 500,
         nowIndicator: true,
-        eventColor: "#9e9e9e"
+        eventColor: "#818ebe"
     });
 
 
-    $('.fc-prev-button').click(function(){
+    var prevBtn = $('.fc-prev-button');
+    var nextBtn = $('.fc-next-button');
+    var todayBtn = $('.fc-today-button');
+    function checkTodayBtn(){
+        if (!todayBtn.attr("disabled")){
+            todayBtn.css({
+                "background-color": "#439a5d"
+            });
+        } else {
+            todayBtn.css({
+                "background-color": "#979a97"
+            });
+        }
+    }
+
+    prevBtn.css({
+        "background-color": "#909090"
+    });
+
+    nextBtn.css({
+        "background-color": "rgba(80, 110, 200, 0.69)"
+    });
+    checkTodayBtn();
+
+
+    prevBtn.click(function(){
         events.forEach(function(e){
             myCalendar.fullCalendar('renderEvent', e);
-        });
-    });
-    $('.fc-next-button').click(function(){
-        events.forEach(function(e){
-            myCalendar.fullCalendar('renderEvent', e);
-        });
-    });
-    $('.fc-today-button').click(function(){
-        events.forEach(function(e){
-            myCalendar.fullCalendar('renderEvent', e);
+            checkTodayBtn();
         });
     });
 
-
+    nextBtn.click(function(){
+        events.forEach(function(e){
+            myCalendar.fullCalendar('renderEvent', e);
+            checkTodayBtn();
+        });
+    });
+    todayBtn.click(function(){
+        events.forEach(function(e){
+            myCalendar.fullCalendar('renderEvent', e);
+            checkTodayBtn();
+        });
+    });
 });
