@@ -7483,3 +7483,47 @@ input:focus, textarea:focus {
     color: #29d9c2;
     transition: color .2s;
 }
+
+/*Patient Dashboard*/
+.patient-content {
+    color: #4c6888;
+    margin-top: 25px;
+}
+
+.patient-content p {
+    color: #4c6888;
+}
+
+.patient-content-card {
+    background-color: #fefff9;
+    border-radius: 8px;
+    box-shadow: 3px 3px 3px #5a5a5a;
+    padding: 10px;
+    margin: 5px;
+}
+
+.patient-content img {
+    border-radius: 8px;
+}
+
+.patient-content button {
+    box-shadow: 2px 2px 2px #606060;
+    margin-top: 10px;
+}
+
+.patient-new-app-form input {
+    margin: 5px 5px 5px 0;
+}
+
+.patient-delete-app-form {
+    margin-top: 10px;
+}
+
+.patient-delete-app-form input {
+    margin: 5px 5px 5px 0;
+}
+.patient-calendar {
+    margin: 25px;
+    color: #4c6888;
+    box-shadow: 0 3px 0 #363636;
+}
