@@ -1,30 +1,30 @@
-/* Space out content a bit */
-/*body {*/
-    /*width: 800px;*/
-    /*margin: 0 auto;*/
-    /*font-family: 'Open Sans', sans-serif;*/
-/*}*/
-/*.container {*/
-    /*width: 600px;*/
-    /*margin: 0 auto;*/
-/*}*/
-/*fieldset {*/
-    /*display: block;*/
-    /*-webkit-margin-start: 0px;*/
-    /*-webkit-margin-end: 0px;*/
-    /*-webkit-padding-before: 0em;*/
-    /*-webkit-padding-start: 0em;*/
-    /*-webkit-padding-end: 0em;*/
-    /*-webkit-padding-after: 0em;*/
-    /*border: 0px;*/
-    /*border-image-source: initial;*/
-    /*border-image-slice: initial;*/
-    /*border-image-width: initial;*/
-    /*border-image-outset: initial;*/
-    /*border-image-repeat: initial;*/
-    /*min-width: -webkit-min-content;*/
-    /*padding: 30px;*/
-/*}*/
+
+  /*.body2 {*/
+      /*width: 800px;*/
+      /*margin: 0 auto;*/
+      /*font-family: 'Open Sans', sans-serif;*/
+  /*}*/
+ /*.container2 {*/
+     /*width: 600px;*/
+     /*margin: 0 auto;*/
+ /*}*/
+ .fieldset2 {
+     display: block;
+     -webkit-margin-start: 0px;
+     -webkit-margin-end: 0px;
+     -webkit-padding-before: 0em;
+     -webkit-padding-start: 0em;
+     -webkit-padding-end: 0em;
+     -webkit-padding-after: 0em;
+     border: 0px;
+     border-image-source: initial;
+     border-image-slice: initial;
+     border-image-width: initial;
+     border-image-outset: initial;
+     border-image-repeat: initial;
+     min-width: -webkit-min-content;
+     padding: 30px;
+ }
 .ghost-input {
     display: block;
     font-weight:300;
@@ -36,11 +36,11 @@
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    color: #4b545f;
+    color: #000000;
     background: #fff;
     font-family: Open Sans,Verdana;
-    padding: 10px 15px;
-    margin: 30px 0px;
+    padding: 1px 15px;
+    margin: 20px 0px;
     -webkit-transition: all 0.1s ease-in-out;
     -moz-transition: all 0.1s ease-in-out;
     -ms-transition: all 0.1s ease-in-out;

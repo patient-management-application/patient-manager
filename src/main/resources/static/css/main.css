@@ -329,7 +329,7 @@
     overflow: hidden;
 }
 .mbr-section--full-height {
-    height: 100vh;
+    height: 150vh;
 }
 .mbr-section--full-height.mbr-after-navbar:before {
     display: none;
@@ -455,17 +455,18 @@
 }
 
 .mbr-overlay {
-    background: #222;
+    /*background: #ffffff;*/
     bottom: 0;
     left: 0;
     position: absolute;
     right: 0;
     top: 0;
     z-index: 2;
+
 }
 
 .mbr-hero {
-    color: #fff;
+    /*color: #fff;*/
     position: relative;
 }
 .mbr-hero__text {
@@ -1066,7 +1067,7 @@ Author:
 body {
     background: #fff;
     font-family: 'Droid Sans', sans-serif;
-    color: #777;
+    color: #ffffff;
     font-weight: 400;
     font-size: 15px;
     letter-spacing: 0.5px;
@@ -1082,7 +1083,7 @@ h1,h2,h3,h4,h5,h6 {
 
 p {
     font-size: 15px;
-    color: #555;
+    color: #ffffff;
     line-height: 24px;
     font-weight: 400;
     font-family: 'Droid Sans', sans-serif;
@@ -1180,7 +1181,7 @@ ul, ol, li {
 }
 
 .boxed {
-    background:#111 url(../images/bg/pattern.png) repeat fixed;
+    background: #ffffff url(../images/bg/pattern.png) repeat fixed;
 }
 
 .boxed .body {
@@ -1491,7 +1492,7 @@ a.text-black:focus {
     z-index: 77;
 }
 
-/*.overlay {
+.overlay {
   background: #151515;
   opacity: 0.75;
   position: absolute;
@@ -1500,14 +1501,16 @@ a.text-black:focus {
   right: 0;
   width: 100%;
   height: 100%;
-}*/
+}
 
 /* 4.1. Intro / 1 */
 
 .intro1 {
     /* background: #111 url(../images/bg/1.jpg) no-repeat center; */
     background-size: cover;
-    padding: 180px 0 150px;
+    padding: 20px 0 150px;
+    margin-left: 610px;
+
 }
 
 .intro1 h2 {
@@ -1701,6 +1704,7 @@ a.text-black:focus {
     padding: 0;
     height: 50px;
     font-size: 14px;
+    border-radius: 25px;
 }
 
 .intro-newsletter [data-app-btn] {
@@ -1712,6 +1716,7 @@ a.text-black:focus {
 .intro-newsletter-full {
     width: 100%;
     padding: 0 15px;
+
 }
 
 .intro-newsletter-full p {
@@ -1816,10 +1821,10 @@ a.text-black:focus {
     height: 100vh;
 }
 
-/*.intro6 .overlay {
-  background: #000;
-  opacity: 0.20;
-}*/
+/*.intro6 .overlay {*/
+  /*background: #000;*/
+  /*opacity: 0.20;*/
+/*}*/
 
 .intro6 .container ,
 .intro6 .row {
@@ -1839,7 +1844,7 @@ a.text-black:focus {
     font-size: 17px;
     font-weight: 400;
     color: #fff;
-    opacity: 0.8;
+    opacity: 1.8;
     padding: 0 10% 0px;
 }
 
@@ -1885,8 +1890,8 @@ a.text-black:focus {
 }
 
 .intro-form2-dark {
-    padding: 35px 40px 40px;
-    border-radius: 5px;
+    padding: 25px 20px 20px;
+    border-radius: 2px;
     background: #1a1a1a;
     webkit-box-shadow: 0px 40px 80px -40px rgba(0,0,0,1) !important;
     -moz-box-shadow: 0px 40px 80px -40px rgba(0,0,0,1) !important;
@@ -2037,14 +2042,15 @@ a.text-black:focus {
 .intro11 {
     /* background: #111 url(../images/bg/11.jpg) no-repeat center; */
     background-size: cover;
-    padding: 230px 0 220px;
+    padding: 260px 0 320px;
+
 }
 
-.intro11 h3 {
+.intro11 h1 {
     color: #fff;
     margin: 0px 0px 30px;
     font-size: 60px;
-    font-weight: 200;
+    font-weight: 700;
 }
 
 .intro11 p {
@@ -2052,8 +2058,10 @@ a.text-black:focus {
     font-weight: 400;
     color: #fff;
     opacity: 1;
-    padding: 0 12% 40px;
+    padding: 0 7% 10px;
     line-height: 28px;
+    margin: 0 0 2px;
+
 }
 
 .intro11-nl {
@@ -2355,13 +2363,13 @@ a.text-black:focus {
 .h1-point-info h6 {
     font-size: 16px;
     text-transform: uppercase;
-    color: #000;
+    color: #ffffff;
     font-weight: 700;
     letter-spacing: 1px;
 }
 
 .h1-point-info p {
-    color: #777;
+    color: #ffffff;
     font-size: 13px;
     line-height: 22px;
     padding: 15px 0 0;
@@ -2663,9 +2671,10 @@ nav .btn.btn-primary:hover {
 }
 
 .btn.btn-primary {
-    background: #29d9c2;
-    border: 1px solid #29d9c2;
+    background: #63afc6;
+    border: 1px solid #63afc6;
     color: #fff;
+    border-radius: 30px;
 }
 
 .btn.btn-primary:hover {
@@ -2701,6 +2710,9 @@ nav .btn.btn-primary:hover {
     padding: 15px !important;
     width: 100%;
     max-width: 300px;
+    border-radius: 30px;
+
+
 }
 
 .cta-btn {
@@ -3168,7 +3180,7 @@ nav .btn.btn-primary:hover {
 /* 11. PRICING TABLE */
 
 .pricing {
-    padding: 100px 0;
+    padding: 60px 0;
     /* background: #3F51B5;*/
 }
 
@@ -5082,7 +5094,7 @@ h1 { font-size: 1.5em; margin: 10px; }
 }
 
 .parallax-content .overlay {
-    background: #000;
+    background: #ffffff;
     opacity: 0.3;
 }
 
@@ -6493,7 +6505,7 @@ input:focus, textarea:focus {
 
 /* 25. RESPONSIVE STYLES */
 
-@media only screen and (min-width: 100px)  and (max-width: 2000px)  {
+@media only screen and (min-width: 100px)  and (max-width: 2500px)  {
 
     footer .list-inline li {
         width: 33.3333%;
@@ -6593,7 +6605,7 @@ input:focus, textarea:focus {
     }
 
     .info-content h3 {
-        font-size: 36px;
+        font-size: 66px;
         margin: 0px 0 20px;
     }
 
@@ -6943,6 +6955,7 @@ input:focus, textarea:focus {
 
     .intro6 .container, .intro6 .row {
         height: auto;
+
     }
 
     .intro6 {
@@ -6995,11 +7008,12 @@ input:focus, textarea:focus {
     }
 
     .intro11 h3 {
-        font-size: 36px;
+        font-size: 66px;
     }
 
     .intro11 {
         padding: 130px 0 100px;
+
     }
 
     .intro12 h3 {
@@ -7414,42 +7428,104 @@ input:focus, textarea:focus {
     flex-grow: 1;
 }
 
-.ghost-input {
-    display: block;
-    font-weight:300;
-    width: 100%;
-    font-size: 25px;
-    border:0px;
-    outline: none;
-    width:  0%;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    color: #4b545f;
-    background: #fff;
-    font-family: Open Sans,Verdana;
-    padding: 10px 15px;
-    margin: 30px 0px;
-    -webkit-transition: all 0.1s ease-in-out;
-    -moz-transition: all 0.1s ease-in-out;
-    -ms-transition: all 0.1s ease-in-out;
-    -o-transition: all 0.1s ease-in-out;
-    transition: all 0.1s ease-in-out;
+/*.ghost-input {*/
+    /*display: block;*/
+    /*font-weight:300;*/
+    /*width: 100%;*/
+    /*font-size: 25px;*/
+    /*border:0px;*/
+    /*outline: none;*/
+    /*width:  0%;*/
+    /*-webkit-box-sizing: border-box;*/
+    /*-moz-box-sizing: border-box;*/
+    /*box-sizing: border-box;*/
+    /*color: #4b545f;*/
+    /*background: #fff;*/
+    /*font-family: Open Sans,Verdana;*/
+    /*padding: 10px 15px;*/
+    /*margin: 30px 0px;*/
+    /*-webkit-transition: all 0.1s ease-in-out;*/
+    /*-moz-transition: all 0.1s ease-in-out;*/
+    /*-ms-transition: all 0.1s ease-in-out;*/
+    /*-o-transition: all 0.1s ease-in-out;*/
+    /*transition: all 0.1s ease-in-out;*/
+/*}*/
+/*.ghost-input:focus {*/
+    /*border-bottom:1px solid #ddd;*/
+/*}*/
+/*.ghost-button {*/
+    /*background-color: transparent;*/
+    /*border:2px solid #ddd;*/
+    /*padding:10px 30px;*/
+    /*min-width: 350px;*/
+    /*-webkit-transition: all 0.1s ease-in-out;*/
+    /*-moz-transition: all 0.1s ease-in-out;*/
+    /*-ms-transition: all 0.1s ease-in-out;*/
+    /*-o-transition: all 0.1s ease-in-out;*/
+    /*transition: all 0.1s ease-in-out;*/
+/*}*/
+/*.ghost-button:hover {*/
+    /*border:2px solid #515151;*/
+/*}*/
+
+
+#logout-form > button {
+    color: white;
+    font-weight: normal;
+    border: none;
+    background: transparent;
+    margin-top: 19px;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    font-size: 13px;
+
 }
-.ghost-input:focus {
-    border-bottom:1px solid #ddd;
+
+#logout-form > button:hover {
+    color: #29d9c2;
+    transition: color .2s;
 }
-.ghost-button {
-    background-color: transparent;
-    border:2px solid #ddd;
-    padding:10px 30px;
-    min-width: 350px;
-    -webkit-transition: all 0.1s ease-in-out;
-    -moz-transition: all 0.1s ease-in-out;
-    -ms-transition: all 0.1s ease-in-out;
-    -o-transition: all 0.1s ease-in-out;
-    transition: all 0.1s ease-in-out;
+
+/*Patient Dashboard*/
+.patient-content {
+    color: #4c6888;
+    margin-top: 25px;
 }
-.ghost-button:hover {
-    border:2px solid #515151;
+
+.patient-content p {
+    color: #4c6888;
+}
+
+.patient-content-card {
+    background-color: #fefff9;
+    border-radius: 8px;
+    box-shadow: 3px 3px 3px #5a5a5a;
+    padding: 10px;
+    margin: 5px;
+}
+
+.patient-content img {
+    border-radius: 8px;
+}
+
+.patient-content button {
+    box-shadow: 2px 2px 2px #606060;
+    margin-top: 10px;
+}
+
+.patient-new-app-form input {
+    margin: 5px 5px 5px 0;
+}
+
+.patient-delete-app-form {
+    margin-top: 10px;
+}
+
+.patient-delete-app-form input {
+    margin: 5px 5px 5px 0;
+}
+.patient-calendar {
+    margin: 25px;
+    color: #4c6888;
+    box-shadow: 0 3px 0 #363636;
 }

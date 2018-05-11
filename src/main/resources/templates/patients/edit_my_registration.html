@@ -1,16 +1,23 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8" />
-    <title>Patient Registration</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous" />
+<head th:replace="partials/header :: header">
+    <meta charset="UTF-8"/>
+    <title>Edit My Info</title>
+
 </head>
 <body>
+<div th:replace="partials/navbar :: patient-navbar"></div>
+
+<section class="parallax-content text-center" data-stellar-background-ratio="0.4" id="parallax1-69" style="background-image: url(/img/docreception1.jpg);">
+    <div class="mbr-overlay" style="opacity: 0.75; background-color: rgb(17,42,68);"></div>
+    <div class="parallax container">
+        <h4>EDIT MY INFO</h4>
+    </div>
+</section>
 
 <div class="container">
-    <form class="well form-horizontal" id="contact_form" th:action="@{'/users/' + ${user.id} + '/edit'}" method="POST" th:object="${user}">
+    <form th:action="@{'/users/' + ${user.id} + '/edit'}" method="POST" th:object="${user}">
         <fieldset>
-        <h2>Patient Edit Info</h2>
             <div class="form-group">
                 <label class="col-md-4 control-label"></label>
                 <div class="col-md-4 inputGroupContainer">
@@ -59,14 +66,6 @@
                     </div>
                 </div>
             </div>
-            <!--<div class="form-group">-->
-                <!--<label class="col-md-4 control-label"></label>-->
-                <!--<div class="col-md-4 inputGroupContainer">-->
-                    <!--<div class="input-group">-->
-                        <!--<input name="confirm_password" placeholder="Confirm Password" class="form-control"  type="password" th:field="*{password}" th:value="*{password}" />-->
-                    <!--</div>-->
-                <!--</div>-->
-            <!--</div>-->
             <div class="form-group">
                 <label class="col-md-4 control-label"></label>
                 <div class="col-md-4 inputGroupContainer">
@@ -124,22 +123,15 @@
         </fieldset>
 
     </form>
-
-
-
-
-    <!--CAN ONLY DELETE EDIT IF IT THEIRS INFO-->
-    <!--<div th:if="${#authentication.principal.id == post.user.id}">-->
-        <!--<form th:action="@{'/posts/' + ${post.id} + '/edit'}" th:method="GET">-->
-            <!--<button class="btn btn-warning">Edit</button>-->
-        <!--</form>-->
-        <!--<form th:action="@{'/posts/' + ${post.id} + '/delete'}" th:method="POST">-->
-            <!--<button class="btn btn-danger">Delete</button>-->
-        <!--</form>-->
-    <!--</div>-->
-
 </div>
-
-
+<section class="mbr-section--bg-adapted mbr-section--relative" id="pricing-table1-75" style="background-color: rgb(17,42,68);">
+    <div class="pricing" id="pricing">
+        <div class="container">
+            <div class="section-head-lite text-center col-md-8 col-md-offset-2 space80">
+            </div>
+        </div>
+    </div>
+</section>
+<footer th:replace="partials/footer :: footer"></footer>
 </body>
 </html>
