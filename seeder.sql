@@ -1,8 +1,5 @@
 use pms_db;
 
-DROP TABLE IF EXISTS questionnaires;
-DROP TABLE if EXISTS users;
-
 INSERT INTO users(accolades, biography, city, dob, education, email, experience, first_name, gender, image, is_doctor, last_name, license_id, my_doc_id, password, phone_number, practicing_field, state, street, username, zipcode) VALUES
   (null, null, 'San Antonio', '05/07/1990', null, 'bahodge@bahodge.com', null, 'Ben', 'Male', null, false, 'Hodge', null, 5, '$2a$10$VNliQx3VLs/n.k35c1/XO.ANTnD.3h.eP3LLlMULBBHRqElOFv1Ei', '123-456-7890', null, 'TX', '123 Main Street', 'ben', '12345'),
   (null, null, 'Austin', '03/17/1983', null, 'bobbyb@gmail.com', null, 'Bobby', 'Male', null, false, 'Barathean', null, 4, '$2a$10$VNliQx3VLs/n.k35c1/XO.ANTnD.3h.eP3LLlMULBBHRqElOFv1Ei', '123-456-7890', null, 'TX', '321 Indigo', 'bobby', '12345'),
@@ -25,10 +22,11 @@ INSERT INTO appointments(date_created, doc_id, doctor_name, pat_id, patient_name
   ('2018/05/11', 5, 'Dr. Alice Almendra', 3, 'Ronnie McDonald', '16:00', 1);
 
 INSERT INTO sessions(doctor_id, notes, patient_id, prescriptions, procedures, time_end, time_start) VALUES
-  (4, 'Patient exhibits mild head pain after falling down a set of stairs.', 1, null , 'Theraputic massages around neck and cranium.', '12:30', '13:30'),
+  (4, 'Patient exhibits mild head pain after falling down a set of stairs.', 1, null , 'Therapeutic massages around neck and cranium.', '12:30', '13:30'),
   (4, 'Patient now feels much better but his psychosis has taken a firm grip on his reality. Must remain observant.', 1, 'Zoloft - 100mg', 'Cranial massage and extended sessions.', '11:30', '13:30'),
-  (4, 'Patient exhibits mild head pain after falling down a set of stairs.', 1, null , 'Theraputic massages around neck and cranium.', '12:30', '13:30'),
-  (5, 'Patient has broken leg', 2, 'Codein - 150mg', 'Set bone and put into cast.', '11:30', '13:30');
+  (4, 'Patient exhibits mild head pain after falling down a set of stairs.', 1, null , 'Therapeutic massages around neck and cranium.', '12:30', '13:30'),
+  (5, 'Patient has broken leg', 2, 'Codeine - 150mg', 'Set bone and put into cast.', '11:30', '13:30'),
+  (5, 'Patient leg is now exhibiting signs of infection. Upping dose of Codeine. Removing cast to allow leg to breath.' , 2, 'Codine - 200mg', 'Removed cast', '09:00', '11:20');
 
 
 

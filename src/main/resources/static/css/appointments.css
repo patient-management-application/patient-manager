@@ -4,3 +4,9 @@
     left: 12.5%;
     width: 75%;
 }
+
+#calendar td {
+    font-weight: bold;
+    color: white;
+    background-color: rgba(96, 133, 171, 0.69);
+}

@@ -28,7 +28,7 @@ $(document).ready(function() {
                     //Only works for central time
                     deleteStr = deleteStr.substring(0, deleteStr.length-33);
                     event.title = "Appt: " + event.doctorName;
-                    event.color = "#5be207";
+                    event.color = "#5b9c57";
                     $('#appointment-delete').prepend('<option name="id" value='+ event.id + ' >' + deleteStr + '</option>');
                 }
             });
@@ -36,7 +36,7 @@ $(document).ready(function() {
             var curTime = new Date();
             events.forEach(function(e){
                 if (Date.parse( e.start ) < curTime){
-                    e.color = "#929292";
+                    e.color = "#909090";
                 }
                 myCalendar.fullCalendar('renderEvent', e);
             });
@@ -100,24 +100,58 @@ $(document).ready(function() {
             end: '17:00' // an end time (6pm in this example)
         },
         minTime : '08:00',
-        // maxTime : '18:00',
+        maxTime: '18:00',
+        height: 500,
         nowIndicator: true,
-        eventColor: "#9e9e9e"
+        eventColor: "#818ebe"
     });
 
-    $('.fc-prev-button').click(function(){
+
+    var prevBtn = $('.fc-prev-button');
+    var nextBtn = $('.fc-next-button');
+    var todayBtn = $('.fc-today-button');
+    function checkTodayBtn(){
+        if (!todayBtn.attr("disabled")){
+            todayBtn.css({
+                "background-color": "#439a5d"
+            });
+        } else {
+            todayBtn.css({
+                "background-color": "#979a97"
+            });
+        }
+    }
+
+     prevBtn.css({
+        "background-color": "#909090"
+     });
+
+     nextBtn.css({
+         "background-color": "rgba(80, 110, 200, 0.69)"
+     });
+     checkTodayBtn();
+
+
+
+
+
+    prevBtn.click(function(){
         events.forEach(function(e){
             myCalendar.fullCalendar('renderEvent', e);
+            checkTodayBtn();
         });
     });
-    $('.fc-next-button').click(function(){
+
+    nextBtn.click(function(){
         events.forEach(function(e){
             myCalendar.fullCalendar('renderEvent', e);
+            checkTodayBtn();
         });
     });
-    $('.fc-today-button').click(function(){
+    todayBtn.click(function(){
         events.forEach(function(e){
             myCalendar.fullCalendar('renderEvent', e);
+            checkTodayBtn();
         });
     });
 
