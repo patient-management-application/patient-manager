@@ -50,9 +50,9 @@ public class AuthController {
                 List<Session> userSessions = sessDao.findByDoctorIdAndPatientId(doctor.getId(), user.getId());
                 model.addAttribute("sessions", userSessions);
             }
-//            if (quesDao.findByPatientId(user.getId()) != null){
-//                model.addAttribute("ques", quesDao.findByPatientId(user.getId()));
-//            }
+            if (quesDao.findByPatientId(user.getId()) != null){
+                model.addAttribute("ques", quesDao.findByPatientId(user.getId()));
+            }
             model.addAttribute("user", userDao.findById(user.getId()));
             return "/patients/patient_dashboard";
         }

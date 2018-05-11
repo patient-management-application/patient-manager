@@ -70,6 +70,7 @@ public class DoctorController {
         }
         User doctor = userDao.findOne(id);
 
+        viewModel.addAttribute("user", doctor);
         viewModel.addAttribute("doctor", doctor);
         return "/doctors/edit_doctor_registration";
     }
