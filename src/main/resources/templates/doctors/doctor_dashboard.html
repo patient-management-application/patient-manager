@@ -16,9 +16,8 @@
     </div>
 </section>
 
-<h1 class="col-sm-12 text-center">Doctor Dashboard</h1>
-<div class="col-sm-12 text-center">
-    <img collect_rid="1:284976504" th:src="${user.image}" data-embed-type="deviation" data-embed-format="thumb" data-embed-id="284976504" width="504" height="648" th:alt="${user.firstName} + ' ' + ${user.lastName}" class="dev-content-normal " style="width: 304px; height: 348px; top: 0px;"/>
+<div class="col-sm-6 text-center">
+    <img collect_rid="1:284976504" th:src="${user.image}" data-embed-type="deviation" data-embed-format="thumb" data-embed-id="284976504" th:alt="${user.firstName} + ' ' + ${user.lastName}" class="dev-content-normal" style="max-height: 200px;"/>
     <div class="caption">
         <input type="hidden" th:name="doctorId" id="doctorId" th:value="${user.id}"/>
         <h3 th:text="${user.firstName} + ' ' + ${user.lastName}"></h3>
@@ -27,17 +26,26 @@
 </div>
 
 <div th:each="patient : ${patients}">
-    <h4 class="col-sm-12 text-center">My Patients</h4>
-    <div class="col-sm-12 text-center">
+    <h3 class="col-sm-6 text-left">My Patients</h3>
+    <div class="col-sm-6 text-left">
         <div class="caption">
             <input th:type="hidden" class="patientName" th:name="patientName" th:value="${patient.firstName} + ' ' + ${patient.lastName}" />
-            <h3 th:text="${patient.firstName} + ' ' + ${patient.lastName}"></h3>
+            <h4 th:text="${patient.firstName} + ' ' + ${patient.lastName}"></h4>
             <p th:text="${patient.phoneNumber}"></p>
             <i><span th:text="${patient.street} + ' ' + ${patient.city} + ' ' + ${patient.state} + ' ' +  ${patient.zipcode}"></span></i>
             <!--<p th:text="${user.}"></p>-->
-            <a th:href="@{/newsession/{id}(id = ${patient.id})}">New Session</a>
-            <a th:href="@{/showsessions/{id}(id = ${patient.id})}">View All Sessions</a>
+            <div class="row">
+                <div class="col-sm-6">
+                    <a th:href="@{/newsession/{id}(id = ${patient.id})}"><button class="btn btn-primary">New Session</button></a>
+                    <a th:href="@{/showsessions/{id}(id = ${patient.id})}"><button class="btn btn-warning">View All Sessions</button></a>
+                </div>
+            </div>
+
+
         </div>
+
+
+
     </div>
 
 </div>
