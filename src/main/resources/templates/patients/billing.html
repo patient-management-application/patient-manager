@@ -6,7 +6,7 @@
 
 </head>
 <body>
-<div th:replace="partials/navbar :: doctor-navbar"></div>
+<div th:replace="partials/navbar :: patient-navbar"></div>
     <section class="parallax-content text-center" data-stellar-background-ratio="0.4" id="parallax1-69" style="background-image: url(img/docreception1.jpg);">
         <div class="mbr-overlay" style="opacity: 0.75; background-color: rgb(120,188,255);"></div>
         <div class="parallax container">
@@ -14,24 +14,59 @@
         </div>
     </section>
 
-<form th:action="@{/charge}" method="POST" id="checkout-form">
-    <input type="hidden" th:value="${amount}" name="amount" />
-    <label>Price:<span th:text="${amount}" ></span></label>
-    <!-- NOTE: data-key/data-amount/data-currency will be rendered by Thymeleaf -->
-    <script
-            src="https://checkout.stripe.com/checkout.js"
-            class="stripe-button"
-            th:attr="data-key=${stripePublicKey},
-         data-amount=${amount},
-         data-currency=${currency}"
-            data-name="Which-Doctor"
-            data-description="Complete Payment/Invoice"
-            data-image
-                    ="http://alvin.wikia.com/wiki/File:Dave_%26_The_Chipmunks_in_Witch_Doctor.jpg"
-            data-locale="auto"
-            data-zip-code="false">
-    </script>
+<main class="container"></main>
+<form th:action="@{/checkout}" method="GET">
+    <input type="hidden"
+           th:name="${_csrf.parameterName}"
+           th:value="${_csrf.token}"/>
+    <button type="submit">Make Payment</button>
 </form>
+
+
+<!--<main class="container">-->
+    <!--&lt;!&ndash;th:object="${event}"&ndash;&gt;-->
+
+    <!--<form th:action="@{/charge}" method="POST" id="checkout-form">-->
+        <!--<input type='hidden' th:value='${amount}' name='amount' />-->
+        <!--<label>Price:<span th:text='${amount}' ></span></label>-->
+        <!--&lt;!&ndash; NOTE: data-key/data-amount/data-currency will be rendered by Thymeleaf &ndash;&gt;-->
+        <!--<script-->
+                <!--src='https://checkout.stripe.com/checkout.js'-->
+                <!--class='stripe-button'-->
+                <!--th:attr='data-key=${stripePublicKey}'-->
+                <!--th:data-amount='${amount}'-->
+                <!--data-currency='currency'-->
+                <!--data-name='Which-Doctor'-->
+                <!--data-description='Complete Payment/Invoice'-->
+                <!--data-image-->
+                        <!--='img/whichdoc.jpeg'-->
+                <!--data-locale='auto'-->
+                <!--data-zip-code='true'>-->
+        <!--</script>-->
+    <!--</form>-->
+<!--</main>-->
+<!--<main class="container">-->
+    <!--&lt;!&ndash;th:object="${event}"&ndash;&gt;-->
+
+    <!--<form th:action="@{/charge}" method="POST" id="checkout-form">-->
+    <!--<input type='hidden' th:value='${amount}' name='amount' />-->
+    <!--<label>Price:<span th:text='${amount}' ></span></label>-->
+    <!--&lt;!&ndash; NOTE: data-key/data-amount/data-currency will be rendered by Thymeleaf &ndash;&gt;-->
+    <!--<script-->
+            <!--src='https://checkout.stripe.com/checkout.js'-->
+            <!--class='stripe-button'-->
+            <!--th:attr='data-key=${stripePublicKey}'-->
+         <!--th:data-amount='${amount}'-->
+         <!--data-currency='currency'-->
+            <!--data-name='Which-Doctor'-->
+            <!--data-description='Complete Payment/Invoice'-->
+            <!--data-image-->
+                    <!--='img/whichdoc.jpeg'-->
+            <!--data-locale='auto'-->
+            <!--data-zip-code='true'>-->
+    <!--</script>-->
+    <!--</form>-->
+<!--</main>-->
 
 <section class="mbr-section--bg-adapted mbr-section--relative" id="pricing-table1-75" style="background-color: rgb(17,42,68);">
     <div class="pricing" id="pricing">
