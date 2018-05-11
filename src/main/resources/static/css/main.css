@@ -1509,7 +1509,8 @@ a.text-black:focus {
     /* background: #111 url(../images/bg/1.jpg) no-repeat center; */
     background-size: cover;
     padding: 20px 0 150px;
-    margin-left: 620px;
+    margin-left: 610px;
+
 }
 
 .intro1 h2 {
@@ -2710,6 +2711,8 @@ nav .btn.btn-primary:hover {
     width: 100%;
     max-width: 300px;
     border-radius: 30px;
+
+
 }
 
 .cta-btn {
@@ -7464,7 +7467,6 @@ input:focus, textarea:focus {
 /*.ghost-button:hover {*/
     /*border:2px solid #515151;*/
 /*}*/
-
 
 
 #logout-form > button {
