@@ -26,11 +26,6 @@ $(document).ready(function() {
                     alert("Please select a date");
                     validEvent = false;
                 }
-                if ($("#patient-selector").val() === ""){
-                    alert("Please select a patient name ");
-                    validEvent = false;
-                }
-
                 var endTime = time.toString();
                 endTime = parseInt(endTime.substring(0, 2));
                 endTime = (++endTime + ":00");
