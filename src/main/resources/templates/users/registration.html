@@ -9,11 +9,8 @@
 <body>
 <div th:replace="partials/navbar :: navbar"></div>
 
-<form th:action="@{/logout}" th:method="post">
-    <button class="btn-link btn float-right" style="margin-top: 8px">Logout</button>
-</form>
 <section class="parallax-content text-center" data-stellar-background-ratio="0.4" id="parallax1-69" style="background-image: url(img/hospitallobby4.jpg);">
-    <div class="mbr-overlay" style="opacity: 0.75;"></div>
+    <div class="mbr-overlay" style="opacity: 0.75; background-color: rgb(17,42,68);"></div>
     <div class="parallax container">
         <h4>SIGN UP TODAY FOR FREE!</h4>
     </div>
@@ -25,6 +22,7 @@
                 <div class="col-sm-5 col-md-4">
                     <div class="container center-content">
                         <fieldset>
+                            <div class="row">
                             <form th:action="@{/register}" method="POST" th:object="${user}">
                                 <input id="username" name="username" type="text" class="ghost-input" required="" th:field="*{username}" placeholder="Username" data-form-field="Username"/>
                                 <input id="email" name="email" type="text" class="ghost-input" required="" th:field="*{email}" placeholder="Email" data-form-field="email"/>
@@ -46,7 +44,9 @@
                                 <div class="form-group">
                                     <button type="submit" class="btn btn-block btn-lg btn-primary">Submit</button></div>
                             </form>
+                            </div>
                         </fieldset>
+
                     </div>
                 </div>
             </div>
