@@ -1,6 +1,12 @@
 
 #calendar {
-    position: relative;
-    left: 12.5%;
-    width: 75%;
+    /*position: relative;*/
+    /*left: 12.5%;*/
+    width: 95%;
+}
+
+#calendar td {
+    font-weight: bold;
+    color: white;
+    background-color: rgba(96, 133, 171, 0.69);
 }
