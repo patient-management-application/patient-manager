@@ -17,91 +17,87 @@
     <div>
         <div class="container">
             <div>
-
-<div class="container patient-content">
-    <th:block th:if="${doctor == null}">
-        <div class="row">
-            <div class="col-xs-4 col-xs-offset-6">
-                <a th:href="@{/search}"><button class="btn btn-primary">Find a Doctor</button></a>
-            </div>
-        </div>
-    </th:block>
-
-    <th:block th:if="${doctor}" th:object="${doctor}">
-        <div class="col-sm-3 col-sm-offset-2 patient-content-card">
-            <div class="row">
-                <div class="col-sm-12">
-                    <img th:src="${doctor.image}" th:alt="${doctor.firstName} + ' ' + ${doctor.lastName}" class="dev-content-normal " style="max-height: 200px;"/>
-                </div>
-                <div class="caption col-sm-12">
-                    <h3>Dr. <span th:text="${doctor.firstName} + ' ' + ${doctor.lastName}"></span></h3>
-                    <p><span th:text="${doctor.street}"></span></p>
-                    <p th:text="${doctor.city} + ', ' + ${doctor.state} + ' ' +${doctor.zipcode}"></p>
-                    <p th:text="${doctor.phoneNumber}"></p>
-                </div>
-            </div>
-        </div>
-    </th:block>
-        <div class="col-sm-2 patient-content-card">
-            <h2>My Health</h2>
-            <div class="col-sm-12">
-                <h4>My Prescriptions</h4>
-                <ul th:each="session : ${sessions}">
-                    <li th:text="${session.prescriptions}"></li>
-                </ul>
-                <th:block th:if="${ques != null}">
-                    <h4>My Allergies</h4>
-                    <p th:text="${ques.allergies}"></p>
-                    <h4>My History</h4>
-                    <p th:text="${ques.history}"></p>
-                </th:block>
-
-            </div>
-        </div>
-
-    <th:block th:if="${doctor != null}">
-                <div class="col-sm-3 patient-content-card">
-                    <div class="row">
-                    <form class="col-sm-12 patient-new-app-form" id="new-app-form" th:action="@{/appointments/ajax}" th:method="POST">
-                        <input id="doctor-id" type="hidden" name="doctorId" th:value="${doctor.id}"/>
-                        <input id="patient-id" type="hidden" name="patientId" th:value="${user.id}"/>
-                        <input id="patient-name" type="hidden" name="patientName" th:value="${user.firstName} + ' ' + ${user.lastName}"/>
-                        <input id="doctor-name" type="hidden" name="doctorName" th:value="${doctor.firstName} + ' ' + ${doctor.lastName}"/>
-                        <input type="hidden" name="statusId" value="1"/>
-                        <input class="form-control" type="date" id="date-picker" name="date"/>
-                        <select class="form-control" name="time" id="time-picker">
-                            <option value="09:00">9:00 am</option>
-                            <option value="10:00">10:00 am</option>
-                            <option value="11:00">11:00 am</option>
-                            <option value="12:00">12:00 pm</option>
-                            <option value="13:00">1:00 pm</option>
-                            <option value="14:00">2:00 pm</option>
-                            <option value="15:00">3:00 pm</option>
-                            <option value="16:00">4:00 pm</option>
-                        </select>
-                        <button class="btn btn-primary" id="done">Create Appointment</button>
-                    </form>
-                    </div>
-                    <div class="row patient-delete-app-form ">
-                        <div class="col-sm-12">
-                            <form class="delete-app-form" th:action="@{/appointments/delete}" th:method="POST">
-                                <select class="form-control" name="id" id="appointment-delete"></select>
-                                <button class="btn btn-danger">Delete Appointment</button>
-                            </form>
+                <div class="container patient-content">
+                    <th:block th:if="${doctor == null}">
+                        <div class="row">
+                            <div class="col-xs-4 col-xs-offset-6">
+                                <a th:href="@{/search}"><button class="btn btn-primary">Find a Doctor</button></a>
+                            </div>
                         </div>
-                    </div>
-                </div>
-        <!--<div class="row">-->
-            <div class="col-sm-8 col-sm-offset-2 patient-content-card">
-                <div class="patient-calendar" id="calendar"></div>
-            </div>
-        <!--</div>-->
-    </th:block>
-</div>
-</div>
-</div>
-</div>
-</section>
+                    </th:block>
+                    <th:block th:if="${doctor}" th:object="${doctor}">
+                        <div class="col-sm-3">
+                            <div class="patient-content-card">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <img th:src="${doctor.image}" th:alt="${doctor.firstName} + ' ' + ${doctor.lastName}" class="dev-content-normal center-block " style="max-height: 200px;"/>
+                                    </div>
+                                    <div class="caption col-sm-12">
+                                        <h3>Dr. <span th:text="${doctor.firstName} + ' ' + ${doctor.lastName}"></span></h3>
+                                        <p><span th:text="${doctor.street}"></span></p>
+                                        <p th:text="${doctor.city} + ', ' + ${doctor.state} + ' ' +${doctor.zipcode}"></p>
+                                        <p th:text="${doctor.phoneNumber}"></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <th:block th:if="${doctor != null}">
+                                <div class="col-sm-12 patient-content-card">
+                                    <div class="row">
+                                        <form class="col-sm-12 patient-new-app-form" id="new-app-form" th:action="@{/appointments/ajax}" th:method="POST">
+                                            <input id="doctor-id" type="hidden" name="doctorId" th:value="${doctor.id}"/>
+                                            <input id="patient-id" type="hidden" name="patientId" th:value="${user.id}"/>
+                                            <input id="patient-name" type="hidden" name="patientName" th:value="${user.firstName} + ' ' + ${user.lastName}"/>
+                                            <input id="doctor-name" type="hidden" name="doctorName" th:value="${doctor.firstName} + ' ' + ${doctor.lastName}"/>
+                                            <input type="hidden" name="statusId" value="1"/>
+                                            <input class="form-control" type="date" id="date-picker" name="date"/>
+                                            <select class="form-control" name="time" id="time-picker">
+                                                <option value="09:00">9:00 am</option>
+                                                <option value="10:00">10:00 am</option>
+                                                <option value="11:00">11:00 am</option>
+                                                <option value="12:00">12:00 pm</option>
+                                                <option value="13:00">1:00 pm</option>
+                                                <option value="14:00">2:00 pm</option>
+                                                <option value="15:00">3:00 pm</option>
+                                                <option value="16:00">4:00 pm</option>
+                                            </select>
+                                            <button class="btn btn-primary" id="done">Create Appointment</button>
+                                        </form>
+                                    </div>
+                                    <div class="row patient-delete-app-form ">
+                                        <div class="col-sm-12">
+                                            <form class="delete-app-form" th:action="@{/appointments/delete}" th:method="POST">
+                                                <select class="form-control" name="id" id="appointment-delete"></select>
+                                                <button class="btn btn-danger">Delete Appointment</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </th:block>
+                        </div>
+        </th:block>
+        <div class="col-sm-8 patient-content-card">
+            <div class="patient-calendar" id="calendar"></div>
+        </div>
+            <!--<div class="col-sm-2 patient-content-card">-->
+                <!--<h2>My Health</h2>-->
+                <!--<div class="col-sm-12">-->
+                    <!--<h4>My Prescriptions</h4>-->
+                    <!--<ul th:each="session : ${sessions}">-->
+                        <!--<li th:text="${session.prescriptions}"></li>-->
+                    <!--</ul>-->
+                    <!--<th:block th:if="${ques != null}">-->
+                        <!--<h4>My Allergies</h4>-->
+                        <!--<p th:text="${ques.allergies}"></p>-->
+                        <!--<h4>My History</h4>-->
+                        <!--<p th:text="${ques.history}"></p>-->
+                    <!--</th:block>-->
+                <!--</div>-->
+            <!--</div>-->
+    </div>
+    </div>
+    </div>
+    </div>
+    </section>
 <section class="mbr-section--bg-adapted mbr-section--relative" id="pricing-table1-75" style="background-color: rgb(17,42,68);">
     <div class="pricing" id="pricing">
         <div class="container">
