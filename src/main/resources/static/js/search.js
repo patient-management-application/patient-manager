@@ -6,7 +6,6 @@ $('.doctorId').each(function(){
 
 for (var i = 0; i < doctors.length; i++) {
     var cumulativeRating = [];
-    console.log(cumulativeRating);
 
     $('.rating').each(function () {
         var docId = $(this).attr('name');
@@ -21,7 +20,6 @@ for (var i = 0; i < doctors.length; i++) {
         sum += rating;
     });
     var avg = (sum / cumulativeRating.length).toFixed(1);
-    console.log(avg);
 
 
     var doctorRatingDiv = $('.doctor-rating');
@@ -32,10 +30,4 @@ for (var i = 0; i < doctors.length; i++) {
         doctorRatingDiv.get(i).innerHTML = "<h4>Unrated</h4>";
         doctorRatingDiv.get(i).innerHTML += "<h4>Reviews: " + cumulativeRating.length + "</h4>";
     }
-    // if (parseInt(doctorRatingDiv.attr('name')) === doctors[i]){
-    // }
-//    Get the index of the doctor in the doctor array
-//    compare the index of rating div to doctor index;
-
-
 }

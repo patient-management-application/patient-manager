@@ -60,14 +60,24 @@ public class UserController {
         return "patients/search_doctors";
     }
 
-    @PostMapping(path = "/setdoctor/{doctorId}")
-    public String setDoctor(@PathVariable long doctorId){
+    @PostMapping(path = "/setdoctor")
+    public String setDoctor(@ModelAttribute(name = "hiddenDocId") long doctorId){
         User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         User user = userDao.findById(loggedInUser.getId());
         user.setMyDocId(doctorId);
         userDao.save(user);
         return "redirect:/dashboard";
     }
+
+    @PostMapping(path = "/setdoctor/{id}")
+    public String setDoctorForm(@PathVariable(name = "id") long doctorId){
+        User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User user = userDao.findById(loggedInUser.getId());
+        user.setMyDocId(doctorId);
+        userDao.save(user);
+        return "redirect:/dashboard";
+    }
+
 
     @GetMapping(path = "/users/{id}/edit")
     public String edit(@PathVariable long id, Model viewModel) {
