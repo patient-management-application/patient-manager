@@ -59,15 +59,36 @@ function initMap() {
         });
     }
 
+    var docPhone = "";
+    var docName = "";
+    var docEmail = "";
+    var docAddress = "";
+    var docField = "";
+    var docImgSrc = "";
+    var hiddenDocId = "";
 
-
-
-//FINALLY!!!!!!!!!! OMG!!!!! I FINALLY GOT IT YA!!!!!!! HUZZAH!!!!!
-    $('.view-btn').each(function(){
+    //FINALLY!!!!!!!!!! OMG!!!!! I FINALLY GOT IT YA!!!!!!! HUZZAH!!!!!
+    $('.view-btn').each(function(e){
         $(this).click(function(){
+            docImgSrc = $(this).prev().prev().prev().attr('src');
+            docName = $(this).prev().prev().text();
+            docPhone = $(this).next().text();
+            docEmail =  $(this).next().next().text();
+            docAddress = $(this).next().next().next().text();
+            docField = $(this).next().next().next().next().next().text();
+            hiddenDocId = $(this).prev().prev().prev().prev().val();
+
+            $('#docImg').attr('src', docImgSrc);
+            $('#docName').text(docName);
+            $('#docPhone').text(docPhone);
+            $("#docAddr").text(docAddress);
+            $('#docField').text(docField);
+            $('#docEmail').text(docEmail);
+            $('#doctorId').val(hiddenDocId);
             geoCodeIt($(this).next().next().next().text());
         })
-    })
+    });
+
 
 
 

@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <title>Search Doctor</title>
 </head>
-<body>
+<body class="search-doctor-background">
 <div th:replace="partials/navbar :: patient-navbar"></div>
 
 
@@ -15,49 +15,84 @@
         <h4>SEARCH FOR DOCTORS</h4>
     </div>
 </section>
-
-
-<div class="continer-fluid">
-</div>
-<div class="container">
-
-<div class="doctor-card" th:each="doctor : ${doctors}">
-    <div class="text-left">
-        <div class="col-sm-4">
-            <div class="doctor-rating" th:name="${doctor.id}">
-                <th:block th:each="review : ${reviews}">
-                    <th:block th:if="${review.doc_id == doctor.id}">
-                        <p class="rating" th:name="${review.doc_id}" th:text="${review.rating}"></p>
-                    </th:block>
-                </th:block>
+<div class="modal fade search-doctor-modal" tabindex="-1" role="dialog" id="gridSystemModalLabel" aria-labelledby="gridSystemModalLabel">
+    <div class="modal-dialog  modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="">View Doctor</h4>
             </div>
-            <input type="hidden" class="doctorId" th:value="${doctor.id}" />
-            <img style="max-height: 100px;" th:src="${doctor.image}" th:alt="${doctor.firstName} + ' ' + ${doctor.lastName}" />
-                <h2 class="name" >Dr. <span th:text="${doctor.firstName} + ' ' + ${doctor.lastName}"></span></h2>
-                <form class="form-inline" th:action="@{/setdoctor/{doctorId}(doctorId = ${doctor.id})}" th:method="POST">
+                <div class="col-sm-3 text-center">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <img style="max-width: 100px;" id="docImg" src="" alt="Image"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <h4 id="docName">Doctor Name</h4>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <p id="docAddr">Doctor Address</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <p id="docPhone">Doctor Phone</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <p id="docField">Doctor Field</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-9">
+                    <div id="map"></div>
+                </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <form class="form-inline" id="setDocModalForm" th:action="@{/setdoctor}" th:method="POST">
+                    <input type="hidden" name="hiddenDocId" id="doctorId" value="" />
                     <button class="btn btn-primary">Set as my Doctor</button>
                 </form>
-                <button class="view-btn btn btn-primary">View</button>
-                <p class="phone-number" th:text="${doctor.phoneNumber}"></p>
-                <p class="email" th:text="${doctor.email}"></p>
-                <p class="address"><span id="address" class="address-span" th:text="${doctor.street} + ', ' + ${doctor.city} + ', ' + ${doctor.state} + ', ' + ${doctor.zipcode}"></span></p>
-                <p class="" ></p>
-                <p class="practicing-field">Field: <span th:text="${doctor.practicingField}"></span></p>
-                <!--<p class="btn experience">Experience: <span th:text="${doctor.experience}"></span></p>-->
-                <!--<p class="btn education">Education: <span th:text="${doctor.education}"></span></p>-->
-            <hr/>
-        </div>
-    </div>
-</div>
-
-</div>
-
-<div th:each="review : ${reviews}">
-
-</div>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 <div class="container">
-    <div id="map" class="col-sm-6 col-sm-offset-2"></div>
+        <div class="doctor-card" th:each="doctor : ${doctors}">
+            <div class="col-sm-4">
+                <div class="text-center">
+                    <div class="col-sm-12 search-doctor-card">
+                        <div class="doctor-rating" th:name="${doctor.id}">
+                            <th:block th:each="review : ${reviews}">
+                                <th:block th:if="${review.doc_id == doctor.id}">
+                                    <p class="rating" th:name="${review.doc_id}" th:text="${review.rating}"></p>
+                                </th:block>
+                            </th:block>
+                        </div>
+                        <input type="hidden" class="doctorId" th:value="${doctor.id}" />
+                        <img style="max-height: 100px;" th:src="${doctor.image}" th:alt="${doctor.firstName} + ' ' + ${doctor.lastName}" />
+                        <h2 class="name" >Dr. <span th:text="${doctor.firstName} + ' ' + ${doctor.lastName}"></span></h2>
+                        <form class="form-inline" th:action="@{/setdoctor/{doctorId}(doctorId = ${doctor.id})}" th:method="POST">
+                            <button class="btn btn-primary">Set as my Doctor</button>
+                        </form>
+                        <button class="view-btn btn btn-primary" data-toggle="modal" data-target="#gridSystemModalLabel">View</button>
+                        <p class="phone-number" th:text="${doctor.phoneNumber}"></p>
+                        <p class="email" th:text="${doctor.email}"></p>
+                        <p class="address"><span id="address" class="address-span" th:text="${doctor.street} + ', ' + ${doctor
+                           .city} + ', ' + ${doctor.state} + ', ' + ${doctor.zipcode}"></span></p>
+                        <p class="" ></p>
+                        <p class="practicing-field">Field: <span th:text="${doctor.practicingField}"></span></p></div>
+                </div>
+            </div>
+    </div>
+
 </div>
+
 <section class="mbr-section--bg-adapted mbr-section--relative" id="pricing-table1-75" style="background-color: rgb(17,42,68);">
     <div class="pricing" id="pricing">
         <div class="container">
@@ -73,8 +108,8 @@
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAQAXVLex1Ri2SrNvxCfl51OK0jXlyl14k
 &amp;callback=initMap"></script>
 <script src="/js/maps.js"></script>
-<script src="/js/search.js"></script>
 <footer th:replace="partials/footer :: footer"></footer>
+<script src="/js/search.js"></script>
 
 </body>
 </html>
