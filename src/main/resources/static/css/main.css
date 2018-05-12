@@ -7538,6 +7538,7 @@ input:focus, textarea:focus {
     color: #1b6d85;
 }
 
+
 .search-doctor-background p {
     color: #1b6d85;
 }
@@ -7562,6 +7563,7 @@ input:focus, textarea:focus {
 }
 
 .search-doctor-modal #docImg {
+    max-width: 150px;
     margin-top: 50px;
 }
 
@@ -7578,6 +7580,7 @@ input:focus, textarea:focus {
     padding: 10px;
     margin: 5px;
 }
+
 
 /*Doctor Dashboard*/
 

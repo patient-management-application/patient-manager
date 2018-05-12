@@ -25,7 +25,7 @@
                 <div class="col-sm-3 text-center">
                     <div class="row">
                         <div class="col-sm-12">
-                            <img style="max-width: 100px;" id="docImg" src="" alt="Image"/>
+                            <img id="docImg" src="" alt="Image"/>
                         </div>
                     </div>
                     <div class="row">
@@ -52,9 +52,9 @@
                 <div class="col-sm-9">
                     <div id="map"></div>
                 </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <form class="form-inline" id="setDocModalForm" th:action="@{/setdoctor}" th:method="POST">
+            <div class="modal-footer row">
+                <button type="button" class="btn btn-default col-sm-2 col-sm-offset-7" data-dismiss="modal">Close</button>
+                <form class="form-inline col-sm-2" id="setDocModalForm" th:action="@{/setdoctor}" th:method="POST">
                     <input type="hidden" name="hiddenDocId" id="doctorId" value="" />
                     <button class="btn btn-primary">Set as my Doctor</button>
                 </form>
