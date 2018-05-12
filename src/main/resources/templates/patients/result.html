@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <title>Result</title>
+<head th:replace="partials/header :: header">
+    <meta charset="UTF-8" />
+    <title>Billing</title>
+
 </head>
 <body>
 <h3 th:if="${error}" th:text="${error}" style="color: red;"></h3>
 <div th:unless="${error}">
     <h3 style="color: green;">Success!</h3>
+    <h3>Your payment has been confirmed</h3>
 
     Id.: <div> <span th:text="${id}" /></div>
     Status: <div> <span th:text="${status}" /></div>
