@@ -69,6 +69,15 @@ public class UserController {
         return "redirect:/dashboard";
     }
 
+    @PostMapping(path = "/setdoctor/{id}")
+    public String setDoctorForm(@PathVariable(name = "id") long doctorId){
+        User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User user = userDao.findById(loggedInUser.getId());
+        user.setMyDocId(doctorId);
+        userDao.save(user);
+        return "redirect:/dashboard";
+    }
+
 
     @GetMapping(path = "/users/{id}/edit")
     public String edit(@PathVariable long id, Model viewModel) {
