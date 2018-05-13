@@ -1004,64 +1004,6 @@
     }
 }
 
-/*------------------------------------------------------------------
-Theme Name: UNICORE - Responsive Bootstrap Landing Page
-Version: 2.0
-Author:
--------------------------------------------------------------------*/
-
-/*------------------------------------------------------------------
-[TABLE OF CONTENTS]
-
-  1. GLOBAL STYLES
-  2. COMMON STYLES
-  3. HEADER STYLES
-  4. INTRO STYLES
-    4.1. Intro / 1
-    4.2. Intro / 2
-    4.3. Intro / 3
-    4.4. Intro / 4
-    4.5. Intro / 5
-    4.6. Intro / 6
-    4.7. Intro / 7
-    4.8. Intro / 8
-    4.9. Intro / 9
-    4.10. Intro / 10
-    4.11. Intro / 11
-    4.12. Intro / 12
-    4.13. Intro / 13
-    4.14. Intro / 14
-    4.15. Intro / 15
-    4.16. Intro / 16
-    4.17. Intro / 17
-    4.18. Intro / 18
-    4.19. Intro / 19
-    4.20. Intro / 20
-  5. ICON BOX / SERVICES STYLES
-  6. INFO STYLES
-  7. TESTIMONIAL STYLES
-  8. ABOUT
-  9. VIDEO BOX
-  10. FEATURES
-  11. PRICING TABLE
-  12. CLIENTS
-  13. PAGE HEADER
-  14. BLOG STYLES
-  15. SIDEBAR
-  15. PAGE HEADER
-  16. PORTFOLIO
-  17. TEAM
-  18. 404 STYLES
-  19. GOOGLE MAP
-  20. CONTACT
-  21. MAILCHIMP
-  22. ELEMENTS
-  23. COMMENTS
-  24. FOOTER
-  25. RESPONSIVE STYLES
-
--------------------------------------------------------------------*/
-
 /* 1. GLOBAL STYLES */
 
 body {
@@ -1273,7 +1215,7 @@ ul, ol, li {
 }
 
 .navbar-lg .navbar-nav > li > a {
-    padding: 20px 12px 35px;
+    padding: 33px 12px 35px;
     font-size: 12px;
     line-height: 1.6;
     color: #fff;
@@ -2672,7 +2614,7 @@ nav .btn.btn-primary:hover {
 
 .btn.btn-primary {
     background: #63afc6;
-    border: 1px solid #63afc6;
+    border: 1px solid #000000;
     color: #fff;
     border-radius: 30px;
 }
@@ -5082,7 +5024,7 @@ h1 { font-size: 1.5em; margin: 10px; }
 .parallax-content {
     background: url(catscan.jpeg) no-repeat center fixed;
     background-size: cover;
-    padding: 200px 0;
+    padding: 320px 0;
     position: relative;
 }
 

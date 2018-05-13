@@ -12,46 +12,77 @@
 <section class="parallax-content text-center" data-stellar-background-ratio="0.4" id="parallax1-69" style="background-image: url(img/hospitallobby4.jpg);">
     <div class="mbr-overlay" style="opacity: 0.75; background-color: rgb(17,42,68);"></div>
     <div class="parallax container">
-        <h4>SIGN UP TODAY FOR FREE!</h4>
+        <H4>PLEASE REGISTER BELOW</H4>
     </div>
 </section>
-<section class="mbr-section--bg-adapted mbr-after-navbar text-center" id="header1-1">
-    <div class="intro intro1">
-        <div class="mbr-overlay" style="opacity: 0.75; background-color: rgb(255,255,255);"></div>
-            <div class="row center-content">
-                <div class="col-sm-5 col-md-4">
-                    <div class="container center-content">
-                        <fieldset>
-                            <div class="row">
-                            <form th:action="@{/register}" method="POST" th:object="${user}">
-                                <input id="username" name="username" type="text" class="ghost-input" required="" th:field="*{username}" placeholder="Username" data-form-field="Username"/>
-                                <input id="email" name="email" type="text" class="ghost-input" required="" th:field="*{email}" placeholder="Email" data-form-field="email"/>
-                                <input id="password" name="password" type="text" class="ghost-input" required="" th:field="*{password}" placeholder="Password" data-form-field="Password"/>
-                                <input id="firstName" name="firstName" type="text" class="ghost-input" required="" th:field="*{firstName}" placeholder="First Name" data-form-field="firstName"/>
-                                <input id="lastName" name="lastName" type="text" class="ghost-input" required="" th:field="*{lastName}" placeholder="Last Name" data-form-field="lastName"/>
-                                <input id="dob" name="dob" type="text" class="ghost-input" required="" th:field="*{dob}" placeholder="Date of Birth" data-form-field="dob"/>
-                                <input id="gender" name="gender" type="text" class="ghost-input" required="" th:field="*{gender}" placeholder="Gender" data-form-field="gender"/>
-                                <input id="phoneNumber" name="phoneNumber" type="text" class="ghost-input" required="" value="" th:field="*{phoneNumber}" placeholder="Phone Number" data-form-field="phoneNumber"/>
-                                <input id="street" name="street" type="text" class="ghost-input" required="" th:field="*{street}" placeholder="Street" data-form-field="street"/>
-                                <input id="city" name="city" type="text" class="ghost-input" required="" th:field="*{city}" placeholder="City" data-form-field="city"/>
-                                <input id="state" name="state" type="text" class="ghost-input" required="" th:field="*{state}" placeholder="State" data-form-field="state"/>
-                                <input id="zipcode" name="zipcode" type="text" class="ghost-input" required="" th:field="*{zipcode}" placeholder="Zip-Code" data-form-field="zipcode"/>
-                                <div class="form-group">
-                                    <label>Are you a Doctor?</label>
-                                    <!--Doctor defaults to false or not a doctor-->
-                                    <input  id="isDoctor" type="checkbox" name="isDoctor" class="form-control" placeholder="is Doctor" data-form-field="isDoctor"/>
-                                </div>
-                                <div class="form-group">
-                                    <button type="submit" class="btn btn-block btn-lg btn-primary">Submit</button></div>
-                            </form>
-                            </div>
-                        </fieldset>
 
+<section class="mbr-section--bg-adapted mbr-section--relative" id="form1-77" style="background-color: #46B1C9">
+    <div class="contact-form">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1" data-form-type="formoid">
+                    <div data-form-alert="true">
+                        <div class="hide" data-form-alert-success="true">Thanks for filling out form!</div>
                     </div>
+                    <form th:action="@{/register}" method="POST" th:object="${user}" class="positioned" id="contactForm" data-form-title="CONTACT FORM">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6">
+                                <div class="form-group">
+                                    <input id="username" name="username" type="text" class="form-control ghost-input" required="" th:field="*{username}" placeholder="Username" data-form-field="username" />
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                <div class="form-group">
+                                    <input type="email" class="form-control ghost-input" name="email" required="" th:field="*{email}" placeholder="Email" data-form-field="email"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input id="password" name="password" type="text" class="form-control ghost-input" required="" th:field="*{password}" placeholder="Password" data-form-field="password"/>
+                        </div>
+                        <div class="form-group">
+                            <input id="firstName" name="firstName" type="text" class="form-control ghost-input" required="" th:field="*{firstName}" placeholder="First Name" data-form-field="firstName"/>
+                        </div>
+                        <div class="form-group">
+                            <input id="lastName" name="lastName" type="text" class="form-control ghost-input" required="" th:field="*{lastName}" placeholder="Last Name" data-form-field="lastName"/>
+                        </div>
+                        <div class="form-group">
+                            <input id="dob" name="dob" type="text" class="form-control ghost-input" th:field="*{dob}" placeholder="Date of Birth" data-form-field="dob"/>
+                        </div>
+                        <div class="form-group">
+                            <input id="gender" name="gender" type="text" class="form-control ghost-input" required="" th:field="*{gender}" placeholder="Gender" data-form-field="gender"/>
+                        </div>
+                        <div class="form-group">
+                            <input id="phoneNumber" name="phoneNumber" type="text" class="form-control ghost-input"  required="" value="" th:field="*{phoneNumber}" placeholder="Phone Number" data-form-field="phoneNumber"/>
+                        </div>
+                        <div class="form-group">
+                            <input id="street" name="street" type="text" class="form-control ghost-input" required="" th:field="*{street}" placeholder="Street" data-form-field="street"/>
+                        </div>
+                        <div class="form-group">
+                            <input id="city" name="city" type="text" class="form-control ghost-input" required="" th:field="*{city}" placeholder="City" data-form-field="city"/>
+                        </div>
+                        <div class="form-group">
+                            <input id="state" name="state" type="text" class="form-control ghost-input" required="" th:field="*{state}" placeholder="State" data-form-field="state"/>
+                        </div>
+                        <div class="form-group">
+                            <input id="zipcode" name="zipcode" type="text" class="form-control ghost-input" required="" th:field="*{zipcode}" placeholder="Zip-Code" data-form-field="zipcode"/>
+                        </div>
+                        <div class="form-group">
+                            <label>Are you a Doctor?</label>
+                            <!--Doctor defaults to false or not a doctor-->
+                            <input  id="isDoctor" type="checkbox" name="isDoctor"  placeholder="is Doctor" data-form-field="isDoctor"/>
+                        </div>
+                        <div class="col-md-4 col-sm-4">
+                            <div><button type="submit" class="btn btn-primary btn-block">LOGIN</button></div>
+                        </div>
+                    </form>
+
                 </div>
             </div>
+        </div>
     </div>
 </section>
+
 
 <footer th:replace="partials/footer :: footer"></footer>
 </body>
