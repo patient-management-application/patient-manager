@@ -7539,7 +7539,9 @@ input:focus, textarea:focus {
     color: #1b6d85;
 }
 
-
+.doctor-dashboard-card p, .doctor-dashboard-card h3{
+    margin-top: 5px;
+}
 
 .doctor-dashboard-card {
     background-color: rgba(255, 255, 255, 0.65);
@@ -7564,11 +7566,7 @@ input:focus, textarea:focus {
     margin-bottom: 5px;
 }
 
-.doctor-dashboard-card p, .doctor-dashboard-card h3{
-    margin-top: 5px;
-}
-
-/*Modal*/
+/*###############Modal###############*/
 #docName,
 #docAddr,
 #docField,
@@ -7607,6 +7605,45 @@ input:focus, textarea:focus {
 }
 
 
-/*Doctor Dashboard*/
 
 
+/*###############Error message###############*/
+
+.error-message-body {
+    background: url(https://www.nasa.gov/sites/default/files/styles/full_width_feature/public/thumbnails/image/crop_p_color2_enhanced_release_small.png) no-repeat fixed center;
+    background-size: cover;
+}
+
+.error-message-content {
+    margin-top: 100px;
+    padding: 50px;
+    color: white;
+    background-color: rgba(92, 92, 92, 0.71);
+    border-radius: 8px;
+    box-shadow: 4px 4px 4px grey;
+}
+
+
+/*###############View Sessions###############*/
+
+.view-session-title {
+    padding-top: 100px;
+}
+
+.view-session-body {
+    background-color: rgb(177,229,255);
+    color: #1b6d85;
+}
+
+.view-session-body p, .view-session-body h3 {
+    color: #1b6d85;
+}
+
+.view-session-card {
+    background-color: rgba(255, 255, 255, 0.65);
+    border-radius: 8px;
+    box-shadow: 3px 3px 3px #5a5a5a;
+    padding: 10px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
