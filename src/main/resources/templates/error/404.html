@@ -1,36 +1,32 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="partials/header :: header"></head>
-<body>
+<body class="error-message-body">
+<!--<div th:replace="partials/navbar :: navbar"></div>-->
 
-<div th:replace="partials/navbar :: navbar"></div>
 
 <section class="mbr-section--bg-adapted" id="header17-16" style="background-image: url(/img/doc.jpg);">
     <main class="container">
 
-        <h1>404 Page not found!</h1>
+        <div class="text-center error-message-content">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h1>404 Page not found!</h1>
+                    <h2>Couldn't find your page, but here's Pluto</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <a th:href="@{/dashboard}"><button class="btn btn-primary">Dashboard</button></a>
+                </div>
+            </div>
+        </div>
+
+
+
 
     </main>
-    <!--<div class="intro intro6">-->
-        <!--<div class="mbr-overlay" style="opacity: 0.2; background-color: rgb(99,175,198);"></div>-->
-        <!--<div class="container">-->
-            <!--<div class="row center-content center-content-ipad">-->
-                <!--<div class="col-md-10 col-md-offset-1 text-center">-->
-                    <!--<h2>WHICH DOCTOR</h2><p>An easy to use Patient Management System for Patients and Doctors</p>-->
-                    <!--<p>to connect and keep track of appointments and medical information.</p>-->
-                    <!--<div><p>The Doctor will see you now.</p></div>-->
-                    <!--<div><a href="/register" class="btn btn-lg btn-primary btn-cta">JOIN TODAY</a></div>-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</div>-->
-    <!--</div>-->
-
 </section>
-
-
-
-<div th:replace="partials/footer :: footer"></div>
-<!--<div th:replace="partials/scripts :: scripts"></div>-->
-
+<!--<div th:replace="partials/footer :: footer"></div>-->
 </body>
 </html>

@@ -7606,7 +7606,20 @@ input:focus, textarea:focus {
     margin: 5px;
 }
 
+/*Error message*/
 
-/*Doctor Dashboard*/
+.error-message-body {
+    background: url(https://www.nasa.gov/sites/default/files/styles/full_width_feature/public/thumbnails/image/crop_p_color2_enhanced_release_small.png) no-repeat fixed center;
+    background-size: cover;
+}
+
+.error-message-content {
+    margin-top: 100px;
+    padding: 50px;
+    color: white;
+    background-color: rgba(92, 92, 92, 0.71);
+    border-radius: 8px;
+    box-shadow: 4px 4px 4px grey;
+}
 
 
