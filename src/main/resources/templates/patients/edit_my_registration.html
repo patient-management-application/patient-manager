@@ -3,127 +3,78 @@
 <head th:replace="partials/header :: header">
     <meta charset="UTF-8"/>
     <title>Edit My Info</title>
+    <link href="/css/css2.css" rel="stylesheet"/>
+
 
 </head>
 <body>
 <div th:replace="partials/navbar :: patient-navbar"></div>
 
-<section class="parallax-content text-center" data-stellar-background-ratio="0.4" id="parallax1-69" style="background-image: url(/img/docreception1.jpg);">
+<section class="parallax-content text-center" data-stellar-background-ratio="0.4" id="parallax1-69" style="background-image: url(/img/lobby1.jpg);">
     <div class="mbr-overlay" style="opacity: 0.75; background-color: rgb(17,42,68);"></div>
     <div class="parallax container">
         <h4>EDIT MY INFO</h4>
     </div>
 </section>
-
-<div class="container">
-    <form th:action="@{'/users/' + ${user.id} + '/edit'}" method="POST" th:object="${user}">
-        <fieldset>
-            <div class="form-group">
-                <label class="col-md-4 control-label"></label>
-                <div class="col-md-4 inputGroupContainer">
-                    <div class="input-group">
-                        <input name="username" placeholder="Username" class="form-control"  type="text" th:field="*{username}" th:value="*{username}" />
+<section class="mbr-section--bg-adapted mbr-section--relative" id="form1-77" style="background-color: #46B1C9">
+    <div class="contact-form">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1" data-form-type="formoid">
+                    <div data-form-alert="true">
+                        <div class="hide" data-form-alert-success="true">Thanks for filling out form!</div>
                     </div>
+                    <form th:action="@{'/users/' + ${user.id} + '/edit'}" method="POST" th:object="${user}" class="positioned" id="contactForm" data-form-title="CONTACT FORM">
+                        <div class="form-group">
+                            <input name="username" class="form-control ghost-input"  type="text" th:field="*{username}" th:value="*{username}" placeholder="Username" data-form-field="username"/>
+                        </div>
+                        <div class="form-group">
+                            <input name="email" class="form-control ghost-input"  type="text" th:field="*{email}" th:value="*{email}" placeholder="Email" data-form-field="email"/>
+                        </div>
+                        <div class="form-group">
+                            <input name="password" class="form-control ghost-input"  type="password" th:field="*{password}" th:value="*{password}" placeholder="Password" data-form-field="password"/>
+                        </div>
+                        <div class="form-group">
+                            <input name="first_name" class="form-control ghost-input"  type="text" th:field="*{firstName}" th:value="*{firstName}" placeholder="First Name" data-form-field="firstName"/>
+                        </div>
+                        <div class="form-group">
+                            <input name="last_name" class="form-control ghost-input"  type="text" th:field="*{lastName}" th:value="*{lastName}" placeholder="Last Name" data-form-field="lastName"/>
+                        </div>
+                        <div class="form-group">
+                            <input name="dob" class="form-control ghost-input" type="text" th:field="*{dob}" th:value="*{dob}" placeholder="Date of Birth" data-form-field="dob"/>
+                        </div>
+                        <div class="form-group">
+                            <input name="gender" class="form-control ghost-input" type="text" th:field="*{gender}" th:value="*{gender}" placeholder="Gender" data-form-field="gender"/>
+                        </div>
+                        <div class="form-group">
+                            <input name="phoneNumber" class="form-control ghost-input" type="text" th:field="*{phoneNumber}" th:value="*{phoneNumber}" placeholder="phoneNumber" data-form-field="phoneNumber"/>
+                        </div>
+                        <div class="form-group">
+                            <input name="street" class="form-control ghost-input" type="text" th:field="*{street}" th:value="*{street}" placeholder="Street" data-form-field="street"/>
+                        </div>
+                            <div class="form-group">
+                                <input name="city" class="form-control ghost-input" type="text" th:field="*{city}" th:value="*{city}" placeholder="City" data-form-field="city"/>
+                        </div>
+                        <div class="form-group">
+                            <input name="state" class="form-control ghost-input" type="text" th:field="*{state}" th:value="*{state}" placeholder="State" data-form-field="state"/>
+                        </div>
+                        <div class="form-group">
+                            <input name="zipcode" class="form-control ghost-input" type="text" th:field="*{zipcode}" th:value="*{zipcode}" placeholder="ZIP Code" data-form-field="zipcode"/>
+                        </div>
+                        <div class="form-group">
+                            <label>Are you a Doctor?</label>
+                            <!--Doctor defaults to false or not a doctor-->
+                            <input  id="isDoctor" type="checkbox" name="isDoctor" class="form-control" placeholder="is Doctor" data-form-field="isDoctor"/>
+                        </div>
+                        <div class="col-md-4 col-sm-4">
+                            <div><button type="submit" class="btn btn-primary btn-block">SUBMIT</button></div>
+                        </div>
+                    </form>
                 </div>
             </div>
-            <div class="form-group">
-                <label class="col-md-4 control-label"></label>
-                <div class="col-md-4 inputGroupContainer">
-                    <div class="input-group">
-                        <input name="first_name" placeholder="First Name" class="form-control"  type="text" th:field="*{firstName}" th:value="*{firstName}" />
-                    </div>
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="col-md-4 control-label" ></label>
-                <div class="col-md-4 inputGroupContainer">
-                    <div class="input-group">
-                        <input name="last_name" placeholder="Last Name" class="form-control"  type="text" th:field="*{lastName}" th:value="*{lastName}" />
-                    </div>
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="col-md-4 control-label"></label>
-                <div class="col-md-4 inputGroupContainer">
-                    <div class="input-group">
-                        <input name="phoneNumber" placeholder="Phone Number" class="form-control" type="text" th:field="*{phoneNumber}" th:value="*{phoneNumber}" />
-                    </div>
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="col-md-4 control-label"></label>
-                <div class="col-md-4 inputGroupContainer">
-                    <div class="input-group">
-                        <input name="email" placeholder="E-Mail Address" class="form-control"  type="text" th:field="*{email}" th:value="*{email}" />
-                    </div>
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="col-md-4 control-label"></label>
-                <div class="col-md-4 inputGroupContainer">
-                    <div class="input-group">
-                        <input name="password" placeholder="Password" class="form-control"  type="password" th:field="*{password}" th:value="*{password}" />
-                    </div>
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="col-md-4 control-label"></label>
-                <div class="col-md-4 inputGroupContainer">
-                    <div class="input-group">
-                        <input name="gender" placeholder="Gender" class="form-control" type="text" th:field="*{gender}" th:value="*{gender}" />
-                    </div>
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="col-md-4 control-label"></label>
-                <div class="col-md-4 inputGroupContainer">
-                    <div class="input-group">
-                        <input name="dob" placeholder="Date of Birth" class="form-control" type="text" th:field="*{dob}" th:value="*{dob}" />
-                    </div>
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="col-md-4 control-label"></label>
-                <div class="col-md-4 inputGroupContainer">
-                    <div class="input-group">
-                        <input name="street" placeholder="Street, Avenue, ETC." class="form-control" type="text" th:field="*{street}" th:value="*{street}" />
-                    </div>
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="col-md-4 control-label"></label>
-                <div class="col-md-4 inputGroupContainer">
-                    <div class="input-group">
-                        <input name="city" placeholder="City" class="form-control" type="text" th:field="*{city}" th:value="*{city}" />
-                    </div>
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="col-md-4 control-label"></label>
-                <div class="col-md-4 inputGroupContainer">
-                    <div class="input-group">
-                        <input name="state" placeholder="State" class="form-control" type="text" th:field="*{state}" th:value="*{state}" />
-                    </div>
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="col-md-4 control-label"></label>
-                <div class="col-md-4 inputGroupContainer">
-                    <div class="input-group">
-                        <input name="zipcode" placeholder="Zipcode" class="form-control" type="text" th:field="*{zipcode}" th:value="*{zipcode}" />
-                    </div>
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="col-md-4 control-label"></label>
-                <div class="col-md-4">
-                    <button type="submit" class="btn btn-info" >SUBMIT <span class="glyphicon glyphicon-send"></span></button>
-                </div>
-            </div>
-        </fieldset>
-
-    </form>
-</div>
+        </div>
+    </div>
+</section>
 <section class="mbr-section--bg-adapted mbr-section--relative" id="pricing-table1-75" style="background-color: rgb(17,42,68);">
     <div class="pricing" id="pricing">
         <div class="container">
