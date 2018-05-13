@@ -7,10 +7,10 @@
 - [x] Patient Dashboard
 - [x] Patient can Set Doctor
 - [ ] Styling
-  - [ ] Patient Dashboard
+  - [x] Patient Dashboard
   - [ ] Patient registration (Edit registration)
   - [ ] Patient Edit info (My Health)
-  - [ ] Patient Search Doctors
+  - [x] Patient Search Doctors
   - [ ] Patient Reviews
 - [x] Doctor can see patient history when patient sets doctor.
 - [x] Calendar Render
@@ -22,7 +22,7 @@
 ### Doctors Side -
 
 - [ ] Styling
-  - [ ] Doctor Dashboard
+  - [x] Doctor Dashboard
   - [ ] Doctor registration
   - [ ] Doctor Edit info (My practice)
   - [ ] Doctor view sessions
@@ -37,8 +37,11 @@
 - [x] Transaction History (Handled by stripe)
   - [x] Stripe api integrated
   - [x] Setup stripe 'customer signup'  
+  
+  
+### Nice to haves -
 - [ ] Form validation
-  - [x] User Registration
+  - [ ] User Registration
   - [ ] Edit user registration
   - [ ] My Health
   - [ ] My Practice
@@ -46,5 +49,4 @@
   - [ ] Login
   - [ ] Sessions
   - [x] Calendar Appointment Creation
-### Nice to haves -
 
