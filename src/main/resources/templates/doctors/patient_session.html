@@ -4,93 +4,78 @@
     <meta charset="UTF-8" />
     <title>Patient Name</title>
 </head>
-<body>
+<body class="view-session-body">
 <div th:replace="partials/navbar :: doctor-navbar"></div>
-<section class="mbr-section--bg-adapted" id="pricing-table1-76" style="background-color: #112a44;">
-    <div class="pricing" id="pricing">
-        <div class="container">
-            <h1 class="section-head-lite text-center col-md-8 col-md-offset-2 space80" style="color: white;" >Patient Profile</h1>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
+    <section class="mbr-section--bg-adapted" id="pricing-table1-76" style="background-color: #112a44;">
+        <div class="pricing" id="pricing">
+            <div class="container view-session-title">
+                <h1 class="section-head-lite text-center col-md-8 col-md-offset-2 space80" style="color: white;" >Patient Session History</h1>
             </div>
         </div>
-    </div>
-</section>
-<!--<h1 th:text="${patient.firstName}"></h1>-->
-<section class="mbr-section--bg-adapted" id="header4-5" style="background-image: url(img/doctools.jpeg);">
-    <div class="contact-form">
+    </section>
         <div class="container">
-            <div class="row">
-                <div class="col-sm-12 text-center">
-                    <h2 th:text="${patient.firstName} + ' ' + ${patient.lastName}"></h2>
+            <div class="view-session-card">
+                <div class="row">
+                    <div class="col-sm-12 text-left">
+                        <h2 th:text="${patient.firstName} + ' ' + ${patient.lastName}"></h2>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-12">
-                    <h3>Patient Questionnaire</h3>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-3">
-                    <h4>Allergies: </h4>
-                    <p th:text="${ques.allergies}"></p>
-                </div>
-                <div class="col-sm-3">
-                    <h4>Medication: </h4>
-                    <p th:text="${ques.medications}"></p>
-                </div>
-                <div class="col-sm-3">
-                    <h4>History: </h4>
-                    <p th:text="${ques.history}"></p>
-                </div>
-                <div class="col-sm-3">
-                    <h4>Extra Information: </h4>
-                    <p th:text="${ques.extra}"></p>
-                </div>
-            </div>
-
-
-            <div class="row">
-                <div class="col-sm-12">
-                    <h3>Sessions</h3>
-                </div>
-            </div>
-            <th:block th:each="session : ${sessions}">
                 <div class="row">
                     <div class="col-sm-3">
-                        <h4>Session Information: </h4>
-                        <ul class="session-info">
-                            <li>Session id#: <span th:text="${session.id}"></span> </li>
-                            <li>Time Started: <span th:text="${session.timeStart}"></span> </li>
-                            <li>Time Ended: <span th:text="${session.timeEnd}"></span> </li>
-                        </ul>
+                        <h4>Allergies: </h4>
+                        <p th:text="${ques.allergies}"></p>
                     </div>
                     <div class="col-sm-3">
-                        <h4>Prescriptions: </h4>
-                        <p th:text="${session.prescriptions}"></p>
+                        <h4>Medication: </h4>
+                        <p th:text="${ques.medications}"></p>
                     </div>
                     <div class="col-sm-3">
-                        <h4>Procedures: </h4>
-                        <p th:text="${session.procedures}"></p>
+                        <h4>History: </h4>
+                        <p th:text="${ques.history}"></p>
                     </div>
                     <div class="col-sm-3">
-                        <h4>Notes: </h4>
-                        <p th:text="${session.notes}"></p>
+                        <h4>Extra Information: </h4>
+                        <p th:text="${ques.extra}"></p>
                     </div>
                 </div>
+            </div>
 
-
-
-            </th:block>
+            <div class="view-session-card col-sm-12">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h3>Sessions</h3>
+                    </div>
+                </div>
+                <th:block th:each="session : ${sessions}">
+                    <div class="row">
+                        <div class="col-sm-3 text-left">
+                            <h4>Session Information: </h4>
+                            <ul class="session-info">
+                                <li>Session id#: <span th:text="${session.id}"></span> </li>
+                                <li>Time Started: <span th:text="${session.timeStart}"></span> </li>
+                                <li>Time Ended: <span th:text="${session.timeEnd}"></span> </li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-3 text-left">
+                            <h4>Prescriptions: </h4>
+                            <p th:text="${session.prescriptions}"></p>
+                        </div>
+                        <div class="col-sm-3 text-left">
+                            <h4>Procedures: </h4>
+                            <p th:text="${session.procedures}"></p>
+                        </div>
+                        <div class="col-sm-3 text-left">
+                            <h4>Notes: </h4>
+                            <p th:text="${session.notes}"></p>
+                        </div>
+                    </div>
+                </th:block>
+            </div>
             <div class="row">
                 <div class="col-md-10 col-md-offset-1" data-form-type="formoid">
-
                 </div>
             </div>
         </div>
-    </div>
-</section>
 <section class="mbr-section--bg-adapted mbr-section--relative" id="pricing-table1-75" style="background-color: rgb(17,42,68);">
     <div class="pricing" id="pricing">
         <div class="container">
