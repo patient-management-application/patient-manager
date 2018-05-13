@@ -25,7 +25,7 @@
   - [x] Doctor Dashboard
   - [ ] Doctor registration
   - [ ] Doctor Edit info (My practice)
-  - [ ] Doctor view sessions
+  - [x] Doctor view sessions
   - [ ] Doctor Billing
 - [x] Doctor Registration 
 - [x] Manage Patients - Create sessions...view...edit
