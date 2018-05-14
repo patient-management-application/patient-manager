@@ -100,6 +100,6 @@ public class UserController {
     }
     @GetMapping("/about")
     public String aboutPage() {
-        return "about";
+        return "/about";
     }
 }

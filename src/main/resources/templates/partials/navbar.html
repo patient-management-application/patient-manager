@@ -21,7 +21,15 @@
                     <li style="margin-right: 10px;"><a class="text-white" th:href="@{/myhealth}">MY HEALTH</a></li>
                     <li style="margin-right: 10px;"><a class="text-white" th:href="@{/search}">SEARCH DOCTORS</a></li>
                     <li style="margin-right: 10px;"><a class="text-white" th:href="@{/myreview}">MY REVIEWS</a></li>
-                    <li style="margin-right: 10px;"><a class="text-white" th:href="@{/mybilling}">MY BILLING</a></li>
+                    <li style="margin-right: 10px;">
+                        <form id="billing-form" th:action="@{/checkout}" method="GET">
+                        <input type="hidden"
+                               th:name="${_csrf.parameterName}"
+                               th:value="${_csrf.token}"/>
+                        <button>My Billing</button>
+                        </form>
+                    </li>
+                    <!--<li style="margin-right: 10px;"><a class="text-white" th:href="@{/mybilling}">MY BILLING</a></li>-->
                     <li style="margin-right: 10px;"><a class="text-white" th:href="@{'/users/' + ${user.id} + '/edit'}">EDIT MY INFO</a></li>
                     <!--<li style="margin-left: 10px;"><a class="text-white" th:href="@{/logout}">LOGOUT</a></li>-->
                     <li style="margin-right: 10px;" sec:authorize="isAuthenticated()">

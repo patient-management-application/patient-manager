@@ -7425,6 +7425,23 @@ input:focus, textarea:focus {
     transition: color .2s;
 }
 
+#billing-form > button {
+    color: white;
+    font-weight: normal;
+    border: none;
+    background: transparent;
+    margin-top: 19px;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    font-size: 13px;
+
+}
+
+#billing-form > button:hover {
+    color: #29d9c2;
+    transition: color .2s;
+}
+
 /*###############Patient Dashboard###############*/
 .patient-content {
     color: #4c6888;
