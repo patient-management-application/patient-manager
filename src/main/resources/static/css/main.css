@@ -1004,64 +1004,6 @@
     }
 }
 
-/*------------------------------------------------------------------
-Theme Name: UNICORE - Responsive Bootstrap Landing Page
-Version: 2.0
-Author:
--------------------------------------------------------------------*/
-
-/*------------------------------------------------------------------
-[TABLE OF CONTENTS]
-
-  1. GLOBAL STYLES
-  2. COMMON STYLES
-  3. HEADER STYLES
-  4. INTRO STYLES
-    4.1. Intro / 1
-    4.2. Intro / 2
-    4.3. Intro / 3
-    4.4. Intro / 4
-    4.5. Intro / 5
-    4.6. Intro / 6
-    4.7. Intro / 7
-    4.8. Intro / 8
-    4.9. Intro / 9
-    4.10. Intro / 10
-    4.11. Intro / 11
-    4.12. Intro / 12
-    4.13. Intro / 13
-    4.14. Intro / 14
-    4.15. Intro / 15
-    4.16. Intro / 16
-    4.17. Intro / 17
-    4.18. Intro / 18
-    4.19. Intro / 19
-    4.20. Intro / 20
-  5. ICON BOX / SERVICES STYLES
-  6. INFO STYLES
-  7. TESTIMONIAL STYLES
-  8. ABOUT
-  9. VIDEO BOX
-  10. FEATURES
-  11. PRICING TABLE
-  12. CLIENTS
-  13. PAGE HEADER
-  14. BLOG STYLES
-  15. SIDEBAR
-  15. PAGE HEADER
-  16. PORTFOLIO
-  17. TEAM
-  18. 404 STYLES
-  19. GOOGLE MAP
-  20. CONTACT
-  21. MAILCHIMP
-  22. ELEMENTS
-  23. COMMENTS
-  24. FOOTER
-  25. RESPONSIVE STYLES
-
--------------------------------------------------------------------*/
-
 /* 1. GLOBAL STYLES */
 
 body {
@@ -2672,7 +2614,7 @@ nav .btn.btn-primary:hover {
 
 .btn.btn-primary {
     background: #63afc6;
-    border: 1px solid #63afc6;
+    border: 1px solid #000000;
     color: #fff;
     border-radius: 30px;
 }
@@ -5082,7 +5024,7 @@ h1 { font-size: 1.5em; margin: 10px; }
 .parallax-content {
     background: url(catscan.jpeg) no-repeat center fixed;
     background-size: cover;
-    padding: 200px 0;
+    padding: 320px 0;
     position: relative;
 }
 
@@ -7421,6 +7363,10 @@ input:focus, textarea:focus {
     flex-grow: 1;
 }
 
+.label300 {
+    text-align: center;
+}
+
 /*.ghost-input {*/
     /*display: block;*/
     /*font-weight:300;*/
@@ -7528,7 +7474,28 @@ input:focus, textarea:focus {
     box-shadow: 0 3px 0 #363636;
 }
 
+/*###############Doctor Dashboard##############*/
 
+.doctor-dashboard-background {
+    background-color: rgb(177,229,255);
+    color: #1b6d85;
+}
+
+.doctor-dashboard-background p{
+    color: #1b6d85;
+}
+
+.doctor-dashboard-card p, .doctor-dashboard-card h3{
+    margin-top: 5px;
+}
+
+.doctor-dashboard-card {
+    background-color: rgba(255, 255, 255, 0.65);
+    border-radius: 8px;
+    box-shadow: 3px 3px 3px #5a5a5a;
+    padding: 20px;
+    margin: 10px;
+}
 
 
 /*###############Search Doctor###############*/
@@ -7541,9 +7508,11 @@ input:focus, textarea:focus {
 
 .search-doctor-background p {
     color: #1b6d85;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
-/*Modal*/
+/*###############Modal###############*/
 #docName,
 #docAddr,
 #docField,
@@ -7582,6 +7551,46 @@ input:focus, textarea:focus {
 }
 
 
-/*Doctor Dashboard*/
 
+
+/*###############Error message###############*/
+
+.error-message-body {
+    background: url(https://www.nasa.gov/sites/default/files/styles/full_width_feature/public/thumbnails/image/crop_p_color2_enhanced_release_small.png) no-repeat fixed center;
+    background-size: cover;
+}
+
+.error-message-content {
+    margin-top: 100px;
+    padding: 50px;
+    color: white;
+    background-color: rgba(92, 92, 92, 0.71);
+    border-radius: 8px;
+    box-shadow: 4px 4px 4px grey;
+}
+
+
+/*###############View Sessions###############*/
+
+.view-session-title {
+    padding-top: 100px;
+}
+
+.view-session-body {
+    background-color: rgb(177,229,255);
+    color: #1b6d85;
+}
+
+.view-session-body p, .view-session-body h3 {
+    color: #1b6d85;
+}
+
+.view-session-card {
+    background-color: rgba(255, 255, 255, 0.65);
+    border-radius: 8px;
+    box-shadow: 3px 3px 3px #5a5a5a;
+    padding: 10px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
 
