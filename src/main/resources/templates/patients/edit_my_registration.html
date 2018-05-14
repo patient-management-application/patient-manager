@@ -26,13 +26,13 @@
                     </div>
                     <form th:action="@{'/users/' + ${user.id} + '/edit'}" method="POST" th:object="${user}" class="positioned" id="contactForm" data-form-title="CONTACT FORM">
                         <div class="form-group">
-                            <input name="username" class="form-control ghost-input"  type="text" th:field="*{username}" th:value="*{username}" placeholder="Username" data-form-field="username"/>
+                            <input name="username" class="form-control ghost-input" type="text" th:field="*{username}" th:value="*{username}" placeholder="Username" data-form-field="username"/>
                         </div>
                         <div class="form-group">
-                            <input name="email" class="form-control ghost-input"  type="text" th:field="*{email}" th:value="*{email}" placeholder="Email" data-form-field="email"/>
+                            <input name="email" class="form-control ghost-input" type="text" th:field="*{email}" th:value="*{email}" placeholder="Email" data-form-field="email"/>
                         </div>
                         <div class="form-group">
-                            <input name="password" class="form-control ghost-input"  type="password" th:field="*{password}" th:value="*{password}" placeholder="Password" data-form-field="password"/>
+                            <input name="password" class="form-control ghost-input" type="password" th:field="*{password}" th:value="*{password}" placeholder="Password" data-form-field="password"/>
                         </div>
                         <div class="form-group">
                             <input name="first_name" class="form-control ghost-input"  type="text" th:field="*{firstName}" th:value="*{firstName}" placeholder="First Name" data-form-field="firstName"/>
@@ -61,10 +61,10 @@
                         <div class="form-group">
                             <input name="zipcode" class="form-control ghost-input" type="text" th:field="*{zipcode}" th:value="*{zipcode}" placeholder="ZIP Code" data-form-field="zipcode"/>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group label300">
                             <label>Are you a Doctor?</label>
                             <!--Doctor defaults to false or not a doctor-->
-                            <input  id="isDoctor" type="checkbox" name="isDoctor" class="form-control" placeholder="is Doctor" data-form-field="isDoctor"/>
+                            <input  id="isDoctor" type="checkbox" name="isDoctor"  placeholder="is Doctor" data-form-field="isDoctor"/>
                         </div>
                         <div class="col-md-4 col-sm-4">
                             <div><button type="submit" class="btn btn-primary btn-block">SUBMIT</button></div>

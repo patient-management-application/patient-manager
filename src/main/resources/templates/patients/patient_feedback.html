@@ -27,7 +27,7 @@
                         <input type="hidden" name="patientId" th:value="${user.id}"/>
                         <input type="hidden" name="reviewId" th:value="${review.id}"/>
                         <input type="hidden" name="doctorId" th:value="${user.myDocId}"/>
-                        <textarea class="form-control ghost-input" name="message" rows="4" th:field="*{review}" placeholder="How Was Your Visit?"  data-form-field="Message"></textarea>
+                        <textarea class="form-control ghost-input" name="message" rows="8" th:field="*{review}" placeholder="How Was Your Visit?"  data-form-field="Message"></textarea>
                         <fieldset class="rating">
                             <input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
                             <input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
