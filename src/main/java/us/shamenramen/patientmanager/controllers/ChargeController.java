@@ -31,7 +31,7 @@ public class ChargeController {
     public String charge(@PathVariable long id, ChargeRequest chargeRequest, Model model) throws StripeException {
         User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         User user = userDao.findById(loggedInUser.getId());
-        chargeRequest.setDescription("Patient Payment");
+        chargeRequest.setDescription("Invoice Payment");
         chargeRequest.setCurrency(ChargeRequest.Currency.USD);
         Charge charge = paymentsService.charge(chargeRequest);
         model.addAttribute("user", user);

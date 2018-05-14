@@ -25,14 +25,17 @@
     </div>
 </section>
 
-<main class="container"></main>
+<main class="container text-center" style="padding: 10px 20px;
+    font-size: 30px;
+    border-radius: 10px;
+    color: red">
 <form th:action="@{/checkout}" method="GET">
     <input type="hidden"
            th:name="${_csrf.parameterName}"
            th:value="${_csrf.token}"/>
-    <button type="submit">Make Payment</button>
+    <button type="submit">Invoice Payment Due!</button>
 </form>
-
+</main>
 
 
 <section class="mbr-section--bg-adapted mbr-section--relative" id="pricing-table1-75" style="background-color: rgb(17,42,68);">

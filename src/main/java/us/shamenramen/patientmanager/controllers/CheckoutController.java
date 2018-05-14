@@ -27,7 +27,7 @@ public class CheckoutController {
         User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         User user = userDao.findById(loggedInUser.getId());
         model.addAttribute("user", user);
-        model.addAttribute("amount", 1500); // in cents
+        model.addAttribute("amount", 118); // in cents
         model.addAttribute("stripePublicKey", stripePublicKey);
         model.addAttribute("currency", ChargeRequest.Currency.USD);
         return "patients/confirm_payment";

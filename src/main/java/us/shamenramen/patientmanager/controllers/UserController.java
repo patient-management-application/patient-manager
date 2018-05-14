@@ -98,4 +98,8 @@ public class UserController {
         return "redirect:/dashboard";
 
     }
+    @GetMapping("/about")
+    public String aboutPage() {
+        return "about";
+    }
 }
