@@ -37,6 +37,16 @@
 </form>
 </main>
 
+<div class="col-sm-3 patient-content-card">
+    <main class="container col-sm-12" style=" font-size: 30px; border-radius: 20px; color: red">
+        <form th:action="@{/checkout}" method="GET">
+            <input type="hidden"
+                   th:name="${_csrf.parameterName}"
+                   th:value="${_csrf.token}"/>
+            <button type="submit" class="btn btn-primary" style="color: red; font-weight: bold;">Invoice Payment Due!</button>
+        </form>
+    </main>
+</div>
 
 <section class="mbr-section--bg-adapted mbr-section--relative" id="pricing-table1-75" style="background-color: rgb(17,42,68);">
     <div class="pricing" id="pricing">
