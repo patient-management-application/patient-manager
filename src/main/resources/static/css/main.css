@@ -6458,7 +6458,7 @@ input:focus, textarea:focus {
 
     footer {
         background: #000000;
-        padding: 25px 20px 21px 0px;
+        padding: 5px 20px 21px 1px;
 
     }
 
@@ -7592,5 +7592,15 @@ input:focus, textarea:focus {
     padding: 10px;
     margin-top: 15px;
     margin-bottom: 10px;
+}
+
+.fa {
+  padding: 20px;
+  font-size: 30px;
+  width: 30px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+  border-radius: 50%;
 }
 

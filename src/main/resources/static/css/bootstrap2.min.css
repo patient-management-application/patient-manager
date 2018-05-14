@@ -1,4 +1,4 @@
-@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+@import url(https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css);
 @font-face {
     font-family: 'FontAwesome';
     src: url('../font/fontawesome-webfont.eot?v=3.2.1');
@@ -1451,3 +1451,4 @@ a .icon-flip-vertical:before {
 .icon-renren:before {
     content: "\f18b";
 }
+
