@@ -7594,3 +7594,14 @@ input:focus, textarea:focus {
     margin-bottom: 10px;
 }
 
+.view-bg {
+    background-color: #46B1C9;
+}
+
+.view-bg p, .view-bg h2{
+    color: #1b6d85;
+}
+
+.doctor-rating h4 {
+    color: #1b6d85;
+}
