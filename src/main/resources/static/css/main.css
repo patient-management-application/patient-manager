@@ -7363,6 +7363,10 @@ input:focus, textarea:focus {
     flex-grow: 1;
 }
 
+.label300 {
+    text-align: center;
+}
+
 /*.ghost-input {*/
     /*display: block;*/
     /*font-weight:300;*/
@@ -7589,3 +7593,4 @@ input:focus, textarea:focus {
     margin-top: 15px;
     margin-bottom: 10px;
 }
+
