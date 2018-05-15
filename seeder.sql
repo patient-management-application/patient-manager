@@ -1,4 +1,4 @@
-use pms_db;
+use doc_db;
 
 INSERT INTO users(accolades, biography, city, dob, education, email, experience, first_name, gender, image, is_doctor, last_name, license_id, my_doc_id, password, phone_number, practicing_field, state, street, username, zipcode) VALUES
   (null, null, 'San Antonio', '05/07/1990', null, 'bahodge@bahodge.com', null, 'Ben', 'Male', null, false, 'Hodge', null, 4, '$2a$10$VNliQx3VLs/n.k35c1/XO.ANTnD.3h.eP3LLlMULBBHRqElOFv1Ei', '123-456-7890', null, 'TX', '123 Main Street', 'ben', '12345'),
