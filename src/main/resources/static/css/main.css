@@ -1202,7 +1202,7 @@ ul, ol, li {
 
 .navbar-lg .navbar-brand {
     padding: 15px 0 0;
-    font-size: 28px;
+    font-size: 29px;
     font-weight: 700;
     text-transform: uppercase;
     color: #fff;
@@ -7611,9 +7611,7 @@ input:focus, textarea:focus {
     margin-bottom: 10px;
 }
 
-.view-bg {
-    background-color: #46B1C9;
-}
+
 
 .view-bg p, .view-bg h2{
     color: #1b6d85;
