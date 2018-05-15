@@ -1,7 +1,7 @@
 use pms_db;
 
 INSERT INTO users(accolades, biography, city, dob, education, email, experience, first_name, gender, image, is_doctor, last_name, license_id, my_doc_id, password, phone_number, practicing_field, state, street, username, zipcode) VALUES
-  (null, null, 'San Antonio', '05/07/1990', null, 'bahodge@bahodge.com', null, 'Ben', 'Male', null, false, 'Hodge', null, 5, '$2a$10$VNliQx3VLs/n.k35c1/XO.ANTnD.3h.eP3LLlMULBBHRqElOFv1Ei', '123-456-7890', null, 'TX', '123 Main Street', 'ben', '12345'),
+  (null, null, 'San Antonio', '05/07/1990', null, 'bahodge@bahodge.com', null, 'Ben', 'Male', null, false, 'Hodge', null, 4, '$2a$10$VNliQx3VLs/n.k35c1/XO.ANTnD.3h.eP3LLlMULBBHRqElOFv1Ei', '123-456-7890', null, 'TX', '123 Main Street', 'ben', '12345'),
   (null, null, 'Austin', '03/17/1983', null, 'bobbyb@gmail.com', null, 'Bobby', 'Male', null, false, 'Barathean', null, 4, '$2a$10$VNliQx3VLs/n.k35c1/XO.ANTnD.3h.eP3LLlMULBBHRqElOFv1Ei', '123-456-7890', null, 'TX', '321 Indigo', 'bobby', '12345'),
   (null, null, 'San Antonio', '04/30/1957', null, 'ron@gmail.com', null, 'Ronnie', 'Male', null, false, 'McDonald', null, 5, '$2a$10$VNliQx3VLs/n.k35c1/XO.ANTnD.3h.eP3LLlMULBBHRqElOFv1Ei', '123-456-7890', null, 'TX', '1100 Vista Valet', 'ronnie', '78126'),
   ('Suma Cum Laude Northwest Vista', 'I have been working with patients since the dawn of time, therefore have become the best doctor ever. Being a doctor has been my passion ever since I could walk. ', 'San Antonio', '12/12/1988', 'MD Clinical Psychiatry', 'vic@vickymd.com', '3 Years Clinical Psychiatrist', 'Victoria', 'Female', 'https://thumbs.dreamstime.com/b/medical-people-young-asian-doctor-woman-female-smiling-portrait-multiracial-caucasian-32319194.jpg', true, 'Valentina', '12345678900987', 0, '$2a$10$VNliQx3VLs/n.k35c1/XO.ANTnD.3h.eP3LLlMULBBHRqElOFv1Ei', '123-456-7890', 'Psychiatry', 'TX', '2337 Hiline Drive', 'victoria', '78163'),
@@ -26,11 +26,15 @@ INSERT INTO questionnaires(allergies, extra, history, medications, patient_id) V
 
 
 INSERT INTO appointments(date_created, doc_id, doctor_name, pat_id, patient_name, scheduled_time, status_id) VALUES
-  ('2018/05/11', 4, 'Dr. Victoria Valentina', 1, 'Ben Hodge', '12:00', 1),
-  ('2018/05/14', 5, 'Dr. Alice Almendra', 2, 'Ronnie McDonald', '13:00', 1),
+  ('2018/05/14', 4, 'Dr. Victoria Valentina', 1, 'Ben Hodge', '12:00', 1),
+  ('2018/05/14', 4, 'Dr. Alice Almendra', 2, 'Ronnie McDonald', '13:00', 1),
   ('2018/05/14', 4, 'Dr. Victoria Valentina', 2, 'Bobby B', '14:00', 1),
-  ('2018/05/11', 4, 'Dr. Victoria Valentina', 2, 'Bobby B', '15:00', 1),
-  ('2018/05/11', 5, 'Dr. Alice Almendra', 3, 'Ronnie McDonald', '16:00', 1);
+  ('2018/05/14', 4, 'Dr. Victoria Valentina', 2, 'Bobby B', '15:00', 1),
+  ('2018/05/15', 4, 'Dr. Alice Almendra', 3, 'Ronnie McDonald', '16:00', 1),
+  ('2018/05/15', 4, 'Dr. Alice Almendra', 3, 'Ronnie McDonald', '17:00', 1),
+  ('2018/05/16', 4, 'Dr. Alice Almendra', 3, 'Ronnie McDonald', '10:00', 1),
+  ('2018/05/16', 4, 'Dr. Alice Almendra', 3, 'Ronnie McDonald', '11:00', 1),
+  ('2018/05/16', 4, 'Dr. Alice Almendra', 1, 'Ben Hodge', '12:00', 1);
 
 INSERT INTO sessions(doctor_id, notes, patient_id, prescriptions, procedures, time_end, time_start) VALUES
   (4, 'Patient exhibits mild head pain after falling down a set of stairs.', 1, null , 'Therapeutic massages around neck and cranium.', '12:30', '13:30'),
