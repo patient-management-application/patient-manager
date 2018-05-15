@@ -7442,6 +7442,10 @@ input:focus, textarea:focus {
     transition: color .2s;
 }
 
+#logout-form > button, #billing-form > button {
+    margin-top: 39px;
+  }
+
 /*###############Patient Dashboard###############*/
 .patient-content {
     color: #4c6888;
@@ -7619,4 +7623,8 @@ input:focus, textarea:focus {
 
 .doctor-rating h4 {
     color: #1b6d85;
+}
+
+.navbar-nav li > a, .brand {
+    margin-top: 20px;
 }
