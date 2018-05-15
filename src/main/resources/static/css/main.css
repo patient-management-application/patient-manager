@@ -7612,3 +7612,11 @@ input:focus, textarea:focus {
 }
 
 
+
+.view-bg p, .view-bg h2{
+    color: #1b6d85;
+}
+
+.doctor-rating h4 {
+    color: #1b6d85;
+}
