@@ -79,21 +79,16 @@
         <div class="col-sm-8 patient-content-card">
             <div class="patient-calendar" id="calendar"></div>
         </div>
-            <!--<div class="col-sm-2 patient-content-card">-->
-                <!--<h2>My Health</h2>-->
-                <!--<div class="col-sm-12">-->
-                    <!--<h4>My Prescriptions</h4>-->
-                    <!--<ul th:each="session : ${sessions}">-->
-                        <!--<li th:text="${session.prescriptions}"></li>-->
-                    <!--</ul>-->
-                    <!--<th:block th:if="${ques != null}">-->
-                        <!--<h4>My Allergies</h4>-->
-                        <!--<p th:text="${ques.allergies}"></p>-->
-                        <!--<h4>My History</h4>-->
-                        <!--<p th:text="${ques.history}"></p>-->
-                    <!--</th:block>-->
-                <!--</div>-->
-            <!--</div>-->
+                    <!--<div class="col-sm-3 patient-content-card">-->
+                        <!--<main class="container col-sm-12" style=" font-size: 30px; border-radius: 20px; color: red">-->
+                            <!--<form th:action="@{/checkout}" method="GET">-->
+                                <!--<input type="hidden"-->
+                                       <!--th:name="${_csrf.parameterName}"-->
+                                       <!--th:value="${_csrf.token}"/>-->
+                                <!--<button type="submit" class="btn btn-primary" style="color: red; font-weight: bold;">Invoice Payment Due!</button>-->
+                            <!--</form>-->
+                        <!--</main>-->
+                    <!--</div>-->
     </div>
     </div>
     </div>
@@ -108,15 +103,7 @@
         </div>
     </div>
 </section>
-<section class="mbr-section--bg-adapted mbr-section--relative" id="pricing-table1-75" style="background-color: rgb(17,42,68);">
-    <div class="pricing" id="pricing">
-        <div class="container">
-            <div class="section-head-lite text-center col-md-8 col-md-offset-2 space80">
 
-            </div>
-        </div>
-    </div>
-</section>
 
 <footer th:replace="partials/footer :: footer"></footer>
 <script src="/js/patient-calendar.js"></script>

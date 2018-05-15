@@ -6458,7 +6458,7 @@ input:focus, textarea:focus {
 
     footer {
         background: #000000;
-        padding: 25px 20px 21px 0px;
+        padding: 5px 20px 21px 1px;
 
     }
 
@@ -7425,6 +7425,23 @@ input:focus, textarea:focus {
     transition: color .2s;
 }
 
+#billing-form > button {
+    color: white;
+    font-weight: normal;
+    border: none;
+    background: transparent;
+    margin-top: 19px;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    font-size: 13px;
+
+}
+
+#billing-form > button:hover {
+    color: #29d9c2;
+    transition: color .2s;
+}
+
 /*###############Patient Dashboard###############*/
 .patient-content {
     color: #4c6888;
@@ -7594,6 +7611,7 @@ input:focus, textarea:focus {
     margin-bottom: 10px;
 }
 
+<<<<<<< HEAD
 .view-bg {
     background-color: #46B1C9;
 }
@@ -7605,3 +7623,15 @@ input:focus, textarea:focus {
 .doctor-rating h4 {
     color: #1b6d85;
 }
+=======
+.fa {
+  padding: 20px;
+  font-size: 30px;
+  width: 30px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+  border-radius: 50%;
+}
+
+>>>>>>> d9bf1e724b8e25071e0552a8e3a03559a6ef8cc9
