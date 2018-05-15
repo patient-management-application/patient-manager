@@ -7611,13 +7611,14 @@ input:focus, textarea:focus {
     margin-bottom: 10px;
 }
 
-.fa {
-  padding: 20px;
-  font-size: 30px;
-  width: 30px;
-  text-align: center;
-  text-decoration: none;
-  margin: 5px 2px;
-  border-radius: 50%;
+.view-bg {
+    background-color: #46B1C9;
 }
 
+.view-bg p, .view-bg h2{
+    color: #1b6d85;
+}
+
+.doctor-rating h4 {
+    color: #1b6d85;
+}
