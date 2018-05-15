@@ -8,10 +8,10 @@
 - [x] Patient can Set Doctor
 - [ ] Styling
   - [x] Patient Dashboard
-  - [ ] Patient registration (Edit registration)
-  - [ ] Patient Edit info (My Health)
+  - [x] Patient registration (Edit registration)
+  - [x] Patient Edit info (My Health)
   - [x] Patient Search Doctors
-  - [ ] Patient Reviews
+  - [x] Patient Reviews
 - [x] Doctor can see patient history when patient sets doctor.
 - [x] Calendar Render
 - [x] Calendar calls backend and is populated correctly
@@ -21,12 +21,12 @@
 
 ### Doctors Side -
 
-- [ ] Styling
+- [x] Styling
   - [x] Doctor Dashboard
-  - [ ] Doctor registration
-  - [ ] Doctor Edit info (My practice)
+  - [x] Doctor registration
+  - [x] Doctor Edit info (My practice)
   - [x] Doctor view sessions
-  - [ ] Doctor Billing
+  - [x] Doctor Billing
 - [x] Doctor Registration 
 - [x] Manage Patients - Create sessions...view...edit
   - [x] Create custom query for patients belonging to doctor.
