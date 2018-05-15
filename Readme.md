@@ -6,7 +6,7 @@
 - [x] Patient Login 
 - [x] Patient Dashboard
 - [x] Patient can Set Doctor
-- [ ] Styling
+- [x] Styling
   - [x] Patient Dashboard
   - [x] Patient registration (Edit registration)
   - [x] Patient Edit info (My Health)
