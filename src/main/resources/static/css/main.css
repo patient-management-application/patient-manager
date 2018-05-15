@@ -7611,7 +7611,6 @@ input:focus, textarea:focus {
     margin-bottom: 10px;
 }
 
-<<<<<<< HEAD
 .view-bg {
     background-color: #46B1C9;
 }
@@ -7623,15 +7622,3 @@ input:focus, textarea:focus {
 .doctor-rating h4 {
     color: #1b6d85;
 }
-=======
-.fa {
-  padding: 20px;
-  font-size: 30px;
-  width: 30px;
-  text-align: center;
-  text-decoration: none;
-  margin: 5px 2px;
-  border-radius: 50%;
-}
-
->>>>>>> d9bf1e724b8e25071e0552a8e3a03559a6ef8cc9
