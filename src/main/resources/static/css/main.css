@@ -5024,7 +5024,7 @@ h1 { font-size: 1.5em; margin: 10px; }
 .parallax-content {
     background: url(catscan.jpeg) no-repeat center fixed;
     background-size: cover;
-    padding: 200px 0;
+    padding: 162px 0;
     position: relative;
 }
 
@@ -6098,6 +6098,10 @@ input:focus, textarea:focus {
     border: 1px solid #555;
     color: #fff;
     border-radius: 3px;
+}
+
+.intro-newsletter input::placeholder {
+    color: white;
 }
 
 .subscribe-elt .intro-newsletter .btn {
