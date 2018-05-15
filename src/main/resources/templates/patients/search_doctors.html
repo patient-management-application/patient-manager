@@ -5,6 +5,53 @@
     <title>Search Doctor</title>
 </head>
 <body class="view-bg">
+<div class="modal fade search-doctor-modal" tabindex="-1" role="dialog" id="gridSystemModalLabel" aria-labelledby="gridSystemModalLabel">
+    <div class="modal-dialog  modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="">View Doctor</h4>
+            </div>
+            <div class="col-sm-3 text-center">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <img id="docImg" src="" alt="Image"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h4 id="docName">Doctor Name</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <p id="docAddr">Doctor Address</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <p id="docPhone">Doctor Phone</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <p id="docField">Doctor Field</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-9">
+                <div id="map"></div>
+            </div>
+            <div class="modal-footer row">
+                <button type="button" class="btn btn-default col-sm-2 col-sm-offset-7" data-dismiss="modal">Close</button>
+                <form class="form-inline col-sm-2" id="setDocModalForm" th:action="@{/setdoctor}" th:method="POST">
+                    <input type="hidden" name="hiddenDocId" id="doctorId" value="" />
+                    <button class="btn btn-primary">Set as my Doctor</button>
+                </form>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 <div th:replace="partials/navbar :: patient-navbar"></div>
 
 <section class="parallax-content text-center" data-stellar-background-ratio="0.4" id="parallax1-69" style="background-image: url(img/doctools.jpeg);">
@@ -16,53 +63,9 @@
 <section class="mbr-section--bg-adapted mbr-section--relative" id="pricing-table1-75" style="background-color: #46B1C9">
     <div class="pricing" id="pricing">
         <div class="container">
-<div class="modal fade search-doctor-modal" tabindex="-1" role="dialog" id="gridSystemModalLabel" aria-labelledby="gridSystemModalLabel">
-    <div class="modal-dialog  modal-lg" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="">View Doctor</h4>
-            </div>
-                <div class="col-sm-3 text-center">
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <img id="docImg" src="" alt="Image"/>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <h4 id="docName">Doctor Name</h4>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <p id="docAddr">Doctor Address</p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <p id="docPhone">Doctor Phone</p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <p id="docField">Doctor Field</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-9">
-                    <div id="map"></div>
-                </div>
-            <div class="modal-footer row">
-                <button type="button" class="btn btn-default col-sm-2 col-sm-offset-7" data-dismiss="modal">Close</button>
-                <form class="form-inline col-sm-2" id="setDocModalForm" th:action="@{/setdoctor}" th:method="POST">
-                    <input type="hidden" name="hiddenDocId" id="doctorId" value="" />
-                    <button class="btn btn-primary">Set as my Doctor</button>
-                </form>
-            </div>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
+
+
+
 <div class="container">
         <div class="doctor-card" th:each="doctor : ${doctors}">
             <div class="col-sm-4">
