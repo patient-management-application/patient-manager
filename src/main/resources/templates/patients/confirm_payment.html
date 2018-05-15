@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="partials/header :: header">
+    <meta charset="UTF-8" />
+    <title>Confirm Payment</title>
+
+</head>
+<body class="view-session-body">
+<div th:replace="partials/navbar :: patient-navbar"></div>
+<section class="parallax-content text-center" data-stellar-background-ratio="0.4" id="parallax1-69" style="background-image: url(img/docreception1.jpg);">
+    <div class="mbr-overlay" style="opacity: 0.35; background-color: rgb(17,42,68);"></div>
+    <div class="parallax container">
+        <h4>My Billing</h4>
+    </div>
+</section>
+<section class="mbr-section--bg-adapted mbr-section--relative" id="pricing-table1-75" style="background-color: #46B1C9">
+    <div class="pricing" id="pricing">
+        <div class="container">
+
+    <div class="col-md-12 text-center">
+        <div class="patient-content-card">
+            <div class="row">
+                <div class="col-sm-12">
+                    <img src="https://thumbs.dreamstime.com/b/medical-people-young-asian-doctor-woman-female-smiling-portrait-multiracial-caucasian-32319194.jpg" class="dev-content-normal center-block " style="max-height: 200px;"/>
+                </div>
+                <div class="caption col-sm-12">
+                    <h3 style="color: black">Dr.Victoria Valentina</h3>
+                    <p style="color: black">2337 Hilline Drive</p>
+                    <p style="color: black"> San Antonio  Texas 78251</p>
+                    <p style="color: black"> 210-456-9987</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+<main class="center-block" style="width: 60%; text-align: center ">
+    <!--th:object="${event}"-->
+
+    <form class="" th:action="@{/redirecttodash}" method="GET" id="checkout-form">
+        <!--<input type='hidden' th:value='${amount}' name='amount' />-->
+        <label>Invoice Amount Due:<span>$117.95</span></label>
+        <!-- NOTE: data-key/data-amount/data-currency will be rendered by Thymeleaf -->
+        <script
+                src='https://checkout.stripe.com/checkout.js'
+                class='stripe-button'
+                th:attr='data-key=${stripePublicKey}'
+                th:data-amount='117.95'
+                data-currency='currency'
+                data-name='Which-Doctor'
+                data-description='Invoice Payment to: Victoria Valentina'
+                data-image
+                        ='img/whichdoc.jpeg'
+                data-locale='auto'
+                data-zip-code='true'>
+        </script>
+    </form>
+</main>
+        </div>
+    </div>
+</section>
+
+<section class="mbr-section--bg-adapted mbr-section--relative" id="pricing-table1-75" style="background-color: #46B1C9">
+    <div class="pricing" id="pricing">
+        <div class="container">
+            <div class="section-head-lite text-center col-md-8 col-md-offset-2 space80">
+
+            </div>
+        </div>
+    </div>
+</section>
+<footer th:replace="partials/footer :: footer"></footer>
+
+</body>
+</html>

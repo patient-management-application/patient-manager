@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="partials/header :: header">
+    <meta charset="UTF-8" />
+    <title>Billing</title>
+
+</head>
+<body>
+
+<div th:replace="partials/navbar :: patient-navbar"></div>
+    <section class="parallax-content text-center" data-stellar-background-ratio="0.4" id="parallax1-69" style="background-image: url(img/docreception1.jpg);">
+        <div class="mbr-overlay" style="opacity: 0.35; background-color: rgb(17,42,68);"></div>
+
+        <div class="parallax container">
+            <h4>BILLING</h4>
+        </div>
+    </section>
+<section class="mbr-section--bg-adapted mbr-section--relative" id="pricing-table1-75" style="background-color: #46B1C9">
+    <div class="pricing" id="pricing">
+        <div class="container">
+            <div class="section-head-lite text-center col-md-8 col-md-offset-2 space80">
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<main class="container text-center" style="padding: 10px 20px;
+    font-size: 30px;
+    border-radius: 10px;
+    color: red">
+<form th:action="@{/checkout}" method="GET">
+    <input type="hidden"
+           th:name="${_csrf.parameterName}"
+           th:value="${_csrf.token}"/>
+    <button type="submit" class="btn btn-primary" style="color: red; font-weight: bold;">Invoice Payment Due!</button>
+</form>
+</main>
+
+<div class="col-sm-3 patient-content-card">
+    <main class="container col-sm-12" style=" font-size: 30px; border-radius: 20px; color: red">
+        <form th:action="@{/checkout}" method="GET">
+            <input type="hidden"
+                   th:name="${_csrf.parameterName}"
+                   th:value="${_csrf.token}"/>
+            <button type="submit" class="btn btn-primary" style="color: red; font-weight: bold;">Invoice Payment Due!</button>
+        </form>
+    </main>
+</div>
+
+<section class="mbr-section--bg-adapted mbr-section--relative" id="pricing-table1-75" style="background-color: #46B1C9">
+    <div class="pricing" id="pricing">
+        <div class="container">
+            <div class="section-head-lite text-center col-md-8 col-md-offset-2 space80">
+
+            </div>
+        </div>
+    </div>
+</section>
+<footer th:replace="partials/footer :: footer"></footer>
+</body>
+</html>

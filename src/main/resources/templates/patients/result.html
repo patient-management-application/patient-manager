@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="partials/header :: header">
+    <meta charset="UTF-8" />
+    <title>Billing</title>
+
+</head>
+<body>
+<h3 th:if="${error}" th:text="${error}" style="color: red;"></h3>
+<div th:unless="${error}">
+    <h3 style="color: green;">Success!</h3>
+    <h3>Your payment has been confirmed</h3>
+
+    Id.: <div> <span th:text="${id}" ></span></div>
+    Status: <div> <span th:text="${status}" ></span></div>
+    Charge id.: <div> <span th:text="${chargeId}" ></span></div>
+    Balance transaction id.: <div> <span th:text="${balance_transaction}" ></span></div>
+</div>
+<a th:href="@{/checkout}">Checkout again</a>
+<section class="mbr-section--bg-adapted mbr-section--relative" id="pricing-table1-75" style="background-color: rgb(17,42,68);">
+    <div class="pricing" id="pricing">
+        <div class="container">
+            <div class="section-head-lite text-center col-md-8 col-md-offset-2 space80">
+
+            </div>
+        </div>
+    </div>
+</section>
+<footer th:replace="partials/footer :: footer"></footer>
+</body>
+</html>

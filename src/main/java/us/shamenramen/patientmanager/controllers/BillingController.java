@@ -5,13 +5,10 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-
 import us.shamenramen.patientmanager.models.Bill;
-
 import us.shamenramen.patientmanager.models.User;
 import us.shamenramen.patientmanager.repositories.UserRepository;
 
-import java.util.Currency;
 
 @Controller
 public class BillingController {
@@ -25,28 +22,14 @@ public class BillingController {
     @GetMapping(path = "/mybilling")
     public String showBilling(Model model) {
         User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-
+        User user = userDao.findById(loggedInUser.getId());
             Bill bill = new Bill();
             model.addAttribute("bill", bill);
+            model.addAttribute("user", user);
 
 
-        return "/doctors/billing";
+        return "/patients/billing";
     }
 
 
-
-
-
-
-
-//    @Value("${sk_test_JDCutAUR2DvZFbSiCtGvjC48}")
-//    private String stripePublicKey;
-//
-//    @RequestMapping("/checkout")
-//    public String checkout(Model model) {
-//        model.addAttribute("amount", 50 * 100); // in cents
-//        model.addAttribute("stripePublicKey", stripePublicKey);
-//        model.addAttribute("currency", ChargeRequest.Currency.EUR);
-//        return "checkout";
-//    }
 }

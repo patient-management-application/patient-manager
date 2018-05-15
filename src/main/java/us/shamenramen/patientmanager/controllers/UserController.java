@@ -6,17 +6,19 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import us.shamenramen.patientmanager.models.User;
-import us.shamenramen.patientmanager.repositories.QuestionnaireRepository;
+import us.shamenramen.patientmanager.repositories.ReviewRepository;
 import us.shamenramen.patientmanager.repositories.UserRepository;
 
 @Controller
 public class UserController {
     private PasswordEncoder passwordEncoder;
     private UserRepository userDao;
+    private ReviewRepository revDao;
 
-    public UserController(UserRepository userDao, PasswordEncoder passwordEncoder) {
+    public UserController(UserRepository userDao, PasswordEncoder passwordEncoder, ReviewRepository revDao) {
         this.passwordEncoder = passwordEncoder;
         this.userDao = userDao;
+        this.revDao = revDao;
     }
 
     @GetMapping(path = "/index")
@@ -50,20 +52,54 @@ public class UserController {
 
     @GetMapping(path = "/search")
     public String searchDoctors(Model model){
+        User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User user = userDao.findById(loggedInUser.getId());
+        model.addAttribute("user", user);
         model.addAttribute("doctors", userDao.findByIsDoctor(true));
+        model.addAttribute("reviews", revDao.findAll());
         return "patients/search_doctors";
     }
 
-    @PostMapping(path = "/setdoctor/{doctorId}")
-    public String setDoctor(@PathVariable long doctorId){
+    @PostMapping(path = "/setdoctor")
+    public String setDoctor(@ModelAttribute(name = "hiddenDocId") long doctorId){
         User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         User user = userDao.findById(loggedInUser.getId());
         user.setMyDocId(doctorId);
-        System.out.println("After setmydoc " + doctorId);
-        System.out.println(user.getMyDocId());
+        userDao.save(user);
+        return "redirect:/dashboard";
+    }
+
+    @PostMapping(path = "/setdoctor/{id}")
+    public String setDoctorForm(@PathVariable(name = "id") long doctorId){
+        User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User user = userDao.findById(loggedInUser.getId());
+        user.setMyDocId(doctorId);
         userDao.save(user);
         return "redirect:/dashboard";
     }
 
 
+    @GetMapping(path = "/users/{id}/edit")
+    public String edit(@PathVariable long id, Model viewModel) {
+        User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        if(id != loggedInUser.getId()){
+            return "redirect:/dashboard";
+        }
+        User user = userDao.findOne(id);
+        viewModel.addAttribute("user", user);
+        return "/patients/edit_my_registration";
+    }
+
+    @PostMapping(path = "/users/{id}/edit")
+    public String userEdit(@PathVariable long id, @ModelAttribute User user){
+        String hash = passwordEncoder.encode(user.getPassword());
+        user.setPassword(hash);
+        userDao.save(user);
+        return "redirect:/dashboard";
+
+    }
+    @GetMapping("/about")
+    public String aboutPage() {
+        return "/about";
+    }
 }

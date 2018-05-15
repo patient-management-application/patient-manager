@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="partials/header :: header"></head>
+<body class="error-message-body">
+<!--<div th:replace="partials/navbar :: navbar"></div>-->
+
+
+<section class="mbr-section--bg-adapted" id="header17-16" style="background-image: url(/img/doc.jpg);">
+    <main class="container">
+
+        <div class="text-center error-message-content">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h1>Processing Error, The Dev's have been notified!</h1>
+                    <h2>Couldn't load your page, but here's Pluto</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <a th:href="@{/dashboard}"><button class="btn btn-primary">Dashboard</button></a>
+                </div>
+            </div>
+        </div>
+
+
+
+
+    </main>
+</section>
+<!--<div th:replace="partials/footer :: footer"></div>-->
+</body>
+</html>
