@@ -5024,7 +5024,7 @@ h1 { font-size: 1.5em; margin: 10px; }
 .parallax-content {
     background: url(catscan.jpeg) no-repeat center fixed;
     background-size: cover;
-    padding: 320px 0;
+    padding: 200px 0;
     position: relative;
 }
 
@@ -7442,6 +7442,11 @@ input:focus, textarea:focus {
     transition: color .2s;
 }
 
+#logout-form > button, #billing-form > button {
+    margin-top: 39px;
+  }
+
+
 /*###############Patient Dashboard###############*/
 .patient-content {
     color: #4c6888;
@@ -7610,13 +7615,14 @@ input:focus, textarea:focus {
     margin-top: 15px;
     margin-bottom: 10px;
 }
-
-
-
 .view-bg p, .view-bg h2{
     color: #1b6d85;
 }
 
 .doctor-rating h4 {
     color: #1b6d85;
+}
+
+.navbar-nav li > a, .brand {
+    margin-top: 20px;
 }
