@@ -1216,7 +1216,7 @@ ul, ol, li {
 
 .navbar-lg .navbar-nav > li > a {
     padding: 20px 12px 35px;
-    font-size: 12px;
+    font-size: 15px;
     line-height: 1.6;
     color: #fff;
     text-transform: uppercase;
@@ -7411,6 +7411,14 @@ input:focus, textarea:focus {
     /*border:2px solid #515151;*/
 /*}*/
 
+.navbar-lg .navbar-nav > li > a {
+    padding: 20px 12px 35px;
+    font-size: 15px;
+    line-height: 1.6;
+    color: #fff;
+    text-transform: uppercase;
+}
+
 
 #logout-form > button {
     color: white;
@@ -7420,7 +7428,7 @@ input:focus, textarea:focus {
     margin-top: 19px;
     font-family: 'Montserrat', sans-serif;
     text-transform: uppercase;
-    font-size: 13px;
+    font-size: 16px;
 
 }
 
@@ -7437,7 +7445,7 @@ input:focus, textarea:focus {
     margin-top: 19px;
     font-family: 'Montserrat', sans-serif;
     text-transform: uppercase;
-    font-size: 13px;
+    font-size: 16px;
 
 }
 
@@ -7447,7 +7455,7 @@ input:focus, textarea:focus {
 }
 
 #logout-form > button, #billing-form > button {
-    margin-top: 39px;
+    margin-top: 40px;
   }
 
 
@@ -7501,6 +7509,10 @@ input:focus, textarea:focus {
 }
 
 /*###############Doctor Dashboard##############*/
+
+.doctor-dashboard-card button {
+    margin-top: 20px;
+}
 
 .doctor-dashboard-background {
     background-color: rgb(177,229,255);
@@ -7627,6 +7639,43 @@ input:focus, textarea:focus {
     color: #1b6d85;
 }
 
-.navbar-nav li > a, .brand {
+.navbar-nav li > a {
     margin-top: 20px;
 }
+
+.brand {
+    margin-top: 25px;
+}
+
+form > .btn-danger, .modal-footer > .btn-danger {
+    border-radius: 30px;
+    border: 1px solid black;
+}
+form > .btn-danger:hover, .modal-footer > .btn-danger:hover {
+    background-color: #110808;
+    border-color: transparent;
+    transition: background-color .5s, border-color .5s;
+}
+
+.search-doctor-card > .btn-warning, .doctor-dashboard-card .btn-warning {
+    border-radius: 30px;
+    border: 1px solid black;
+}
+
+.search-doctor-card > .btn-warning:hover, .doctor-dashboard-card .btn-warning:hover {
+    background-color: #110808;
+    border-color: transparent;
+    transition: background-color .5s, border-color .5s;
+}
+
+#header4-3 > div > div.container > div > div > div.join-btn > a {
+    background-color: #5cca71;
+}
+
+#header4-3 > div > div.container > div > div > div.join-btn > a:hover {
+    background-color: #000000;
+    border-color: transparent;
+    transition: background-color .5s, border-color .5s;
+}
+
+

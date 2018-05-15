@@ -8,15 +8,6 @@
 
 <div th:replace="partials/navbar :: patient-navbar"></div>
 
-<section class="parallax-content text-center" data-stellar-background-ratio="0.4" id="parallax1-69" style="background-image: url(img/doctools.jpeg);">
-    <div class="mbr-overlay" style="opacity: 0.35; background-color: rgb(17,42,68);"></div>
-    <div class="parallax container">
-        <h4>SEARCH FOR DOCTORS</h4>
-    </div>
-</section>
-<section class="mbr-section--bg-adapted mbr-section--relative" id="pricing-table1-75" style="background-color: #46B1C9">
-    <div class="pricing" id="pricing">
-        <div class="container">
 <div class="modal fade search-doctor-modal" tabindex="-1" role="dialog" id="gridSystemModalLabel" aria-labelledby="gridSystemModalLabel">
     <div class="modal-dialog  modal-lg" role="document">
         <div class="modal-content">
@@ -55,7 +46,7 @@
                 <div id="map"></div>
             </div>
             <div class="modal-footer row">
-                <button type="button" class="btn btn-default col-sm-2 col-sm-offset-7" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-danger col-sm-2 col-sm-offset-7" data-dismiss="modal">Close</button>
                 <form class="form-inline col-sm-2" id="setDocModalForm" th:action="@{/setdoctor}" th:method="POST">
                     <input type="hidden" name="hiddenDocId" id="doctorId" value="" />
                     <button class="btn btn-primary">Set as my Doctor</button>
@@ -65,10 +56,15 @@
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
-
-
-
-
+<section class="parallax-content text-center" data-stellar-background-ratio="0.4" id="parallax1-69" style="background-image: url(img/doctools.jpeg);">
+    <div class="mbr-overlay" style="opacity: 0.35; background-color: rgb(17,42,68);"></div>
+    <div class="parallax container">
+        <h4>SEARCH FOR DOCTORS</h4>
+    </div>
+</section>
+<section class="mbr-section--bg-adapted mbr-section--relative" id="pricing-table1-75" style="background-color: #46B1C9">
+    <div class="pricing" id="pricing">
+        <div class="container">
 <div class="container">
         <div class="doctor-card" th:each="doctor : ${doctors}">
             <div class="col-sm-4">
@@ -87,7 +83,7 @@
                         <form class="form-inline" th:action="@{/setdoctor/{doctorId}(doctorId = ${doctor.id})}" th:method="POST">
                             <button class="btn btn-primary">Set as my Doctor</button>
                         </form>
-                        <button class="view-btn btn btn-primary" data-toggle="modal" data-target="#gridSystemModalLabel">View</button>
+                        <button class="view-btn btn btn-warning" data-toggle="modal" data-target="#gridSystemModalLabel">View</button>
                         <p class="phone-number" th:text="${doctor.phoneNumber}"></p>
                         <p class="email" th:text="${doctor.email}"></p>
                         <p class="address"><span id="address" class="address-span" th:text="${doctor.street} + ', ' + ${doctor
