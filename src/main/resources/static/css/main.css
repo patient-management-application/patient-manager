@@ -5024,7 +5024,7 @@ h1 { font-size: 1.5em; margin: 10px; }
 .parallax-content {
     background: url(catscan.jpeg) no-repeat center fixed;
     background-size: cover;
-    padding: 320px 0;
+    padding: 200px 0;
     position: relative;
 }
 
