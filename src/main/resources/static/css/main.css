@@ -39,15 +39,15 @@
 
 .mbr-navbar__brand-link:after,
 .mbr-navbar__brand-img {
-    max-height: 74px;
+    max-height: 274px;
 }
 .mbr-navbar:before,
 .mbr-navbar__container {
-    height: 98px;
+    height: 298px;
 }
 .mbr-navbar--ss .mbr-navbar__brand-link:after,
 .mbr-navbar--ss .mbr-navbar__brand-img {
-    height: 74px;
+    height: 224px;
 }
 .mbr-navbar--ss:before,
 .mbr-navbar--ss .mbr-navbar__container {
@@ -444,7 +444,7 @@
         padding-bottom: 59px;
     }
 }
-@media (max-width: 767px) {
+@media (max-width: 736px) {
     .mbr-section__left {
         padding-right: 15px;
     }
